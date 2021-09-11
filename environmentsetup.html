@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8"/>
+<!-- Set the viewport width to device width for mobile -->
+<meta name="viewport" content="width=device-width"/>
+<title>Anja's Coding Website</title>
+<!-- CSS Files-->
+<link rel="stylesheet" href="stylesheets/style.css">
+
+<link rel="stylesheet" href="stylesheets/skins/blue.css">
+<!-- skin color -->
+<link rel="stylesheet" href="stylesheets/responsive.css">
+<!-- IE Fix for HTML5 Tags -->
+<!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+<!-- HIDDEN PANEL 
+================================================== -->
+<div id="panel">
+	<div class="row">
+		<div class="twelve columns">
+			<img src="http://www.wowthemes.net/demo/studiofrancesca/images/info.png" class="pics" alt="info">
+			<div class="infotext">
+				 Thank you for visiting my website!
+			</div>
+		</div>
+	</div>
+</div>
+<p class="slide">
+	<a href="#" class="btn-slide"></a>
+</p>
+<!-- HEADER
+================================================== -->
+<div class="row">
+	<div class="headerlogo four columns">
+		<div class="logo">
+			<a href="index.html">
+			<h4>Anja's Coding Website</h4>
+			</a>
+		</div>
+	</div>
+	<div class="headermenu eight columns noleftmarg">
+		<nav id="nav-wrap">
+		<ul id="main-menu" class="nav-bar sf-menu">
+			<li class="current">
+			<a href="home.html">Home</a>
+			</li>
+			<li>
+			<a>Coding Info</a>
+			<ul>
+				<li><a href="github.html">GitHub</a></li>
+				<li><a href="libraries.html">Libraries</a></li>
+				<li><a href="versus.html">Versus</a></li>
+				<li><a href="funlearn.html">Fun Things Learnt</a></li>
+				<li><a href="environmentsetup.html">Environment Setup</a></li>
+				<li><a href="terminalbasics.html">Terminal Basics</a></li>
+			</ul>
+			</li>
+			<li>
+			<a href="projects.html">Projects</a>
+			<ul>
+				<li><a href="redfin.html">Redfin</a></li>
+				<li><a href="costco.html">Costco</a></li>
+				<li><a href="website.html">Website</a></li>
+				<li><a href="indeed.html">Indeed</a></li>
+				<li><a href="imdb.html">IMDb</a></li>
+				<li><a href="hangman.html">Hangman</a></li>
+			</ul>
+			</li>
+<!-- 			<li>
+			<a href="contact.html">Contact</a>
+			</li> -->
+		</ul>
+		</nav>
+	</div>
+</div>
+<div class="clear">
+</div>
+<!-- SUBHEADER
+================================================== -->
+<div id="subheader">
+	<div class="row">
+		<div class="twelve columns">
+			<p class="left">
+				 Coding Environment Setup
+			</p>
+		</div>
+	</div>
+</div>
+<div class="hr">
+</div>
+<!-- CONTENT 
+================================================== -->
+<div class="row">
+	    <!-- MAIN CONTENT -->
+		<div class="twelve columns">
+			<!-- iTerm2 -->
+			<div class="circledate">
+				<div class="textcircle">
+					<br/>iTerm2
+				</div>
+			</div>
+			<h4>Terminal: iTerm2</h4>
+			<div class="dots blogdots">
+			</div>
+			<p>
+				For personal preference, I updated my terminal on my Macbook to <a href="https://iterm2.com/" class="saymore">iTerm2</a>.
+			</p>
+			<div class="hr">
+			</div>
+			<!-- Homebrew -->
+			<div class="circledate">
+				<div class="textcircle">
+					<br/>brew
+				</div>
+			</div>
+			<h4>Homebrew</h4>
+			<div class="dots blogdots">
+			</div>
+			<p>
+				Installing homebrew saves a lot of time in the future for installing certain libraries and frameworks. <a href="https://brew.sh/" class="saymore">Install instructions</a>
+				<br><br>
+				In your terminal type: 
+				<div id="testimonials"><blockquote>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</blockquote></div>
+				After it is installed you do not need to worry about it until you come across certain instructions when exploring new libraries that give you different way to install it. In these cases always look to see if they give instructions on how to do it with Homebrew, it usually has the words "brew" in the terminal input code.
+			</p>
+			<div class="hr">
+			</div>
+			<!-- Oh My Zsh -->
+			<div class="circledate">
+				<div class="textcircle">
+					Oh<br>My<br>Zsh
+				</div>
+			</div>
+			<h4>Oh My Zsh: Organizing Code Display</h4>
+			<div class="dots blogdots">
+			</div>
+			<p>
+				In order to be able to follow my work in a terminal more clearly, I decided to setup "Oh My Zsh", which provides colour and line separation within the terminal 
+				<br><br>
+				Install on terminal:
+				<div id="testimonials"><blockquote>sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"</blockquote></div>
+				<br>
+				Open in text editor on terminal:
+				<div id="testimonials"><blockquote>vim ~/.zshrc</blockquote></div>
+				Edit the:
+				<div id="testimonials"><blockquote>ZSH_THEME=""</blockquote></div>
+				I am currently working with the “refined” theme.
+				<br><br>
+				If you ever need to update the current working model in the terminal type:
+				<div id="testimonials"><blockquote>source ~/.zshrc</blockquote></div>
+			</p>
+			<div class="hr">
+			</div>
+			<!-- Sublime -->
+			<div class="circledate">
+				<div class="textcircle">
+					<br/>Sublime
+				</div>
+			</div>
+			<h4>Sublime Text Editor</h4>
+			<div class="dots blogdots">
+			</div>
+			<p>
+				From the <a href="https://www.softwaretestinghelp.com/python-ide-code-editors/" class="saymore">article</a> listed previously in the Versus section, I had chosen to download Sublime Text as it had the easiest read layout for me personally. To download, go to the <a href="https://www.sublimetext.com/download" class="saymore">Sublime website</a>. 
+				<br>
+				<i>FYI: “Sublime Text may be downloaded and evaluated for free, however a license must be purchased for continued use. There is currently no enforced time limit for the evaluation.”</i>
+				<br><br>
+				Under Sublime Text editor there are packages you can add to make your coding experience better. In the tabs below, I have listed the ones I use, this does not mean you have to use these or limit yourself to just these.
+			</p>
+		
+		<!-- Tabs -->
+		<dl class="tabs">
+			<dd class="active"><a href="#package">Package Control</a></dd>
+			<dd><a href="#terminus">Terminus</a></dd>
+		</dl>
+		<ul class="tabs-content">
+			<li class="active" id="packageTab">
+				<p>
+					This one is the first one that should be installed because it allows you to install/update packages seamlessly. On a Macbook all you have to do to install it is hit <i>“cmd - shift - p”</i> this will have a drop down menu pop up. Select install package control.
+					<br><br>
+					The <a href="https://packagecontrol.io/" class="saymore">website</a> for package control has all the packages you can use and it has a description of each one.
+				</p>
+			</li>
+			<li id="terminusTab">
+				<p>
+					I wanted to have a terminal in my code editor, so I found “<a href="https://packagecontrol.io/packages/Terminus" class="saymore">Terminus</a>”. Like before hit "<i>cmd - shift - p</i>” and from the drop down menu select “Package Control: Install Package” then type “Terminus”. Once you select it, it will install.
+					<br><br>
+					Now to set it up to pop-up you have to edit some code. As the picture shown below, go to “Preference → Package Settings → Terminus → Key Bindings”.
+					<center><img src="images/pages/codinginfo/settingup/menukeybindings.png" width="400" height="auto" alt=""></center>
+					Once you select “Key Bindings” you will see something as follows:
+					<center><img src="images/pages/codinginfo/settingup/keybindings.png" width="400" height="auto" alt=""></center>
+					Now on the second (right) screen, you can add code to edit how the terminal works. On the package description website (linked above), there are code suggestions. The first two they suggest are:
+					<div class="tab">
+					<ul class="disc">
+						<li>
+							toggle terminal panel
+							<div id="testimonials"><blockquote>
+								[<br>
+								 <div class="tab">   {<br> 
+								       <div class="tab">  "keys": ["alt+`"], "command": "toggle_terminus_panel"<br></div>
+								    }<br>
+								    </div>
+								]<br>
+							</blockquote></div>
+						</li>
+						<li>
+							open a terminal view at current file directory
+							<div id="testimonials"><blockquote>
+								[<br>
+								<div class="tab">   
+								 	{<br> 
+								    <div class="tab">
+								    	"keys": ["ctrl+alt+t"], "command": "terminus_open", "args": {<br>
+								    	<div class="tab">
+											"cwd": "${file_path:${folder}}"
+										</div>
+										}
+									</div>
+								    }<br>
+								</div>
+								]<br>
+							</blockquote></div>
+						</li>
+					</ul>
+					</div>
+					I wanted to toggle the terminal panel but also have it open in the current file directory, so I combined the code:
+					<div id="testimonials"><blockquote>
+						[<br>
+							<div class="tab">   {<br> 
+								<div class="tab">  
+									"keys": ["alt+`"], "command": "toggle_terminus_panel", "args": {<br>
+									<div class="tab">
+										"cwd": "${file_path:${folder}}"
+									</div>
+								}
+								</div>
+								}<br>
+							</div>
+						]<br>
+					</blockquote></div>
+				</p>
+			</li>
+		</ul>
+		</div>
+	</div>
+</div>
+
+
+<!-- FOOOTER 
+================================================== -->
+<div id="footer">
+	<footer class="row">
+	<p class="back-top floatright">
+		<a href="#top"><span></span></a>
+	</p>
+	<center>
+		<div class="twelve columns">
+			<h1>Connect with Me</h1>
+			<a class="social github" href="https://github.com/anjawu"></a>
+			<a class="social linkedin" href="https://www.linkedin.com/in/anja-wu/"></a>
+		</div>
+	</center>
+	</footer>
+</div>
+<div class="copyright">
+	<div class="row">
+		<div class="six columns">
+			 &copy;<span class="small"> Copyright 2021 Anja Wu</span>
+		</div>
+		<div class="six columns">
+			<span class="small floatright"> Template by <a href="www.wowthemes.net">WowThemes.net</a></span>
+		</div>
+	</div>
+</div>
+<!-- JAVASCRIPTS 
+================================================== -->
+<!-- Javascript files placed here for faster loading -->
+<!-- Javascript files placed here for faster loading -->
+<script src="javascripts/foundation.min.js"></script>
+<script src="javascripts/jquery.cycle.js"></script>
+<script src="javascripts/app.js"></script>
+<script src="javascripts/modernizr.foundation.js"></script>
+<script src="javascripts/slidepanel.js"></script>
+<script src="javascripts/scrolltotop.js"></script>
+<script src="javascripts/hoverIntent.js"></script>
+<script src="javascripts/superfish.js"></script>
+<script src="javascripts/responsivemenu.js"></script>
+<script src="javascripts/elasticslideshow.js"></script>
+</body>
+</html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8"/>
+<!-- Set the viewport width to device width for mobile -->
+<meta name="viewport" content="width=device-width"/>
+<title>Anja's Coding Website</title>
+<!-- CSS Files-->
+<link rel="stylesheet" href="stylesheets/style.css">
+
+<link rel="stylesheet" href="stylesheets/skins/blue.css">
+<!-- skin color -->
+<link rel="stylesheet" href="stylesheets/responsive.css">
+<!-- IE Fix for HTML5 Tags -->
+<!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+<!-- HIDDEN PANEL 
+================================================== -->
+<div id="panel">
+	<div class="row">
+		<div class="twelve columns">
+			<img src="http://www.wowthemes.net/demo/studiofrancesca/images/info.png" class="pics" alt="info">
+			<div class="infotext">
+				 Thank you for visiting my website!
+			</div>
+		</div>
+	</div>
+</div>
+<p class="slide">
+	<a href="#" class="btn-slide"></a>
+</p>
+<!-- HEADER
+================================================== -->
+<div class="row">
+	<div class="headerlogo four columns">
+		<div class="logo">
+			<a href="index.html">
+			<h4>Anja's Coding Website</h4>
+			</a>
+		</div>
+	</div>
+	<div class="headermenu eight columns noleftmarg">
+		<nav id="nav-wrap">
+		<ul id="main-menu" class="nav-bar sf-menu">
+			<li class="current">
+			<a href="home.html">Home</a>
+			</li>
+			<li>
+			<a>Coding Info</a>
+			<ul>
+				<li><a href="github.html">GitHub</a></li>
+				<li><a href="libraries.html">Libraries</a></li>
+				<li><a href="versus.html">Versus</a></li>
+				<li><a href="funlearn.html">Fun Things Learnt</a></li>
+				<li><a href="environmentsetup.html">Environment Setup</a></li>
+				<li><a href="terminalbasics.html">Terminal Basics</a></li>
+			</ul>
+			</li>
+			<li>
+			<a href="projects.html">Projects</a>
+			<ul>
+				<li><a href="redfin.html">Redfin</a></li>
+				<li><a href="costco.html">Costco</a></li>
+				<li><a href="website.html">Website</a></li>
+				<li><a href="indeed.html">Indeed</a></li>
+				<li><a href="imdb.html">IMDb</a></li>
+				<li><a href="hangman.html">Hangman</a></li>
+			</ul>
+			</li>
+<!-- 			<li>
+			<a href="contact.html">Contact</a>
+			</li> -->
+		</ul>
+		</nav>
+	</div>
+</div>
+<div class="clear">
+</div>
+<!-- SUBHEADER
+================================================== -->
+<div id="subheader">
+	<div class="row">
+		<div class="twelve columns">
+			<p class="left">
+				 Fun Things Learnt
+			</p>
+		</div>
+	</div>
+</div>
+<div class="hr">
+</div>
+<!-- CONTENT 
+================================================== -->
+<div class="row">
+	<div class="twelve columns">
+	    <!-- MAIN CONTENT -->
+			
+	    	<!-- Lambda -->
+			<div class="circledate">
+				<div class="textcircle">
+					<br/>Lamda
+				</div>
+			</div>
+			<h4>The Lambda Function</h4>
+			<div class="dots blogdots">
+			</div>
+			<p>
+				It is also sometimes referred to as an “Anonymous Function”, or as I like to call it the “Throwaway Function”. This allows you to create a function within the code as you normally might, but with less rigour. So technically this is a function, but an odd-instance of a function as you will not define it using “def” but rather “lambda” keyword. The reason I call it a “Throwaway Function” is because you really only use it if you want to do it once, unlike other functions, which are created for the purpose of reusability.
+			</p>
+			<p>
+				The first simple example can be if you wanted to multiply a number by 2
+				<div id="testimonials"><blockquote><p>lambda x: x*2 </p></blockquote></div>
+				You have now defined an anonymous function.
+				If we want it to directly work on a number we would just have to put the number we want after:
+				<div id="testimonials"><blockquote><p>(lambda x: x*2) (4)</p></blockquote></div>
+				Our output would be 8.
+				<br><br>
+				Now we can use a similar logic to a list:
+				<div id="testimonials"><blockquote><p>number_list = [2, 5, 7, 1]</p></blockquote></div>
+				<div id="testimonials"><blockquote><p>list(map(lambda number: number*2, number_list))</p></blockquote></div>
+				Our output will be [4, 10, 14, 2]
+				<br><br>
+				I have found lambda functions come in handy when you start working with datasets where you just need to change one particular aspect of one set of data points.
+				<br><br>
+				More details on the function can be found <a href="https://www.w3schools.com/python/python_lambda.asp" class="saymore">here</a> and useful built-in functions <a href="https://data-flair.training/blogs/python-lambda-expression/" class="saymore">here</a>
+			</p>
+			<div class="hr">
+			</div>
+			
+			<!-- Cookies -->
+			<div class="circledate">
+				<div class="textcircle">
+					<br/>Cookies
+				</div>
+			</div>
+			<h4>Bypassing Cookies</h4>
+			<div class="dots blogdots">
+			</div>
+			<p>
+				Cookies are found on websites that store data in order to allow you to access specific parts of certain websites. E.g. Costco.ca has cookies for many things, one thing in particular is your location. By saving your location in the cookies it allows Costco to show deals for your specific province/territory. I started looking into cookies in order to help me with my Costco app.
+				<br><br>
+				Work around for them (<i>I followed this <a href="https://www.youtube.com/watch?v=xPkxdHYV1wg" class="saymore">example</a></i>):
+				<br>
+				In order to list all our cookies from a URL, we can:
+				<div id="testimonials"><blockquote><p>page.cookies</p></blockquote></div>
+
+				We make a for loop in order to cycle through the information for the cookies we need
+				<div id="testimonials"><blockquote><p>
+					for cookie in page.cookies : <br>
+					print('cookie domain: ' + cookie.domain) <br>
+					print('cookie name: ' + cookie.name) <br>
+					print('cookie value: ' + cookie.value) <br>
+					print('----------------')
+				</p></blockquote></div>
+
+			</p>
+			<p>
+				 To input cookies to a url:
+			</p>
+			<p>
+				<b>Method #1:</b><br>
+				First, create a dictionary object
+				<div id="testimonials"><blockquote><p>cookies = dict(name ='anja', password = 'pass')</p></blockquote></div>
+				Then send cookies to the url with the cookie parameters we want
+				<div id="testimonials"><blockquote><p>page = requests.get(URL, cookies = cookies)</p></blockquote></div> 
+				<br>
+			</p>
+			<p>
+				<b>Method #2:</b><br>
+				In order to be able to populate and set multiple cookies on a webpage, we must create a RequestsCookieJar object 
+				<div id="testimonials"><blockquote><p>cookies_jar = requests.cookies.RequestsCookieJar()</p></blockquote></div>
+				Then we add each cookie to the cookies_jar
+				<div id="testimonials"><blockquote><p>
+					cookies_jar.set (‘name’, ‘anja’, domain = ‘URL’, path = ‘/cookies’)<br>
+					cookies_jar.set (‘password’, ‘pass’, domain = ‘URL’, path = ‘/cookies’)
+				</p></blockquote></div>
+				Finally, we send the cookies to the url with the cookie parameters we want
+				<div id="testimonials"><blockquote><p>Response = requests.get(URL, cookies = cookies_jar)</p></blockquote></div>
+			</p>
+			<p>
+				This ended up not working for my Costco deal finder, however, I did learn a lot! I had to use the Selenium package in order to input the data of the location to proceed with the app.
+			</p>
+			<div class="hr">
+			</div>
+
+			<!-- Errors -->
+			<div class="circledate">
+				<div class="textcircle">
+					<br/>Errors
+				</div>
+
+			</div>
+			<h4 id="error">How to Solve Errors</h4>
+			<div class="dots blogdots">
+			</div>
+			<p>
+				Along the way I had been given errors and I had a hard time figuring out where they came from. I found that you can use “<i>try</i>”, “<i>except</i>” and “<i>breakpoint()</i>” to try to pinpoint the errors. 
+				<br>
+				→ breakpoint() lets you step through the function line-by-line to figure out where your mistake might be.
+				<br>
+				→  try is to let the program go until you reach a problem. This saves time instead of doing breakpoint because you don't need to step through your whole program, just the broken part. In order to do this, you must try a line of code and then tell it what to do in the except section.
+			</p>
+			<div class="hr">
+			</div>
+	</div>
+</div>
+<div class="hr">
+</div>
+
+<!-- FOOOTER 
+================================================== -->
+<div id="footer">
+	<footer class="row">
+	<p class="back-top floatright">
+		<a href="#top"><span></span></a>
+	</p>
+	<center>
+		<div class="twelve columns">
+			<h1>Connect with Me</h1>
+			<a class="social github" href="https://github.com/anjawu"></a>
+			<a class="social linkedin" href="https://www.linkedin.com/in/anja-wu/"></a>
+		</div>
+	</center>
+	</footer>
+</div>
+<div class="copyright">
+	<div class="row">
+		<div class="six columns">
+			 &copy;<span class="small"> Copyright 2021 Anja Wu</span>
+		</div>
+		<div class="six columns">
+			<span class="small floatright"> Template by <a href="www.wowthemes.net">WowThemes.net</a></span>
+		</div>
+	</div>
+</div>
+<!-- JAVASCRIPTS 
+================================================== -->
+<!-- Javascript files placed here for faster loading -->
+<script src="javascripts/foundation.min.js"></script>
+<script src="javascripts/jquery.easing.1.3.js"></script>
+<script src="javascripts/elasticslideshow.js"></script>
+<script src="javascripts/jquery.carouFredSel-6.0.5-packed.js"></script>
+<script src="javascripts/jquery.cycle.js"></script>
+<script src="javascripts/app.js"></script>
+<script src="javascripts/modernizr.foundation.js"></script>
+<script src="javascripts/slidepanel.js"></script>
+<script src="javascripts/scrolltotop.js"></script>
+<script src="javascripts/hoverIntent.js"></script>
+<script src="javascripts/superfish.js"></script>
+<script src="javascripts/responsivemenu.js"></script>
+</body>
+</html>

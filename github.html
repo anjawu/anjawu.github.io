@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8"/>
+<!-- Set the viewport width to device width for mobile -->
+<meta name="viewport" content="width=device-width"/>
+<title>Anja's Coding Website</title>
+<!-- CSS Files-->
+<link rel="stylesheet" href="stylesheets/style.css">
+
+<link rel="stylesheet" href="stylesheets/skins/blue.css">
+<!-- skin color -->
+<link rel="stylesheet" href="stylesheets/responsive.css">
+<!-- IE Fix for HTML5 Tags -->
+<!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+<!-- HIDDEN PANEL 
+================================================== -->
+<div id="panel">
+	<div class="row">
+		<div class="twelve columns">
+			<img src="http://www.wowthemes.net/demo/studiofrancesca/images/info.png" class="pics" alt="info">
+			<div class="infotext">
+				 Thank you for visiting my website!
+			</div>
+		</div>
+	</div>
+</div>
+<p class="slide">
+	<a href="#" class="btn-slide"></a>
+</p>
+<!-- HEADER
+================================================== -->
+<div class="row">
+	<div class="headerlogo four columns">
+		<div class="logo">
+			<a href="index.html">
+			<h4>Anja's Coding Website</h4>
+			</a>
+		</div>
+	</div>
+	<div class="headermenu eight columns noleftmarg">
+		<nav id="nav-wrap">
+		<ul id="main-menu" class="nav-bar sf-menu">
+			<li class="current">
+			<a href="home.html">Home</a>
+			</li>
+			<li>
+			<a>Coding Info</a>
+			<ul>
+				<li><a href="github.html">GitHub</a></li>
+				<li><a href="libraries.html">Libraries</a></li>
+				<li><a href="versus.html">Versus</a></li>
+				<li><a href="funlearn.html">Fun Things Learnt</a></li>
+				<li><a href="environmentsetup.html">Environment Setup</a></li>
+				<li><a href="terminalbasics.html">Terminal Basics</a></li>
+			</ul>
+			</li>
+			<li>
+			<a href="projects.html">Projects</a>
+			<ul>
+				<li><a href="redfin.html">Redfin</a></li>
+				<li><a href="costco.html">Costco</a></li>
+				<li><a href="website.html">Website</a></li>
+				<li><a href="indeed.html">Indeed</a></li>
+				<li><a href="imdb.html">IMDb</a></li>
+				<li><a href="hangman.html">Hangman</a></li>
+			</ul>
+			</li>
+<!-- 			<li>
+			<a href="contact.html">Contact</a>
+			</li> -->
+		</ul>
+		</nav>
+	</div>
+</div>
+<div class="clear">
+</div>
+<!-- SUBHEADER
+================================================== -->
+<div id="subheader">
+	<div class="row">
+		<div class="twelve columns">
+			<p class="left">
+				 GitHub
+			</p>
+		</div>
+	</div>
+</div>
+<div class="hr">
+</div>
+<!-- CONTENT 
+================================================== -->
+<div class="row">
+    <!-- MAIN CONTENT-->
+	<div class="twelve columns">
+	    
+	    <!-- Usage-->
+		<div class="sectiontitle">
+			<h4>Usage</h4>
+		</div>
+		<ul class="disc">
+			<li>Collaborating</li>
+			<li>Saving various versions of code</li>
+			<li>Not affecting the original code by making branches that can be connect to the main at the end</li>
+		</ul>
+		<br><br>
+	    
+	    <!-- Basics-->
+		<div class="sectiontitle">
+			<h4>Basics</h4>
+		</div>
+		<p>
+			Here are some basic things I learnt to do from the terminal:
+		</p>
+		<!-- Tabs-->
+		<dl class="tabs">
+			<dd class="active"><a href="#simple1">Creating Repository</a></dd>
+			<dd><a href="#simple2">Push Existing Repository</a></dd>
+			<dd><a href="#simple3">Incorrect Credentials</a></dd>
+		</dl>
+		<ul class="tabs-content">
+			<li class="active" id="simple1Tab">
+				<p>
+				In case you missed it on GitHub, here are the steps to take to create a new repository from the command line.
+				<div id="testimonials">
+					<blockquote>
+						<p>
+							git init <br>
+							git commit -m “first commit”<br>
+							git branch -M main<br>
+							git remote add origin https://github.com/username/repositoryname.git<br>
+							git push -u origin main
+						</p>
+					</blockquote>
+				</div>
+				</p>
+			</li>
+			<li id="simple2Tab">
+				<p>
+				In case you missed it on GitHub, here are the steps to take to create a new repository from the command line.
+				<div id="testimonials">
+					<blockquote>
+						<p>
+							git remote add origin https://github.com/username/repositoryname.git<br>
+							git branch -M main<br>
+							git push -u origin main<br>
+						</p>
+					</blockquote>
+				</div>
+				</p>
+			</li>
+			<li id="simple3Tab">
+				<p>
+					I had a problem with connecting with my GitHub from my terminal due to incorrect credentials. This stack overflow article helped!
+					<br><br>
+					First I actually wanted to check out what the credentials I had were:
+					<div id="testimonials"><blockquote><p>git config --global --edit</p></blockquote></div>
+					My name and email also happened to be incorrect, so I set them up using:
+					<div id="testimonials"><blockquote><p>git commit --amend --reset-author</p></blockquote></div>
+					I had initially had the wrong credentials typed in so first I had to remove the username and password it had:
+	 				<div id="testimonials"><blockquote><p>git config --global --unset user.password</p></blockquote></div>
+					Before, I did “git push” I used the following code to store the credentials for future uses (only on Macbook):
+					<div id="testimonials"><blockquote><p>git config --global credential.helper osxkeychain ()</p></blockquote></div>
+					Now when you do git config --global --edit, you should see:
+					<br>
+					<center><img src="images/pages/codinginfo/GitHub/gitconfigfile.png" width="300" height="auto" alt=""></center>
+				</p>
+				<p>
+					 <b>**Update</b>: GitHub implemented personal tokens, so to set it up go to <a href="
+	https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token">Personal Token Setup</a>.
+					<br>
+					From there all you have to do is enter your personal token instead of a password. Don’t forget that they expire and you will have to update them every so often.
+				</p>
+			</li>
+		</ul>
+		<br><br>
+	    
+	    <!-- Step Instructions-->
+	    <div class="sectiontitle">
+			<h4>Step Instructions</h4>
+		</div>
+		<ul class="accordion">
+			<li class="">
+			<div class="title">
+				<b>Downloading the repository from GitHub</b>
+			</div>
+			<div class="content" style="overflow: hidden; display: none; ">
+				<ol>
+					<li>On GitHub: go to the repository: click the green button “Code”<br>
+						<center><img src="images/pages/codinginfo/GitHub/gitclone.png" width="700" height=”auto” alt=""></center>
+					</li>
+					<li>Copy the HTTPS writing and in your local terminal type
+						<div id="testimonials"><blockquote><p>git clone HTTPSname</p></blockquote></div>
+					</li>
+					<li>Now you have the repository on your local machine</li>
+				</ol>
+			</div>
+			</li>
+			<li class="">
+			<div class="title">
+				<b>Changing name of document in terminal and pushing up to GitHub</b>
+			</div>
+			<div class="content" style="overflow: hidden; display: none; ">
+				<ol>
+					<li>Creating a branch on terminal (make sure you are in the correct repository in your terminal)
+						<div id="testimonials"><blockquote><p>git checkout -b pick-specific-branch-name</p></blockquote></div>
+					</li>
+					<li>Checking which branch you are working on, what changes have been made to what files
+						<div id="testimonials"><blockquote><p>git status</p></blockquote></div>
+					</li>
+					<li>To list all branches within the repository 
+						<div id="testimonials"><blockquote><p>git branch</p></blockquote></div>
+					</li>
+					<li>To change name of file
+						<div id="testimonials"><blockquote><p>git mv old-name new-name</p></blockquote></div>
+						You can also use mv to move your file to a new folder by specifying the file path instead of a name change. (using absolute file path)
+						<div id="testimonials"><blockquote><p>git mv file-name /location/new-name</p></blockquote></div>
+					</li>
+					<li>Save changes to branch locally: -m allowing you to write a commit message without going into a text editor
+						<div id="testimonials"><blockquote><p>git commit -m “message about commit”</p></blockquote></div>
+					</li>
+					<li>To push change to GitHub
+						<div id="testimonials"><blockquote><p>git push origin branch-name</p></blockquote></div>
+					</li>
+					<li>Go to GitHub to the repo you are working with and click “compare & pull request”</li>
+					<li>Check over your branch, if it looks good: click “create pull request”</li>
+					<li>Click “merge pull request” and “confirm merge”</li>
+					<li>Once the merge is successful, to keep your repo looking clean: delete the old branch on GitHub</li>
+				</ol>
+			</div>
+			</li>
+			<li class="">
+			<div class="title">
+				<b>Adding code with a branch and putting reviewer on code</b>
+			</div>
+			<div class="content" style="overflow: hidden; display: none; ">
+				<ol>
+					<li>Download the repository from GitHub</li>
+					<li>Put working code in repository on local drive</li>
+					<li><i>git status</i> should output:
+						<center><img src="images/pages/codinginfo/GitHub/gitstatus.png" width="500" height=”auto” alt=""></center>
+					</li>
+					<li>Next, we want to make a branch to commit/upload to GitHub. We will give this branch the name “initial-working-script” since I have working code for my costco deal hunter.
+						<div id="testimonials"><blockquote><p>git checkout -b "initial-working-script"</p></blockquote></div>
+					</li>
+					<li>Now making sure that we are on the branch (o my zsh is great because it has a different colour when you are on a github repository and it tells you which branch you are working off of), we want to add the python file.
+						<center><img src="images/pages/codinginfo/GitHub/gitadd.png" width="350" height=”auto” alt=""></center>
+					</li>
+					<li>Now when we check the status, we should see that it is ready to be committed.
+						<center><img src="images/pages/codinginfo/GitHub/gitstatusend.png" width="350" height=”auto” alt=""></center>
+					</li>
+					<li>Next, we want to commit this change with a message talking about the commit. In this case, since I am unloading a full working model, I will describe what my app does.
+						<div id="testimonials"><blockquote><p>git commit -m 'first working version of using selenium to enter postal code and grab coupons in a pandas dataframe, checking for savings that match a keyword, saving result to .csv'</p></blockquote></div>
+					</li>
+					<li>Now that all the changes are committed, we can push up the changes to the main branch
+						<div id="testimonials"><blockquote><p>git push origin initial-working-script</p></blockquote></div>
+					</li>
+					<li>Go to GitHub to the repo you are working with and click “compare & pull request”</li>
+					<li>Check over your branch, if it looks good: click “create pull request”</li>
+					<li>Click add reviewers (remember your reviewers must be collaborators on the project)</li>
+				</ol>
+			</div>
+			</li>
+		</ul>
+	</div><!-- end main content-->
+</div>
+<div class="hr">
+</div>
+
+<!-- FOOOTER 
+================================================== -->
+<div id="footer">
+	<footer class="row">
+	<p class="back-top floatright">
+		<a href="#top"><span></span></a>
+	</p>
+	<center>
+		<div class="twelve columns">
+			<h1>Connect with Me</h1>
+			<a class="social github" href="https://github.com/anjawu"></a>
+			<a class="social linkedin" href="https://www.linkedin.com/in/anja-wu/"></a>
+		</div>
+	</center>
+	</footer>
+</div>
+<div class="copyright">
+	<div class="row">
+		<div class="six columns">
+			 &copy;<span class="small"> Copyright 2021 Anja Wu</span>
+		</div>
+		<div class="six columns">
+			<span class="small floatright"> Template by <a href="www.wowthemes.net">WowThemes.net</a></span>
+		</div>
+	</div>
+</div>
+<!-- JAVASCRIPTS 
+================================================== -->
+<!-- Javascript files placed here for faster loading -->
+<script src="javascripts/foundation.min.js"></script>
+<script src="javascripts/jquery.easing.1.3.js"></script>
+<script src="javascripts/elasticslideshow.js"></script>
+<script src="javascripts/jquery.carouFredSel-6.0.5-packed.js"></script>
+<script src="javascripts/jquery.cycle.js"></script>
+<script src="javascripts/app.js"></script>
+<script src="javascripts/modernizr.foundation.js"></script>
+<script src="javascripts/slidepanel.js"></script>
+<script src="javascripts/scrolltotop.js"></script>
+<script src="javascripts/hoverIntent.js"></script>
+<script src="javascripts/superfish.js"></script>
+<script src="javascripts/responsivemenu.js"></script>
+</body>
+</html>

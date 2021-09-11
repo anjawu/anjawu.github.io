@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8"/>
+<!-- Set the viewport width to device width for mobile -->
+<meta name="viewport" content="width=device-width"/>
+<title>Anja's Coding Website</title>
+<!-- CSS Files-->
+<link rel="stylesheet" href="stylesheets/style.css">
+<link rel="stylesheet" href="stylesheets/skins/blue.css">
+<!-- skin color -->
+<link rel="stylesheet" href="stylesheets/responsive.css">
+<!-- IE Fix for HTML5 Tags -->
+<!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+<!-- HIDDEN PANEL 
+================================================== -->
+<div id="panel">
+	<div class="row">
+		<div class="twelve columns">
+			<img src="http://www.wowthemes.net/demo/studiofrancesca/images/info.png" class="pics" alt="info">
+			<div class="infotext">
+				 Thank you for visiting my website!
+			</div>
+		</div>
+	</div>
+</div>
+<p class="slide">
+	<a href="#" class="btn-slide"></a>
+</p>
+<!-- HEADER
+================================================== -->
+<div class="row">
+	<div class="headerlogo four columns">
+		<div class="logo">
+			<a href="index.html">
+			<h4>Anja's Coding Website</h4>
+			</a>
+		</div>
+	</div>
+	<div class="headermenu eight columns noleftmarg">
+		<nav id="nav-wrap">
+		<ul id="main-menu" class="nav-bar sf-menu">
+			<li class="current">
+			<a href="home.html">Home</a>
+			</li>
+			<li>
+			<a>Coding Info</a>
+			<ul>
+				<li><a href="github.html">GitHub</a></li>
+				<li><a href="libraries.html">Libraries</a></li>
+				<li><a href="versus.html">Versus</a></li>
+				<li><a href="funlearn.html">Fun Things Learnt</a></li>
+				<li><a href="environmentsetup.html">Environment Setup</a></li>
+				<li><a href="terminalbasics.html">Terminal Basics</a></li>
+			</ul>
+			</li>
+			<li>
+			<a href="projects.html">Projects</a>
+			<ul>
+				<li><a href="redfin.html">Redfin</a></li>
+				<li><a href="costco.html">Costco</a></li>
+				<li><a href="website.html">Website</a></li>
+				<li><a href="indeed.html">Indeed</a></li>
+				<li><a href="imdb.html">IMDb</a></li>
+				<li><a href="hangman.html">Hangman</a></li>
+			</ul>
+			</li>
+<!-- 			<li>
+			<a href="contact.html">Contact</a>
+			</li> -->
+		</ul>
+		</nav>
+	</div>
+</div>
+<div class="clear">
+</div>
+<!-- SUBHEADER
+================================================== -->
+<div id="subheader">
+	<div class="row">
+		<div class="twelve columns">
+			<p>
+				Versus!
+			</p>
+		</div>
+	</div>
+</div>
+<div class="hr">
+</div>
+<!-- CONTENT 
+================================================== -->
+<div class="row">
+	<!-- Project 1-->
+	<div class="six columns columnborder" style="padding: 2em;">
+		<h5><center><b>Package/Library vs. Module</b></center></h5>
+			<div class="row">
+				<div class="six column">
+					<p align="right">
+						<br>
+						<u>Packages</u> are collections of modules. In order to identify it as a package, it must contain __init__.py file.
+						<br><br>
+						<u>Libraries</u> are collections of code that have similar functions. An example would be the Pandas library. This allows us to import the library to our code and then make use of great data analysis functions without having to create the methods ourselves. Remember that you must always first import the library before being about to call on the methods of that library. The language of a library and package can be interchanged.
+						<br><br>
+					</p>
+				</div>
+				<div class="six column">
+					<p align="left">
+						<br>
+						<u>Modules</u> are files that have functions and global variables. 
+						<br><br>
+						You can think of it this way: a module is a subsection of a Package.
+					</p>
+				</div>
+			</div>
+		</div>
+	<!-- Project 2-->
+	<div class="six columns columnborder" style="padding: 1.35em;">
+		<h5><center><b>Function vs. Method</b></center></h5>
+			<div class="row">
+				<div class="six column" align="right">
+					<p>
+						<br>
+						When you have a specific task that needs to be done a couple of times throughout your code, the best practice is to make a <u>function</u> for it. A function is a self-contained block of code, defined using the “def” keyword, which carries out a specific task, and is called by name (<a href="https://www.tutorialspoint.com/difference-between-method-and-function-in-python" class="saymore">source</a>). When a function is called, it will usually only operate and return a value. 
+						<br><br>
+						<i>There are two main kinds of functions:</i>
+						<ol>
+							<i><li><b>Built-in function:</b> these are the functions that come directly with the Python language.</li></i>
+							<i><li><b>User-defined function:</b> these are the functions that you would create in order to help you execute.</li></i>
+						</ol>
+					</p>
+				</div>
+				<p class="six column" align="left">
+					<br>
+					A <u>method</u> in python is a self-contained block of code that carries out a specific task - like a function. However, unlike a function, it is used on an object/class. Because it is called on an object/class it can alter the object/class's data.
+					<br><br>
+					How to spot a method: if it has “.” it is a method: <i>.method()</i> because it must be called upon by an object/class.
+				</p>
+			</div>
+	</div>
+</div>
+<div class="row">
+	<!-- Project 3-->
+	<div class="six columns columnborder" style="padding: 1.75em;">
+		<h5><center><b>Absolute vs. Relative File Path</b></center></h5>
+			<div class="row">
+				<br>
+				<p class="six column" align="right">
+					The <u>absolute</u> path is the best to use because there are no limitations to checking where your code is located, and less chance of an error. Easiest to just specify which folder it goes into. You list the whole path starting with /.
+					<br><br>
+					<b>Example:</b>
+					<br>
+					<i>/User/Folder1/Folder2/.../FinalFolder</i>
+				</p>
+				<p class="six column" align="left">
+					The <u>relative</u> path you use when you are in a specific folder and doing smaller projects that will not move from the folder. Try to avoid using this as this can lead to errors in code if a file is ever moved.
+				</p>
+			</div>
+	</div>
+	<!-- Project 4-->
+	<div class="six columns columnborder" style="padding: 1.2em;">
+		<h5><center><b>Parameter vs. Argument</b></center></h5>
+			<div class="row">
+				<br><br>
+				<p class="six column" align="right">
+					A <u>parameter</u> is the variable listed in the function definition.
+				</p>
+				<p class="six column" align="left">
+					An <u>argument</u> is the value in the function when it is called.
+				</p>
+			</div>
+			<br><br>
+			<div class="row">
+				<p class="tab" align="center">
+					From this <a href="https://www.w3schools.com/python/gloss_python_function_arguments.asp", class="saymore">website</a>, I found a clear and concise definition of both.
+				</p>
+			</div>
+			<br><br><br><br>
+	</div>
+</div>
+<div class="row">
+	<!-- Project 5 -->
+	<div class="six columns columnborder" style="padding: 2em;">
+		<h5><center><b>Python vs. Anaconda</b></center></h5>
+			<div class="row">
+				<p class="six column" align="right">
+					<u>Python</u> is one of the best "readable" codes and is widely used (e.g. data science, machine learning, web/desktop applications, etc.). Uses “pip” - package installer python when installing packages (as the name suggests).
+				</p>
+				<p class="six column" align="left">
+					The language of <u>Anaconda</u> is python, however, has a lot more functionality built into it compared to python. Especially when it comes to libraries, Anaconda comes with more data science/machine learning libraries directly installed. It tends to be easier to learn for non-programmers. Uses “conda” when installing packages.
+				</p>
+			</div>
+			<div class="row">
+				<p class="tab" align="center">
+					Basically, Anaconda uses python (and R) code to allow users a bit more ease of use in regards to data science and machine learning.
+					<br><br>
+					Although I am not the first to look up the difference between the two, it is not a fair “versus” because Anaconda is more of a subsection of python, however, I still wanted to do a comparison. This <a href="https://askanydifference.com/difference-between-anaconda-and-python/", class="saymore">website</a> really helped going into further detail about the differences.
+				</p>
+			</div>
+	</div>
+	<!-- Project 6 -->
+	<div class="six columns columnborder" style="padding: 2em;">
+		<h5><center><b>IDE vs. Code Editor</b></center></h5>
+			<br><br><br>
+			<div class="row">
+				<p class="six column" align="right">
+					<u>IDE</u> stands for integrated development environment. The development (including coding, compiling, debugging, executing, autocomplete, libraries) can be done in a single program with an IDE. 
+				</p>
+				<p class="six column" align="left">
+					<u>Code editor</u> is a text editor in which code can only be edited or modified. This requires more steps to be taken by the programmer, but is less complicated especially when working on smaller-scope projects.
+				</p>
+			</div>
+			<div class="row">
+				<p class="tab" align="center">
+					As I am currently not working on large scope projects, I have chosen to use a Code editor instead of IDE.
+					<br><br>
+					This <a href="https://www.softwaretestinghelp.com/python-ide-code-editors/", class="saymore">article</a> had a good list of top Python IDE and Code editors. 
+					<br><br><br><br>
+				</p>
+			</div>
+	</div>
+</div>
+<div class="hr">
+</div>
+<!-- FOOOTER 
+================================================== -->
+<div id="footer">
+	<footer class="row">
+	<p class="back-top floatright">
+		<a href="#top"><span></span></a>
+	</p>
+	<center>
+		<div class="twelve columns">
+			<h1>Connect with Me</h1>
+			<a class="social github" href="https://github.com/anjawu"></a>
+			<a class="social linkedin" href="https://www.linkedin.com/in/anja-wu/"></a>
+		</div>
+	</center>
+	</footer>
+</div>
+<div class="copyright">
+	<div class="row">
+		<div class="six columns">
+			 &copy;<span class="small"> Copyright 2021 Anja Wu</span>
+		</div>
+		<div class="six columns">
+			<span class="small floatright"> Template by <a href="www.wowthemes.net">WowThemes.net</a></span>
+		</div>
+	</div>
+</div>
+<!-- JAVASCRIPTS 
+================================================== -->
+<!-- Javascript files placed here for faster loading -->
+<script src="javascripts/foundation.min.js"></script>
+<script src="javascripts/jquery.cycle.js"></script>
+<script src="javascripts/app.js"></script>
+<script src="javascripts/modernizr.foundation.js"></script>
+<script src="javascripts/slidepanel.js"></script>
+<script src="javascripts/scrolltotop.js"></script>
+<script src="javascripts/hoverIntent.js"></script>
+<script src="javascripts/superfish.js"></script>
+<script src="javascripts/responsivemenu.js"></script>
+<script src="javascripts/jquery.tweet.js"></script>
+
+<script src="javascripts/jquery.isotope.min.js"></script>
+<script src="javascripts/jquery.prettyPhoto.js"></script>
+<script src="javascripts/custom.js"></script>
+</body>
+</html>

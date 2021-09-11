@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8"/>
+<!-- Set the viewport width to device width for mobile -->
+<meta name="viewport" content="width=device-width"/>
+<title>Anja's Coding Website</title>
+<!-- CSS Files-->
+<link rel="stylesheet" href="stylesheets/style.css">
+<link rel="stylesheet" href="stylesheets/skins/blue.css">
+<!-- skin color -->
+<link rel="stylesheet" href="stylesheets/responsive.css">
+<!-- IE Fix for HTML5 Tags -->
+<!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+<!-- HIDDEN PANEL 
+================================================== -->
+<div id="panel">
+	<div class="row">
+		<div class="twelve columns">
+			<img src="http://www.wowthemes.net/demo/studiofrancesca/images/info.png" class="pics" alt="info">
+			<div class="infotext">
+				 Thank you for visiting my website!
+			</div>
+		</div>
+	</div>
+</div>
+<p class="slide">
+	<a href="#" class="btn-slide"></a>
+</p>
+<!-- HEADER
+================================================== -->
+<div class="row">
+	<div class="headerlogo four columns">
+		<div class="logo">
+			<a href="index.html">
+			<h4>Anja's Coding Website</h4>
+			</a>
+		</div>
+	</div>
+	<div class="headermenu eight columns noleftmarg">
+		<nav id="nav-wrap">
+		<ul id="main-menu" class="nav-bar sf-menu">
+			<li class="current">
+			<a href="home.html">Home</a>
+			</li>
+			<li>
+			<a>Coding Info</a>
+			<ul>
+				<li><a href="github.html">GitHub</a></li>
+				<li><a href="libraries.html">Libraries</a></li>
+				<li><a href="versus.html">Versus</a></li>
+				<li><a href="funlearn.html">Fun Things Learnt</a></li>
+				<li><a href="environmentsetup.html">Environment Setup</a></li>
+				<li><a href="terminalbasics.html">Terminal Basics</a></li>
+			</ul>
+			</li>
+			<li>
+			<a href="projects.html">Projects</a>
+			<ul>
+				<li><a href="redfin.html">Redfin</a></li>
+				<li><a href="costco.html">Costco</a></li>
+				<li><a href="website.html">Website</a></li>
+				<li><a href="indeed.html">Indeed</a></li>
+				<li><a href="imdb.html">IMDb</a></li>
+				<li><a href="hangman.html">Hangman</a></li>
+			</ul>
+			</li>
+<!-- 			<li>
+			<a href="contact.html">Contact</a>
+			</li> -->
+		</ul>
+		</nav>
+	</div>
+</div>
+<div class="clear">
+</div>
+<!-- SUBHEADER
+================================================== -->
+<div id="subheader">
+	<div class="row">
+		<div class="twelve columns">
+			<p class="left">
+				 Hangman
+			</p>
+		</div>
+	</div>
+</div>
+<div class="hr">
+</div>
+<!-- CONTENT 
+================================================== -->
+<div class="row">
+	<div class="sectiontitle">
+		<h4>Python Terminal Game: Hangman</h4>
+	</div>
+	<p>
+		When learning code for the first time, without tutorials, picking where to start can be very daunting, so naturally I went to google and found this <a href="https://www.upgrad.com/blog/python-projects-ideas-topics-beginners/" class="saymore"> website</a> that listed some python projects for beginners.
+	</p>
+	<p>
+		From this list, I didn’t understand the idea itself for some of the ideas listed, which would make implementing it very hard, or the idea seemed too overwhelming to start. Then I spotted Hangman. This felt like something that was achievable but that I could also add a lot of features to increase difficulty.
+	</p>
+	<p>
+		At this point I had not started using GitHub, so I edited my code directly in the same document, deleting old code and adding new. I decided it would be best if I put my thought process down on the page. For the step-by-step input/output I used ipython in order to get the results printed directly on the page. Since indentation is important; I write the code and explain it without indentations and then insert a picture of the code (with proper indentation) at the end of each step.
+	</p>
+	<b>Here you can click to jump to different sections of the project: </b><br>
+	<div class="four columns">
+		<a href="#part1" class="saymore"> Part 1: Welcoming both players to the game</a><br>
+		<a href="#part2" class="saymore"> Part 2: Getting word input from user</a>
+	</div>
+	<div class="four columns">
+		<a href="#part3" class="saymore"> Part 3: Guessing the letters</a><br>
+		<a href="#part4" class="saymore"> Part 4: Updating letters guessed</a>
+	</div>
+	<div class="four columns">
+		<a href="#part5" class="saymore"> Part 5: End of game</a>
+	</div>
+</div>
+<br><br>
+
+	<!-- Step 1 -->
+<div class="row">
+	<h5 id="part1">1: Welcoming both players to the game</h5>
+	<p>
+		The first step is to get input from the players:
+		<div id="testimonials"><blockquote>
+			username1 = input("Player 1, please enter your name: ")<br>
+			username2 = input("Player 2, please enter your name: ")
+		</blockquote></div>
+		<div class="tab">
+			<ul class="disc">
+				<li><i>username1</i> and <i>username2</i> are variables that I am using to store the names inputted from the players.</li>
+				<li><i>input()</i> is a function which takes a string and prints it out onto the page to collect data that is then typed in by the user.</li>
+			</ul>
+		</div>
+	</p>
+	<p>
+		This <i>username1</i> will store the “input” that the player types on the screen:<br>
+		<center><img src="images/pages/projects/hangman/userinput.png" width="400" height="auto" alt=""></center><br>
+		As can be seen above, I entered “Anja” when prompted and the second line showed that the username1 has stored Anja.
+	</p>
+	<p>
+		<i>print(f"")</i> the ‘f’ in the print function allows us to simplify our code and combine strings with variables without having + in between.
+		Rather than writing: 
+		<div id="testimonials"><blockquote>print(“Hello ” + username1 + “ and ” + username2 + “! Welcome to Hangman!”)</blockquote></div>
+		It can be simplified to:
+		<div id="testimonials"><blockquote>
+			print(f"Hello, {username1} and {username2}! Welcome to Hangman!")<br>
+			print("Let's begin!")
+		</blockquote></div>
+	</p>
+	<p>
+		Here is the code so far:<br>
+		<center><img src="images/pages/projects/hangman/stepone.png" width="400" height="auto" alt=""></center>
+	</p>
+
+	<!-- Step 2 -->
+	<h5 id="part2">2: Getting word input from user</h5>
+	<p>
+		I made a variable “secretword” to store the word that a player enters as their word to be guessed. Since right now the two players play on the same screen, I wanted the word to be hidden. I found that the library <a href="https://docs.python.org/3/library/getpass.html" class="saymore"> getpass</a> will not display the typed letters. So first we must import getpass (I always import all libraries at the top of the code).
+		<center><img src="images/pages/projects/hangman/getpass.png" width="150" height="auto" alt=""></center>
+	</p>
+	<p>
+		Then we can call on the <i>getpass()</i> function to take the input and store it into our secretword variable:
+		<div id="testimonials"><blockquote>secretword = getpass.getpass(f”{username1}, enter your word: ").lower()</blockquote></div>
+		We must put <i>.lower()</i> function to change the input into lowercase letters to be able to compare letters regardless of the capitalization of the entry.
+	</p>
+	<p>
+		We want to also have the numbers of letters in the word displayed to the other user. At first what I did was create an empty string variable:
+		<div id="testimonials"><blockquote>s = ""</blockquote></div>
+		Then, create a for-loop for the length of the secret word - <i>len(secretword)</i> - and have the index “<i>i</i>” cycling through the <i>range()</i> of the length. For each iteration it would add (<i>+=</i>) an underscore to the variable <i>s</i>, resulting, at the end of the for-loop, with <i>s</i> have the correct number of underscores as there are letters.
+		<div id="testimonials"><blockquote>
+			for i in range(len(secretword)):<br>
+			s+="_"
+		</blockquote></div>			
+		<b><i>However</i></b>, I then found that it could be written a lot easier:
+		<div id="testimonials"><blockquote>s = '_' * len(secretword)</blockquote></div>
+	</p>
+	<p>
+		Last thing for this part would be to print to show other player how many letters:
+		<div id="testimonials"><blockquote>print(f"{username2} the word to guess is {s}")</blockquote></div>
+		So my code for the second part would be:
+		<center><img src="images/pages/projects/hangman/steptwo.png" width="500" height="auto" alt=""></center>
+	</p>
+
+	<!-- Step 3 -->
+	<h5 id="part3">3: Guessing the letters</h5>
+	<p>
+		We want to ensure we are keeping track of the letters that have already been guessed because we will need to check against that list when we code out errors. I made a list:
+		<div id="testimonials"><blockquote>guessedletters = []</blockquote></div>
+		And I wanted to also keep track of the number of guesses that player has had so I initialized the guesses left variable to be a hard coded 10 guesses:
+		<div id="testimonials"><blockquote>guessesleft = 10</blockquote></div>
+	</p>
+	<p>
+		In order to keep allowing the second player to guess letters, I decided to use a while loop. Meaning that while a condition is met the loop will continue. The way I approached it was as long as there was an underscore in my secret word, then the player would continue to get guesses:
+		<div id="testimonials"><blockquote>while ("_" in s):</blockquote></div>
+
+		In the while loop, I needed to separate right away into two cases: the first one being if the number of guesses is 10 and under and the second case being if it is over 10 guesses. I did this by creating an if/else statement:
+		<div id="testimonials"><blockquote>
+			if guessesleft <= 10:<br><br>
+			else:
+		</blockquote></div>
+		
+		The <i>else</i> case was easy because if the player has had more than 10 guesses the game is over.
+        <div id="testimonials"><blockquote>print("Sorry you have no more guesses left. Game Over.")</blockquote></div>
+        Then we must break out of the while-loop.
+        <div id="testimonials"><blockquote>break</blockquote></div>
+	</p>
+	<p>
+		For the <i>if guessesleft <= 10:</i> <br>
+		We first must ask the player for their letter guess. When comparing the letters they should all be lowercase in order to be able to compare letters.
+		<div id="testimonials"><blockquote>letter = input(f"{username2}, what is your letter guess? ").lower()</blockquote></div>
+		<br>
+		Now we must break it down into a couple cases to check for errors:
+	</p>
+	<p>
+		<u>Case 1:</u> is the input a single letter?<br>
+		We can check if the input is a letter by using the function <i>.isalpha()</i>. We can check that the input is a single input by checking <i>len(letter)</i>:
+		<div id="testimonials"><blockquote>
+			if (not letter.isalpha() or len(letter) != 1):
+			<div class="tab">
+        		print("\nNot a valid entry. Please enter a valid single letter.\n")
+        	</div>
+        </blockquote></div>
+	</p>
+	<p>
+		<u>Case 2:</u> is the letter a new guess?<br>
+		“<i>elif</i>” is used if you have multiple <i>if</i> statements that are connected. It is short for else if. Here we want to check if the letter is in our stored list of guessed letters.
+		<div id="testimonials"><blockquote>
+			elif (letter in guessedletters):
+			<div class="tab">
+				print("\nYou have already guessed this letter. Please pick a new letter.\n")
+			</div>
+        </blockquote></div>
+	</p>
+	<p>
+		<u>Case 3/4:</u> is the letter in the secretword?<br>
+		Finally, if the letter is a new single letter (checked in case 1) and a new letter (checked in case 2), we want to check if it is in the secretword:
+		<div id="testimonials"><blockquote>
+			else:
+			<div class="tab">
+				if (letter in secretword):
+				<div class="tab">
+					print(f"\nYou guessed the correct letter {letter}! You still have {guessesleft} guesses left.")
+				</div>
+			</div>
+        </blockquote></div>
+        Since the correct letter was guessed we would like to fill in the word in the correct spots. For this we must use a for-loop to cycle through the indices of the secret word.<br>
+		We must check that we are only looking in the range of the length of the secret word:
+		<div id="testimonials"><blockquote>for i in range(len(secretword)):</blockquote></div>
+		Then check indices:
+		<div id="testimonials"><blockquote>if (letter == secretword[i]):</blockquote></div>
+	</p>
+	<p>
+		We can replace the “s” word with 
+		<div id="testimonials"><blockquote>s = s[:i] + letter + s[i+1:]</blockquote></div>
+		<i>:</i> means from the initial location to <i>i</i>, and then <i>i+1</i> to end location.
+	</p>
+	<p>
+		However, if the letter is not in the secretword we want to take away a guess (guesses left - 1). We also would like the player to know how many guesses they have left, along with a reminder of what the word looks like thus far with each guess.
+		<div id="testimonials"><blockquote>
+			else:
+			<div class="tab"> 
+				guessesleft -= 1
+				print(f"\nSorry, {letter} is not in the word. You have {guessesleft} guesses left.")
+			</div><br>
+        	print(f"The word so far is: {s}\n")
+        </blockquote></div>
+	</p>
+	<p>
+		The code from step three looks like this:
+		<center><img src="images/pages/projects/hangman/stepthree.png" width="550" height="auto" alt=""></center>
+	</p>
+
+	<!-- Step 4 -->
+	<h5  id="part4">4: Updating letters guessed</h5>
+	<p>
+		Since we are keeping track of our guessed letters for error tracking, we want to add each letter to our <i>guessedletters[]</i> list.
+		<br><br>
+		If we cared about order in a list we can insert it by:
+        <div id="testimonials"><blockquote>
+        	guessedletters.insert(k, letter)<br>
+        	k = k + 1
+        </blockquote></div>
+    </p>
+    <p>But in this case we are just keeping track of the letters guessed and not the order so we can use <i>.append()</i> function:
+    	<div id="testimonials"><blockquote>
+    		guessedletters.append(letter)
+    	</blockquote></div>
+	</p>
+	<p>
+		The code from step four looks like this:
+		<center><img src="images/pages/projects/hangman/stepfour.png" width="300" height="auto" alt=""></center>
+	</p>
+
+	<!-- Step 5 -->
+	<h5  id="part5">5: End of game</h5>
+	<p>
+		
+	</p>
+	<p>
+		We need to consider if the person has guessed the word in under 10 incorrect guesses:
+		<div id="testimonials"><blockquote>
+			if guessesleft <= 10:
+			<div class="tab">
+				print(f"\nCONGRATULATIONS! You guessed the secret word {secretword}!")
+			</div>
+		</blockquote></div>
+		The final code looks like this:
+		<center><img src="images/pages/projects/hangman/stepfive.png" width="650" height="auto" alt=""></center>
+	</p>
+</div>
+
+<div class="hr">
+</div>
+
+<!-- FOOOTER 
+================================================== -->
+<div id="footer">
+	<footer class="row">
+	<p class="back-top floatright">
+		<a href="#top"><span></span></a>
+	</p>
+	<center>
+		<div class="twelve columns">
+			<h1>Connect with Me</h1>
+			<a class="social github" href="https://github.com/anjawu"></a>
+			<a class="social linkedin" href="https://www.linkedin.com/in/anja-wu/"></a>
+		</div>
+	</center>
+	</footer>
+</div>
+<div class="copyright">
+	<div class="row">
+		<div class="six columns">
+			 &copy;<span class="small"> Copyright 2021 Anja Wu</span>
+		</div>
+		<div class="six columns">
+			<span class="small floatright"> Template by <a href="www.wowthemes.net">WowThemes.net</a></span>
+		</div>
+	</div>
+</div>
+<!-- JAVASCRIPTS 
+================================================== -->
+<!-- Javascript files placed here for faster loading -->
+<script src="javascripts/foundation.min.js"></script>
+<script src="javascripts/jquery.easing.1.3.js"></script>
+<script src="javascripts/elasticslideshow.js"></script>
+<script src="javascripts/jquery.carouFredSel-6.0.5-packed.js"></script>
+<script src="javascripts/jquery.cycle.js"></script>
+<script src="javascripts/app.js"></script>
+<script src="javascripts/modernizr.foundation.js"></script>
+<script src="javascripts/slidepanel.js"></script>
+<script src="javascripts/scrolltotop.js"></script>
+<script src="javascripts/hoverIntent.js"></script>
+<script src="javascripts/superfish.js"></script>
+<script src="javascripts/responsivemenu.js"></script>
+
+</body>
+</html>

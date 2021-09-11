@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8"/>
+<!-- Set the viewport width to device width for mobile -->
+<meta name="viewport" content="width=device-width"/>
+<title>Anja's Coding Website</title>
+<!-- CSS Files-->
+<link rel="stylesheet" href="stylesheets/style.css">
+<link rel="stylesheet" href="stylesheets/skins/blue.css">
+<!-- skin color -->
+<link rel="stylesheet" href="stylesheets/responsive.css">
+<!-- IE Fix for HTML5 Tags -->
+<!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+<!-- HIDDEN PANEL 
+================================================== -->
+<div id="panel">
+	<div class="row">
+		<div class="twelve columns">
+			<img src="http://www.wowthemes.net/demo/studiofrancesca/images/info.png" class="pics" alt="info">
+			<div class="infotext">
+				 Thank you for visiting my website!
+			</div>
+		</div>
+	</div>
+</div>
+<p class="slide">
+	<a href="#" class="btn-slide"></a>
+</p>
+<!-- HEADER
+================================================== -->
+<div class="row">
+	<div class="headerlogo four columns">
+		<div class="logo">
+			<a href="index.html">
+			<h4>Anja's Coding Website</h4>
+			</a>
+		</div>
+	</div>
+	<div class="headermenu eight columns noleftmarg">
+		<nav id="nav-wrap">
+		<ul id="main-menu" class="nav-bar sf-menu">
+			<li class="current">
+			<a href="home.html">Home</a>
+			</li>
+			<li>
+			<a>Coding Info</a>
+			<ul>
+				<li><a href="github.html">GitHub</a></li>
+				<li><a href="libraries.html">Libraries</a></li>
+				<li><a href="versus.html">Versus</a></li>
+				<li><a href="funlearn.html">Fun Things Learnt</a></li>
+				<li><a href="environmentsetup.html">Environment Setup</a></li>
+				<li><a href="terminalbasics.html">Terminal Basics</a></li>
+			</ul>
+			</li>
+			<li>
+			<a href="projects.html">Projects</a>
+			<ul>
+				<li><a href="redfin.html">Redfin</a></li>
+				<li><a href="costco.html">Costco</a></li>
+				<li><a href="website.html">Website</a></li>
+				<li><a href="indeed.html">Indeed</a></li>
+				<li><a href="imdb.html">IMDb</a></li>
+				<li><a href="hangman.html">Hangman</a></li>
+			</ul>
+			</li>
+<!-- 			<li>
+			<a href="contact.html">Contact</a>
+			</li> -->
+		</ul>
+		</nav>
+	</div>
+</div>
+<div class="clear">
+</div>
+<!-- SUBHEADER
+================================================== -->
+<div id="subheader">
+	<div class="row">
+		<div class="twelve columns">
+			<p class="left">
+				Indeed
+			</p>
+			<p class="right">
+				<a href="imdb.html">Next: IMDb</a>
+			</p>
+		</div>
+	</div>
+</div>
+<div class="hr">
+</div>
+<!-- CONTENT 
+================================================== -->
+<!-- Intro -->
+<div class="row">
+	<div class="sectiontitle">
+		<h4>Web Scraping Job Postings: Indeed.ca</h4>
+	</div>
+	<p>
+		After I finished with the hangman game, I decided I was very interested in how web scraping works. So I found a good tutorial on how to begin with scraping the Monster job website <i>(I tried to link to it but the article no longer exists - it was written by Martin Breuss)</i>. Unfortunately, the Monster website had been changed since the article was posted so I had to do some digging and googling to be able to complete this tutorial. I did get a recommendation to try the Indeed job website. So that is what I will be going through here. <i>Update: I found another <a href="https://realpython.com/beautiful-soup-web-scraper-python/" class="saymore"> article</a> by the same author that was through the web scraping. I have not read through it or done the code, but I wanted to link it here because I liked how the original article was written, so I figured this one must be good too!</i>
+	</p>
+	<p>
+		<b>WARNING:</b><br>
+		As with all tutorials that go through web scraping, I want to iterate that you need to be very careful about scraping websites, because each website has its own rules about if/how the data can be collected.<br>
+		<b>How can you check?</b><br>
+		By adding “/robots.txt” to the end of the URL of the website you want to scrape. It will show you a list of parts of the website that they do not allow data to be scraped from. Most of the time as long as you’re scraping publicly available data you should be okay, but you still need to check!<br><br><br>
+	</p>
+	<div class="twelve columns">
+		<b>Here you can skip ahead past the introductory part and get to the code:</b>
+	</div>
+
+	<!-- Links to code sections -->
+	<div class="four columns">
+		<a href="#part1" class="saymore">Part 1: Importing libraries and calling functions</a><br>
+		<a href="#part2" class="saymore">Part 2: Collecting the data we want</a>
+	</div>
+	<div class="four columns">
+		<a href="#part3" class="saymore">Part 3: Defining error checking function</a><br>
+		<a href="#part4" class="saymore">Part 4: Putting data collected and error messages together</a>
+	</div>
+	<div class="four columns">
+		<a href="#part5" class="saymore">How did I figure out the errors?</a>
+	</div>
+</div>
+
+<!-- Basics -->
+<div class="row">
+	<br><br><br>
+	<p>
+		<b>Libraries needed for accessing data:</b><br>
+		BeautifulSoup is a python language that allows you to get information from various languages, in our case HTML. In order to install it, you must go to your terminal and type:
+		<div id="testimonials"><blockquote>pip install beautifulsoup4</blockquote></div>
+		We must also install requests. Requests is a library that allows us to access HTTP. In your terminal type:
+		<div id="testimonials"><blockquote>pip install requests</blockquote></div>
+	</p>
+	<p>
+		<b>URL:</b><br>
+		Speaking of HTTP… I will be looking at the following website to scrape: <i>https://ca.indeed.com/jobs?q=software+developer&l=ontario</i>.<br>
+		We can breakdown URLs to give us more context into the webpage we are looking at. For our specific example, we have the base URL: <i>https://ca.indeed.com/jobs</i>. Then we have “<i>?</i>” which specifies the query we are asking. In this case, we have two parts of the query. We can tell this because each piece is divided by an ampersand (<i>&</i>). The first part “<i>q=software+developer</i>” which specifies that we are looking at the job postings for software developer, the second part “<i>l=ontario</i>” tells us the location we are looking at is Ontario.
+	</p>
+	<p>
+		<b>HTML code:</b><br>
+		Next we want to get a basic understanding of what HTML code looks like.<br>
+		In order to get the code for the website there are two ways to do it:
+		<div class="tab">
+		<ol>
+			<li><b>Page Source Code:</b><br>
+				We use this one in the case of needing unmodified code based on clicks.
+				<div class="tab">
+				<ul class="disc"> 
+					<li>Right click and select “<i>View Page Source</i>”</li>
+					OR
+					<li>Top menu options -> View -> Developer -> “<i>View Source</i>”</li><br>
+				</ul></div>
+				Sample of what it looks like (at the time of writing this):
+				<center><img src="images/pages/projects/indeed/pagesourceeg.png" width="600" height="auto" alt=""></center>
+			</li>
+			<li><b>Inspect Elements:</b><br>
+				We use this one in the case of wanting to see the code we are looking at highlighting the section on the loaded page it corresponds with.
+				<div class="tab">
+				<ul class="disc"> 
+					<li>Right click and select “<i>Inspect</i>”</li>
+					OR
+					<li>Top menu options -> View -> Developer -> “<i>Inspect Elements</i>”</li><br>
+				</ul></div>
+				Sample of what it looks like (at the time of writing this):
+				<center><img src="images/pages/projects/indeed/inspecteg.png" width="400" height="auto" alt=""></center>
+				Inspecting elements is very useful because it is interactive. This means when you hover over specific sections the code is highlighted. This helps navigate the sections and select what is needed. <br>
+				Here is the section that is highlighted:
+				<center><img src="images/pages/projects/indeed/inspecteg2.png" width="600" height="auto" alt=""></center>
+				We will analyze this code more closely when we get to the specific coding parts that involve the different aspects.
+			</li>
+		</ol>
+		</div>
+	</p>
+</div>
+
+<!-- Part 1 -->
+<div class="row">
+	<h4>Coding Part</h4>
+	<h5 id="part1">1: Importing libraries and calling functions</h5>
+	<p>
+		Remember how we installed BeautifulSoup and requests? Well now we have to import them into our program.
+		<div id="testimonials"><blockquote>
+			import requests<br>
+			from bs4 import BeautifulSoup
+		</blockquote></div>
+		In order to get data from a website, we must specify the URL we will be using. We will store it in the variable I have chosen to name (shockingly) <i>URL</i>:
+		<div id="testimonials"><blockquote>URL = 'https://ca.indeed.com/jobs?q=software+developer&l=ontario'</blockquote></div>
+		This is when we can now call upon the requests library. We will store the data collected from the URL into a variable called “<i>page</i>”. This “<i>page</i>” has all the information requests has accessed for us.
+		<div id="testimonials"><blockquote>page = requests.get(URL)</blockquote></div>
+		Next, we want to convert the “<i>page</i>” into readable data for us. To do this we will enlist the help of BeautifulSoup. The <i>BeautifulSoup()</i> takes two parameters: the first being the content that you wish to parse, and the second is which format you are parsing. 
+		<div id="testimonials"><blockquote>soup = BeautifulSoup(page.content, 'html.parser')</blockquote></div>
+	</p>
+	<p>
+		Now that we have parsed the information from the webpage, we want to start filtering the data we need. Looking at our elements code, I went through the code until just the results column was highlighted:
+		<center><img src="images/pages/projects/indeed/resultscol.png" width="700" height="auto" alt=""></center>
+		As we can see the beginning of the code that contains the column I want is <i>< td id=“resultsCol”></i><br>
+		So I can use the <a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/#find" class="saymore">.find()</a> method to further store a subset of the data because it will find the first result that has the id tag specified.
+		<div id="testimonials"><blockquote>results = soup.find(id ='resultsCol')</blockquote></div>
+		At any point if you want to see what code you have extracted you can use the <i>prettify()</i> function. So if I wanted to see what I have collected so far I would type:
+		<div id="testimonials"><blockquote>print(results.prettify())</blockquote></div>
+	</p>
+	<p>
+		Here is my code from part 1:
+		<center><img src="images/pages/projects/indeed/part1.png" width="400" height="auto" alt=""></center>
+	</p>
+</div>
+
+<!-- Part 2 -->
+<div class="row">
+	<h5 id="part2">2: Collecting the data we want</h5>
+	<p>
+		At the end of step one, we were able to get the data from the results column, now we must take more information out. Looking back at the HTML elements code:
+		<center><img src="images/pages/projects/indeed/jobbox1.png" width="500" height="auto" alt=""></center> 
+		As can be seen the “box” containing the specific “Developer” job is:<br>
+		<i>< div class="jobsearch-SerpJobCard unifiedRow row result clickcard" id="pj_adf0c853808d542b" data-jk="adf0c853808d542b" data-empn="193166785382725" data-ci="369053152"></i>
+	</p>
+	<p>
+		If you look at the next job posting:
+		<center><img src="images/pages/projects/indeed/jobbox2.png" width="500" height="auto" alt=""></center> 
+		We see that we get:<br>
+		<i>< div class="jobsearch-SerpJobCard unifiedRow row result clickcard" id="pj_0b9f0ad8a3fae66e" data-jk="0b9f0ad8a3fae66e" data-empn="2464714180700686" data-ci="368488518"></i>
+	</p>
+	<p>
+		They are very similar, what changes is the identifying number. We can see that the <i>div class = “jobsearch-SerpJobCard unifiedRow row result clickcard”</i> remains the same.
+		Meaning if we want to look at each individual job posting, we can call on the <i>div</i> class from above. We want to use the <i>.find_all()</i> method in order to ensure that we collect all the jobs listed under the specific tag. We can specify we are looking at the ‘<i>div</i>’ section, but there are a lot of div sections, so we have to be more specific; we want the other tag to also have <i>class="jobsearch-SerpJobCard …”</i>. So we would write it as:
+		<div id="testimonials"><blockquote>job_elems = results.find_all('div', class_ = 'jobsearch-SerpJobCard')</blockquote></div>
+	</p>
+	<p>
+		We store all the different aspects into the <i>job_elems</i> variable to signal that this variable will have all the job elements that we want. From this point, we want to get specific aspects of each job. In this case we want to use the <i>.find()</i> method because we want to cycle through and find the first one. We will use a for-loop to cycle through all parts of the <i>job_elems</i>. It would be enough to have the code be for <i>job_elem in job_elems:</i>  but I also wanted to know how many jobs are being printed and I wanted to number them, so we write:
+		<div id="testimonials"><blockquote>for i, job_elem in enumerate(job_elems):</blockquote></div>
+		<i>enumerate()</i>, always you to call on the index and the item.
+	</p>
+	<p>
+		Now, on to how we can get the specific parts that we want from each job. In this example I just wanted: job title, company name, where it is located, if it is remote. So we will look at those parts:<br>
+		<u>For the job title:</u>
+		<center><img src="images/pages/projects/indeed/jobtitle.png" width="700" height="auto" alt=""></center> 
+		We can see that it is located in <i>h2</i> and <i>class=“title”</i>, so our code is:
+		<div id="testimonials"><blockquote>title_elem = job_elem.find('h2', class_ = 'title')</blockquote></div>
+	</p>
+	<p>
+		For company name, location, and remote option:
+		<center><img src="images/pages/projects/indeed/jobdetails.png" width="800" height="auto" alt=""></center> 
+		We can see that all three of those are located within <i>div class=“sjcl”</i>. So we have to dig further to get each individual one.
+	</p>
+	<p>
+		<u>For company:</u>
+		<center><img src="images/pages/projects/indeed/jobcompany.png" width="850" height="auto" alt=""></center> 
+		We can see that the company is located in span and class=“company”, so our code is:
+		<div id="testimonials"><blockquote>company_elem = job_elem.find('span', class_ = 'company')</blockquote></div>
+	</p>
+	<p>
+		<u>For location:</u>
+		<center><img src="images/pages/projects/indeed/joblocation.png" width="850" height="auto" alt=""></center> 
+		We have two sections that talk about location:
+		<div class="tab">
+			1) <i>< div id="recJobLoc_adf0c853808d542b" class="recJobLoc" data-rc-loc="Stouffville, ON" style="display: none"></ div></i><br>
+			2) <i>< div class="location accessible-contrast-color-location">Stouffville, ON</ div></i>
+		</div><br>
+		We want to take the one that has a string outside <i>< ></i> because we will be pulling the text from out data, so the second line is what contains the text that can be pulled. So our code would be:<br>
+		<div id="testimonials"><blockquote>location_elem = job_elem.find('div', class_ = 'location')</blockquote></div>
+	</p>
+	<p>
+		<u>For remote:</u>
+		<center><img src="images/pages/projects/indeed/jobremote.png" width="850" height="auto" alt=""></center> 
+		Our code will be: 
+		<div id="testimonials"><blockquote>remote_elem = job_elem.find('span', class_ = 'remote')</blockquote></div>
+	</p>
+	<p>
+		So final code for collecting the specific data we want we have:
+		<center><img src="images/pages/projects/indeed/part2.png" width="700" height="auto" alt=""></center> 
+	</p>
+	<p>
+		Let’s check out what our output is. In order to do that we can pull out the text from each element using .text:
+		<div id="testimonials"><blockquote>
+			print(f'Job title: {title_elem.text}')<br>
+			print(f'Company: {company_elem.text}')<br>
+			print(f'Location: {location_elem.text} \n')
+		</blockquote></div>
+		<br>
+		The first two jobs would look like:<br>
+		<i>Job title:<br><br>
+
+		Senior Full Stack Java Developer<br><br>
+
+		Company:<br>
+		Devlift Media<br>
+		Location: London, ON<br><br>
+
+		Job title:<br><br>
+
+		Senior Android Developer<br><br>
+
+		Company:<br>
+		RAD<br>
+		Location: Toronto, ON<br><br></i>
+
+		As we can see there are spaces that are included when you use <i>.text</i>. So what we can do is we can further remove more and make the output look better by doing strip() function:
+		<div id="testimonials"><blockquote>
+		    print(f'Job title: {title_elem.text.strip()}')
+		    print(f'Company: {company_elem.text.strip()}')
+		    print(f'Location: {location_elem.text.strip()} \n')
+		</blockquote></div>
+
+		And we can see, we get:<br><br>
+
+		<i>Job title: Java Software Developer<br>
+		new<br>
+		Company: Bank of Canada<br>
+		Location: Ottawa, ON<br><br>
+
+		Job title: Software Developer<br>
+		new<br>
+		Company: AIR MILES<br>
+		Location: Toronto, ON<br><br>
+
+		Job title: Operational Decision Management (ODM) Software Developer<br>
+		new<br>
+		Company: FCT<br>
+		Traceback (most recent call last):<br>
+		  File "/Users/anjawu/Code/Webscraping-Indeed.py", line 48, in < module><br>
+		    print(f'Location: {location_elem.text.strip()} \n')<br>
+		AttributeError: 'NoneType' object has no attribute 'text'<br><br></i>
+
+		So now the spacing looks good, but we have run into an error. The reason for this error is that one of our variables has nothing stored in it, so when we try to remove the text, we run into an error. This means we need to do some error checking...
+	</p>
+</div>
+
+<!-- Part 3 -->
+<div class="row">
+	<h5 id="part3">3: Defining error checking function</h5>
+	<p>
+		You do not need to define a function to error check, in fact I had initially done it all in the for-loop. But I wanted to practice making and applying functions. So first we need to define out function:
+		<div id="testimonials"><blockquote>def error_checking():</blockquote></div>
+	</p>
+	<p>
+		Next, we want to look at our different cases:<br>
+		<div class="tab"><ol>
+			<li> 
+				<u>Job title is null</u>: if our job title is null, we want it to print out everything else, but say that the job title is not specified. I did not run into any cases where this was the case, but for completion sake, it is good to have. We can also catch if there is something wrong with our code if we get the job title not specified. Also we needed to have a value returned so that we could differentiate between the different errors.
+				<div id="testimonials"><blockquote>
+	    			if title_elem == None:
+	        		<div class="tab">
+	        			print(f'{i+1}) Company: {company_elem.text.strip()}, \nJob title: not specified, \n{location_elem.text.strip()}\n\n, \nRemote: {remote_elem.text.strip()}')<br>
+	        			return 'null'
+	        		</div>
+	        	</blockquote></div>
+    		</li>
+			<li>
+				<u>Company name is null:</u> we want the similar thing to happen as case 1.
+				<div id="testimonials"><blockquote>
+				    if company_elem == None:
+				    <div class="tab">
+				        print(f'{i+1}) Company: not listed, \nJob title: {title_elem.text.strip()}, \n{location_elem.text.strip()}, \nRemote: {remote_elem.text.strip()} \n\n')<br>
+				        return 'null'
+				    </div>
+				 </blockquote></div>
+			</li>
+			<li>
+				<u>Location is null</u>: when I received the error that the location had a “NoneType” attribute, I was at first confused because I could see in the listings that each of the locations were listed. So what I did was go into the element code and see what was happening. Comparing two different jobs and their qualifiers for job location I found:
+				<center><img src="images/pages/projects/indeed/twojobs.png" width="850" height="auto" alt=""></center> 
+				As we can see, one is <i>div</i> and the other is <i>span</i>. But what we had coded was just for <i>div</i>. So within my <i>error_checking()</i> function, I decided to return a specific string that would help us differentiate how this error was different than the rest:
+				<div id="testimonials"><blockquote>
+					if location_elem == None:
+					<div class="tab">
+						return 'div_location'
+					</div>
+				</blockquote></div>
+			</li>
+			<li>
+				<u>Remote is null</u>: when I looked into when remote would return a “NoneType” attribute, it was not the same reason as #3, but rather it just was not specified. So I used the same code as the first two cases.
+				<div id="testimonials"><blockquote>
+				    if remote_elem == None:
+				    <div class="tab">
+				        print(f'{i+1}) Company: {company_elem.text.strip()}, \nJob title: {title_elem.text.strip()}, \nLocation: {location_elem.text.strip()}, \nRemote: not specified \n\n')<br>
+				        return 'null';
+				    </div>
+				 </blockquote></div>
+			</li>
+		</ol></div>
+	</p>
+	<p>
+		Our final error checking function code is:
+		<center><img src="images/pages/projects/indeed/part3.png" width="850" height="auto" alt=""></center> 
+	</p>
+</div>
+
+<!-- Part 4 -->
+<div class="row">
+	<h5 id="part4">4: Putting data collected and error messages together</h5>
+	<p>
+		Within our for-loop we must now call the error function. Reminder, here is the for-loop code so far:
+		<div id="testimonials"><blockquote>
+			for i, job_elem in enumerate(job_elems):
+			<div class="tab">
+			    title_elem = job_elem.find('h2', class_ = 'title')<br>
+			    company_elem = job_elem.find('span', class_ = 'company')<br>
+			    location_elem = job_elem.find('div', class_ = 'location')<br>
+		    	remote_elem = job_elem.find('span', class_ = 'remote')
+			</div>
+		</blockquote></div>
+	</p>
+	<p>
+		We will call the error_checking() function
+		<div id="testimonials"><blockquote>error = error_checking()</blockquote></div>
+	</p>
+	<p>
+		As you will have noticed, rather than just calling the function I decided to name a variable that calls the function. The reason for this is, if a variable is not used the <i>error_checking()</i> will be called more than once and can rewrite over the data giving different results depending on the order in which it is called. By putting the variable, you ensure that it is just called once and the result is store. 
+		<br><br>
+		The first case that we will look at is if the <i>error_checking()</i> returned null, meaning that all that needs to happen is to skip this iteration of the for-loop and move to the next one (since we already have the information we want printed). We will get it to skip to the next iteration by writing <i>continue</i>.
+		<div id="testimonials"><blockquote>
+			if error == 'null':
+			<div class="tab">
+				continue
+			</div>
+		</blockquote></div>
+	</p>
+	<p>
+		The next case we have to look at is the location error. So we know if the <i>error_checking()</i> returns <i>‘div_location’</i>, we have an issue with the scraping of the location information so we would like to write over the <i>location_elem</i> variable to contain the correct data:
+		<div id="testimonials"><blockquote>
+			if error == 'div_location':
+			<div class="tab">
+				location_elem = job_elem.find('span', class_ = 'location')
+			</div>
+		</blockquote></div>
+	</p>
+	<p>
+		The problem I ran into after doing this, is when both the location and the remote element are none we get no data returned. So in order to prevent that, we must check if <i>remote_elem</i> is none within the if statement of <i>error == 'div_location'</i>:
+		<div id="testimonials"><blockquote>
+			 if remote_elem == None:
+			<div class="tab">
+				print(f'{i+1}) Company: {company_elem.text.strip()}, \nJob title: {title_elem.text.strip()}, \nLocation: {location_elem.text.strip()}, \nRemote: not specified \n\n')
+			</div>
+			if remote_elem != None:
+			<div class="tab">
+				 print(f'{i+1}) Company: {company_elem.text.strip()}, \nJob title: {title_elem.text.strip()}, \nLocation: {location_elem.text.strip()}, \nRemote: {remote_elem.text.strip()}\n\n')<br>
+				 continue
+			</div>
+		</blockquote></div>
+	</p>
+	<p>
+		Finally, if there are no exceptions (“errors”) we want to have all the information printed:
+		<div id="testimonials"><blockquote>print(f'{i+1}) Company: {company_elem.text.strip()}, \nJob title: {title_elem.text.strip()}, \nLocation: {location_elem.text.strip()}, \nRemote: {remote_elem.text.strip()}\n\n')</blockquote></div>
+		<center><img src="images/pages/projects/indeed/part4.png" width="850" height="auto" alt=""></center> 
+	</p>
+	<p>
+		So altogether the final program will look like:
+		<center><img src="images/pages/projects/indeed/final.png" width="850" height="auto" alt=""></center> 
+	</p>
+</div>
+
+<!-- Errors -->
+<div class="row">
+	<h5 id="part5">How did I figure out the errors?</h5>
+	<p>
+		Along the way I had been given errors and I had a hard time figuring out where they came from, so I used “try”, “except” and “breakpoint()”. You can read more about them on the "<a href="funlearn.html" class="saymore">fun things learnt</a>" page.<br><br>
+		So what I did was:
+		<div id="testimonials"><blockquote>
+			try:
+			<div class="tab">
+			    print(f'{i+1}) Company: {company_elem.text.strip()}, \nJob title: {title_elem.text.strip()}, \nLocation: {location_elem.text.strip()}, \nRemote: {remote_elem.text.strip()}\n\n')
+			    <br>
+			</div>
+			except:
+			<div class="tab">
+			   breakpoint()
+			</div>
+		</blockquote></div> 
+		Once I stepped through the program I was able to see which attributes were none type and I was able to apply the correct fixes.
+	</p>
+</div>
+<div class="row">
+	<b>Final note:</b><br>
+	I didn’t store any of the elements of each job, I just had it printed right away. In the <a href="imdb.html" class="saymore">IMDb project</a> I look at storing data after it is collected.
+</div>
+
+<div class="hr">
+</div>
+
+<!-- FOOOTER 
+================================================== -->
+<div id="footer">
+	<footer class="row">
+	<p class="back-top floatright">
+		<a href="#top"><span></span></a>
+	</p>
+	<center>
+		<div class="twelve columns">
+			<h1>Connect with Me</h1>
+			<a class="social github" href="https://github.com/anjawu"></a>
+			<a class="social linkedin" href="https://www.linkedin.com/in/anja-wu/"></a>
+		</div>
+	</center>
+	</footer>
+</div>
+<div class="copyright">
+	<div class="row">
+		<div class="six columns">
+			 &copy;<span class="small"> Copyright 2021 Anja Wu</span>
+		</div>
+		<div class="six columns">
+			<span class="small floatright"> Template by <a href="www.wowthemes.net">WowThemes.net</a></span>
+		</div>
+	</div>
+</div>
+<!-- JAVASCRIPTS 
+================================================== -->
+<!-- Javascript files placed here for faster loading -->
+<script src="javascripts/foundation.min.js"></script>
+<script src="javascripts/jquery.easing.1.3.js"></script>
+<script src="javascripts/elasticslideshow.js"></script>
+<script src="javascripts/jquery.carouFredSel-6.0.5-packed.js"></script>
+<script src="javascripts/jquery.cycle.js"></script>
+<script src="javascripts/app.js"></script>
+<script src="javascripts/modernizr.foundation.js"></script>
+<script src="javascripts/slidepanel.js"></script>
+<script src="javascripts/scrolltotop.js"></script>
+<script src="javascripts/hoverIntent.js"></script>
+<script src="javascripts/superfish.js"></script>
+<script src="javascripts/responsivemenu.js"></script>
+
+</body>
+</html>
