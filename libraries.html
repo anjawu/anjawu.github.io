@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8"/>
+<!-- Set the viewport width to device width for mobile -->
+<meta name="viewport" content="width=device-width"/>
+<title>Anja's Coding Website</title>
+<!-- CSS Files-->
+<link rel="stylesheet" href="stylesheets/style.css">
+
+<link rel="stylesheet" href="stylesheets/skins/blue.css">
+<!-- skin color -->
+<link rel="stylesheet" href="stylesheets/responsive.css">
+<!-- IE Fix for HTML5 Tags -->
+<!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+<!-- HIDDEN PANEL 
+================================================== -->
+<div id="panel">
+	<div class="row">
+		<div class="twelve columns">
+			<img src="http://www.wowthemes.net/demo/studiofrancesca/images/info.png" class="pics" alt="info">
+			<div class="infotext">
+				 Thank you for visiting my website!
+			</div>
+		</div>
+	</div>
+</div>
+<p class="slide">
+	<a href="#" class="btn-slide"></a>
+</p>
+<!-- HEADER
+================================================== -->
+<div class="row">
+	<div class="headerlogo four columns">
+		<div class="logo">
+			<a href="index.html">
+			<h4>Anja's Coding Website</h4>
+			</a>
+		</div>
+	</div>
+	<div class="headermenu eight columns noleftmarg">
+		<nav id="nav-wrap">
+		<ul id="main-menu" class="nav-bar sf-menu">
+			<li class="current">
+			<a href="home.html">Home</a>
+			</li>
+			<li>
+			<a>Coding Info</a>
+			<ul>
+				<li><a href="github.html">GitHub</a></li>
+				<li><a href="libraries.html">Libraries</a></li>
+				<li><a href="versus.html">Versus</a></li>
+				<li><a href="funlearn.html">Fun Things Learnt</a></li>
+				<li><a href="environmentsetup.html">Environment Setup</a></li>
+				<li><a href="terminalbasics.html">Terminal Basics</a></li>
+			</ul>
+			</li>
+			<li>
+			<a href="projects.html">Projects</a>
+			<ul>
+				<li><a href="redfin.html">Redfin</a></li>
+				<li><a href="costco.html">Costco</a></li>
+				<li><a href="website.html">Website</a></li>
+				<li><a href="indeed.html">Indeed</a></li>
+				<li><a href="imdb.html">IMDb</a></li>
+				<li><a href="hangman.html">Hangman</a></li>
+			</ul>
+			</li>
+<!-- 			<li>
+			<a href="contact.html">Contact</a>
+			</li> -->
+		</ul>
+		</nav>
+	</div>
+</div>
+<div class="clear">
+</div>
+<!-- SUBHEADER
+================================================== -->
+<div id="subheader">
+	<div class="row">
+		<div class="twelve columns">
+			<p class="left">
+				Python Libraries
+			</p>
+		</div>
+	</div>
+</div>
+<div class="hr">
+</div>
+<!-- CONTENT 
+================================================== -->
+<div class="row">
+	<div class="twelve columns">
+		<!-- PANDAS-->
+		<div class="circledate">
+			<div class="textcircle">
+				<br>Pandas
+			</div>
+		</div>
+		<h4><a href="https://pandas.pydata.org/about/" class="saymore">Pandas Library</a></h4>
+		<div class="dots blogdots">
+		</div>
+		<p>
+			Pandas is a library in python that has functionality for data manipulation and analysis. It allows us to organize lists and store them as <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html" class="saymore">data frames</a>. Data frames are data structures which have labeled rows and columns. We want to create these data frames to then be able to edit, manipulate, and analyze the data in a clear way.
+		</p>
+		<p>
+			To download, in the terminal enter:
+			<div id="testimonials"><blockquote><p>pip install pandas</p></blockquote></div>
+			To use within a .py (python) file:
+			<div id="testimonials"><blockquote><p>import pandas as pd</p></blockquote></div>
+			Here you are importing the Pandas library and giving it a variable pd, this way when you want to call on a function from Pandas, you do not need to type pandas each time, but can just write pd.
+		</p>
+		<div class="hr">
+		</div>
+
+		<!-- SELENIUM -->
+		<div class="circledate">
+			<div class="textcircle">
+				<br>Selenium
+			</div>
+		</div>
+		<h4><a href="https://selenium-python.readthedocs.io/" class="saymore"> Selenium Library</a></h4>
+		<div class="dots blogdots">
+		</div>
+			<p>
+				Selenium is an open-source code initially written by Baiju Muthukadan. It allows you to send Python commands to the web. This means it will let you access the web from your Python program and let it automate things you normally would need to do yourself, such as tap on buttons, enter content in structures, check whether everything is okay with your site. 
+			</p>
+			<p>
+				 Selenium is mostly used as a testing package, however, I delved into using it to send commands to a webpage that needed a location to be entered before data could be taken. This is what I learnt:
+			</p>
+			
+			<!-- Accordion: Setting Up -->
+			<ul class="accordion">
+			<li class="">
+				<div class="title">
+					<b>Setting up the Selenium Module</b>
+				</div>
+				<div class="content" style="overflow: hidden; display: none; ">
+					<p>
+						There is a <a href="https://www.youtube.com/watch?v=Xjv1sY630Uc" class="saymore">video</a> I had watched that helped me a lot when walking me through how to set up Selenium. Here are the steps on how to set up Selenium on your computer.
+					</p>
+					<p>
+						First in the terminal, we need to install the module
+						<div id="testimonials"><blockquote><p>pip install selenium</p></blockquote></div>
+					</p>
+					<p>
+						Next, you must install the correct webdriver: for using Firefox you need to install <a href="https://github.com/mozilla/geckodriver/releases" class="saymore">GeckoDriver</a> and for using Chrome you need to install <a href="https://sites.google.com/a/chromium.org/chromedriver/downloads" class="saymore">Chromium</a>. Personally, I use Chrome (and MacOS Catalina has a known <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1588081" class="saymore">error</a> with Firefox webdriver). For Chrome, I downloaded the correct version of Chromium - which at the time of writing this was version 92. You can check your version by:
+						<ol class="tab">
+							<li>
+								On a MacBook, you can click “Chrome” in the top left and select “About Google Chrome”. A new tab will open that says the version:
+								<center><img src="images/pages/codinginfo/libraries/chromeversion.png" width="500" height="auto" alt=""></center>
+							</li>
+							<li>
+								On any type of computer, you can click the three horizontal dots in the top right corner → Help → About Google Chrome → new tab with the version.
+								<center><img src="images/pages/codinginfo/libraries/chromeversion2.png" width="500" height="auto" alt=""></center>
+							</li>
+						</ol>
+					</p>
+					<p>
+						After you download the correct version of the webdriver, move it from your downloads folder into a separate folder (one that you will remember where it is located). Personally, I moved mine to the Applications folder, so the absolute path for my webdriver would be: “\Applications”. You can <a href="https://github.com/mozilla/geckodriver/releases" class="saymore">find the path on MacBook</a> by doing these steps:
+						<div class="tab">
+							<ul class="disc">
+								<li>Control-click the file you want to know the path for.</li>
+								<li>
+									Once the drop down menu has popped up - should look similar to this:
+									<center><img src="images/pages/codinginfo/libraries/folderpath.png" width="350" height="auto" alt=""></center>
+								</li>
+								<li>
+									Hit the “option” button and the option “Copy “chromedriver-92”” should now say “Copy “chromedriver-92” as Pathname” <i>(same process for the “geckodriver”)</i>.
+								</li>
+								<li>Now you can paste the pathname into your code.</li>
+							</ul>
+						</div>
+					</p>
+					<p>Once we have the location, we can start coding in our project.</p>
+					<p>
+						Like always, we have to import the module 
+						<div id="testimonials"><blockquote><p>import selenium</p></blockquote></div>
+						After we import selenium, we would specify the path and then web driver name (following the steps from above):
+						<div id="testimonials"><blockquote><p>path = "/Applications/chromedriver-92"</p></blockquote></div>
+						Be sure that you ALWAYS specify the PATH where your webdriver is installed. 
+					</p>
+				</div>
+			</li>
+			
+			<!-- Accordion: Using -->
+				<li class="">
+				<div class="title">
+					<b>Using Selenium for Accessing Web Pages</b>
+				</div>
+				<div class="content" style="overflow: hidden; display: none; ">
+					<p>
+						Rather than import selenium at the start, we actually have to import a specific module - the webdriver:
+						<div id="testimonials"><blockquote><p>path = "from selenium import webdriver"</p></blockquote></div>
+						Specify your webpage:
+						<div id="testimonials"><blockquote><p>url = "https://www.costco.ca/"</p></blockquote></div>
+						Once we have imported the webdriver, we must still specify the path of our installed webdriver:
+						<div id="testimonials"><blockquote><p>path = "/Applications/chromedriver-92"</p></blockquote></div>
+						The final thing we have to do in terms of inputting a webdriver is to specify which browser we will be using and where the installed driver location is:
+						<div id="testimonials"><blockquote><p>driver = webdriver.Chrome(path)</p></blockquote></div>
+					</p>
+					<p>
+						Now that we have set up the driver, we are able to access and open a webpage by calling:
+						<div id="testimonials"><blockquote><p>driver.get(url)</p></blockquote></div>
+						Initially this did not work for Google Chrome. I would get this error message:
+						<center><img src="images/pages/codinginfo/libraries/drivererror.png" width="350" height="" alt=""></center>
+						After some digging, I found out that under my “Security & Privacy” settings, that even though I had selected “App Store and identified developers”, Apple was not allowing access to the downloaded web driver. How I fix this was by running the code while being “unlocked” on the “Security & Privacy” settings and click “Allow Anyway”.
+						<center><img src="images/pages/codinginfo/libraries/privacy.png" width="400" height="" alt=""></center>
+						Be sure you have clicked unlock in the bottom to make the changes permanent. Then the next time you run the code:
+						<center><img src="images/pages/codinginfo/libraries/verify.png" width="315" height="" alt=""></center>
+						Once you click “Open” you should be good to continue running the code without the error message popping up.
+					</p>
+					<p>
+						Don’t forget at the end of your code to close the browser. The two most common simple ways to close it is:
+						<ol>
+							<li>
+								To close just a tab but not necessarily the whole browser (if you are opening in a place with more than one tab):
+								<div id="testimonials"><blockquote><p>driver.close()</p></blockquote></div>
+							</li>
+							<li>
+								To close the whole browser:
+								<div id="testimonials"><blockquote><p>driver.quit()</p></blockquote></div>
+							</li>
+						</ol>
+					</p>
+				</div>
+			</ul>
+		
+
+		<!-- <br/> -->
+		<!-- Pages -->
+<!-- 		<ul class="pagination">
+			<li class="arrow unavailable"><a href="">&laquo;</a></li>
+			<li class="current"><a href="">1</a></li>
+			<li><a href="">2</a></li>
+			<li><a href="">3</a></li>
+			<li><a href="">4</a></li>
+			<li class="arrow"><a href="">&raquo;</a></li>
+		</ul> -->
+	</div>
+</div>
+<div class="hr">
+</div>
+
+<!-- FOOOTER 
+================================================== -->
+<div id="footer">
+	<footer class="row">
+	<p class="back-top floatright">
+		<a href="#top"><span></span></a>
+	</p>
+	<center>
+		<div class="twelve columns">
+			<h1>Connect with Me</h1>
+			<a class="social github" href="https://github.com/anjawu"></a>
+			<a class="social linkedin" href="https://www.linkedin.com/in/anja-wu/"></a>
+		</div>
+	</center>
+	</footer>
+</div>
+<div class="copyright">
+	<div class="row">
+		<div class="six columns">
+			 &copy;<span class="small"> Copyright 2021 Anja Wu</span>
+		</div>
+		<div class="six columns">
+			<span class="small floatright"> Template by <a href="www.wowthemes.net">WowThemes.net</a></span>
+		</div>
+	</div>
+</div>
+<!-- JAVASCRIPTS 
+================================================== -->
+<!-- Javascript files placed here for faster loading -->
+<script src="javascripts/foundation.min.js"></script>
+<script src="javascripts/jquery.easing.1.3.js"></script>
+<script src="javascripts/elasticslideshow.js"></script>
+<script src="javascripts/jquery.carouFredSel-6.0.5-packed.js"></script>
+<script src="javascripts/jquery.cycle.js"></script>
+<script src="javascripts/app.js"></script>
+<script src="javascripts/modernizr.foundation.js"></script>
+<script src="javascripts/slidepanel.js"></script>
+<script src="javascripts/scrolltotop.js"></script>
+<script src="javascripts/hoverIntent.js"></script>
+<script src="javascripts/superfish.js"></script>
+<script src="javascripts/responsivemenu.js"></script>
+</body>
+</html>
