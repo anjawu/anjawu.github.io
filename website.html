@@ -211,94 +211,551 @@
 <!-- Part 2: Header -->
 <div class="row">
 	<br><br>
-	<h5 id="part1">2: Header</h5>
+	<h5 id="part2">2: Header</h5>
 	<p>
-		Starting at the top of my index.html
+		How my header looks like at the time of writing this:
 		<center><img src="images/pages/projects/website/websitepages/header.png" width="600" height="auto" alt=""></center>
 	</p>
 	<p>
+		Starting at the top of my index.html.<br>
 		We have to look at the header that will appear at the top of each page to navigate from page to page (it is marked HEADER near the top of each html page).
 		<center><img src="images/pages/projects/website/oldheader.png" width="300" height="auto" alt=""></center>
 	</p>
 	<p>
 		Like I mentioned above, I only wanted three categories, not six. So right away I only kept “Home”, “Portofolio”, and “Blog” and deleted the rest.
 		<br>
-		<u>“Home”</u>: I did not want the home page to have any dropdown menu, so I deleted the “Without slide” section. I also wanted the HTML name to be a bit more clear for me so I changed it from index2.html to index.html <i>(side note - the home page must written as index.html, in order for the website to know what page to open first)</i>.
+		<u>“Home”:</u> I did not want the home page to have any dropdown menu, so I deleted the “Without slide” section. I also wanted the HTML name to be a bit more clear for me so I changed it from index2.html to index.html <i>(side note - the home page must written as index.html, in order for the website to know what page to open first)</i>.
+		<center><img src="images/pages/projects/website/headerindex.png" width="300" height="auto" alt=""></center>
 	</p>
-
-	
+	<p>
+		<i>“Portofolio”:</i> I wanted this section to be for my <u>“Coding Info”</u> and contain a dropdown menu with 6 options (I had to add two more: <i>< li>< a href=" .html">< /a>< /li></i>). I then changed all the names and <i>.html</i> file names to better describe each page that I wanted. I also got rid of the <i>“href”</i> because I did not want to reference to any page for the Coding Info tab.
+		<center><img src="images/pages/projects/website/headercodinginfo.png" width="300" height="auto" alt=""></center>
+	</p>
+	<p>
+		<i>“Blog”:</i> I wanted this section to be for my <u>“Projects”</u> and contain a dropdown menu with 6 options (as I did before). I also removed the <i>href=”#”</i> and put <i>href=”projects.html”</i> because I wanted to go to a landing page for the "Projects" tab.
+		<center><img src="images/pages/projects/website/headerprojects.png" width="300" height="auto" alt=""></center>
+	</p>
+	<p>
+		It is important for this section to be the same for all HTML pages. So I copied the code from the top of the file until I hit:<br>
+		<i>< !-- SUBHEADER <br>
+		================================================== --></i><br>
+		and I replaced the tops of the other files by pasting over top of the code that was there from the template. This way I could make sure that I had the same headers and website title for all the pages.
+	</p>
+	<p>
+		All my subheaders for the whole website will follow this format:
+		<center><img src="images/pages/projects/website/subheader.png" width="250" height="auto" alt=""></center>
+	</p>
 </div>
 
 <!-- Part 3: Home Page -->
 <div class="row">
 	<br><br>
-	<h5 id="part1">3: Home Page</h5>
-	
+	<h5 id="part3">3: Home Page</h5>
+	<p>
+		How my home page looks like at the time of writing this:
+		<center><img src="images/pages/projects/website/websitepages/home.png" width="600" height="auto" alt=""></center>
+	</p>
+	<p>
+		For the home page the layout I wanted was slightly different than the <i>index2.html</i> that was the template, but had the same basic idea.
+	</p>
+	<p>
+		I did not wanted to animated columns under the subheader, so I deleted the whole section labeled: <br>
+		<i>< !-- ANIMATED COLUMNS <br>
+			================================================== --></i><br><br>
+		Then after the animated columns for the header, I wanted to have a paragraph text underneath. So I created a paragraph, and I selected the <i>class="twelve columns”</i>. This is because I looked at the HTML code for <i>columns.html</i> and saw which column style I wanted. In this case I wanted to have one column, which coincided with <i>class=”twelve columns”</i>. So my code looked like:
+		<div id="testimonials"><blockquote>
+			< div class="twelve columns"><br>
+			<div class="tab">
+				< p><br>
+				< /p>
+			</div>
+			< /div>
+		</blockquote></div>
+	</p>
+	<p>
+		When typing paragraphs, if you want a break in the line but want to continue in the same paragraph section, you can type: 
+		<div id="testimonials"><blockquote>< br></blockquote></div>
+	</p>
+	<p>
+		Next, I did not want three columns but rather two, so once again using the same method as before I found the class I wanted was <i>class= "six columns"</i>. And within these columns I did not want a button that says learn more, but rather I wanted a list that has the various pages on my webpage with their links. So in order to find what types of code this specific template had for lists, I went to the <i>topology.html</i> code. The label of what I wanted was <i>< ul class="disc"></i>. So my code looked like this for both columns:
+		<div id="testimonials"><blockquote>
+			<	div class="six columns">
+			<div class="tab">
+				< h5>Coding Information< /h5><br>
+				< ul class="disc">
+				<div class="tab">
+					< li>< a href="github.html">GitHub< /a> - description of page.< /li><br>
+					< li>< a href=".html">< /a>< /li><br>
+					< li>< a href=".html">< /a>< /li>
+				</div>
+				< /ul>
+			</div>
+			< /div>
+		</blockquote></div>
+	</p>
+	<p>
+		I didn't need a section on testimonials or clients, so I changed it to an <u>"About Me"</u> section. I looked through the template pages to see if there was a style I liked and I found on the <i>feature -> elements</i> page there was a panel that I liked. So I deleted the carousel of clients, added the panel (taking up two thirds of the row) and added a picture to the right of the text (a third of the row).
+		<ul class="disc">
+			<li>To make the panel two-thirds of the row, I put the class to be <i>"eight columns"</i>.</li>
+			<li>To make the picture one-third of the row, I put the class to be <i>"four columns"</i>.</li>
+			<li>
+				To <a href="https://imagekit.io/blog/how-to-resize-image-in-html/" class="saymore">add an image</a> you just need this code starting point:
+				<div id="testimonials"><blockquote>
+					< img src="" width="" height=”auto” alt="">
+				</blockquote></div>
+				<div class="tab">
+					→ The folder in which the picture is located goes in the "" after <i>src</i>. Be sure to keep the images in one folder (preferably called images) and contain that folder within your website folder.<br>
+					→ You could do width by %, I didn’t want my image to change size according to the page size, so I always used 400 as my starting point and then adjusted based on how the image looked (because I've always been terrible at estimating size, I'd have to do trial and error).<br>
+					→ In order to get the image center aligned just add <i>< center>< /center></i> around your image code:
+						<div id="testimonials"><blockquote>
+							< center>< img src="" width="" height=”auto” alt="">< /center>
+						</blockquote></div>	
+				</div>
+			</li>
+		</ul>
+		This is what it looked like:
+		<div id="testimonials"><blockquote>
+			< div class="row">
+			<div class="tab">
+				< div class="eight columns">
+				<div class="tab">
+					< div class="panel">
+					<div class="tab">
+						< h5 class="left">Anja Wu </ h5><br>
+						< p class="clear authortext"><br>
+						< /p>
+					</div>
+					< /div>
+				</div>
+			< /div><br>
+			< div class="four columns">
+			<div class="tab">
+				< img src="" width = "300" height = "auto" alt="">
+			</div>
+			< /div>
+		</div>
+		< /div>
+
+		</blockquote></div>
+	</p>
 </div>
 
 <!-- Part 4: GitHub -->
 <div class="row">
 	<br><br>
-	<h5 id="part1">4: GitHub</h5>
-	
+	<h5 id="part4">4: GitHub</h5>
+	<p>
+		How my GitHub page looks like at the time of writing this:
+		<center><img src="images/pages/projects/website/websitepages/github.png" width="600" height="auto" alt=""></center>
+	</p>
+	<p>
+		My GitHub description page has three main sections and I wanted all three sections to take up a full page:
+		<div id="testimonials"><blockquote>< div class="twelve columns"></blockquote></div>
+	</p>
+	<p>
+		Each of the sections had the <i>class="sectiontitle"</i> and the <i>h4</i>:
+		<div id="testimonials"><blockquote>
+		< div class="sectiontitle">
+			<div class="tab">
+			< h4>Usage< /h4>
+		</div>
+		< /div>
+		</blockquote></div>
+	</p>
+	<p>
+		Within <u>"Usage"</u> section I just wanted an unordered list as I didn't have much written. Under the <i>topography.html</i> you can find which type of bullet point you want, I selected the first one, so my <i>< ul></i> (unordered list) class was <i>"disc"</i>:
+		<div id="testimonials"><blockquote>
+			< ul class="disc">
+			<div class="tab">
+				< li>item< /li>
+				< li>item< /li>
+			</div>
+			< /ul>
+		</blockquote></div>
+	</p>
+	<p>
+		Within the <u>"Basics"</u> section, I liked the tabs that were there, so I kept them and only changed the label. Below you can find the information put into each tab. For the code sections, I decided to use the <i>“testimonials”</i> id formatting:
+		<div id="testimonials"><blockquote>< div id="testimonials">< blockquote>Code< /blockquote>< /div></blockquote></div>
+	</p>
+	<p>
+		In the first tab, we need to make sure we are connecting it to the correct id. In this case, we want it to be connected to the tab with the id "simple1Tab". Plus we also want to make sure that the "active" class attribute is present because it means this table will automatically be open when the page loads:
+		<div id="testimonials"><blockquote>
+			< ul class="tabs-content">
+			<div class="tab">
+				< li class="active" id="simple1Tab">
+				<div class="tab">
+					< p>
+					<div class="tab">
+						Sample writing<br>
+						< div id="testimonials">
+						<div class="tab">
+							< blockquote>
+							<div class="tab">
+								My code
+							</div>
+							< /blockquote>
+						</div>
+						< /div>
+					</div>
+					< /p>
+				</div>
+				< /li>
+			</div>
+			< /ul>
+		</blockquote></div>
+	</p>
+	<p>
+		The second/third tab are very similar, you just would not need the <i>class="active"</i> attribute.
+	</p>
+	<p>
+		Also you can add formatting to your writing by using:<br>
+		< b><b>bold</b>< /b><br>
+		< i><i>italicized</i>< /i><br>
+		< u><u>underlined</u>< /u><br>
+	</p>
+	<p>
+		Within the last section “<u>Step Instructions</u>” I wanted to have a dropdown accordion for the information for each of the step-by-step instructions I've made so far. I went and found the code in the template <i>elements.html</i> file under the header "accordions".
+	</p>
+	<p>
+		My code:
+		<div id="testimonials"><blockquote>
+			< ul class="accordion">
+			<div class="tab">
+				< li class="">
+			</div>
+		</blockquote></div>
+		I removed the "active" that was in the class to make the first accordion show up closed when the page is first loaded.
+		<div id="testimonials"><blockquote>
+			< div class="title">
+			<div class="tab">
+				< b>Downloading the repository from GitHub< /b><br>
+			</div>
+			< /div>
+		</blockquote></div>
+		This contains the content within the accordion tab:
+		<div id="testimonials"><blockquote>
+			< div class="content" style="overflow: hidden; display: none; ">
+		</blockquote></div>
+		I wanted to make a numbered list, aka <a href="https://www.w3schools.com/html/html_lists.asp" class="saymore"> ordered list</a> <i>< ol></i>, to display the steps. Each step within the <i>< ol></i> container must be enclosed in the <i>< li></i> container:
+		<div id="testimonials"><blockquote>
+			< ol>
+			<div class="tab">
+				< li>On GitHub: go to the repository: click the green button “Code”< /li><br>
+				< li>Copy the HTTPS writing and in your local terminal type< /li>
+			</div>
+			< /ol>
+		</blockquote></div>
+	</p>
 </div>
 
 <!-- Part 5: Libraries -->
 <div class="row">
 	<br><br>
-	<h5 id="part1">5: Libraries</h5>
-	
+	<h5 id="part5">5: Libraries</h5>
+	<p>
+		How my libraries page looks like at the time of writing this:
+		<center><img src="images/pages/projects/website/websitepages/libraries.png" width="600" height="auto" alt=""></center>
+	</p>
+	<p>
+		At the time of writing this I only had two libraries I had extensively used that were worth writing about, so I didn't need the pages section at the bottom. Plus I also did not need the right hand column, so I just deleted it. <b>**Be very careful when deleting parts because you need to make sure you get the corresponding “/” tags!</b> If you delete one <i>< div></i> then you must also delete one <i>< /div></i> in the correct spot.
+	</p>
+	<p>
+		For the Pandas section, I did not change very much from the original layout.
+	</p>
+	<p>
+		For the Selenium section, I wanted the accordion after description in order to not have to scroll a long time for two different headers . So directly after the last paragraph in the description, I added the <i>class="accordion"</i> like before:
+		<div id="testimonials"><blockquote>
+			< ul class="accordion">
+			<div class="tab">
+				< li class=""><br>
+				< div class="title">
+				<div class="tab">
+					< b>Setting up the Selenium Module< /b>
+				</div>
+				< /div><br>
+				< div class="content" style="overflow: hidden; display: none; "><br>
+				< p>
+				<div class="tab">
+					My stuff
+				</div>				
+				< /p><br>
+				...
+			</div>
+		</blockquote></div>
+	</p>
+	<p>
+		Part way through I wanted to make an ordered list that was indented so as to show it is a subsection. But in order to do this I actually had to go to a different file. Since inserting a tab is considered "style", we need to go to the <i>style.css</i> file. This file is a very long file that has all the design details of the website. I made a new section, that I put a commented out section with my name, so I could easily find any style things I add in case I want to change them. In this <i>.CSS</i> file, I added the following code:
+		<center><img src="images/pages/projects/website/tabcode.png" width="200" height="auto" alt=""></center>
+	</p>
+	<p>
+		Now that we have made that adjustment in the <i>style.css</i>, we can go back to the file we were working on. In order, to call the "tab" style, we will put <i>class="tab"</i> in the <i>div</i> container.
+		<div id="testimonials"><blockquote>
+			< div class="tab">
+			<div class="tab">
+				< ol>
+				<div class="tab">
+					< li>< /li>
+				</div>
+				< /ol>
+			</div>
+			< /div>
+		</blockquote></div>
+	</p>
 </div>
 
 <!-- Part 6: Versus -->
 <div class="row">
 	<br><br>
-	<h5 id="part1">6: Versus</h5>
-	
+	<h5 id="part6">6: Versus</h5>
+	<p>
+		How my versus page looks like at the time of writing this:
+		<center><img src="images/pages/projects/website/websitepages/versus.png" width="600" height="auto" alt=""></center>
+	</p>
+	<p>
+		I removed the tags: " twoportofolio category trains" because I didn’t need to classify any category.<br>
+		Since I wanted a <a href="https://www.computerhope.com/issues/ch001392.htm" class="saymore">border</a> that was not part of the style code, I went back to the <i>style.css</i> and added the following code:
+		<center><img src="images/pages/projects/website/bordercode.png" width="500" height="auto" alt=""></center>
+		<div class="tab">
+		<ul class="disc">
+			<li>I named the class <i>“columnborder”</i>.</li>
+			<li>I played around with the px size or the border and settled on 2.</li>
+			<li>I wanted a solid line, so I specified style to be solid.</li>
+			<li>The border colour, I actually found by looking through the existing <i>style.css</i> document to find the same colour that was used for the template.</li>
+		</ul>
+		</div>
+	</p>
+	<p>
+		I then went back to my HTML page and added the <i>class "columnborder"</i> to each of my columns. I also had to add the padding style to here because I wanted it different for each box to make the edges line up (I ranged it from 1.35 to 2em).
+		<div id="testimonials"><blockquote>< div class="six columns columnborder" style="padding: 1.35em;"></blockquote></div>
+	</p>
+	<p>
+		I also centred the headings for each box by using <i>< center>:</i>
+		<div id="testimonials"><blockquote>< h5>< center>< b>Package/Library vs. Module< /b>< /center>< /h5></blockquote></div>
+	</p>
+	<p>
+		Next, in each box I wanted to have two columns to compare the two things I was looking for. So within the row class, I added for the first definition:
+		<div id="testimonials"><blockquote>
+			< div class="six column">
+			<div class="tab">
+				< p align="right"><br>
+				< /p>
+			</div>
+			< /div>
+		</blockquote></div>
+		For the second definition:
+		<div id="testimonials"><blockquote>
+			< div class="six column">
+			<div class="tab">
+				< p align="left"><br>
+				< /p>
+			</div>
+			< /div>
+		</blockquote></div>
+		I aligned the left side to the right and the right side to the left, because I liked the look it gave.
+	</p>
+	<p>
+		After I had styled two of them how I wanted, I copied and pasted that code two more times to get a total of 3 rows and 6 boxes.
+	</p>
 </div>
 
 <!-- Part 7: Fun Things Learnt -->
 <div class="row">
 	<br><br>
-	<h5 id="part1">7: Fun Things Learnt</h5>
-	
+	<h5 id="part7">7: Fun Things Learnt</h5>
+	<p>
+		How my fun things learnt page looks like at the time of writing this:
+		<center><img src="images/pages/projects/website/websitepages/fun.png" width="600" height="auto" alt=""></center>
+	</p>
+	<p>
+		I applied the similar process to what I did with the <a href="#part5" class="saymore">libraries</a> page!
+	</p>
 </div>
 
 <!-- Part 8: Environment Setup -->
 <div class="row">
 	<br><br>
-	<h5 id="part1">8: Environment Setup</h5>
-	
+	<h5 id="part8">8: Environment Setup</h5>
+	<p>
+		How my environment setup page looks like at the time of writing this:
+		<center><img src="images/pages/projects/website/websitepages/setup.png" width="600" height="auto" alt=""></center>
+	</p>
+	<p>
+		I applied the similar process to what I did with the <a href="#part5" class="saymore">libraries</a> page!
+	</p>
 </div>
 
-<!-- Part 9: Terminal Basics -->
+ <!-- Part 9: Terminal Basics -->
 <div class="row">
 	<br><br>
-	<h5 id="part1">9: Terminal Basics</h5>
-	
+	<h5 id="part9">9: Terminal Basics</h5>
+	<p>
+		How my terminal basics page looks like at the time of writing this:
+		<center><img src="images/pages/projects/website/websitepages/terminal.png" width="600" height="auto" alt=""></center>
+	</p>
+	<p>
+		I applied the similar process to what I did with the <a href="#part4" class="saymore">GitHub</a> page, but left out the accordions!
+	</p>
+
 </div>
 
 <!-- Part 10: Projects Landing Page -->
 <div class="row">
 	<br><br>
-	<h5 id="part1">10: Projects Landing Page</h5>
-	
+	<h5 id="part10">10: Projects Landing Page</h5>
+	<p>
+		How my projects landing page looks like at the time of writing this:
+		<center><img src="images/pages/projects/website/websitepages/projectlanding.png" width="600" height="auto" alt=""></center>
+	</p>
+	<p>
+		For the Projects landing page, I kept the layout very similar to what they had. I did not want a picture but I did want when someone hovers over the project for it to have a shadow background with the option to bring you to the project. So what I did was 1st, I deleted the portfolio id because I didn't need it:
+		<div id="testimonials"><blockquote>< div id="portofolio"></blockquote></div>
+		Then at the end of the third project I put <i>< /div</i> to end the row (if you don't do this and remove the portfolio id and labels, then your two rows will be on top of one another). Since we want the first 3 and the last 3 projects on difference rows we have to add at the beginning of the fourth project:
+		<div id="testimonials"><blockquote>< div class="row"></blockquote></div>
+	</p>
+	<p>
+		Now for each project box themselves:<br>
+		The class attribute used to be similar to: <i>"four columns threeportofolio category nature castles"</i> but I only wanted to keep the four columns, I didn't need the rest (because I wasn't creating any categories). After the box header I deleted the paragraph. The shadow that appears on top of the picture comes from this code:
+		<div id="testimonials"><blockquote>
+			< div class="portofoliothumb">
+			<div class="tab">
+                < div class="portofoliothumboverlay threeoverlay">
+				<div class="tab">
+                    < div class="viewgallery threegallery">
+					<div class="tab">
+                        < a data-gal="prettyPhoto[gallery]" href="http://www.wowthemes.net/demo/studiofrancesca/images/temp/folio4.jpg">< img src="http://www.wowthemes.net/demo/studiofrancesca/images/playgal.png" class="left galleryicon" alt=""> Gallery< /a>
+                    </div>
+                    < /div><br>
+                    < div class="inner threedetail">
+					<div class="tab">
+                        < a class="projectdetail" href="portofoliodetail.html">+ Project Details< /a>
+                    </div>
+                    < /div>
+                </div>
+                < /div><br>
+                < img src="http://www.wowthemes.net/demo/studiofrancesca/images/temp/folio4.jpg" class="threeimage" alt=""/>
+            </div>
+            < /div>
+		</blockquote></div>
+	</p>
+	<p>
+		Breaking it down further...<br>
+		Here we get the grey shadow box:
+		<div id="testimonials"><blockquote>
+			< div class="portofoliothumb">
+			<div class="tab">
+                < div class="portofoliothumboverlay threeoverlay">
+            </div></blockquote></div>
+        Here is the code for the view gallery arrow button that appears in the top right corner of the image (I deleted this because I did not want this):
+		<div id="testimonials"><blockquote>
+			<div class="tab">
+                < div class="viewgallery threegallery">
+				<div class="tab">
+                    < a data-gal="prettyPhoto[gallery]" href="http://www.wowthemes.net/demo/studiofrancesca/images/temp/folio4.jpg">< img src="http://www.wowthemes.net/demo/studiofrancesca/images/playgal.png" class="left galleryicon" alt=""> Gallery< /a>
+                </div>
+                < /div>
+            </div>
+        </blockquote></div>
+        Now we look at the inside of the grey shadow box:
+		<div id="testimonials"><blockquote><div class="tab">< div class="inner threedetail"></div></blockquote></div>
+		We see it has a button that has <i>"+ Project Details"</i> written on it (I changed this to say <i>"Project Code →"</i>):
+		<div id="testimonials"><blockquote>	
+			<div class="tab"><div class="tab">
+                < a class="projectdetail" href="portofoliodetail.html">+ Project Details< /a>
+            </div>
+            < /div><br></div>
+        < /div>
+        </div></blockquote>
+        Then came the image that is in the background (I did not want an image but rather I wanted text, so I deleted the picture and changed the code to just be paragraph form):
+        <div id="testimonials"><blockquote>
+	    <div class="tab"><div class="tab">
+	        	< img src="http://www.wowthemes.net/demo/studiofrancesca/images/temp/folio4.jpg" class="threeimage" alt=""/>
+	        </div>
+	        < /div>
+	    </div>
+	    < /div>
+        </blockquote></div>
+	</p>
+	<p>
+		My final code for one of the project description boxes looked like:
+		<center><img src="images/pages/projects/website/projectdescription.png" width="400" height="auto" alt=""></center>
+		I copied this code for the other project description boxes. 
+	</p>
 </div>
 
 <!-- Part 11: Individual Projects -->
 <div class="row">
 	<br><br>
-	<h5 id="part1">11: Individual Projects</h5>
-	
+	<h5 id="part11">11: Individual Projects</h5>
+	<p>
+		How my hangman page looks like at the time of writing this:
+		<center><img src="images/pages/projects/website/websitepages/hangman.png" width="600" height="auto" alt=""></center>
+	</p>
+	<p>
+		All of the projects had the same layout as a starting point. I started with the <i>singleblog.html</i> template.
+	</p>
+	<p>
+		The individual projects subheader is different from all other pages.
+		<center><img src="images/pages/projects/website/projectsubheader.png" width="400" height="auto" alt=""></center>
+	</p>
+	<p>
+		Then I deleted everything else other than the title and the main paragraph for posting.
+	</p>
+	<p>
+		<u>Using the hangman webpage as an example</u><br>
+		I was able to create a table of context at the top of my page and able to allow users to click a section of part to bring them to that section by:<br>
+		First, putting id's on the section titles (I labelled mine based on which part it is):<br>
+		<center><img src="images/pages/projects/website/partid.png" width="400" height="auto" alt=""></center>
+		Then I had to create the reference where I wanted the user to be able to click and this time instead of referencing a webpage I did <i>#idname</i>:
+		<center><img src="images/pages/projects/website/refid.png" width="600" height="auto" alt=""></center>
+	</p>
+	<p>
+		The rest of the project is basic typing out my project - with formating I have already gone through.
+	</p>
 </div>
 
 <!-- Part 12: Footer -->
 <div class="row">
 	<br><br>
-	<h5 id="part1">12: Footer</h5>
-	
+	<h5 id="part12">12: Footer</h5>
+	<p>
+		How my footer looks like at the time of writing this:
+		<center><img src="images/pages/projects/website/websitepages/footer.png" width="400" height="auto" alt=""></center>
+	</p>
+	<p>
+		For the footer, I removed most of the stuff they had because I didn't need a lot of it and did not want to link to the social media listed. I only wanted the footer to have two social media platforms, GitHub and LinkedIn, and I wanted them in the middle of the row, so I changed the class to <i>"twelve columns"</i> and I centered it:
+		<div id="testimonials"><blockquote>
+			< center>
+	        < div class="twelve columns">
+	        <div class="tab">
+	            < h1>Connect with Me< /h1><br>
+	            ...
+	        </div>
+	    </blockquote></div>
+	    Since I decided to provide a link to GitHub and to my LinkedIn account, I had to make new social media signs.
+	</p>
+	<p>
+		First, I went to the <i>style.css</i> to see how the template had done the social media icons. I found out the size of the icons the template currently had, by going into the <i>images/socialpack</i> directory and checking the size of the file. The images were 32x32 pixels. <br>
+		Then found the icons I wanted on a <a href="https://icons8.com/icons/set/linkedin" class="saymore"> website</a> and made sure I specified the correct size. After I had downloaded the four images (two per icon to have a change in colour when hovering over the icon), I made sure I put them in the correct directory. Then I copied the code the template had in the <i>style.css</i> for the other social media icons and just replaced the class name and the image name:
+		<center><img src="images/pages/projects/website/socialfooter.png" width="600" height="auto" alt=""></center>
+
+	</p>
+		Then back in my <i>.html</i> files, I continued the footer code from above to include <i>class="social ..."</i> as had been done previously in the template:
+	    <div id="testimonials"><blockquote>
+	    <div class="tab">
+	    	...<br>
+            < a class="social github" href="https://github.com/anjawu">< /a><br>
+            < a class="social linkedin" href="www.linkedin.com/in/anja-wu">< /a>
+        </div>
+	    < /div>
+	    < /center>
+		</blockquote></div>
+	</p>
 </div>
 
+
+<div class="row">
+	<h5>And there you have it, that is how I made my very first HTML website!</h5>
+</div>
 
 <div class="hr">
 </div>
