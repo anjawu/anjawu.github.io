@@ -271,6 +271,56 @@
 				</ol>
 			</div>
 			</li>
+			<li class="">
+			<div class="title">
+				<b>Uploading a website to GitHub</b>
+			</div>
+			<div class="content" style="overflow: hidden; display: none; ">
+				<ol>
+					<li>Create a repository on GitHub and name it: websitename<i>.github.io</i></li>
+					<li>
+						In your terminal clone the repository in the correct location on your desktop:
+						<div id="testimonials"><blockquote>git clone “https://...”</blockquote></div>
+					</li>
+					<li>If you have already made the website documents, you can copy the files into the new repository you have made.</li>
+					<li>
+						Once you are in the correct folder in your terminal, make a branch:
+						<div id="testimonials"><blockquote>git checkout -b “first-working-version”</blockquote></div>
+					</li>
+					<li>
+						Then add all the documents you want pushed to GitHub:
+						<div id="testimonials"><blockquote>git add .</blockquote></div>
+						If there are certain documents that you have added but do not want to push up, you can remove them by:
+						<div id="testimonials"><blockquote>git rm --cached <file></blockquote></div>
+					</li>
+					<li>
+						Now we are able to commit what we want to do to the branch we are currently working on:
+						<div id="testimonials"><blockquote>“git commit -m “first working version of website””</blockquote></div>
+					</li>
+					<li>
+						After we have committed the change, we want to push it up:
+						<div id="testimonials"><blockquote>“git push origin first-working-version”</blockquote></div>
+					</li>
+					<li>
+						On GitHub, we want to:
+						<div class="tab"><ul class="disc">
+							<li>create the pull request</li>
+							<li>merge pull request</li>
+							<li>confirm merge</li>
+							<li>delete branch</li>
+						</ul></div>
+					</li>
+					<li>
+						Then back to the terminal. Since we are done with the branch, we want to leave the branch and get to main:
+						<div id="testimonials"><blockquote>“git checkout main”</blockquote></div>
+					</li>
+					<li>
+						You need to update your local main branch to match the GitHub one:
+						<div id="testimonials"><blockquote>"git pull origin main”</blockquote></div>
+					</li>
+				</ol>
+			</div>
+			</li>
 		</ul>
 	</div><!-- end main content-->
 </div>
