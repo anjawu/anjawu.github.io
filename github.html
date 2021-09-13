@@ -100,11 +100,9 @@
 </div>
 <!-- CONTENT 
 ================================================== -->
+<!-- Usage -->
 <div class="row">
-    <!-- MAIN CONTENT-->
 	<div class="twelve columns">
-	    
-	    <!-- Usage-->
 		<div class="sectiontitle">
 			<h4>Usage</h4>
 		</div>
@@ -114,8 +112,12 @@
 			<li>Not affecting the original code by making branches that can be connect to the main at the end</li>
 		</ul>
 		<br><br>
+	</div>
+</div>
 	    
-	    <!-- Basics-->
+<!-- Basics-->
+<div class="row">
+	<div class="twelve columns">
 		<div class="sectiontitle">
 			<h4>Basics</h4>
 		</div>
@@ -184,8 +186,13 @@
 			</li>
 		</ul>
 		<br><br>
+	</div>
+</div>
+
+<!-- Step Instructions-->
+<div class="row">
+	<div class="twelve columns">    
 	    
-	    <!-- Step Instructions-->
 	    <div class="sectiontitle">
 			<h4>Step Instructions</h4>
 		</div>
@@ -321,9 +328,60 @@
 				</ol>
 			</div>
 			</li>
+
+			<li class="">
+			<div class="title">
+				<b>Changing website domain on GitHub</b>
+			</div>
+			<div class="content" style="overflow: hidden; display: none; ">
+				<ol>
+					<li>On your website <i>(username.github.io)</i> repository: go to settings → pages → header <i>“Custom domain”</i>.</li>
+					<li>
+						Enter the website domain you have (mine is anjawu.com) and click save. It should look like this:
+						<center><img src="images/pages/codinginfo/GitHub/githubpages.png" width="700" height=”auto” alt=""></center>
+					</li>
+					<li>
+						When you are done, go back to your code and you should now see a file called <i>“CNAME”</i>. When you open your <i>CNAME</i> file it should just say your website domain:
+						<center><img src="images/pages/codinginfo/GitHub/CNAME.png" width="250" height=”auto” alt=""></center>
+					</li>
+					<li>
+						Once you have done that, go to the site where you have your DNS (where you bought your domain and created an account to house it). I used GoDaddy, so I will outline the steps for that.
+					</li>
+					<li>
+						On your domain, go to header <i>“Additional Settings”</i> and click the subheader that says <i>“Manage DNS”</i>.
+					</li>
+					<li>On the new page, under records, click “add”.</li>
+					<li>
+						Since my website is an <u>apex</u> domain (because it is just anjawu.com), I need to add an <i>“A”</i> record. <br>
+						Here you need to point from <i>Host: “@”</i> to <i>Points to “IP address found on this <a href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-an-apex-domain " class="saymore">GitHub page on step 5</a>”:</i>
+						<center><img src="images/pages/codinginfo/GitHub/gitipdns.png" width="350" height=”auto” alt=""></center>
+						This is what it should look like once inputted:
+						<center><img src="images/pages/codinginfo/GitHub/dnsa.png" width="400" height=”auto” alt=""></center>
+						<b><i>Please note, if you already have something that looks like this on your record, just check to make sure that the IP address it points to is one off of the GitHub list.</i></b>
+					</li>
+					<li>
+						Next, we want to add <i>"www”</i>, we can do this by: click “add” → CNAME → <i>Host “www”</i> and <i>Points to “username.github.io”</i>. So it would look like this:
+						<center><img src="images/pages/codinginfo/GitHub/dnscname.png" width="400" height=”auto” alt=""></center>
+						
+					</li>
+					<li>
+						Finally, you should have something that looks like this on GoDaddy’s DNS:
+						<center><img src="images/pages/codinginfo/GitHub/dnsconnected.png" width="500" height=”auto” alt=""></center>
+					</li>
+					<li>
+						Give your webpage a chance to load and connect and it should work. Sometimes it can take up to 24 hours.
+					</li>
+				</ol>
+			</div>
+			</li>
+
+
+
 		</ul>
 	</div><!-- end main content-->
 </div>
+
+
 <div class="hr">
 </div>
 
