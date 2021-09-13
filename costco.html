@@ -127,7 +127,50 @@
 <div class="row">
 	<h5 id="part1">1: Setting up</h5>
 	<p>
-		
+		As before we must import our libraries:
+		<div id="testimonials"><blockquote>
+			import requests<br>
+			from bs4 import BeautifulSoup<br>
+			import pandas as pd
+		</blockquote></div>
+	</p>
+	<p>
+		Then we have to specify what URL we will be using and access it using requests
+		<div id="testimonials"><blockquote>
+			URL = 'https://www.costco.ca/coupons.html' <br>
+			page = requests.get(URL)
+		</blockquote></div>
+		Then we can try to make it into a soup:
+		<div id="testimonials"><blockquote>soup = BeautifulSoup(page.content, 'html.parser')</blockquote></div>
+	</p>
+	<p>
+		However, you will notice that this does not work. The reason it does not work is because costco.ca has information saved from cookies, so we must put in information before we use the <i>get()</i>. We specifically need a location for the Costco catalogue. Therefore, we must input the location cookies in order to access the flyer savings. The general work around of inputting via cookies (as can be found under my <a href="funlearn.html" class="saymore">Fun Things Learnt</a> → Cookies) does not work in this case and I had to further explore a new method. This is how I came to look at Selenium (how to set it up can be found under <a href="libraries.html" class="saymore">Libraries</a> → Selenium).
+	</p>
+	<h6>Setting up: Take 2</h6>
+	<p>
+		As before we must import our libraries. I will list each of the packages I will be working with here at the start and quick description of what they do.<br><br>
+		When we initially open the Costco webpage there is a pop-up asking for location and we must select which province we live in to get the correct flyers. So we must import selenium to allow us to interact with HTML elements, such as clicking on a page using automation. 
+		<div id="testimonials"><blockquote>from selenium import webdriver</blockquote></div>
+		To allow us type and click buttons from our code we need to import Keys:
+		<div id="testimonials"><blockquote>from selenium.webdriver.common.keys import Keys</blockquote></div>
+		To allow us to make sure web pages are fully loaded before trying to search for data on them, we need to import:
+		<div id="testimonials"><blockquote>
+			from selenium.webdriver.common.by import By<br>
+			from selenium.webdriver.support.ui import WebDriverWait<br>
+			from selenium.webdriver.support import expected_conditions as EC
+		</blockquote></div>
+		And for data manipulation we will be importing Pandas.
+		<div id="testimonials"><blockquote>import pandas as pd</blockquote></div>
+	</p>
+	<p>
+		As seen in the set up of Selenium, we must specify where the web driver is located and create a variable that will call on the web driver for chrome (or whatever browser you have chosen to use).
+		<div id="testimonials"><blockquote>
+			path = "/Applications/chromedriver-92"<br>
+			driver = webdriver.Chrome(path)
+		</blockquote></div>
+		Create a variable for the URL you want to use.
+		<div id="testimonials"><blockquote>url = "https://www.costco.ca/"</blockquote></div>
+
 	</p>
 </div>
 
@@ -135,7 +178,62 @@
 <div class="row">
 	<h5 id="part2">2: Accessing Webpage</h5>
 	<p>
-		
+		For this section, I got a lot of help from a specific <a href="https://www.youtube.com/watch?v=b5jt2bhSeXs" class="saymore">youtube programmer</a>. <br>
+		To access/open the webpage:
+		<div id="testimonials"><blockquote>driver.get(url)</blockquote></div>
+		We need to enter the province in the pop-up in order to get the correct location for the flyers. I have found the Firefox has done a better job with the inspection of html code compared to Chrome for pop-ups, so I used that to find the specific container of the modal (pop-up that blocks the rest of the webpage from working). 
+		<center><img src="images/pages/projects/costco/modalcode.png" width="750" height=”auto” alt=""></center>
+		Our div container with the class attributes of “modal-content” contains the information we need. Upon further inspection, we can see:
+		<center><img src="images/pages/projects/costco/modalcodedetail.png" width="750" height=”auto” alt=""></center>
+	</p>
+	<p>
+		Here is a more clear picture of the source code for the location radio buttons:
+		<center><img src="images/pages/projects/costco/modalcodepagesource.png" width="750" height=”auto” alt=""></center>
+	</p>
+	<p>
+		<a href="https://selenium-python.readthedocs.io/locating-elements.html" class="saymore">Finding elements using selenium</a> can be done many different ways, for this we will be using <i>xpath</i> because the common ones we would normally use <i>(finding by id, name, or class)</i> will not be very useful since they are not unique. <a href="https://www.tutorialspoint.com/using-selenium-in-python-to-click-select-a-radio-button" class="saymore">This tutorial</a> really helped. Since the provinces are radio buttons, we must use the function <i>.click().</i> We will be selecting Ontario for the purpose of this post. 
+		<br><br>
+		We want to find the container/attribute that is different. In this case, we can see within the input container the value attribute is different based on the province/territory. So we are able to specify our path to be: <i>//input[@value = 'ON'].</i> <i>//</i> is to skip to the input container, <i>[@value = ‘ON’]</i> lets us select the specific attribute we want. (Side note - There is an easier way to get an <i>xpath</i>, which I go into in the pulling data section, but I think it is important to understand the process before taking shortcuts, hence why I wanted to show this). So our code would look like this:
+		<div id="testimonials"><blockquote>select_region = driver.find_element_by_xpath("//input[@value = 'ON']").click()</blockquote></div>
+	</p>
+	<p>
+		Next we have to “click” the button that actually sets language and region:
+		<center><img src="images/pages/projects/costco/setlangloc.png" width="750" height=”auto” alt=""></center>
+		Using the same logic as above we get:
+		<div id="testimonials"><blockquote>set_region = driver.find_element_by_xpath("//input[@value = 'Set Language and Region']").click()</blockquote></div>
+	</p>
+	<p>
+		Now we are in!
+		<center><img src="images/pages/projects/costco/automatedcostco.png" width="500" height=”auto” alt=""></center>
+	</p>
+	<p>
+		We still need to get to the “More Savings at your local warehouse”. This means that we would just have to search in the search bar for “coupons”, sure enough that brought me to the correct page that I want on the Costco website. So in order to find the search field in the page source, I did <i>“cmd-f”</i> for <i>type="search"</i> and found four results, of those 4 the one that I wanted had <i>placeholder="Search Costco"</i>, so I knew this was the one I needed. Then since it has a unique <i>id = “search-field”</i>, I was able to find element by using the id search:
+		<div id="testimonials"><blockquote>coupon_search = driver.find_element_by_id("search-field")</blockquote></div>
+		After we find it, we want to enter the word “coupon” in the search field, so we will need to use the <i>.send_keys()</i> method.
+		<div id="testimonials"><blockquote>coupon_search.send_keys("coupon")</blockquote></div>
+		Then we will use the <i>Keys package</i> that was imported from selenium to hit return/enter.
+		<div id="testimonials"><blockquote>coupon_search.send_keys(Keys.RETURN)</blockquote></div>
+	</p>
+	<p>
+		When I clicked on the page manually, it brought me to this website: <b>https://www.costco.ca/coupons.html</b>. Then I realized, I didn’t need to go to the search bar to look for coupons because I already had the webpage for it. Lessons learned? Think before doing more. So back to my code I went and I edited the url and deleted the steps I just typed in the last paragraph. So here is the code so far:
+		<div id="testimonials"><blockquote>
+			from selenium import webdriver <br>
+			from selenium.webdriver.common.keys import Keys <br>
+			from selenium.webdriver.common.by import By <br>
+			from selenium.webdriver.support.ui import WebDriverWait <br>
+			from selenium.webdriver.support import expected_conditions as EC <br>
+			import pandas as pd <br> <br>
+
+			path = "/Applications/chromedriver-92"  <br>
+			driver = webdriver.Chrome(path) <br>
+			url = "https://www.costco.ca/coupons.html" <br> <br>
+
+			driver.get(url) <br> <br>
+
+			select_region = driver.find_element_by_xpath("//input[@value = 'ON']").click() <br>
+			set_region = driver.find_element_by_xpath("//input[@value = 'Set Language and Region']").click()
+		</blockquote></div>
+		Now that I have the correct region and webpage open, we can get started on pulling the coupon data.
 	</p>
 </div>
 
@@ -143,7 +241,208 @@
 <div class="row">
 	<h5 id="part3">3: Pulling Data</h5>
 	<p>
-		
+		We need to make sure the page is fully loaded before we can try to pull the data from it, so we need to use <a href="https://selenium-python.readthedocs.io/waits.html" class="saymore"> wait</a>.
+	</p>
+	<p>
+		First, we need to find the ID container:
+		<center><img src="images/pages/projects/costco/couponboxid.png" width="700" height=”auto” alt=""></center>
+		From the picture we can see that the class containing the coupons is <i>“couponbox”</i> so I went to the <u>page source</u> and <i>“cmd-f” “couponbox”.</i> This brought me to:
+		<center><img src="images/pages/projects/costco/couponslp.png" width="500" height=”auto” alt=""></center>
+		As we can see, the ID is <i>“coupons-lp”</i>.
+	</p>
+	<p>
+		I pulled this code directly from the Selenium <i>explicit wait</i> function. I only changed two things:
+		<div class="tab"><ol>
+			<li>My variable name I wanted it to be specific to my project, so I chose <i>all_coupons</i>, because this will pull all of the coupon data</li>
+			<li>The ID we are using to locate the coupons is <i>"coupons-lp".</i></li>
+		</ol></div>
+		<div id="testimonials"><blockquote>
+			try:
+			<div class="tab">
+				all_coupons = WebDriverWait(driver, 10).until(
+				<div class="tab">
+					EC.presence_of_element_located((By.ID, "coupons-lp"))
+				</div>
+				)<br>
+				CODE TO BE ADDED
+			</div>
+			finally:
+			<div class="tab">
+				driver.quit()
+			</div>
+		</blockquote></div>
+	</p>
+	<p>
+		Before we pull the data, we must create lists to store the information we want: product name, price,  discount, start and end dates.
+		<div id="testimonials"><blockquote>
+			names = [] <br>
+			prices = [] <br>
+			savings = [] <br>
+			start_dates = [] <br>
+			end_dates = []
+		</blockquote></div>
+	</p>
+	<p>
+		Now the following code that will be pulling the data from the container using various attributes will be all written within the <u><b>try</b></u> section.
+	</p>
+	<p>
+		We must find a container that contains all five of those details:
+		<center><img src="images/pages/projects/costco/detailcontainer.png" width="750" height=”auto” alt=""></center>
+	</p>
+	<p>
+		This <i>“CLpbulkcoup”</i> class contains the information we need for each individual coupon, so we want to find all elements (plural) that have this path. We will be using <i>xpath</i> to find all elements. On Chrome, you are able to copy the xpath and just paste it. This can cause errors depending on which path you have copied, so I always just use it as a starting point and then modify based on what I need.
+		<center><img src="images/pages/projects/costco/copyxpath.png" width="250" height=”auto” alt=""></center>
+		What I got was <i>“//*[@id='coupons-lp']/ul[1]/li[1]/div[1]”</i> - in this case this is not helpful to us, as it will only return the first container and we want all containers. This is why it is important to know the basics. So I modified my path to be: <i>"//div[@class='CLpbulkcoup']"</i>.<br><br>
+		So we will be saving all the HTML code we pull for each coupon, using <i>xpath</i> for the <i>CLpbulkcoup</i> class, into our <i>coupons_detail</i> variable.
+		<div id="testimonials"><blockquote>coupons_detail = all_coupons.find_elements_by_xpath("//div[@class='CLpbulkcoup']]")</blockquote></div>
+	</p>
+	<p>
+		We will be using a for-loop to cycle through each iteration of the coupons. I want to enumerate each item, so I can track if I have collected all the coupons and if they corresponded to the correct location. You do not need this for the code to work properly!
+		<div id="testimonials"><blockquote>for i, coupon_detail in enumerate(coupons_detail):</blockquote></div>
+	</p>
+	<p>
+		Now, let’s breakdown how we will <i>.find_element</i> for each part we need:
+		<div class="tab">
+		<ol>
+			<li>
+				<b>Product Names:</b><br>
+				Under the <i>class='CLpbulkcoup'</i>, there is a unique class name for the product name so I was able to use it. If you try finding the element by the <i>“spanBlock sl1”</i> class name, you will run into issues. It is enough to just specify <i>“sl1”</i> because it is unique under the <i>'CLpbulkcoup’</i> container.
+				<center><img src="images/pages/projects/costco/productname.png" width="350" height=”auto” alt=""></center>
+				To extract the product name, I ended up with:
+				<div id="testimonials"><blockquote>coupon_name = coupon_detail.find_element_by_class_name("sl1")</blockquote></div>
+			</li>
+			<li>
+				<b>Savings:</b><br>
+				Similar to above, I found the class attribute of “price” was unique and would pull the savings received on the coupon.
+				<center><img src="images/pages/projects/costco/savings.png" width="350" height=”auto” alt=""></center>
+				To extract the product savings, I ended up with:
+				<div id="testimonials"><blockquote>coupon_savings = coupon_detail.find_element_by_class_name("price")</blockquote></div>
+			</li>
+			<li>
+				<b>New Price:</b><br>
+				<p>
+					For the new price extraction, I ran into issues primarily because the second coupon pulled did not have a price, only a % amount saved. So there was a lot of trial and error. First, I followed similar logic to what I had above:
+					<center><img src="images/pages/projects/costco/newprice.png" width="350" height=”auto” alt=""></center>
+					And ended up with:
+					<div id="testimonials"><blockquote>coupon_price = coupon_detail.find_element_by_class_name("eco-priceTable")</blockquote></div>
+					However, when I ran that code, I got the following error message:<br>
+					<b>selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":".eco-priceTable"}</b>
+				</p>
+				<p>
+					What can be done now is import that exception and handle it. What that would look like is:
+					<div id="testimonials"><blockquote>from selenium.common.exceptions import NoSuchElementException</blockquote></div>
+					Then because the error is saying there is no such element, it most likely means that since the second coupon pulled is missing a price we must set the value to none to deal with the exception. So it would look like this:
+					<div id="testimonials"><blockquote>
+						try:
+						<div class="tab">
+							coupon_price = coupon_detail.find_element_by_class_name("eco-priceTable")<br>
+							print(coupon_price.text)
+						</div>
+						except NoSuchElementException:
+						<div class="tab">
+							coupon_price = None
+						</div>
+					</blockquote></div>
+				</p>
+				<p>
+					We have to make sure we print the <i>coupon_price.text</i> in the try section because you cannot return <i>.text</i> of None attribute. The output I got was: <br>
+					<div id="testimonials"><blockquote>
+						1) $39.99 <br>
+						3) $24.99 <br>
+						4) $12.69 <br>
+						5) $16.99 <br>
+						6) $16.99 <br>
+						7) $9.99 <br>
+						8) $11.49 <br>
+						9) $14.99 <br>
+						10) $11.99 <br>
+						...
+					</blockquote></div>
+					I was so excited because yay! prices! and the second entry is set to null! But then I compared the printed prices to the flyer and I found that it was pulling the original price as opposed to the new sale price. So I went back to the HTML code and found out why:
+					<center><img src="images/pages/projects/costco/ecopricetable.png" width="350" height=”auto” alt=""></center>
+					As can be seen, there are three iterations of the class “eco-priceTable”.
+				</p>
+				<p>
+					Now I learned something fancy (which in hindsight is really not that fancy but I was still very excited by it): you can find elements and specify which index of element you want in one line. How you ask? Well first we want to find all elements with the class <i>“eco-priceTable”</i>:
+					<div id="testimonials"><blockquote>coupon_detail.find_elements_by_class_name("eco-priceTable")</blockquote></div>
+					Looking at the containers, we can see that the specific class we want is the third one, so our index must be [2]. 
+					<div id="testimonials"><blockquote>find_elements_by_class_name("eco-priceTable")<b>[2]</b></blockquote></div>
+				</p>
+				<p>
+					However, we run into an error because at least one of our examples does not have a price table, so we must account for it by specifying if there are no indices we will return none. First, we will store all the elements we have collected with the correct class name in the <i>price_rows</i> variable: 
+					<div id="testimonials"><blockquote>price_rows = coupon_detail.find_elements_by_class_name("eco-priceTable")</blockquote></div>
+				</p>
+				<p>
+					Then we can check if <i>price_rows</i> has data stored and store the third container text to give <i>coupon_price</i> or we set the <i>coupon_price</i> to <i>None</i>:
+					<div id="testimonials"><blockquote>
+						if price_rows:
+						<div class="tab">
+							coupon_price = coupon_detail.find_elements_by_class_name("eco-priceTable")[2].text
+						</div>
+						else:
+						<div class="tab">
+							coupon_price = None
+						</div>
+					</blockquote></div>
+					This gives us the correct output without any errors. So we can actually delete the imported exception from selenium.
+				</p>
+			</li>
+			<li>
+				<b>Start Date of Sale:</b><br>
+				Using the xpath copy we get - <i>“//*[@id='coupons-lp']/ul[1]/li[1]/div[1]/span/time[1]”</i> but I want to generalize this to all of the coupons, I edited it to only contain the detailed span and which time bucket it falls into: <i>“//span[@class='CLP-validdates']/time[1]”</i>
+				<center><img src="images/pages/projects/costco/startdate.png" width="350" height=”auto” alt=""></center>
+				I ended up with:
+				<div id="testimonials"><blockquote>start_date = coupon_detail.find_element_by_xpath("//span[@class='CLP-validdates']/time[1]")</blockquote></div>
+			</li>
+			<li>
+				<b>End Date of Sale:</b><br>
+				Using the xpath copy we get - <i>“//*[@id='coupons-lp']/ul[1]/li[1]/div[1]/span/time[2]”</i> but I want to generalize this to all of the coupons, I edited it to only contain the detailed span and which time bucket it falls into: <i>“//span[@class='CLP-validdates']/time[2]”</i>
+				I ended up with:
+				<div id="testimonials"><blockquote>end_date = coupon_detail.find_element_by_xpath("//span[@class='CLP-validdates']/time[2]")</blockquote></div>
+			</li>
+		</ol>
+		</div>
+	</p>
+	<p>
+		We must not only pull the data from each coupon, but we must also append the text of each entry to the correct list. So now that we have found all of the paths and ways to access the data we want, this is the code we will have:
+		<div id="testimonials"><blockquote>
+			coupon_name = coupon_detail.find_element_by_class_name("sl1").text <br>
+			names.append(coupon_name) <br>
+			coupon_savings = coupon_detail.find_element_by_class_name("price").text <br>
+			savings.append(coupon_savings) <br>
+			price_rows = coupon_detail.find_elements_by_class_name("eco-priceTable") <br>
+			if price_rows: 
+			<div class="tab">
+				coupon_price = coupon_detail.find_elements_by_class_name("eco-priceTable")[2].text
+			</div>
+			else:
+			<div class="tab">
+				coupon_price = None	
+			</div>
+			prices.append(coupon_price) <br>
+			start_date = coupon_detail.find_element_by_xpath("//span[@class='CLP-validdates']/time[1]").text <br>
+			start_dates.append(start_date) <br>
+			end_date = coupon_detail.find_element_by_xpath("//span[@class='CLP-validdates']/time[2]").text <br>
+			end_dates.append(end_date)
+		</blockquote></div>
+	</p>
+	<p>
+		Now we just need to add the lists to a pandas dataframe:
+		<div id="testimonials"><blockquote>
+			coupons = pd.DataFrame({
+			<div class="tab">
+			 	'Start Date' : start_dates, <br>
+			 	'End Date' : end_dates, <br>
+			 	'Product' : names, <br>
+			  	'New Price' : prices, <br>
+			 	'Savings' : savings, <br>
+			 	})
+			</div>
+		</blockquote></div>
+	</p>
+	<p>
+		Here is what our data frame looks like:
+		<center><img src="images/pages/projects/costco/datacollected.png" width="500" height=”auto” alt=""></center>
 	</p>
 </div>
 
@@ -151,7 +450,60 @@
 <div class="row">
 	<h5 id="part4">4: Data Analysis</h5>
 	<p>
-		
+		Now that we have all the data collected it is time to search for our keyword. First, let's set what our key word is (for testing purposes, we will pick chicken, as there are two iterations of it in the data):
+		<div id="testimonials"><blockquote>key_word = "chicken"</blockquote></div>
+	</p>
+	<p>
+		Pandas has a series string finder, which I found very helpful guidance on <a href="https://www.geeksforgeeks.org/python-pandas-series-str-find/" class="saymore"> Geeks-for-Geeks</a>. We will be adding a column (<i>"Search"</i>) to the data to give us a number when a keyword is found. The number that is given in the column determines the character location of the word. If a result of <i>-1</i> is shown, this means the word was not found.
+		<div id="testimonials"><blockquote>coupons["Search"] = coupons["Product"].str.find(key_word)</blockquote></div>
+		Breaking this further down:
+		<div class="tab"><ul class="disc">
+			<li><i>coupons["Search"]</i> creates the new column in our data frame</li>
+			<li><i>coupons["Product"].str</i> is accessing the string of each of the rows within the "Products" column</li>
+			<li><i>.find(key_word)</i> searches through the strings from above to get find if there is the key word we selected</li>
+		</ul></div>
+	</p>
+	<p>
+		If the key word I'm looking for was chicken, this is the result I would get:
+		<center><img src="images/pages/projects/costco/chickensearch.png" width="500" height=”auto” alt=""></center>
+	</p>
+	<p>
+		Next, we will need to get the index of row(s), primarily we are looking for any row that has a value greater than <i>-1</i> in the <i>"Search"</i> column. <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.loc.html" class="saymore">.loc[]</a> in pandas allows us to find rows corresponding to specific set criteria. We need to specify the data frame we are working with (in this case coupons) along with what label we are looking for (in this case the column ‘Search’) and we want to only find values that are greater than -1.
+		<div id="testimonials"><blockquote>relevant_coupons = coupons.loc[coupons['Search'] > -1].copy()</blockquote></div>
+		We want to make a <i>.copy()</i> because we do not want to alter our original coupons data frames which has all the coupon information stored. Since we are working with a very small data set, it is okay to make a copy of the coupons data frame.
+	</p>
+	<p>
+		In order to print the data, I do not want it to have the "Search" column in what is displayed (for aesthetic reasons), so I had to <a href="https://www.delftstack.com/howto/python-pandas/pandas-drop-columns-by-index/" class="saymore"> drop a column</a>. The <i>.drop()</i> method I am using has two parameters inputs: the first one being - the label of the column/row you want to drop and the second one being - whether you are dropping a row <i>(axis = 0)</i> or a column <i>(axis = 1)</i>. So our code would look like this:
+		<div id="testimonials"><blockquote>relevant_coupons = relevant_coupons.drop(['Search'], axis = 1)</blockquote></div>
+	</p>
+	<p>
+		Before we print the relevant_coupon data, we have to consider if the <i>.loc[]</i> will find nothing. So we want to make a if/else statement. We would expect it to be false if there was a key term found. So if the <i>relevant_coupons.empty</i> is false then we can 1) drop the ‘Search’ column and 2) print out the data (I add another print line just for aesthetics).
+		<div id="testimonials"><blockquote>
+			if  not relevant_coupons.empty:
+			<div class="tab">
+				relevant_coupons = relevant_coupons.drop(['Search'], axis = 1) <br>
+				print(relevant_coupons) <br>
+				print("\n ------------------------------------------------------------------------------------------ \n")
+			</div>
+		</blockquote></div>
+		Otherwise, we want to return that no coupons were found.
+		<div id="testimonials"><blockquote>
+			else:
+			<div class="tab">
+				print("No coupons found") <br>
+				print("\n ------------------------------------------------------------------------------------------ \n")
+			</div>
+		</blockquote></div>
+	</p>
+	<p>
+		Here is the csv file output you would get for searching the word chicken:
+		<center><img src="images/pages/projects/costco/chickencsv.png" width="500" height=”auto” alt=""></center>
+		Here is the terminal output:
+		<center><img src="images/pages/projects/costco/chickenterminal.png" width="500" height=”auto” alt=""></center>
+		Here is the csv file output you would get for searching the word turkey:
+		<center><img src="images/pages/projects/costco/turkeycsv.png" width="500" height=”auto” alt=""></center>
+		Here is the terminal output:
+		<center><img src="images/pages/projects/costco/turkeyterminal.png" width="500" height=”auto” alt=""></center>
 	</p>
 </div>
 
@@ -159,7 +511,7 @@
 <div class="row">
 	<h5 id="part5">5: Completed Code</h5>
 	<p>
-		
+		The completed code you can get on my <a href="https://github.com/anjawu/costco-deal-hunter" class="saymore"> GitHub</a> page.
 	</p>
 </div>
 
