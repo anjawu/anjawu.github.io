@@ -107,7 +107,7 @@
 		<h4>Web Scraping Top 50 Movies: IMDb</h4>
 	</div>
 	<p>
-		
+		After the web scraping of the Indeed website, I decided to try to scrap a website that required multiple pages to be scrapped. This led to me hitting a wall. So as always, I turned to the trusty Google. I came across a different tutorial on web scraping, and even though I had already learnt the basics, I decided to try it out. <a href="https://betterprogramming.pub/the-only-step-by-step-guide-youll-need-to-build-a-web-scraper-with-python-e79066bd895a" class="saymore"> This tutorial</a> is very well written and easy to follow! Me being me, of course, had to look up stuff into more details so that I could completely understand where everything was coming from. So something that should have been a quick read, turned into me trying the code myself, and alternating some stuff along the way. I also learnt how to store the data I collected into a CSV file leading me to the beginnings of data analysis (Which is pretty cool, I say as a math nerd)! This project was written as a way for me to solidify information for myself. It does link back to the Indeed project in terms of what I am learning past what I learnt in the previous one. So I would recommend either reading the Indeed project I wrote before this one, or going to the tutorial I got information from!
 	</p>
 	<div class="four columns">
 		<a href="#part1" class="saymore"> Part 1: Importing correct libraries</a>
@@ -120,11 +120,274 @@
 		<a href="#part3" class="saymore"> Part 3: Data frames and cleaning up the data</a>
 	</div>
 </div>
+
+<!-- Part 1: Importing correct libraries -->
 <div class="row">
 	<h5 id="part1">1: Importing correct libraries</h5>
-
+	<p>
+		Just like with the last web scraping project, we must import our libraries for web scraping (requests and BeautifulSoup):
+		<div id="testimonials"><blockquote>
+			import requests
+			from bs4 import BeautifulSoup
+		</blockquote></div>
+	</p>
+	<p>
+		Now that we will want to install our data packages. In this project we will want to install <i>Pandas</i>, which is used to assemble the data into a data frame, plus it allows us to clean and analyze the data.
+		<div id="testimonials"><blockquote>pip install pandas</blockquote></div>
+		Don’t forget that we need to import the library into our program:
+		<div id="testimonials"><blockquote>import pandas as pd</blockquote></div>
+	</p>
+	<p>
+		Since we are scraping a source where languages of movies can change based on location, we need to create a header variable to ensure it is in English:
+		<div id="testimonials"><blockquote>headers = {"Accept-Language": "en-US, en;q=0.5"}</blockquote></div>
+	</p>
+	<p>
+		Just like before we need to specify the URL and we want to store the information from the webpage, so we will use requests <i>.get()</i> method. This time, we need to have extra parameters. We want to specify headers = headers because the headers that we have within the website could be a different language, so we want to ensure that we are putting in the headers variable we created above (to make sure it is English). 
+		<div id="testimonials"><blockquote>
+			URL = 'https://www.imdb.com/search/title/?groups=top_1000&ref_=adv_prv'<br>
+			results = requests.get(URL, headers = headers)
+		</blockquote></div>
+	</p>
+	<p>
+		We will also have to parse our html, using BeautifulSoup:
+		<div id="testimonials"><blockquote>soup = BeautifulSoup(results.text, 'html.parser')</blockquote></div>
+		To ensure you have collected data you can check your print out:
+		<div id="testimonials"><blockquote>print(soup.prettify())</blockquote></div>
+	</p>
+	<p>
+		So here is the code we get for the first part:
+		<center><img src="images/pages/projects/imdb/part1.png" width="500" height=”auto” alt=""></center>
+	</p>
+<br><br><br><br>
 </div>
 
+<!-- Part 2: Collecting and storing data -->
+<div class="row">
+	<h5 id="part2">2: Collecting and storing data</h5>
+	<p>
+		Now we will create lists to store the information we collect, rather than just printing it out. We want to initialize our lists. All you need to do to make a list is use <i>“[]”</i>. I wanted to get the following information: movie title, year  released, length of movie, what genres it belongs to, the IMDb ratings, the metascore and how much did the movie make.
+		<div id="testimonials"><blockquote>
+			titles = [] <br>
+			years = [] <br>
+			length = [] <br>
+			genre = [] <br>
+			ratings = [] <br>
+			metascores = [] <br>
+			us_gross = [] <br>
+		</blockquote></div>
+		Now we want to go to our element code found on our page (remember: can access by right-clicking page and selecting inspect):
+		<center><img src="images/pages/projects/imdb/inspectmovie.png" width="800" height=”auto” alt=""></center>
+		As we can see, in order to get all the movie elements we will want to <i>find_all()</i> within <i>‘div’</i> and <i>‘class = lister-item’</i>:
+		<div id="testimonials"><blockquote>movie_elems = soup.find_all('div', class_ = 'lister-item')</blockquote></div>
+	</p>
+	<p>
+		Now in order to collect the specific data from the website, we will use a for-loop:
+		<div id="testimonials"><blockquote>for i, movie_elem in enumerate(movie_elems):</blockquote></div>
+	</p>
+	<h6>Title</h6>
+	<p>
+		In order to extract the <u>title</u> element, we look at the element source code, we see that it is contained within the <i>h3</i> section:<br>
+		<center><img src="images/pages/projects/imdb/titleelement.png" width="900" height=”auto” alt=""></center>
+		So we would have our code being:
+		<div id="testimonials"><blockquote>title_elem = movie_elem.find('h3', class_ = 'lister-item-header').text.strip() </blockquote></div>
+		But we can actually simplify it. Looking at the nested titles, we can see that after the <i>‘div class="lister-item-content"’</i> we have <i>‘h3’</i> and then <i>‘a’</i> that contains the information we need, so we can simply specify that we want the title element to come from the movie element from <i>h3.a</i> and we want it to just remove the text:
+		<div id="testimonials"><blockquote>title_elem = movie_elem.h3.a.text</blockquote></div>
+	</p>
+	<p>
+		We need to ensure that there is no <i>“none type”</i> attribute, so we can error check right away:
+		<div id="testimonials"><blockquote>
+			if movie_elem.h3.a:
+			<div class="tab">
+				title_elem = movie_elem.h3.a.text
+			</div>
+			else:
+			<div class="tab">
+				title_elem = 'No title found'
+			</div>
+		</blockquote></div>
+		Since this is a very simple code we can further simplify it by writing it on one line.
+		<div id="testimonials"><blockquote>title_elem = movie_elem.h3.a.text if movie_elem.h3.a else 'No title found'</blockquote></div>
+
+		Then we want to add the title element to our titles list by using <i>.append()</i> method:
+		<div id="testimonials"><blockquote>titles.append(title_elem)</blockquote></div>
+		<center><img src="images/pages/projects/imdb/part2step1.png" width="600" height=”auto” alt=""></center>
+	</p>
+	<h6>Year</h6>
+	<p>
+		Next, we want to pull data from about the <u>year</u> it was released:
+		<center><img src="images/pages/projects/imdb/yearelement.png" width="900" height=”auto” alt=""></center>
+		Since we can see that there is more than one <i>‘span’</i> found in the nesting, we must specify which one needs to be found.
+		<div id="testimonials"><blockquote>year_elem = movie_elem.h3.find('span', class_ = 'lister-item-year').text if movie_elem.h3.find('span', class_ = 'lister-item-year') else 'No year found'</blockquote></div>
+		Then also <i>.append()</i> it to the year list.
+		<div id="testimonials"><blockquote>years.append(year_elem)</blockquote></div>
+	</p>
+	<h6>Runtime</h6>
+	<p>
+		To pull the <u>runtime</u> of the movie:
+		<center><img src="images/pages/projects/imdb/runtimeelement.png" width="900" height=”auto” alt=""></center>
+		We want to pull from the subsection of <i>‘p’</i> after <i>‘div’</i> before we get to the <i>‘span’</i> which contains the runtime (you don’t necessarily need <i>.p</i> but it helps prevent errors from where the data is pulled):
+		<div id="testimonials"><blockquote>
+			length_elem = movie_elem.p.find('span', class_ = 'runtime').text if movie_elem.p.find('span', class_ = 'runtime') else 'No movie length found'<br>
+			length.append(length_elem)
+		</blockquote></div>
+	</p>
+	<h6>Genre</h6>
+	<p>
+		To pull the <u>genre</u>:
+		<center><img src="images/pages/projects/imdb/genreelement.png" width="900" height=”auto” alt=""></center>
+		We want to use <i>.strip()</i> because the formatting of the string has spaces that we do not want.
+		<div id="testimonials"><blockquote>
+			genre_elem = movie_elem.p.find('span', class_ = 'genre').text.strip() 
+			genre.append(genre_elem)
+		</blockquote></div>
+	</p>
+	<h6>Ratings</h6>
+	<p>
+		To pull the <u>ratings</u>:
+		<center><img src="images/pages/projects/imdb/ratingselement.png" width="900" height=”auto” alt=""></center>
+		When collecting data we want to make sure that each variable is classified as the correct data set. So we can automatically classify the rating element as a float (using <i>float()</i> function) because the texted extracted is a decimal. Since within the <i>‘div’</i> section we only have one subsection titled <i>‘strong’</i>, we are able to use the same method we used for the movie title: <i>movie_elem.strong.text.</i>
+		<div id="testimonials"><blockquote>
+			rating_elem = float(movie_elem.strong.text)
+			ratings.append(rating_elem)
+		</blockquote></div>
+	</p>
+	<h6>Metascore</h6>
+	<p>
+		To pull the <u>metascore</u>:
+		<center><img src="images/pages/projects/imdb/metascoreelement.png" width="900" height=”auto” alt=""></center>
+		We will notice that the metascore is found within the <i>span</i> container but the class attribute has two different strings <i>“metascore”</i> and <i>“favorable”</i> or <i>“mixed”</i>. Since the second string changes, we want to have the <i>.find()</i> method use the class attribute of <i>‘metascore’</i> to ensure it gets the different metascores. Similarly to above, the metascore is already an integer, so we can classify it as an <i>int()</i> right away.
+		<div id="testimonials"><blockquote>metascore_elem = int(movie_elem.find('span', class_ = 'metascore').text)</blockquote></div>
+		We also want to make sure we check whether there are any metascores 
+		<div id="testimonials"><blockquote>
+			metascore_elem = int(movie_elem.find('span', class_ = 'metascore').text) if movie_elem.find('span', class_ = 'metascore') else "No metascore found"<br>
+			metascores.append(metascore_elem)
+		</blockquote></div>
+	</p>
+	<h6>US Gross Worth</h6>
+	<p>
+		Now when we look at the <u>US gross worth</u>, we can see that only some of the movies have it:
+		<center><img src="images/pages/projects/imdb/grosselement.png" width="900" height=”auto” alt=""></center>
+		However, we can see that for the movies that do have the gross, there is more than one <i>span</i> container that has the name attribute called <i>‘nv’</i>. So this means we actually have to specify which one we want to pull out. So first thing we will do is <i>.find_all()</i> with the correct attributes, but if you put 
+		<div id="testimonials"><blockquote>nv = movie_elem.find_all('span', name = 'nv')</blockquote></div>
+	</p>
+	<p>
+		We will get an error due to the fact that the name attribute is not unique. So we must specify that we are looking at more than one attribute, and that it contains both the <i>‘name’</i> and <i>‘nv’</i>:	
+		<div id="testimonials"><blockquote>nv = movie_elem.find_all('span', attrs = {'name' : 'nv'})</blockquote></div>
+	</p>
+	<p>
+		Now that we have collected all the data values from the name attributes, we need to specify which one is the one we will use for the US gross. We can do this by checking how many <i>‘nv’</i> were collected by <i>.find_all()</i> method. We check if the length of <i>nv</i> is greater than 1 (meaning more than one data point was collected), using the <i>len()</i> function. If there is more than one entry, we want to just pull the second index. Remember for indices it starts at 0, so when we want the second index we denoted it with a 1: <i>nv[1]</i>.
+		<div id="testimonials"><blockquote>
+			if len(nv) > 1:
+			<div class="tab">
+				us_gross_elem = nv[1].text
+			</div>
+		</blockquote></div>
+		Now if there was only one <i>‘nv’</i> pulled, we do not want it because it means that that specific movie does NOT have the US gross listed.
+		<div id="testimonials"><blockquote>
+			else:
+			<div class="tab">
+				us_gross_elem = "-"
+			</div>
+		</blockquote></div>
+		Then we can append it to the list:
+		<div id="testimonials"><blockquote>us_gross.append(us_gross_elem)</blockquote></div>
+	</p>
+	<p>
+		Here is the code for step two:
+		<center><img src="images/pages/projects/imdb/part2.png" width="700" height=”auto” alt=""></center>
+	</p>
+<br><br><br><br>
+</div>
+
+<!-- Part 3: Data frames and cleaning up the data -->
+<div class="row">
+	<h5 id="part3">3: Data frames and cleaning up the data</h5>
+	<p>
+		Now that we have the data and it is stored in lists, we want to make a data frame to be able to edit the data and then we can move further to manipulate it. We will use <i>Pandas</i> to do this. Remember, that we imported <i>Pandas</i> at the start, but we gave it the variable <i>pd</i>, meaning when we reference it we just need to write <i>“pd.”</i> to access various functions from the <i>Pandas</i> library. I’ll quickly go over the format of <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html" class="saymore">Pandas DataFrame</a>:
+		<div id="testimonials"><blockquote>
+			pandas.DataFrame({
+			<div class="tab">
+				‘title of column 1’ : [what you want column 1 to contain], <br>
+				‘title of column 2’ : [what you want column 2 to contain], <br>
+				... <br>
+				})
+			</div>
+			
+		</blockquote></div>
+		So in our example we want to title the columns based on what the data displayed will be and we will connect it to the corresponding lists:
+		<div id="testimonials"><blockquote>
+			movies = pd.DataFrame({
+			<div class="tab">
+				'movie' : titles, <br>
+				'year' : years, <br>
+				'length (min)' : length, <br>
+				'genre' : genre, <br>
+				'IMDb ratings' : ratings, <br>
+				'Metascore' : metascores, <br>
+				'US gross (millions)' : us_gross, <br>
+				})
+			</div>
+		</blockquote></div>
+		You can check that it was done properly by:
+		<div id="testimonials"><blockquote>print(movies)</blockquote></div>
+	</p>
+	<p>
+		In this post it is not that important that the data types are correct as the data will not be used/manipulated. However, it is important to get into a good habit of making sure the data types are correct because you never know when you might go back to your data and need to manipulate and use it.
+	</p>
+	<p>
+		So first thing we will do is check which data types we have:
+		<div id="testimonials"><blockquote> print(movies.dtypes)</blockquote></div>
+		Here are the results I got:
+		<div id="testimonials"><blockquote> 
+			movie           object <br>
+			year            object <br>
+			length          object <br>
+			genre           object <br>
+			IMDb ratings    float64			<b>*because I classified it as float() earlier</b> <br>
+			Metascore       int64			<b>*because I classified it as int() earlier</b> <br>
+			US gross        object
+		</blockquote></div>
+	</p>
+	<p>
+		As we can see we need to change some of these:
+		<div class="tab">
+		<ul class="disc">
+			<li>Year: should be integer</li>
+			<li>Length: should be integer (since it is in minutes)</li>
+			<li>US gross: should be float (as there are decimals)</li>
+		</ul>
+		</div>
+	</p>
+	<p>
+		Let’s start with the <u>year</u>, we will want to remove the parenthesis that come with the year. So from the string we will want to just extract the number. <i>‘extract(\d+)’</i> says to start extracting at the 1st digit, <i>"+"</i> means that it must have at least 1 digit. If we did not care about the number of integers needed, we could have written <i>‘extract(\d*)’</i>, where <i>"*"</i> means you can start at 0 integers. Next, after we have extracted the digits from the string, we want to use <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.astype.html" class="saymore"> <i>.astype()</i> method</a> to convert the string to an integer. We also want to write over the data we had previously in the list with our newly edited integers, so we will set the variable to be the same:
+		<div id="testimonials"><blockquote>movies['year'] = movies['year'].str.extract('(\d+)').astype(int)</blockquote></div>
+		<b><i>Note: .str is an attribute of Pandas series (which is a column of a data frame)</i></b>
+	</p>
+	<p>
+		Now for <u>movie length</u>, we will do the same thing because we want to remove just the number and leave out the “min”:
+		<div id="testimonials"><blockquote>movies['length (min)'] = movies['length (min)'].str.extract('(\d+)').astype(int)</blockquote></div>
+	</p>
+	<p>
+		For the <u>US gross</u>, the number we want is found in between $ and M, with a decimal in the number, so we cannot just use the <i>str.extract()</i> method that we used for the other two cases. When I did research on how to remove the $ and M, what I found was that I can use <i>.str.replace()</i> method as many times as I wanted. Where <i>.str.replace(‘what you want to remove’, ‘what you want to put in instead’)</i>, so I tried:
+		<div id="testimonials"><blockquote>movies['US gross (millions)'] = movies['US gross (millions)'].str.replace('M', '').str.replace('$', '')</blockquote></div>
+		Although this works, this method is not the best as it is not as clean as it could be if we have a function. It also is requiring the <i>.str</i> to be iterated twice, which if we have a long list of replacements could slow down our program. This is why you are able to use the <i>lambda</i> function. I went down a rabbit hole researching <i>lambda</i> and wrote about it on my <a href="funlearn.html" class="saymore"> Fun Things Learnt</a> page.
+	</p>
+	<p>
+		Then we want make sure that the US gross is a <i>float</i>, which we use <i>Pandas</i> for:
+		<div id="testimonials"><blockquote>movies['us_grossMillions'] = pd.to_numeric(movies['us_grossMillions'])</blockquote></div>
+		However, this will yield an error due to the fact that we have specified that we do not want <i>NaN</i>, but rather we want “-”, so we must ask the function to <i>“coerce”</i> the errors:
+		<div id="testimonials"><blockquote>movies['us_grossMillions'] = pd.to_numeric(movies['us_grossMillions'], errors='coerce')</blockquote></div>
+	</p>
+	<p>
+		Now that that has been completed, the last thing we need to do is save it to a CSV file, so we can access it later and use the data (should we chose to).
+		<div id="testimonials"><blockquote>movies.to_csv('IMDbmovies.csv')</blockquote></div>
+		Now it is better to have an absolute path to make sure that it gets saved to the correct folder you want:
+		<div id="testimonials"><blockquote>movies.to_csv('/Users/anjawu/Code/imdb-web-scraping/IMDbmovies.csv')</blockquote></div>
+	</p>
+	<p>
+		Full code found <a href="https://github.com/anjawu/imdb-web-scraping" class="saymore"> here!</a>
+	</p>
+</div>
 <div class="hr">
 </div>
 
