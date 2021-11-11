@@ -85,6 +85,8 @@ abbr { text-transform: none }
 .github:hover { background: url(../images/socialpack/githuba.png) }
 .linkedin { background: url(../images/socialpack/linkedin.png) }
 .linkedin:hover { background: url(../images/socialpack/linkedina.png) }
+.github2 { background: url(../images/socialpack/github2.png) }
+.github2:hover { background: url(../images/socialpack/githuba.png) }
 
 
 .code img { text-align: center; width: 30%; height: auto; }
