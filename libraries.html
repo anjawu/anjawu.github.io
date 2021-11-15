@@ -68,7 +68,7 @@
 			<li> Projects
 			<!-- <a href="projects.html">Projects</a> -->
 			<ul>
-				<li><a href="redlight.html">Ottawa Redlight Violations Analysis</a></li>
+				<li><a href="redlight.html">Redlight</a></li>
 				<li><a href="costco.html">Costco</a></li>
 				<li><a href="website.html">Website</a></li>
 				<li><a href="indeed.html">Indeed</a></li>
@@ -102,6 +102,97 @@
 ================================================== -->
 <div class="row">
 	<div class="twelve columns">
+
+	<!-- MATPLOTLIB-->
+		<div class="circledate">
+			<div class="textcircle">
+				<br>MatPlot
+			</div>
+		</div>
+		<h4><a href="https://pandas.pydata.org/about/" class="saymore">Matplotlib</a></h4>
+		<div class="dots blogdots">
+		</div>
+		<p>
+			
+
+		</p>
+		<div class="hr">
+		</div>
+		<!-- Accordion: Setting Up -->
+			<ul class="accordion">
+			<li class="">
+				<div class="title">
+					<b>Setting up Matplotlib</b>
+				</div>
+				<div class="content" style="overflow: hidden; display: none; ">
+					<p>
+						To download, in the terminal enter:
+						<div id="testimonials"><blockquote><p>pip install pandas</p></blockquote></div>
+						To use within a .py (python) file:
+						<div id="testimonials"><blockquote><p>import pandas as pd</p></blockquote></div>
+						Here you are importing the Pandas library and giving it a variable pd, this way when you want to call on a function from Pandas, you do not need to type pandas each time, but can just write pd.
+					</p>
+				</div>
+			</li>
+		<!-- Accordion: Aesthetics -->
+			<li class="">
+				<div class="title">
+					<b>Aesthetics</b>
+				</div>
+				<div class="content" style="overflow: hidden; display: none; ">
+					<p>
+						https://matplotlib.org/stable/gallery/color/named_colors.html 
+Legend: https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.legend.html custom: https://jakevdp.github.io/PythonDataScienceHandbook/04.06-customizing-legends.html 
+					</p>
+				</div>
+			</li>
+		<!-- Accordion: Bar graphs -->
+			<li class="">
+				<div class="title">
+					<b>Bar Graphs</b>
+				</div>
+				<div class="content" style="overflow: hidden; display: none; ">
+					<p>
+						Bar graph: https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.bar.html#matplotlib.pyplot.bar 
+					</p>
+				</div>
+			</li>
+		<!-- Accordion: Double Bar graphs -->
+			<li class="">
+				<div class="title">
+					<b>Double Bar Graphs</b>
+				</div>
+				<div class="content" style="overflow: hidden; display: none; ">
+					<p>
+						Double bar graph: https://stackoverflow.com/questions/53228762/matplotlib-double-bar-graph-with-pandas-series 
+					</p>
+				</div>
+			</li>
+		<!-- Accordion: Line graph -->
+			<li class="">
+				<div class="title">
+					<b>Line graph</b>
+				</div>
+				<div class="content" style="overflow: hidden; display: none; ">
+					<p>
+						Line chart: https://datatofish.com/line-chart-python-matplotlib/ 
+					</p>
+				</div>
+			</li>
+		<!-- Accordion: Scatterplot -->
+			<li class="">
+				<div class="title">
+					<b>Scatterplot</b>
+				</div>
+				<div class="content" style="overflow: hidden; display: none; ">
+					<p>
+						
+					</p>
+				</div>
+			</li>
+		</ul>
+
+
 		<!-- PANDAS-->
 		<div class="circledate">
 			<div class="textcircle">
@@ -115,14 +206,137 @@
 			Pandas is a library in python that has functionality for data manipulation and analysis. It allows us to organize lists and store them as <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html" class="saymore">data frames</a>. Data frames are data structures which have labeled rows and columns. We want to create these data frames to then be able to edit, manipulate, and analyze the data in a clear way.
 		</p>
 		<p>
-			To download, in the terminal enter:
-			<div id="testimonials"><blockquote><p>pip install pandas</p></blockquote></div>
-			To use within a .py (python) file:
-			<div id="testimonials"><blockquote><p>import pandas as pd</p></blockquote></div>
-			Here you are importing the Pandas library and giving it a variable pd, this way when you want to call on a function from Pandas, you do not need to type pandas each time, but can just write pd.
+			
 		</p>
 		<div class="hr">
 		</div>
+
+		<!-- Accordion: Setting Up -->
+		<ul class="accordion">
+			<li class="">
+				<div class="title">
+					<b>Setting up Pandas</b>
+				</div>
+				<div class="content" style="overflow: hidden; display: none; ">
+					<p>
+						To download, in the terminal enter:
+						<div id="testimonials"><blockquote><p>pip install pandas</p></blockquote></div>
+						To use within a .py (python) file:
+						<div id="testimonials"><blockquote><p>import pandas as pd</p></blockquote></div>
+						Here you are importing the Pandas library and giving it a variable pd, this way when you want to call on a function from Pandas, you do not need to type pandas each time, but can just write pd.
+					</p>
+				</div>
+			</li>
+		<!-- Accordion: Working with dataframe -->
+			<li class="">
+				<div class="title">
+					<b>Working with Dataframes</b>
+				</div>
+				<div class="content" style="overflow: hidden; display: none; ">
+					<p>
+						
+					</p>
+					<!-- Tabs -->
+					<dl class="tabs">
+						<dd class="active"><a href="#rk-sort">Rank / Sort Values</a></dd>
+						<dd><a href="#df-functions">Applying Functions</a></dd>
+						<dd><a href="#add-row">Adding Row</a></dd>
+						<dd><a href="#delete">Delete Row or Column</a></dd>
+						<dd><a href="#compare-df">Compare Dataframes</a></dd>
+					</dl>
+					<ul class="tabs-content">
+						<li class="active" id="rk-sortTab">
+							<p>
+								Rank / Sort Values
+							</p>
+						</li>
+						<li id="df-functionsTab">
+							<p>
+								Applying functions
+							</p>
+						</li>
+						<li id="add-rowTab">
+							<p>
+								Adding row
+							</p>
+						</li>
+						<li id="deleteTab">
+							<p>
+								Delete Column or Row
+							</p>
+						</li>
+						<li id="compare-dfTab">
+							<p>
+								Compare Dataframes
+							</p>
+						</li>
+					</ul>
+				</div>
+			</li>
+		<!-- Accordion: Calculating using dataframe -->
+			<li class="">
+				<div class="title">
+					<b>Calculating using Dataframes</b>
+				</div>
+				<div class="content" style="overflow: hidden; display: none; ">
+					<p>
+						
+					</p>
+					<!-- Tabs -->
+					<dl class="tabs">
+						<dd class="active"><a href="#operations">Pandas Operations</a></dd>
+						<dd><a href="#counting">Counting</a></dd>
+						<dd><a href="#mean">Mean</a></dd>
+						<dd><a href="#sd">Standard Deviation</a></dd>
+					</dl>
+					<ul class="tabs-content">
+						<li class="active" id="operationsTab">
+							<p>
+								Operations tab
+							</p>
+						</li>
+						<li id="countingTab">
+							<p>
+								Counting tab
+							</p>
+						</li>
+						<li id="meanTab">
+							<p>
+								Mean tab
+							</p>
+						</li>
+						<li id="sdTab">
+							<p>
+								SD tab
+							</p>
+						</li>
+					</ul>
+				</div>
+			</li>
+		<!-- Accordion: Visuals with Dataframes -->
+			<li class="">
+				<div class="title">
+					<b>Visuals with Dataframes</b>
+				</div>
+				<div class="content" style="overflow: hidden; display: none; ">
+					<p>
+						
+					</p>
+					<dl class="tabs">
+						<dd class="active"><a href="#pandasbar">Pandas Bar Graph</a></dd>
+					</dl>
+					<ul class="tabs-content">
+						<li class="active" id="pandasbarTab">
+							<p>
+								Pandas Bar Graph
+							</p>
+						</li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+
+
 
 		<!-- SELENIUM -->
 		<div class="circledate">
