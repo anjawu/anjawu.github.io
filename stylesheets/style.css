@@ -77,6 +77,8 @@ abbr { text-transform: none }
 	img { max-width: 100% !important }
 }
 
+
+
 /* ANJA ADDED */
 .tab { margin-left: 40px; }
 .columnborder {border:2px; border-style:solid; border-color:#33777d;}
@@ -87,6 +89,33 @@ abbr { text-transform: none }
 .linkedin:hover { background: url(../images/socialpack/linkedina.png) }
 .github2 { background: url(../images/socialpack/github2.png) }
 .github2:hover { background: url(../images/socialpack/githuba.png) }
+
+table {
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial;
+  /*border-collapse: collapse;*/
+  width: 100%;
+}
+
+th {
+  border: 1px solid #bdbdbd;
+  background-color: #cccccc;
+  text-align: center;
+  color: #000000;
+  padding: 8px;
+}
+
+td {
+  border: 1px solid #bdbdbd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr {
+  background-color: #e6e6e6;
+}
+
+
+
 
 
 .code img { text-align: center; width: 30%; height: auto; }

@@ -110,13 +110,379 @@
 	================================================== -->
 <div class="row">
 	<div class="sectiontitle">
-		<h4>Ottawa Redlight Violations Analysis<a class="social github2" href="https://github.com/anjawu/ottawa-redlight-violations"></a></h4>
+		<h4>Ottawa Redlight Violations Analysis<a class="social github2" href="https://github.com/anjawu/ottawa-red-light-violations"></a></h4>
 	</div>
-	<h5><center>
-		UNDER CONSTRUCTION! Coming soon :)
-	</center></h5>
-	<br/>			
+	<h4><center>The Case and Background Information</center></h4>
+	<!-- <br/> -->
+	<p>
+		At the time of writing this <i>(2021-12-30)</i>, the City of Ottawa has 61 redlight cameras. Their data from 2016-2020 of red light camera violations is available on <a href="https://open.ottawa.ca/datasets/ottawa::red-light-camera-violations-2020/about" class="saymore"> their website</a>.  Some of the locations have had cameras installed after 2016, so they do not have data in the given years prior to the installation. Therefore, the total number of locations with data entries is 281. With this dataset, I thought it would be worthwhile to analyze the data looking from the lens of when and which cameras are worth maintaining from a financial point of view.
+	</p>
+	<p>
+		There are costs to consider for each red camera installation, mainly breaking down into (a) start-up costs (engineering, equipment purchase, installation, etc.) and (b) operating costs (staffing, maintenance, etc.). Based on my online research, <a href="https://www.cbc.ca/news/canada/ottawa/ottawa-new-red-light-cameras-1.3788964#:~:text=Fifteen%20more%20cameras%20will%20be%20installed%20in%202017%20at%20a%20cost%20of%20%2435%2C000%20a%20year%20each." class="saymore"> Ottawa has claimed</a> that each camera costs approximately $35,000. The City of Ottawa did not specify whether $35,000 per year per camera is for just the cameras themselves or including the maintenance/operating costs or whether the company gets any percentage of tickets. So more research was done and <a href="https://getinvolved.cityofkingston.ca/red-light-camera/widgets/41523/faqs#question6429" class="saymore"> Kingston provided data</a> that it costs around $53,000 per camera just for the operation of the red light camera system, not counting staffing costs. Sometimes, red light camera companies will lower the price of the cameras in exchange for a part of the ticket revenues the city gets back. <a href="https://ottawa.ca/en/parking-roads-and-travel/road-safety/automated-enforcement#:~:text=Who%20receives%20the,for%20fine%20default." class="saymore"> Each ticket is $325</a>: $60 goes to Ontario and the City of Ottawa gets $260 and $5 goes to the courts.
+	</p>
+	<p>
+		So for the sake of this project, I will be basing my assumptions of the total cost to be $53,000 per year per camera, with the revenue being 260$ per ticket issued.
+	</p>
+	<p>
+		The main question I imagine the City of Ottawa would want to know is how to maximize their profit while decreasing aggressive driving behaviour using strategically placed red-light cameras.
+	</p>
+	<p>
+		This problem will be broken down into three main sub-sections, which focus on different aspects of the main problem:<br>
+		<b>
+			<a href="#question1" class="saymore"> Question 1) Which month(s) see the most number of violations?</a><br>
+			<a href="#question2" class="saymore"> Question 2) Which location(s) have the most violations?</a><br>
+			<a href="#question3"  class="saymore"> Question 3) Did COVID change the redlight camera violation occurrences??</a><br>
+		</b>
+		For the questions, it is important to analyze the current data available (2020) to see patterns due to regular changes that would occur year-over-year but also major changes that would have occurred during the pandemic (beginning mid March 2020 in Ottawa). It is also useful to analyze previous yearly data because it provides us with a larger picture of patterns that might occur through the years.
+	</p>
+	<p>
+		Based on the costs, we would want to analyze what the breakeven point is to make the cameras worth maintaining. <br>
+		Assuming a cost of $53,000 per camera per year with revenue of $260, we get 204 violations:<br>
+		$53,000 divided by $260/violation = 203.8 ~ 204 violations<br>
+		This would mean that we would expect each camera to get <b><i>204 violations each year</i></b> in order to breakeven for the cost it takes to run it each year.
+	</p>
 </div>
+
+<div class="row">
+	<h4><center>Analysis</center></h4>
+	<h5 id="question1"><center>Question 1) Which month(s) see the most number of violations?</center></h5>	
+	<p>
+		We want to analyze this, to know which months we should ensure that we allocate more funding for those months to keep up with maintenance that may occur.
+	</p>
+
+	<h6>Hypothesis: </h6>
+	<p>
+		The summer months will show a higher number of violations, as I speculate that more people tend to be out during the summer months. A bigger population of drivers will draw a bigger set of redlight violations.
+	</p>
+	<h6>Data: </h6>
+	<p>
+		204 violations divided by 12 month would be 17 violations on average per month per camera. 
+	</p>
+	<p>
+		<span style="color:#4d4d4d"><b><u>Findings for 2020 - excluding null values from the data set</u></b></span><br>
+		In this data set there are 61 cameras, meaning, we would expect 1037 (61 cameras * 17 violations) total violations per month and 17 violations on average per month to breakeven.
+		<div id='fig1'><center><img src="images/pages/projects/redlight/months_total_active_locations_2020.png" width="550" height=”auto” alt=""><br>
+		<i>Figure 1: Total red light camera violations for all active Ottawa locations in the year 2020 broken down by months.</i></center></div><br><br><br>
+
+		<div id='fig2'><center><img src="images/pages/projects/redlight/months_mean_active_locations_2020.png" width="550" height=”auto” alt=""><br>
+		<i>Figure 2: The mean red light camera violations per month for all active Ottawa locations in the year 2020.</i></center></div>
+	</p>
+	<p>
+		As can be seen all months do surpass both the mean (17 violations) and the total (1037 violations) violations. 
+	</p>
+	<p>
+		<span style="color:#4d4d4d"><b><u>Findings for 2016-2020 - excluding null values from the data set:</u></b></span><br>
+		In this data set there are 281 cameras, meaning that we would expect 4777 total violations per month and 17 violations on average per month to breakeven.
+
+		<div id='fig3'><center><img src="images/pages/projects/redlight/months_total_active_locations.png" width="550" height=”auto” alt=""><br>
+		<i>Figure 3: Total red light camera violations for all active ottawa locations in the years 2016 to 2020 broken down by months.</i></center></div><br><br><br>
+
+		<div id='fig4'><center><img src="images/pages/projects/redlight/months_mean_active_locations.png" width="550" height=”auto” alt=""><br>
+		<i>Figure 4: The mean red light camera violations per month for all active ottawa locations in the years 2016-2020.</i> </center></div>
+	</p>
+	<p>
+		As can be seen all months do surpass both the mean (17 violations) and the total (4777 violations) violations.
+	</p>
+	<p>
+		<h6>Conclusion:</h6>
+		I was curious to see if there was a statistical significance in the two different methods of collecting data: looking at the total versus the mean but the pattern seemed to hold true in both cases.
+	</p>
+	<p>
+		As can be seen in the data below, for all three cases, we did see an <span style="color:#333333"><b>increase in the summer months</b>. When comparing the 2020 data versus the 2016-2020 data, we see a very similar trend where summer has the most violations. What is interesting to note is that when taking into account more years, the winter violations seemed to be further decreased in relation to the other months.
+	</p>
+	<p>
+	As the data is limited, we can only speculate what causes this increase in redlight violations. Some of my theories are:
+	<ul class="disc">
+		<li>More people on the road</li>
+		<li>More tourists</li>
+		<li>More people out at night, so hired drivers rushing to pick up fares</li>
+		<li>Heat causes people to have more erratic behaviour</li>
+		<li>People are more hesitant and careful in the winter and don’t run as many lights</li>
+		<li>Sun brighter during summer, so traffic lights might be harder to see</li>
+	</ul>
+	</p>
+	<p>
+		<h6>Extension:</h6>
+		If we had the number of drivers on a monthly average that pass by intersections we would be able to have a percentage of drivers that get red light violations. This would then allow us to see if the percentage stays the same in all months, if so, then we can confirm it is because we see a large amount of drivers in the summer. If the percentage changes based on the season, then we would have to dig further into what other factors would be at play.
+	</p>
+</div>
+
+<div class="row">
+	<h5 id="question2"><center>Question 2) Which location(s) have the most/least violations?</center></h5>
+	<p>
+		We want to analyze this to see which locations provide the most revenue to ensure they are maintained the most. We also want to know which locations have the least violations, to see if they are worth maintaining. If there are locations that are not worth maintaining it would be wise to look into removing the red light cameras and moving them to a more prominent and more strategic location. 
+	</p>
+	<h6>Hypothesis:</h6>
+	<p>
+		The downtown neighbourhood (and directly surrounding areas) will have a higher number of redlight violations as it is a busier neighbourhood.
+	</p>
+	<h6>Data:</h6>
+	<p>
+		Each location should have approximately 204 violations total in the whole year to breakeven. This would mean we would look at total violations of 204 and monthly mean of 17 per camera location to breakeven.
+	</p>
+	<p>
+		Monthly mean and highest monthly total here are extremely correlated (Pearson’s r = 0.9789 for grouped by location regardless of year data and r = 0.9412 for the data for each individual location and year), so for the purpose of this project monthly mean was used. Also the correlation between total violations and monthly mean was relatively high (Pearson’s r = 0.9124 for grouped by location regardless of year data and r = 0.9342 for the data for each location and year). However, it is still important to explore the top and bottom locations for both the monthly mean and the total violations because this will give us more insight into locations that could have a higher yield in revenue. It would be wise to analyze the monthly mean, to ensure that we are getting a picture of the average that is not affected as greatly by outliers. The total violations are also important to analyze because at the end of the day we would like to know which locations are financially worthwhile overall. 
+	</p>
+	<p>
+		<span style="color:#4d4d4d"><b><u>Top 10 Mean/Total violations: </u></b></span><br>
+	</p>
+		<div class="six columns" id="fig5">
+			<iframe src="images/pages/projects/redlight/top10_grouped_mean_map.html" width="475" height="315"></iframe>
+			<center><i>Figure 5a: Looking at the top 10 locations in terms of <u>monthly mean</u> violations for 2016-2020</i></center>
+		</div>
+		<div class="six columns">
+			<iframe src="images/pages/projects/redlight/top10_grouped_total_map.html" width="475" height="315"></iframe>
+			<center><i>Figure 5b: Looking at the top 10 locations in terms of the <u>average total violations</u> for 2016-2020</i></center><br><br>
+		</div>
+	<p>
+		<span style="color:#4d4d4d"><b><u>Bottom 10 Mean/Total violations: </u></b></span>
+	</p>
+		<div class="six columns" id="fig6">
+			<iframe src="images/pages/projects/redlight/bottom10_grouped_mean_map.html" width="450" height="300"></iframe>
+			<center><i>Figure 6a: Looking at the bottom 10 locations in terms of <u>monthly mean</u> violations for 2016-2020</i></center>
+		</div>
+		<div class="six columns">
+			<iframe src="images/pages/projects/redlight/bottom10_grouped_total_map.html" width="450" height="300"></iframe>
+			<center><i>Figure 6b: Looking at the bottom 10 locations in terms of the <u>average total violations</u> for 2016-2020</i></center><br><br>
+		</div>
+	
+	<p>
+		<span style="color:#4d4d4d"><b><u>Top 20 Mean/Total violations: </u></b></span>
+	</p>
+		<div class="six columns" id="fig7">
+			<iframe src="images/pages/projects/redlight/top20_all_mean_map.html" width="450" height="300"></iframe>
+			<center><i>Figure 7a:Looking at the top 20 locations for 2016 to 2020 in terms of <u>monthly mean</u> violations for each separate year</i></center>
+		</div>
+		<div class="six columns">
+			<iframe src="images/pages/projects/redlight/top20_all_total_map.html" width="450" height="300"></iframe>
+			<center><i>Figure 7a:Looking at the top 20 locations for 2016 to 2020 in terms of the <u>total violations</u> each year</i></center><br><br>
+		</div>	
+		
+	<p>
+		<span style="color:#4d4d4d"><b><u>Bottom 20 Mean/Total violations: </u></b></span>
+	</p>
+		<div class="six columns" id="fig8">
+			<iframe src="images/pages/projects/redlight/bottom20_all_mean_map.html" width="450" height="300"></iframe>
+			<center><i>Figure 8a: Looking at the bottom 20 locations for 2016 to 2020 in terms of <u>monthly mean</u> violations for each separate year</i></center>
+		</div>
+		<div class="six columns">
+			<iframe src="images/pages/projects/redlight/bottom20_all_total_map.html" width="450" height="300"></iframe>
+			<center><i>Figure 8b: Looking at the bottom 20 locations for 2016 to 2020 in terms of the <u>total violations</u> each year</i></center><br><br>
+		</div>
+
+	<p>
+		<span style="color:#4d4d4d"><b><u>Mean/Total All Heat Map:</u></b></span>
+	</p>
+		<div class="six columns" id="fig9">
+			<iframe src="images/pages/projects/redlight/all_mean_violations2016-2020_heatmap.html" width="450" height="300"></iframe>
+			<center><i>Figure 9a: Heatmap for the <u>monthly mean</u> violations for each location for years 2016-2020.</i></center>
+		</div>
+		<div class="six columns">
+			<iframe src="images/pages/projects/redlight/all_total_violations2016-2020_heatmap.html" width="450" height="300"></iframe>
+			<center><i>Figure 9b: Heatmap for the <u>total violations</u> for each location for years 2016-2020.</i></center><br><br>
+		</div>
+	<p>
+		<u>Interpretation:</u> <br>
+		As can be seen in the visual displays of the data (Figures 5-9) , the main locations that have the <u>most</u> violations are <b>downtown (Centretown and Lowertown)</b> and the <b>Alta Vista</b> area. While the areas that have the <u>lowest</u> violations are the suburbs: <b>Kanata, Barrhaven,</b> and <b>South Keys</b>.
+	</p>
+
+	<p>
+		<span style="color:#4d4d4d"><b><u>Grouped Mean/Total violations Horizontal Bar Graph: </u></b></span>
+	</p>
+		<div class="six columns" style="text-align:center;" id="fig10">
+			<img src="images/pages/projects/redlight/grouped-intersection-mean-barh.png" width="500" height="auto">
+			<i>Figure 10a: Each location (2016-2020 data has been combined using mean) with the corresponding <u>monthly mean</u> violations.</i>
+		</div>
+		<div class="six columns" style="text-align:center;">
+			<img src="images/pages/projects/redlight/grouped-intersection-total-barh.png" width="500" height="auto">
+			<i>Figure 10b: Each location (2016-2020 data has been combined using mean) with the corresponding <u>total violations</u>.</i>
+		</div>
+	<p>
+		<center><i>The line denotes the breakeven point for each location. Any location that does not meet the threshold of the breakeven amount has been highlighted in pink.</i></center>
+	</p>
+	<p>
+		<u>Interpretation:</u><br>
+		The locations which do not breakeven using the average for years 2016-2020 for monthly mean:
+		<ul class='disc'>
+			<li>O'Connor st @ HWY 417 WB on ramp / Catherine: Southbound</li>
+			<li>Hawthorne @ Leitrim: Northbound</li>
+			<li>Carling @ Island Park: Eastbound</li>
+			<li>Berrigan @ Wessex/Greenbank: Southbound</li>
+			<li>Bank @ Hunt Club: Northbound</li>
+			<li>Albert @ Booth: Eastbound</li>
+		</ul>
+		On top of those locations that do not breakeven for monthly mean, these locations do not breakeven for the average of 2016-2020 total violations:
+		<ul class='disc'>
+			<li>Innes @ Orleans: Southbound</li>
+			<li>Fallowfield @ Cedarview: Westbound</li>
+			<li>Booth @ Wellington (RR40): Eastbound</li>
+		</ul>
+	</p>
+	<p>
+		<span style="color:#4d4d4d"><b><u>All Locations Horizontal Bar Graph: </u></b></span>
+	</p>
+		<div class="six columns" id="fig11">
+			<img src="images/pages/projects/redlight/all-intersections-mean-barh.png" width="500" height="auto">
+			<center><i>Figure 11a: For each location with corresponding years the corresponding <u>monthly mean</u> violations were analyzed.</i></center>
+		</div>
+		<div class="six columns">
+			<img  src="images/pages/projects/redlight/all-intersections-total-barh.png" width="500" height="auto">
+			<center><i>Figure 11b: For each location with corresponding years the corresponding <u>total violations</u> were analyzed.</i></center>
+		</div>
+	<p>
+		<center><i>The line denotes the breakeven point for each location. </i></center>
+	</p>
+		
+	<p>
+		<u>Interpretation:</u><br>
+		Looking at the data (<a href="#fig11" class="saymore">Figure 11</a>) using all years and taking the locations that did not breakeven from the grouped data (<a href="#fig10" class="saymore">Figure 10</a>) we can see that the same locations still did not breakeven: 
+		<ul class="disc">
+			<li>O'Connor st @ HWY 417 WB on ramp / Catherine: Southbound data only from 2020</li>
+			<li>Innes @ Orleans: Southbound</li>
+			<li>Hawthorne @ Leitrim: Northbound</li>
+			<li>Fallowfield @ Cedarview: Westbound is above the breakeven point for monthly mean but not for the total violations</li>
+			<li>Carling @ Island Park: Eastbound </li>
+			<li>Booth @ Wellington (RR40): Eastbound</li>
+			<li>Berrigan @ Wessex/Greenbank: Southbound </li>
+			<li>Bank @ Hunt Club: Northbound data only from 2020</li>
+			<li>Albert @ Booth: Eastbound</li>
+		</ul>
+		Some new locations which have decreased to below the breakpoint for just 2020 are:
+		<ul class="disc">
+			<li>Aviation Parkway @ Ogilvie: Westbound </li>
+		</ul>
+		We can also see that Conroy @ Lorry Greenberg: Southbound is very close to being below breakpoint for total violations
+	</p>
+	<p>
+		We can see from the above locations, upon further inspection that:
+		<ul class="disc">
+			<li>Bank @ Hunt Club: Northbound was installed in August of 2020, so there is not sufficient data to make any conclusions about it.</li>
+			<li>O'Connor st @ HWY 417 WB on ramp / Catherine: Southbound was installed in August of 2020, so there is not sufficient data to make any conclusions about it.</li>
+			<li>Fallowfield @ Cedarview: Westbound did not breakeven for total violations for 2020 because it was not operational for 6 months (Jan-Jun).</li>
+		</ul>
+	</p>
+	<p>
+		Through the outliers analysis there were a couple of interesting findings:
+		<ul class="disc">
+			<li>There were 36 locations that didn't have any data for all months in the year; 69% of which are because the camera’s violations were taken prior to the year of install. This means that there were 11 individual location/year data (listed below) that did not have any data for all months that they were up and running, meaning there is most likely some errors in the collection of data.</li>
+			<ul class="circle">
+				<li>Catherine @ Kent: Northbound for the year 2020</li>
+				<li>Catherine @ Kent: Westbound for the year 2019</li>
+				<li>Booth @ Wellington (RR40): Eastbound for the year 2020</li>
+				<li>Berrigan @ Wessex/Greenbank: Southbound for all years 2016-2020 (2020 has 0’s instead of nulls from August until December)</li>
+				<li>Albert @ Booth: Eastbound for all years 2016-2020 (2020 has 0’s instead of nulls from August until December)</li>
+			</ul>
+			<li>For Murray @ Sussex 2020 the highest monthly value given in the data was incorrect, so I calculated my own highest monthly value column.</li>
+			<li>October 2019 data seems to be unreasonably high for approximately 5 locations, leading to the assumption that the data collection did not occur properly for this month.</li>
+			<li>Some locations had a lot of null months, but the months that they were up and running had a high monthly mean (but the total violations would be low) leading to the conclusion that these locations should be repaired more promptly.</li>
+			<li>The outlier with a high monthly total and low mean monthly was Heron @ 155m W of Bank. When looking at this data it was really interesting to see the sharp decline around March/April, which coincides with COVID-19 lockdown which began in the middle of March in Ottawa. This trend was not as prominent in the other locations.</li>
+		</ul>
+	</p>
+	<h6>Conclusion:</h6>
+	<p>
+		<span style="color:#4d4d4d"><u><b>Cameras to Consider Removing</b></u></span><br>
+		The following locations did not breakeven and should be examined about whether it is beneficial to still keep the cameras at that location or potentially move it to different locations:
+
+		<table>
+			<tr>
+				<th>Location and <br>Installation Year</th>
+				<th>Total Violations <br>2020</th>
+				<th>Monthly Mean <br>2020</th>
+				<th>Revenue for 2020 <br>($260 per violation)</th>
+				<th>Money Lost 2020 <br> (Breakeven point: <br>$4,416.67 per month <br> and $53,000 per year)</th>
+				<th>Years of <br>Negative Profit</th>
+			</tr>
+			<tr>
+				<td><b>Carling @ Island Park: <br><i>Eastbound</i>;</b> <br>2008 </td>
+				<td><center>51</center></td>
+				<td><center>4.25</center></td>
+				<td>Monthly Avg: $1,105 <br><br>Total: $13,260</td>
+				<td>Monthly Avg <span style="color:#cc0000">Loss</span>: <br> $4,416.67 - $1,105 = <span style="color:#cc0000">$3,311.67</span> <br><br>Total Yearly <span style="color:#cc0000">Loss</span>:<br> $53,000-$13,260= <span style="color:#cc0000"><b>$39,740 per year</b></span></td>
+				<td>2018, 2019 and 2020 <br>all fall below the<br> breakeven threshold</td>
+			</tr>
+			<tr>
+				<td><b>Hawthorne @ Leitrim: <br><i>Northbound</i>;</b><br>2017</td>
+				<td><center>70</center></td>
+				<td><center>5.833333</center></td>
+				<td>Monthly Avg: $1,516.67 <br><br>Total: $18,200</td>
+				<td>Monthly Avg <span style="color:#cc0000">Loss</span>: <br>$4,416.67 - $1,516.67 = <span style="color:#cc0000">$2,900</span><br><br>Total Yearly <span style="color:#cc0000">Loss</span>: <br>$53,000-$18,200= <span style="color:#cc0000"><b>$34,800 per year</b></span></td>
+				<td>Since install 2017; <br>October 2019 had a data <br>anomaly which seems <br>incorrect, so this will not <br>be included towards the profit.</td>
+			</tr>
+			<tr>
+				<td><b>Innes @ Orleans: <br><i>Southbound</i>;</b><br>2017</td>
+				<td><center>125</center></td>
+				<td><center>10.416667</center></td>
+				<td>Monthly Avg: $2,708.33<br><br>Total: $32,500</td>
+				<td>Monthly Avg <span style="color:#cc0000">Loss</span>: <br>$4,416.67 - $2,708.33 = <span style="color:#cc0000">$1,708.34</span><br><br>Total Yearly <span style="color:#cc0000">Loss</span>: <br>$53,000-$32,500 = <span style="color:#cc0000"><b>$20,500 per year</b></span></td>
+				<td>Since install 2017; <br>October 2019 had a data <br>anomaly which seems <br>incorrect, so this will not <br>be included towards the profit.</td>
+			</tr>
+		</table>
+	</p>
+	<p>
+		Locations to track how 2021 goes, because have started to show trends of decreasing:
+		<table>
+			<tr>
+				<th>Location</th>
+				<th>Total Violations <br>2020</th>
+				<th>Monthly Mean <br>2020</th>
+				<th>Revenue for 2020 <br>($260 per violation)</th>
+				<th>Money Lost 2020 <br> (Breakeven point: <br>$4,416.67 per month <br> and $53,000 per year)</th>
+				<th>Years of <br>Negative Profit</th>
+			</tr>
+			<tr>
+				<td><b>Aviation Parkway @ Ogilvie: <br><i>Westbound</i></b></td>
+				<td><center>155</center></td>
+				<td><center>12.916667</center></td>
+				<td>Monthly avg: 3358.33 <br><br>Total: 40300</td>
+				<td>Monthly Avg <span style="color:#cc0000">Loss</span>: <br> 4416.67 - 3358.33 = <span style="color:#cc0000">$1,058.34</span> <br><br>Total Yearly <span style="color:#cc0000">Loss</span>:<br> 53000-40300= <span style="color:#cc0000"><b>$12,700 per year</b></span></td>
+				<td>Only 2020. <br>2019 was very close <br> to not breaking even <br>(total = 213, <br>mean = 19.363636)</td>
+			</tr>
+			<tr>
+				<td><b>Conroy @ Lorry Greenberg: <br><i>Southbound</i></b></td>
+				<td><center>217</center></td>
+				<td><center>18.083333</center></td>
+				<td>Monthly avg: 4701.67<br><br>Total: 56420</td>
+				<td>Monthly Avg <span style="color:#009900">Gain</span>: <br>4416.67 - 4701.67 = <span style="color:#009900">$285</span><br><br>Total Yearly gain: <br>53000-18200= <span style="color:#009900"><b>$3,420 per year</b></span></td>
+				<td>None</td>
+			</tr>
+		</table>
+		We can see that Conroy @ Lorry Greenberg: Southbound is very close to being below breakpoint for total violations
+	</p>
+	<p>
+		<span style="color:#4d4d4d"><u><b>Cameras to Prioritize for Maintenance</b></u></span><br>
+		The top 10 locations for both monthly means and total violations were analyzed to see which locations should be ensured they are maintained throughout the year as they yield high revenue. The following locations were active consistently for 12 months:
+		<ol>
+			<span style="color:#4d4d4d">
+				<li><b>King Edward @ St. Patrick: Southbound</b></li>
+				<li><b>Kent @ Arlington: Northbound</b></li>
+				<li><b>Russell @ St-Laurent: Southbound</b></li>
+				<li><b>King Edward @ St. Andrew: Northbound</b></li>
+				<li><b>Catherine & O'Connor @ Hwy 417 WB: Westbound</b></li>
+				<li><b>Bank @ Riverside South: Northbound</b></li>
+			</span>
+		</ol>
+		The following two locations ranked highly, despite being installed partway through 2020. The high total yield despite the missed revenue for these locations demonstrate the need to ensure the redlight cameras are properly maintained:
+		<ol start="7">
+			 <li><span style="color:#4d4d4d"><b>Walkley @ Ryder / Don Ried: Westbound</b></span> - installed in August 2020; was inactive for 7 months in 2020. Therefore, the revenue lost: 131 monthly mean violation * 7 months * $260 revenue = <span style="color:#cc0000"><b>$246,673</b> lost revenue.</span></li>
+			 <li><span style="color:#4d4d4d"><b>King Edward @ Besserer: Northbound </b></span>-  installed in May 2020; was inactive for 4 months. We have 177.375 ~ 177 monthly mean violations, however, using the knowledge we gained in the first part of this report (see <a href="#fig3" class="saymore">Figure 3/4</a>), we know that the winter months tend to have the lowest amount of tickets. Looking at the data we see the lowest values range from 158-164, so let’s assume the number of tickets would be closer to the low end of 160 instead of the mean of 177. Therefore, the revenue lost: 160 monthly mean violations * 4 months * $260 revenue = approx <span style="color:#cc0000"><b>$166,400</b> lost revenue</span>. </li>
+		</ol>
+		Another interesting location to mention that had high monthly mean but low total violations:
+		<ol start="9">
+			<li><span style="color:#333333"><b>Elgin / Pretoria Bridge @ Queen Elizabeth </b></span>- was inactive for 5 months during January - May 2020. Therefore, the revenue lost: 76.857143 ~ 76 monthly mean violations * 5 months * $260 revenue = approx <span style="color:#cc0000"><b>$98,800</b> revenue lost</span>.</li>
+		</ol>
+	</p>
+	<p>
+		It is important to note that although <b>Heron @ 155m W Of Bank: <i>Eastbound</i></b> had a consistently high number of violations since install in 2017, in 2020 it started to decline during COVID restrictions (March 2020), with a sharp decrease in April and May. This is why this location is no longer recommended to ensure it is up and running. It would be a good idea to analyze this redlight camera once restrictions from COVID have fully been removed, to see if there will be an increase in violations again.
+	</p>
+</div>
+
+<div class="row">
+	<h5 id="question3"><center>Question 3) Did COVID change the redlight camera violation occurrences?</center></h5>
+	<p>
+		Coming soon!
+	</p>
+</div>
+
 <div class="hr">
 </div>
 
