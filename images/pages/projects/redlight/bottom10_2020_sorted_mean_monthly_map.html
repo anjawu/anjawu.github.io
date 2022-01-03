@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_e7176f535a3c48949f02c3518cb5a015 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+    <script src="https://cdn.jsdelivr.net/gh/marslan390/BeautifyMarker/leaflet-beautify-marker-icon.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/marslan390/BeautifyMarker/leaflet-beautify-marker-icon.min.css"/>
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_e7176f535a3c48949f02c3518cb5a015" ></div>
+        
+</body>
+<script>    
+    
+            var map_e7176f535a3c48949f02c3518cb5a015 = L.map(
+                "map_e7176f535a3c48949f02c3518cb5a015",
+                {
+                    center: [45.387949682, -75.667159683],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 11,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+            L.control.scale().addTo(map_e7176f535a3c48949f02c3518cb5a015);
+
+            
+
+        
+    
+            var tile_layer_2f288fa71a9d4fbf9245140d3dba47f9 = L.tileLayer(
+                "https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"http://cartodb.com/attributions\"\u003eCartoDB\u003c/a\u003e, CartoDB \u003ca href =\"http://cartodb.com/attributions\"\u003eattributions\u003c/a\u003e", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_e7176f535a3c48949f02c3518cb5a015);
+        
+    
+            var marker_b61aa34d46ef4331a7671dde4bbaeb1f = L.marker(
+                [45.42798671, -75.62701694],
+                {}
+            ).addTo(map_e7176f535a3c48949f02c3518cb5a015);
+        
+    
+            var beautify_icon_cfadec194f9840f79119be2914c098a3 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 52, "textColor": "dodgerblue"}
+            )
+            marker_b61aa34d46ef4331a7671dde4bbaeb1f.setIcon(beautify_icon_cfadec194f9840f79119be2914c098a3);
+        
+    
+            marker_b61aa34d46ef4331a7671dde4bbaeb1f.bindTooltip(
+                `<div>
+                     52) AVIATION PARKWAY @ OGILVIE 
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_e0855a51a52b4412b9d1805f784be391 = L.marker(
+                [45.44450342, -75.53280378],
+                {}
+            ).addTo(map_e7176f535a3c48949f02c3518cb5a015);
+        
+    
+            var beautify_icon_f74d05acb8c5443e8923d5857b363728 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 53, "textColor": "dodgerblue"}
+            )
+            marker_e0855a51a52b4412b9d1805f784be391.setIcon(beautify_icon_f74d05acb8c5443e8923d5857b363728);
+        
+    
+            marker_e0855a51a52b4412b9d1805f784be391.bindTooltip(
+                `<div>
+                     53) INNES @ ORLEANS
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_1d6e6b5c88d54ab6a06a35ba820ac710 = L.marker(
+                [45.35363104, -75.64733066],
+                {}
+            ).addTo(map_e7176f535a3c48949f02c3518cb5a015);
+        
+    
+            var beautify_icon_e3936c474c34443ca8bbe78499d5d6e2 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 54, "textColor": "dodgerblue"}
+            )
+            marker_1d6e6b5c88d54ab6a06a35ba820ac710.setIcon(beautify_icon_e3936c474c34443ca8bbe78499d5d6e2);
+        
+    
+            marker_1d6e6b5c88d54ab6a06a35ba820ac710.bindTooltip(
+                `<div>
+                     54) BANK @ HUNT CLUB
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_7f907d40ed724620ae74c767f41a201c = L.marker(
+                [45.41059366, -75.68946433],
+                {}
+            ).addTo(map_e7176f535a3c48949f02c3518cb5a015);
+        
+    
+            var beautify_icon_4d31b86e738a4e7b9bafd14f9a5c9959 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 55, "textColor": "dodgerblue"}
+            )
+            marker_7f907d40ed724620ae74c767f41a201c.setIcon(beautify_icon_4d31b86e738a4e7b9bafd14f9a5c9959);
+        
+    
+            marker_7f907d40ed724620ae74c767f41a201c.bindTooltip(
+                `<div>
+                     55) O'CONNOR ST @ HWY 417 WB ON RAMP / CATHERINE
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_75de30d810164f48ae7aa121d72ffab2 = L.marker(
+                [45.34061302, -75.57823933],
+                {}
+            ).addTo(map_e7176f535a3c48949f02c3518cb5a015);
+        
+    
+            var beautify_icon_2e677d72254c4b2ba09a0cbdb384561d = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 56, "textColor": "dodgerblue"}
+            )
+            marker_75de30d810164f48ae7aa121d72ffab2.setIcon(beautify_icon_2e677d72254c4b2ba09a0cbdb384561d);
+        
+    
+            marker_75de30d810164f48ae7aa121d72ffab2.bindTooltip(
+                `<div>
+                     56) HAWTHORNE @ LEITRIM 
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_12077c2dc54846ed8c9259078a662587 = L.marker(
+                [45.38919155, -75.72662713],
+                {}
+            ).addTo(map_e7176f535a3c48949f02c3518cb5a015);
+        
+    
+            var beautify_icon_a7f6c7fbafbd474eb86b2478bfa6001b = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 57, "textColor": "dodgerblue"}
+            )
+            marker_12077c2dc54846ed8c9259078a662587.setIcon(beautify_icon_a7f6c7fbafbd474eb86b2478bfa6001b);
+        
+    
+            marker_12077c2dc54846ed8c9259078a662587.bindTooltip(
+                `<div>
+                     57) CARLING @ ISLAND PARK 
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_36b9846d5d5d43c2a8a7ab07072bc578 = L.marker(
+                [45.2749753, -75.74900599],
+                {}
+            ).addTo(map_e7176f535a3c48949f02c3518cb5a015);
+        
+    
+            var beautify_icon_0f465d6de2da4df991e61a43caac2352 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 58, "textColor": "dodgerblue"}
+            )
+            marker_36b9846d5d5d43c2a8a7ab07072bc578.setIcon(beautify_icon_0f465d6de2da4df991e61a43caac2352);
+        
+    
+            marker_36b9846d5d5d43c2a8a7ab07072bc578.bindTooltip(
+                `<div>
+                     58) BERRIGAN @ WESSEX / GREENBANK
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_137bcde88d4342618d84a93942f3ad21 = L.marker(
+                [45.40878852, -75.69378269],
+                {}
+            ).addTo(map_e7176f535a3c48949f02c3518cb5a015);
+        
+    
+            var beautify_icon_6a0afb004a0c41e39ad7b8586c3694ff = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 59, "textColor": "dodgerblue"}
+            )
+            marker_137bcde88d4342618d84a93942f3ad21.setIcon(beautify_icon_6a0afb004a0c41e39ad7b8586c3694ff);
+        
+    
+            marker_137bcde88d4342618d84a93942f3ad21.bindTooltip(
+                `<div>
+                     59) CATHERINE @ KENT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_bf9a087f40c54eaba2c3bb9d4a1bf778 = L.marker(
+                [45.41291758, -75.71265182],
+                {}
+            ).addTo(map_e7176f535a3c48949f02c3518cb5a015);
+        
+    
+            var beautify_icon_43af6583c2f945159543c409aa29cdc0 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 60, "textColor": "dodgerblue"}
+            )
+            marker_bf9a087f40c54eaba2c3bb9d4a1bf778.setIcon(beautify_icon_43af6583c2f945159543c409aa29cdc0);
+        
+    
+            marker_bf9a087f40c54eaba2c3bb9d4a1bf778.bindTooltip(
+                `<div>
+                     60) ALBERT @ BOOTH
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_18d0120979ec4ceb972de33e32c5676c = L.marker(
+                [45.41629602, -75.71467416],
+                {}
+            ).addTo(map_e7176f535a3c48949f02c3518cb5a015);
+        
+    
+            var beautify_icon_c34ecad494f948449e1147a0d5383010 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 61, "textColor": "dodgerblue"}
+            )
+            marker_18d0120979ec4ceb972de33e32c5676c.setIcon(beautify_icon_c34ecad494f948449e1147a0d5383010);
+        
+    
+            marker_18d0120979ec4ceb972de33e32c5676c.bindTooltip(
+                `<div>
+                     61) BOOTH @ WELLINGTON (RR40)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>
