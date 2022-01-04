@@ -143,7 +143,7 @@
 				<div class="content" style="overflow: hidden; display: none; ">
 					<p>
 						
-					</p> -->
+					</p>  -->
 					<!-- Tabs -->
 					<!-- <dl class="tabs">
 						<dd class="active"><a href="#rk-sort">Rank & Sort Values</a></dd>
@@ -168,7 +168,7 @@
 
 
 		<!-- Folium Library-->
-		<!-- <div class="circledate">
+		<div class="circledate">
 			<div class="textcircle">
 				<br>Folium
 			</div>
@@ -180,9 +180,9 @@
 			Visualizing map data.
 		</p>
 		<div class="hr">
-		</div> -->
+		</div>
 		<!-- Accordion: Setting Up -->
-			<!-- <ul class="accordion">
+			<ul class="accordion">
 			<li class="">
 				<div class="title">
 					<b>Setting up Folium</b>
@@ -190,43 +190,166 @@
 				<div class="content" style="overflow: hidden; display: none; ">
 					<p>
 						To download, in the terminal enter:
-						<div id="testimonials"><blockquote><p>pip install statsmodels</p></blockquote></div>
+						<div id="testimonials"><blockquote><p>pip install folium</p></blockquote></div>
 						To use within a .py (python) file:
-						<div id="testimonials"><blockquote><p>import pandas as pd</p></blockquote></div>
-						Here you are importing the Pandas library and giving it a variable pd, this way when you want to call on a function from Pandas, you do not need to type pandas each time, but can just write pd.
+						<div id="testimonials"><blockquote><p>import folium</p></blockquote></div>
+					</p>
+					<p>
+						Particularly, for making more complex markers on your map <i>plugins</i> should be imported as well:
+						<div id="testimonials"><blockquote><p>from folium import plugins</p></blockquote></div>
 					</p>
 				</div>
-			</li> -->
-		<!-- Accordion:  -->
-			<!-- <li class="">
+			</li>
+		<!-- Accordion  -->
+			<li class="">
 				<div class="title">
-					<b>Working with </b>
+					<b>Simple Map from a Pandas DF</b>
 				</div>
 				<div class="content" style="overflow: hidden; display: none; ">
 					<p>
-						
-					</p> -->
-					<!-- Tabs -->
-					<!-- <dl class="tabs">
-						<dd class="active"><a href="#rk-sort">Rank & Sort Values</a></dd>
-						<dd><a href="#adddelete-rowcolumn">Adding & Deleting</a></dd>
-					</dl>
-					<ul class="tabs-content">
-						<li class="active" id="rk-sortTab">
-							<p>
-
-							</p>
-						</li>
-						<li id="adddelete-rowcolumnTab">
-							<h6>Add</h6>
-							<p>
-								
-							</p>
-						</li>
-					</ul>
+						Folium has a section on how to <a href="https://python-visualization.github.io/folium/quickstart.html" class="saymore">"quickstart" a simple map</a>, which I used to get me started.
+					</p>
+					<p>
+						First, we must name the map and give the latitude and longitude coordinates. I wanted to be centered around a set of data points, so I used <i>.mean()</i> of the LATITUDE column and LONGITUDE column from the <i>top10_mean_df</i>:
+						<div id="testimonials"><blockquote>
+							top10_mean_map = folium.Map(location=[top10_mean_df.LATITUDE.mean(), 
+							<div class="tab"> 
+								top10_mean_df.LONGITUDE.mean()])
+							</div>
+						</blockquote></div>
+					</p>
+					<p>
+						On top of specifying the location, we can also change within the <i>.map()</i>:
+						<ul class="disc">
+							<li>The background <a href="https://python-visualization.github.io/folium/modules.html#:~:text=Generate%20a%20base,positron%20and%20dark_matter" class="saymore"> “tiles”</a> I chose tiles = 'CartoDB Positron'</li>
+							<li>zoom_start = how zoomed in you want the map to load</li>
+							<li>control_scale = shows a scale at the bottom of the map which changes based on zoom</li>
+							<li>There is a long list of <a href="https://python-visualization.github.io/folium/modules.html#:~:text=Parameters,class%3A%20https%3A//leafletjs.com/reference%2D1.6.0.html%23map" class="saymore">other properties</a> that can be changed</li>
+						</ul>
+						<div id="testimonials"><blockquote>
+							top10_mean_map = folium.Map(location=[top10_mean_df.LATITUDE.mean(), <br>
+							<div class="tab">
+								top10_mean_df.LONGITUDE.mean()], <br>
+								tiles = 'CartoDB Positron', <br>
+								zoom_start=12, <br>
+								control_scale=True)<br>
+							</div>
+						</blockquote></div>
+					</p>
+					<p>
+						Next, we want to go through our database and <a href="https://towardsdatascience.com/creating-a-simple-map-with-folium-and-python-4c083abfff94" class="saymore">add each intersection’s location</a> to the map:
+						<ul class="disc">
+							<li>We will use .iterrows() to iterate through the rows in the df</li>
+							<li>To create the marker we must use folium.Marker(latitude, longitude)</li>
+							<li>.add_to() will add each location marker created to the map</li>
+						</ul>
+						<div id="testimonials"><blockquote>
+							for index, location_info in top10_mean_df.iterrows():
+							<div class="tab">
+								folium.Marker([location_info['LATITUDE'], location_info['LONGITUDE']]).add_to(top10_mean_map)
+							</div>
+						</blockquote></div>
+						Then you can display your map.
+					</p>
 				</div>
 			</li>
-		</ul> -->
+		<!-- Accordion  -->
+			<li class="">
+				<div class="title">
+					<b>Markers</b>
+				</div>
+				<div class="content" style="overflow: hidden; display: none; ">
+					<p>
+						There are things that we can <a href="https://python-visualization.github.io/folium/modules.html#:~:text=or%20Vincent%20visualization.-,Parameters,to%20be%20able%20to%20drag%20the%20marker%20around%20the%20map.,-Returns" class="saymore">change with our markers</a>, one of which is to write message for any marker: popup (must click on marker) or tooltip (shows up when hovering over marker). <br>
+						Placing a variable <i>popup_message</i> with the message helps make more complex messages. You can use <i>.format()</i> to insert multiple variables into a string.
+
+						<div id="testimonials"><blockquote>
+							for index, location_info in top10_mean_df.iterrows():
+							<div class="tab">
+							    popup_message = '{}) {}'.format(location_info['Ranking'], location_info['INTERSECTION'])<br>
+							    folium.Marker([location_info['LATITUDE'], location_info['LONGITUDE']], 
+							    <div class="tab">
+									tooltip= popup_message).add_to(top10_mean_map)
+								</div>
+							</div>
+						</blockquote></div>
+					</p>
+					<p>
+						There is <a href="https://nbviewer.org/github/bibmartin/folium/blob/issue288/examples/Popups.ipynb" class="saymore">so much more</a> that can be done with markers.
+					</p>
+				</div>
+			</li>
+		<!-- Accordion  -->
+			<li class="">
+				<div class="title">
+					<b>Icons</b>
+				</div>
+				<div class="content" style="overflow: hidden; display: none; ">
+					<p>
+						<b>Basic</b> icon uses <i>.Icon()</i> to create a marker with a blue background and an information icon.
+						<div id="testimonials"><blockquote>
+							folium.Marker([location_info['LATITUDE'], location_info['LONGITUDE']], <br>
+							<div class="tab">
+						        tooltip= popup_message,<br>
+						        icon=folium.Icon()).add_to(top10_mean_map)
+						    </div>
+						</blockquote></div>
+					</p>
+					<p>
+						<a href="https://fontawesome.com/" class="saymore">Font Awesome</a> has a huge variety of icons that can be used, however, that large list on Font Awesome doesn’t always work, but <a href="https://fontawesome.com/v4.7/icons/" class="saymore">this list</a> does.
+						<div id="testimonials"><blockquote>
+							icon=folium.Icon(color = 'gray', 
+							<div class="tab">
+		                        icon='circle', <i># from font awesome</i> <br>
+		                        icon_color = 'red', <br>
+		                        prefix='fa') <i># specifies that it is from font awesome - there are other ways to get icons too</i><br>
+		                    </div>
+		                </blockquote></div>
+					</p>
+					<p>
+						<b>Circle</b> icon with number inside, you would need to use Folium’s plugins module:
+						<div id="testimonials"><blockquote>
+							icon = plugins.BeautifyIcon(number=location_info['Ranking'], 
+							<div class="tab">
+								border_color = 'dodgerblue', <br>
+								border_width = 1, <br>
+								text_color = 'dodgerblue', <br>
+								inner_icon_style = 'margin-top:1px;')
+							</div>
+						</blockquote></div>
+					</p>
+				</div>
+			</li>
+		<!-- Accordion  -->
+			<li class="">
+				<div class="title">
+					<b>Heat map</b>
+				</div>
+				<div class="content" style="overflow: hidden; display: none; ">
+					<p>
+						For creating a <a href="https://github.com/groundhogday321/python-folium/blob/master/Python%20Maps%20with%20Folium.ipynb" class="saymore">heat map</a> we must use Folium’s Plugins module. The plugins module has <i>.HeatMap()</i> which takes the locational data and puts it into a heatmap. It is important that your dataframe only has the data needed: latitude and longitude along with the data you want the heat map to be based off of.   
+
+						<div id="testimonials"><blockquote>plugins.HeatMap(intersection).add_to(intersection_heatmap)</blockquote></div>
+
+						This can also be combined with the other map details.
+					</p>
+				</div>
+			</li>
+		<!-- Accordion  -->
+			<li class="">
+				<div class="title">
+					<b>Embedding .html file to Website</b>
+				</div>
+				<div class="content" style="overflow: hidden; display: none; ">
+					<p>
+						There are many ways to embed files into html, however, I found <a href="https://blog.hubspot.com/marketing/how-to-add-html-embed-codes-ht" class="saymore">an article</a> which showed me <i>iframe</i>. I found that it worked best for putting the Folium interactive maps (with .html file type) onto my website.
+						<div id="testimonials"><blockquote>
+							< iframe src="images/top10_mean_map.html" width="450" height="300">< /iframe> 
+						</blockquote></div>
+					</p>
+				</div>
+			</li>
+		</ul> 
 
 		<!-- NumPy-->
 		<div class="circledate">
@@ -335,10 +458,10 @@
 	<!-- MATPLOTLIB-->
 		<div class="circledate">
 			<div class="textcircle">
-				<br>MatPlot
+				<br>matplot
 			</div>
 		</div>
-		<h4><a href="https://pandas.pydata.org/about/" class="saymore">MatPlotLib</a></h4>
+		<h4><a href="https://pandas.pydata.org/about/" class="saymore">matplotlib</a></h4>
 		<div class="dots blogdots">
 		</div>
 		<p>
@@ -564,6 +687,10 @@
 						</blockquote></div>
 						Which gives:
 						<center><img src="images/pages/codinginfo/libraries/matplotlib-hline2.png" width="400" height="auto" alt=""></center>
+					</p>
+					<h6>Vertical Line</h6>
+					<p>
+						The same can be done using <i>.axvline()</i> function to make a vertical line using the x-axis.
 					</p>
 				</div>
 			</li>
