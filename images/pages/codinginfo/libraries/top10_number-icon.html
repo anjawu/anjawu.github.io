@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_a3128908a28b41cf91d4b28734a6622b {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+    <script src="https://cdn.jsdelivr.net/gh/marslan390/BeautifyMarker/leaflet-beautify-marker-icon.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/marslan390/BeautifyMarker/leaflet-beautify-marker-icon.min.css"/>
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_a3128908a28b41cf91d4b28734a6622b" ></div>
+        
+</body>
+<script>    
+    
+            var map_a3128908a28b41cf91d4b28734a6622b = L.map(
+                "map_a3128908a28b41cf91d4b28734a6622b",
+                {
+                    center: [45.404247740667174, -75.69072297264616],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 11,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+            L.control.scale().addTo(map_a3128908a28b41cf91d4b28734a6622b);
+
+            
+
+        
+    
+            var tile_layer_b6c51098e1174dfd8d1ccc24ed4c3ccc = L.tileLayer(
+                "https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"http://cartodb.com/attributions\"\u003eCartoDB\u003c/a\u003e, CartoDB \u003ca href =\"http://cartodb.com/attributions\"\u003eattributions\u003c/a\u003e", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 9, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_a3128908a28b41cf91d4b28734a6622b);
+        
+    
+            var marker_8eaf537548bc42cb9456d6c79662931b = L.marker(
+                [45.432466736504, -75.689087457348],
+                {}
+            ).addTo(map_a3128908a28b41cf91d4b28734a6622b);
+        
+    
+            var beautify_icon_d948a436a00e4fa48070cbe29eb67416 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 1, "textColor": "dodgerblue"}
+            )
+            marker_8eaf537548bc42cb9456d6c79662931b.setIcon(beautify_icon_d948a436a00e4fa48070cbe29eb67416);
+        
+    
+            marker_8eaf537548bc42cb9456d6c79662931b.bindTooltip(
+                `<div>
+                     1) KING EDWARD @ ST. PATRICK
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_cdae90205a9b42c79f89369b8ceb4e97 = L.marker(
+                [45.39990521, -75.62158646],
+                {}
+            ).addTo(map_a3128908a28b41cf91d4b28734a6622b);
+        
+    
+            var beautify_icon_5fffbf99f63542d89dd050d5ba933639 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 2, "textColor": "dodgerblue"}
+            )
+            marker_cdae90205a9b42c79f89369b8ceb4e97.setIcon(beautify_icon_5fffbf99f63542d89dd050d5ba933639);
+        
+    
+            marker_cdae90205a9b42c79f89369b8ceb4e97.bindTooltip(
+                `<div>
+                     2) RUSSELL @ ST-LAURENT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_8883c5d5cd7046cd9a161edfc75a3eab = L.marker(
+                [45.43379539146184, -75.68991198121007],
+                {}
+            ).addTo(map_a3128908a28b41cf91d4b28734a6622b);
+        
+    
+            var beautify_icon_356e8b803e494fc6a091b6150794d172 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 3, "textColor": "dodgerblue"}
+            )
+            marker_8883c5d5cd7046cd9a161edfc75a3eab.setIcon(beautify_icon_356e8b803e494fc6a091b6150794d172);
+        
+    
+            marker_8883c5d5cd7046cd9a161edfc75a3eab.bindTooltip(
+                `<div>
+                     3) KING EDWARD @ ST. ANDREW 
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_29bdf5cc42a5481689459813d00f2e03 = L.marker(
+                [45.41059368813944, -75.68946436815943],
+                {}
+            ).addTo(map_a3128908a28b41cf91d4b28734a6622b);
+        
+    
+            var beautify_icon_effcdd7f581f4c9d9a279a57e92fd07c = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 4, "textColor": "dodgerblue"}
+            )
+            marker_29bdf5cc42a5481689459813d00f2e03.setIcon(beautify_icon_effcdd7f581f4c9d9a279a57e92fd07c);
+        
+    
+            marker_29bdf5cc42a5481689459813d00f2e03.bindTooltip(
+                `<div>
+                     4) CATHERINE & O'CONNOR @ HWY 417 WB
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_0d5c11a61af443f0965e52eabee909c2 = L.marker(
+                [45.37840360055808, -75.6694586460059],
+                {}
+            ).addTo(map_a3128908a28b41cf91d4b28734a6622b);
+        
+    
+            var beautify_icon_dc0a6c82cedf41b59527831bde49b158 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 5, "textColor": "dodgerblue"}
+            )
+            marker_0d5c11a61af443f0965e52eabee909c2.setIcon(beautify_icon_dc0a6c82cedf41b59527831bde49b158);
+        
+    
+            marker_0d5c11a61af443f0965e52eabee909c2.bindTooltip(
+                `<div>
+                     5) HERON @ 155m W OF BANK 
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_2a5d23937e704452b29b748b97371b88 = L.marker(
+                [45.42809335, -75.68529062],
+                {}
+            ).addTo(map_a3128908a28b41cf91d4b28734a6622b);
+        
+    
+            var beautify_icon_c254cb20f82b4223be2b2bdf6e733dd3 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 6, "textColor": "dodgerblue"}
+            )
+            marker_2a5d23937e704452b29b748b97371b88.setIcon(beautify_icon_c254cb20f82b4223be2b2bdf6e733dd3);
+        
+    
+            marker_2a5d23937e704452b29b748b97371b88.bindTooltip(
+                `<div>
+                     6) KING EDWARD @ BESSERER
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c423a0efd3104ba88021a72f96b14167 = L.marker(
+                [45.38802033910328, -75.67623737070736],
+                {}
+            ).addTo(map_a3128908a28b41cf91d4b28734a6622b);
+        
+    
+            var beautify_icon_3db0b3281a09424d93f9480dc7f09b93 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 7, "textColor": "dodgerblue"}
+            )
+            marker_c423a0efd3104ba88021a72f96b14167.setIcon(beautify_icon_3db0b3281a09424d93f9480dc7f09b93);
+        
+    
+            marker_c423a0efd3104ba88021a72f96b14167.bindTooltip(
+                `<div>
+                     7) BANK @ RIVERSIDE S. 
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_1237eed0dfad4b06b780ce7b952a6416 = L.marker(
+                [45.40941288382424, -75.69427204746175],
+                {}
+            ).addTo(map_a3128908a28b41cf91d4b28734a6622b);
+        
+    
+            var beautify_icon_bfccc02925b44e83b9b44b6604582908 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 8, "textColor": "dodgerblue"}
+            )
+            marker_1237eed0dfad4b06b780ce7b952a6416.setIcon(beautify_icon_bfccc02925b44e83b9b44b6604582908);
+        
+    
+            marker_1237eed0dfad4b06b780ce7b952a6416.bindTooltip(
+                `<div>
+                     8) KENT @ ARLINGTON
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_0cab7240b38943d9ac3134843bc7f66c = L.marker(
+                [45.36078523398896, -75.79226646158119],
+                {}
+            ).addTo(map_a3128908a28b41cf91d4b28734a6622b);
+        
+    
+            var beautify_icon_7a83a74e5ded44a1941d353c481e0bdb = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 9, "textColor": "dodgerblue"}
+            )
+            marker_0cab7240b38943d9ac3134843bc7f66c.setIcon(beautify_icon_7a83a74e5ded44a1941d353c481e0bdb);
+        
+    
+            marker_0cab7240b38943d9ac3134843bc7f66c.bindTooltip(
+                `<div>
+                     9) CARLING @ RICHMOND
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_78c06473f7e44fc6a663a7ba2178a84d = L.marker(
+                [45.401000973091925, -75.69965431398785],
+                {}
+            ).addTo(map_a3128908a28b41cf91d4b28734a6622b);
+        
+    
+            var beautify_icon_0c423a8832d941e59bf084f6d526ea7c = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 10, "textColor": "dodgerblue"}
+            )
+            marker_78c06473f7e44fc6a663a7ba2178a84d.setIcon(beautify_icon_0c423a8832d941e59bf084f6d526ea7c);
+        
+    
+            marker_78c06473f7e44fc6a663a7ba2178a84d.bindTooltip(
+                `<div>
+                     10) BRONSON @ CARLING / GLEBE
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_38afaeb697e74e92b5f843d009877509 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_38afaeb697e74e92b5f843d009877509" ></div>
+        
+</body>
+<script>    
+    
+            var map_38afaeb697e74e92b5f843d009877509 = L.map(
+                "map_38afaeb697e74e92b5f843d009877509",
+                {
+                    center: [45.404247740667174, -75.69072297264616],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 11,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+            L.control.scale().addTo(map_38afaeb697e74e92b5f843d009877509);
+
+            
+
+        
+    
+            var tile_layer_a96e4e6cb02043a3abc40049209e107a = L.tileLayer(
+                "https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"http://cartodb.com/attributions\"\u003eCartoDB\u003c/a\u003e, CartoDB \u003ca href =\"http://cartodb.com/attributions\"\u003eattributions\u003c/a\u003e", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 9, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_38afaeb697e74e92b5f843d009877509);
+        
+    
+            var marker_9264478a69ea41369bfd90fba8380e62 = L.marker(
+                [45.432466736504, -75.689087457348],
+                {}
+            ).addTo(map_38afaeb697e74e92b5f843d009877509);
+        
+    
+            marker_9264478a69ea41369bfd90fba8380e62.bindTooltip(
+                `<div>
+                     1) KING EDWARD @ ST. PATRICK
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_d52458f4c35442e59052bd1a2db24118 = L.marker(
+                [45.39990521, -75.62158646],
+                {}
+            ).addTo(map_38afaeb697e74e92b5f843d009877509);
+        
+    
+            marker_d52458f4c35442e59052bd1a2db24118.bindTooltip(
+                `<div>
+                     2) RUSSELL @ ST-LAURENT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_477886cbc11148cdac4e2ee5e9452693 = L.marker(
+                [45.43379539146184, -75.68991198121007],
+                {}
+            ).addTo(map_38afaeb697e74e92b5f843d009877509);
+        
+    
+            marker_477886cbc11148cdac4e2ee5e9452693.bindTooltip(
+                `<div>
+                     3) KING EDWARD @ ST. ANDREW 
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_48877d1ae9ba425bb4860cc890e95d57 = L.marker(
+                [45.41059368813944, -75.68946436815943],
+                {}
+            ).addTo(map_38afaeb697e74e92b5f843d009877509);
+        
+    
+            marker_48877d1ae9ba425bb4860cc890e95d57.bindTooltip(
+                `<div>
+                     4) CATHERINE & O'CONNOR @ HWY 417 WB
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_864cca4c584b4c3d8f9b8d78d9ebacf5 = L.marker(
+                [45.37840360055808, -75.6694586460059],
+                {}
+            ).addTo(map_38afaeb697e74e92b5f843d009877509);
+        
+    
+            marker_864cca4c584b4c3d8f9b8d78d9ebacf5.bindTooltip(
+                `<div>
+                     5) HERON @ 155m W OF BANK 
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_042b5dfc558245ae88025405e7e94629 = L.marker(
+                [45.42809335, -75.68529062],
+                {}
+            ).addTo(map_38afaeb697e74e92b5f843d009877509);
+        
+    
+            marker_042b5dfc558245ae88025405e7e94629.bindTooltip(
+                `<div>
+                     6) KING EDWARD @ BESSERER
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_f010a9e1948046a594cbb34588fc8558 = L.marker(
+                [45.38802033910328, -75.67623737070736],
+                {}
+            ).addTo(map_38afaeb697e74e92b5f843d009877509);
+        
+    
+            marker_f010a9e1948046a594cbb34588fc8558.bindTooltip(
+                `<div>
+                     7) BANK @ RIVERSIDE S. 
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_5376cc133b1e4430badd00cac1316c45 = L.marker(
+                [45.40941288382424, -75.69427204746175],
+                {}
+            ).addTo(map_38afaeb697e74e92b5f843d009877509);
+        
+    
+            marker_5376cc133b1e4430badd00cac1316c45.bindTooltip(
+                `<div>
+                     8) KENT @ ARLINGTON
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_33508c8837524ef9887dd4bb5e0efdc4 = L.marker(
+                [45.36078523398896, -75.79226646158119],
+                {}
+            ).addTo(map_38afaeb697e74e92b5f843d009877509);
+        
+    
+            marker_33508c8837524ef9887dd4bb5e0efdc4.bindTooltip(
+                `<div>
+                     9) CARLING @ RICHMOND
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_d64bc915a6c2427b8c4b8db7d81d80e8 = L.marker(
+                [45.401000973091925, -75.69965431398785],
+                {}
+            ).addTo(map_38afaeb697e74e92b5f843d009877509);
+        
+    
+            marker_d64bc915a6c2427b8c4b8db7d81d80e8.bindTooltip(
+                `<div>
+                     10) BRONSON @ CARLING / GLEBE
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>
