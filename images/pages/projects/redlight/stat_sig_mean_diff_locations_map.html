@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_4a931d93e6b34479a1e7363fe0e01e7e {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_4a931d93e6b34479a1e7363fe0e01e7e" ></div>
+        
+</body>
+<script>    
+    
+            var map_4a931d93e6b34479a1e7363fe0e01e7e = L.map(
+                "map_4a931d93e6b34479a1e7363fe0e01e7e",
+                {
+                    center: [45.38516331916667, -75.69665522999999],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 11,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+            L.control.scale().addTo(map_4a931d93e6b34479a1e7363fe0e01e7e);
+
+            
+
+        
+    
+            var tile_layer_62f716fe04484af8ac20575add980ba0 = L.tileLayer(
+                "https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"http://cartodb.com/attributions\"\u003eCartoDB\u003c/a\u003e, CartoDB \u003ca href =\"http://cartodb.com/attributions\"\u003eattributions\u003c/a\u003e", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 9, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_4a931d93e6b34479a1e7363fe0e01e7e);
+        
+    
+            var marker_f7c2157ca22743c4b01699ef1bc3ef3c = L.marker(
+                [45.32259424, -75.8871873],
+                {}
+            ).addTo(map_4a931d93e6b34479a1e7363fe0e01e7e);
+        
+    
+            var icon_1b498f5556134aaf9ba15938f9dce96e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-minus-o", "iconColor": "black", "markerColor": "beige", "prefix": "fa"}
+            );
+            marker_f7c2157ca22743c4b01699ef1bc3ef3c.setIcon(icon_1b498f5556134aaf9ba15938f9dce96e);
+        
+    
+            marker_f7c2157ca22743c4b01699ef1bc3ef3c.bindTooltip(
+                `<div>
+                     ('CAMPEAU @ HWY 417 WB: Northbound - 2020: 40 vs 2019: 49, p-value: 0.04259',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a0fdf3526a824dc3b175ee953d56326d = L.marker(
+                [45.36528328, -75.73082093],
+                {}
+            ).addTo(map_4a931d93e6b34479a1e7363fe0e01e7e);
+        
+    
+            var icon_4e4db5462d7f4857b87e65279848042e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-minus-o", "iconColor": "black", "markerColor": "beige", "prefix": "fa"}
+            );
+            marker_a0fdf3526a824dc3b175ee953d56326d.setIcon(icon_4e4db5462d7f4857b87e65279848042e);
+        
+    
+            marker_a0fdf3526a824dc3b175ee953d56326d.bindTooltip(
+                `<div>
+                     ('BASELINE @ MERIVALE: Westbound - 2020: 23 vs 2019: 32, p-value: 0.02954',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_442f6060eb6847f7b36edcfb5883f079 = L.marker(
+                [45.35363104, -75.64733066],
+                {}
+            ).addTo(map_4a931d93e6b34479a1e7363fe0e01e7e);
+        
+    
+            var icon_d2907e820f40493abb01ee10257e66fe = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-minus-o", "iconColor": "black", "markerColor": "beige", "prefix": "fa"}
+            );
+            marker_442f6060eb6847f7b36edcfb5883f079.setIcon(icon_d2907e820f40493abb01ee10257e66fe);
+        
+    
+            marker_442f6060eb6847f7b36edcfb5883f079.bindTooltip(
+                `<div>
+                     ('BANK @ HUNT CLUB: Eastbound - 2020: 30 vs 2019: 42, p-value: 0.00196',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_77c921c7a4ea4fd6bd5d5bb62ac66cc3 = L.marker(
+                [45.47732608, -75.4974114],
+                {}
+            ).addTo(map_4a931d93e6b34479a1e7363fe0e01e7e);
+        
+    
+            var icon_3cec7e69bf664e8cbdba7817c02f7899 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-minus-o", "iconColor": "black", "markerColor": "beige", "prefix": "fa"}
+            );
+            marker_77c921c7a4ea4fd6bd5d5bb62ac66cc3.setIcon(icon_3cec7e69bf664e8cbdba7817c02f7899);
+        
+    
+            marker_77c921c7a4ea4fd6bd5d5bb62ac66cc3.bindTooltip(
+                `<div>
+                     ('TENTH LINE  / CHARLEMAGNE @ TOMPKINS : Southbound - 2020: 28 vs 2019: 38, p-value: 0.00015',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_2d3f47942ab64859ba9a1de84a4843dc = L.marker(
+                [45.38882841, -75.67723452],
+                {}
+            ).addTo(map_4a931d93e6b34479a1e7363fe0e01e7e);
+        
+    
+            var icon_e0cf455ad14f46198442007eaaf29c6e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-minus-o", "iconColor": "black", "markerColor": "beige", "prefix": "fa"}
+            );
+            marker_2d3f47942ab64859ba9a1de84a4843dc.setIcon(icon_e0cf455ad14f46198442007eaaf29c6e);
+        
+    
+            marker_2d3f47942ab64859ba9a1de84a4843dc.bindTooltip(
+                `<div>
+                     ('BANK @ RIVERSIDE N. (RR19): Westbound - 2020: 28 vs 2019: 52, p-value: 0.00388',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_2fdf9e6de119401895b663367ca77eb5 = L.marker(
+                [45.38919155, -75.72662713],
+                {}
+            ).addTo(map_4a931d93e6b34479a1e7363fe0e01e7e);
+        
+    
+            var icon_a0eccbd43bc445c4be25d7139d3337f3 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-minus-o", "iconColor": "black", "markerColor": "beige", "prefix": "fa"}
+            );
+            marker_2fdf9e6de119401895b663367ca77eb5.setIcon(icon_a0eccbd43bc445c4be25d7139d3337f3);
+        
+    
+            marker_2fdf9e6de119401895b663367ca77eb5.bindTooltip(
+                `<div>
+                     ('CARLING @ ISLAND PARK : Eastbound - 2020: 4 vs 2019: 9, p-value: 0.00241',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a60754742fbf4398a7d6f03a7ae23bb2 = L.marker(
+                [45.43246674, -75.68908746],
+                {}
+            ).addTo(map_4a931d93e6b34479a1e7363fe0e01e7e);
+        
+    
+            var icon_6c52c3811baf48dea9975a761468d576 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-minus-o", "iconColor": "black", "markerColor": "beige", "prefix": "fa"}
+            );
+            marker_a60754742fbf4398a7d6f03a7ae23bb2.setIcon(icon_6c52c3811baf48dea9975a761468d576);
+        
+    
+            marker_a60754742fbf4398a7d6f03a7ae23bb2.bindTooltip(
+                `<div>
+                     ('KING EDWARD @ ST. PATRICK: Southbound - 2020: 267 vs 2019: 395, p-value: 0.01344',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_b3e33d9944184737a913da37c4cde0ab = L.marker(
+                [45.37857171, -75.66755153],
+                {}
+            ).addTo(map_4a931d93e6b34479a1e7363fe0e01e7e);
+        
+    
+            var icon_f114b76ab9d84798867649361c2f3d1b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-minus-o", "iconColor": "black", "markerColor": "beige", "prefix": "fa"}
+            );
+            marker_b3e33d9944184737a913da37c4cde0ab.setIcon(icon_f114b76ab9d84798867649361c2f3d1b);
+        
+    
+            marker_b3e33d9944184737a913da37c4cde0ab.bindTooltip(
+                `<div>
+                     ('BANK @ HERON: Northbound - 2020: 32 vs 2019: 56, p-value: 0.00327',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_70abe9b3760749259cb87227fb6739dc = L.marker(
+                [45.42798671, -75.62701694],
+                {}
+            ).addTo(map_4a931d93e6b34479a1e7363fe0e01e7e);
+        
+    
+            var icon_41f34414124f4ffeafd7767cfe311a0b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-minus-o", "iconColor": "black", "markerColor": "beige", "prefix": "fa"}
+            );
+            marker_70abe9b3760749259cb87227fb6739dc.setIcon(icon_41f34414124f4ffeafd7767cfe311a0b);
+        
+    
+            marker_70abe9b3760749259cb87227fb6739dc.bindTooltip(
+                `<div>
+                     ('AVIATION PARKWAY @ OGILVIE : Westbound - 2020: 13 vs 2019: 19, p-value: 0.01998',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_93155436c8384b89bb754a83f8c3b003 = L.marker(
+                [45.36263085, -75.71144959],
+                {}
+            ).addTo(map_4a931d93e6b34479a1e7363fe0e01e7e);
+        
+    
+            var icon_10d15180b81c4d649da512c250554010 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-minus-o", "iconColor": "black", "markerColor": "beige", "prefix": "fa"}
+            );
+            marker_93155436c8384b89bb754a83f8c3b003.setIcon(icon_10d15180b81c4d649da512c250554010);
+        
+    
+            marker_93155436c8384b89bb754a83f8c3b003.bindTooltip(
+                `<div>
+                     ('FISHER @ MEADOWLANDS: Southbound - 2020: 53 vs 2019: 71, p-value: 0.01841',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c5584f1cc04f4c8faea5ab66a402ae9c = L.marker(
+                [45.40054791, -75.63148873],
+                {}
+            ).addTo(map_4a931d93e6b34479a1e7363fe0e01e7e);
+        
+    
+            var icon_dee4f388891149d29d5d7118bf11afcb = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-minus-o", "iconColor": "black", "markerColor": "beige", "prefix": "fa"}
+            );
+            marker_c5584f1cc04f4c8faea5ab66a402ae9c.setIcon(icon_dee4f388891149d29d5d7118bf11afcb);
+        
+    
+            marker_c5584f1cc04f4c8faea5ab66a402ae9c.bindTooltip(
+                `<div>
+                     ('SAUNDERSON @ SMYTH: Eastbound - 2020: 24 vs 2019: 38, p-value: 0.00041',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c7a0d2b4b88f4755baa580092dfe77ac = L.marker(
+                [45.26870306, -75.75116853],
+                {}
+            ).addTo(map_4a931d93e6b34479a1e7363fe0e01e7e);
+        
+    
+            var icon_8df1bcff92df4d93b15675e8215aa0b8 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-minus-o", "iconColor": "black", "markerColor": "beige", "prefix": "fa"}
+            );
+            marker_c7a0d2b4b88f4755baa580092dfe77ac.setIcon(icon_8df1bcff92df4d93b15675e8215aa0b8);
+        
+    
+            marker_c7a0d2b4b88f4755baa580092dfe77ac.bindTooltip(
+                `<div>
+                     ('JOCKVALE @ STRANDHERD: Eastbound - 2020: 22 vs 2019: 39, p-value: 0.00118',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_abe23c1f5da34474ba990c0ff09ba095 = L.marker(
+                [45.43336965, -75.60745592],
+                {}
+            ).addTo(map_4a931d93e6b34479a1e7363fe0e01e7e);
+        
+    
+            var icon_cbc93c9bfe924464b7c8aaf28b2f9bb0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-minus-o", "iconColor": "black", "markerColor": "beige", "prefix": "fa"}
+            );
+            marker_abe23c1f5da34474ba990c0ff09ba095.setIcon(icon_cbc93c9bfe924464b7c8aaf28b2f9bb0);
+        
+    
+            marker_abe23c1f5da34474ba990c0ff09ba095.bindTooltip(
+                `<div>
+                     ('BLAIR @ REGIONAL RD 174 W.: Eastbound - 2020: 55 vs 2019: 74, p-value: 0.04236',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_afbbc58330964e50babe927fcf7a44d4 = L.marker(
+                [45.37677184, -75.69148988],
+                {}
+            ).addTo(map_4a931d93e6b34479a1e7363fe0e01e7e);
+        
+    
+            var icon_bbab52100b4b48978ffab457f408d9b4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-minus-o", "iconColor": "black", "markerColor": "beige", "prefix": "fa"}
+            );
+            marker_afbbc58330964e50babe927fcf7a44d4.setIcon(icon_bbab52100b4b48978ffab457f408d9b4);
+        
+    
+            marker_afbbc58330964e50babe927fcf7a44d4.bindTooltip(
+                `<div>
+                     ('HERON @ RIVERSIDE : Eastbound - 2020: 50 vs 2019: 69, p-value: 0.00499',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_609c37a2bfc042d9b984cde4618bcaec = L.marker(
+                [45.36078523, -75.79226646],
+                {}
+            ).addTo(map_4a931d93e6b34479a1e7363fe0e01e7e);
+        
+    
+            var icon_56cd8e3a8a7943ddbff76be9c561a566 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-minus-o", "iconColor": "black", "markerColor": "beige", "prefix": "fa"}
+            );
+            marker_609c37a2bfc042d9b984cde4618bcaec.setIcon(icon_56cd8e3a8a7943ddbff76be9c561a566);
+        
+    
+            marker_609c37a2bfc042d9b984cde4618bcaec.bindTooltip(
+                `<div>
+                     ('CARLING @ RICHMOND: Westbound - 2020: 66 vs 2019: 85, p-value: 0.00885',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_8dda5e45f4f64d1f905b9ea041d8bc09 = L.marker(
+                [45.30407235, -75.87677745],
+                {}
+            ).addTo(map_4a931d93e6b34479a1e7363fe0e01e7e);
+        
+    
+            var icon_075e6818805247379846e66ce28585aa = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-minus-o", "iconColor": "black", "markerColor": "beige", "prefix": "fa"}
+            );
+            marker_8dda5e45f4f64d1f905b9ea041d8bc09.setIcon(icon_075e6818805247379846e66ce28585aa);
+        
+    
+            marker_8dda5e45f4f64d1f905b9ea041d8bc09.bindTooltip(
+                `<div>
+                     ('HAZELDEAN / ROBERTSON @ EAGLESON: Southbound - 2020: 20 vs 2019: 36, p-value: 0.00239',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a38070722ae447a4b78b61afc7d51994 = L.marker(
+                [45.38802034, -75.67623737],
+                {}
+            ).addTo(map_4a931d93e6b34479a1e7363fe0e01e7e);
+        
+    
+            var icon_84c6465c735e43d8b7dfb8c6111d1d9d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-minus-o", "iconColor": "black", "markerColor": "beige", "prefix": "fa"}
+            );
+            marker_a38070722ae447a4b78b61afc7d51994.setIcon(icon_84c6465c735e43d8b7dfb8c6111d1d9d);
+        
+    
+            marker_a38070722ae447a4b78b61afc7d51994.bindTooltip(
+                `<div>
+                     ('BANK @ RIVERSIDE S. : Northbound - 2020: 97 vs 2019: 122, p-value: 0.02348',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_81c3b39220fa4d149640454c68c8db55 = L.marker(
+                [45.38163119, -75.73846511],
+                {}
+            ).addTo(map_4a931d93e6b34479a1e7363fe0e01e7e);
+        
+    
+            var icon_b46281d67f0240b89dd50df66d84c054 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-minus-o", "iconColor": "black", "markerColor": "beige", "prefix": "fa"}
+            );
+            marker_81c3b39220fa4d149640454c68c8db55.setIcon(icon_b46281d67f0240b89dd50df66d84c054);
+        
+    
+            marker_81c3b39220fa4d149640454c68c8db55.bindTooltip(
+                `<div>
+                     ('KIRKWOOD @ COLDREY: Northbound - 2020: 57 vs 2019: 89, p-value: 0.02334',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_d6c3f517efb2457984f0cdb9267603c8 = L.marker(
+                [45.40529157, -75.70973672],
+                {}
+            ).addTo(map_4a931d93e6b34479a1e7363fe0e01e7e);
+        
+    
+            var icon_d73f3b26631d446cb2c747842e0534ca = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-minus-o", "iconColor": "black", "markerColor": "beige", "prefix": "fa"}
+            );
+            marker_d6c3f517efb2457984f0cdb9267603c8.setIcon(icon_d73f3b26631d446cb2c747842e0534ca);
+        
+    
+            marker_d6c3f517efb2457984f0cdb9267603c8.bindTooltip(
+                `<div>
+                     ('GLADSTONE @ ROCHESTER: Westbound - 2020: 39 vs 2019: 66, p-value: 0.00051',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_31f26a1acf5746288d85f3c5873eb446 = L.marker(
+                [45.41687927, -75.70547366],
+                {}
+            ).addTo(map_4a931d93e6b34479a1e7363fe0e01e7e);
+        
+    
+            var icon_4608bfa0dcf7436dbbb847b284d2a706 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-minus-o", "iconColor": "black", "markerColor": "beige", "prefix": "fa"}
+            );
+            marker_31f26a1acf5746288d85f3c5873eb446.setIcon(icon_4608bfa0dcf7436dbbb847b284d2a706);
+        
+    
+            marker_31f26a1acf5746288d85f3c5873eb446.bindTooltip(
+                `<div>
+                     ('BAY @ SLATER: Eastbound - 2020: 23 vs 2019: 67, p-value: 0.00031',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_f5fbb89d78b64b8f97e8231b34727678 = L.marker(
+                [45.44366406, -75.63909822],
+                {}
+            ).addTo(map_4a931d93e6b34479a1e7363fe0e01e7e);
+        
+    
+            var icon_ab8f4eb30dfc400480559ae3361a1224 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-minus-o", "iconColor": "black", "markerColor": "beige", "prefix": "fa"}
+            );
+            marker_f5fbb89d78b64b8f97e8231b34727678.setIcon(icon_ab8f4eb30dfc400480559ae3361a1224);
+        
+    
+            marker_f5fbb89d78b64b8f97e8231b34727678.bindTooltip(
+                `<div>
+                     ('AVIATION PARKWAY @ MONTREAL: Eastbound - 2020: 35 vs 2019: 51, p-value: 0.00548',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_82467fe9ca3749bc8299aa81f3d45d70 = L.marker(
+                [45.36973398, -75.66494736],
+                {}
+            ).addTo(map_4a931d93e6b34479a1e7363fe0e01e7e);
+        
+    
+            var icon_53fcef0741794866b8ed81200b087c8c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-minus-o", "iconColor": "black", "markerColor": "beige", "prefix": "fa"}
+            );
+            marker_82467fe9ca3749bc8299aa81f3d45d70.setIcon(icon_53fcef0741794866b8ed81200b087c8c);
+        
+    
+            marker_82467fe9ca3749bc8299aa81f3d45d70.bindTooltip(
+                `<div>
+                     ('WALKLEY @ GLENHAVEN / ANAND: Eastbound - 2020: 83 vs 2019: 107, p-value: 0.02074',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_aa3bd9d9d1e64d75bd3131199efcf4df = L.marker(
+                [45.3784036, -75.66945865],
+                {}
+            ).addTo(map_4a931d93e6b34479a1e7363fe0e01e7e);
+        
+    
+            var icon_8d342f8fc3b34bab9152cb2d686c6cce = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-minus-o", "iconColor": "black", "markerColor": "beige", "prefix": "fa"}
+            );
+            marker_aa3bd9d9d1e64d75bd3131199efcf4df.setIcon(icon_8d342f8fc3b34bab9152cb2d686c6cce);
+        
+    
+            marker_aa3bd9d9d1e64d75bd3131199efcf4df.bindTooltip(
+                `<div>
+                     ('HERON @ 155m W OF BANK : Eastbound - 2020: 58 vs 2019: 226, p-value: 0.02612',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_02487c1e1c3940738d0e9aaa0cb19574 = L.marker(
+                [45.417535, -75.703944],
+                {}
+            ).addTo(map_4a931d93e6b34479a1e7363fe0e01e7e);
+        
+    
+            var icon_4b644fabd86746caba34da907651e1c3 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-minus-o", "iconColor": "black", "markerColor": "beige", "prefix": "fa"}
+            );
+            marker_02487c1e1c3940738d0e9aaa0cb19574.setIcon(icon_4b644fabd86746caba34da907651e1c3);
+        
+    
+            marker_02487c1e1c3940738d0e9aaa0cb19574.bindTooltip(
+                `<div>
+                     ('LYON @ SLATER: Southbound - 2020: 84 vs 2019: 138, p-value: 0.0294',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>
