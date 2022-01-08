@@ -141,7 +141,7 @@
 		<b>
 			<a href="#question1" class="saymore"> Question 1) Which month(s) see the most number of violations?</a><br>
 			<a href="#question2" class="saymore"> Question 2) Which location(s) have the most violations?</a><br>
-			<a href="#question3"  class="saymore"> Question 3) Did COVID change the redlight camera violation occurrences??</a><br>
+			<a href="#question3"  class="saymore"> Question 3) Which locations, if any, had a statistically significant change in the redlight camera violation occurrences for the year 2020?</a><br>
 		</b>
 		For the questions, it is important to analyze the current data available (2020) to see patterns due to regular changes that would occur year-over-year but also major changes that would have occurred during the pandemic (beginning mid March 2020 in Ottawa). It is also useful to analyze previous yearly data because it provides us with a larger picture of patterns that might occur through the years.
 	</p>
@@ -487,9 +487,61 @@
 </div>
 
 <div class="row">
-	<h5 id="question3"><center>Question 3) Did COVID change the redlight camera violation occurrences?</center></h5>
+	<h5 id="question3"><center>Question 3) Which locations, if any, had a statistically significant change in the redlight camera violation occurrences for the year 2020?</center></h5>
+	<h6>Hypothesis:</h6>
 	<p>
-		Coming soon!
+		Most downtown locations will see a statistically significant drop in the number of violations in 2020.
+	</p>
+
+	<h6>Data:</h6>
+	<span style="color:#4d4d4d"><b><u>Line Graph: </u></b></span><br>
+	<p>
+		<div class="four columns" id="fig12a">
+			<center>
+				<img  src="images/pages/projects/redlight/line-graph-mean-2020.png" width="100%" height="auto"><br>
+				<i>Figure 12a: Line graph of all <b>2020</b> camera locations and their corresponding number of monthly red-light camera violations.</i>
+			</center>
+		</div>
+		<div class="four columns" id="fig12b">
+			<center>
+				<img  src="images/pages/projects/redlight/line-graph-mean-2019.png" width="100%" height="auto"><br>
+				<i>Figure 12b: Line graph of all <b>2019</b> camera locations and their corresponding number of monthly red-light camera violations.</i>
+			</center>
+		</div>
+		<div class="four columns" id="fig12c">
+			<center>
+				<img  src="images/pages/projects/redlight/line-graph-mean-2018.png" width="100%" height="auto"><br>	<i>Figure 12c: Line graph of all <b>2018</b> camera locations and their corresponding number of monthly red-light camera violations.</i>
+			</center><br>
+		</div>
+	</p>
+	<p>
+		<center><u>Interpretation:</u></center>
+		The 2020 (Figure 12a) data shows a big decline in all locations in March/April. Since neither the 2019 nor the 2018 data seems to show the same large decline for all locations as 2020 for March/April, we can say that the initial set of COVID restrictions (which began in Ottawa mid-March 2020) did seem to impede the number of traffic violations. However, Figure 12a shows a bounce back to normal levels around May/June. This is looking at the general trend of all locations, however, we want to have a more precise breakdown per each location, so we will be looking at a t-test.
+	</p>
+	<span style="color:#4d4d4d"><b><u>T-test: </u></b></span><br>
+	<p>
+		<center><img id="fig13"  src="images/pages/projects/redlight/stat_sig_mean_short.png" width="90%" height="auto"><br><br>
+		<i>Figure 13: Table containing all locations that have a p-value less than 0.05.</i></center>
+	</p>
+	<span style="color:#4d4d4d"><b><u>Map of Locations where Decrease from 2019 to 2020 is Statistically Significant</u></b></span><br>
+	<p>
+		<center><iframe id="fig14" src="images/pages/projects/redlight/stat_sig_mean_diff_locations_map.html" width="500" height="350"></iframe><br>
+		<i>Figure 14: Statistically significant decreases in locational red-light camera violations.</i></center>
+	</p>
+	<p>
+		<center><iframe id="fig15" src="images/pages/projects/redlight/both_stats_mean_diff_locations_map.html" width="500" height="350"></iframe><br>
+		<i>Figure 15: Statistically significant decreases in locational red-light camera violations from 2019 to 2020 (beige) compared to not statistically significant changes (light gray).</i></center>
+	</p>
+	<p>
+		We can see that downtown has locations which have decreased, but in relation to how many cameras are found downtown, there wasn't as big of a decline as can be seen with Alta Vista. Alta Vista was hit the hardest with decreases. We can also see that Kanata (all cameras) and Gloucester (1/2 their cameras) also had a relatively high number of decreases (when compared to how many camera locations they have).
+		<i>Alpha level 0.05 was selected as this is the most common threshold for statistical significance. </i>
+	</p>
+	<h6>Conclusion:</h6>
+	<p>
+		My hypothesis was not supported with the data. The location which seemed to have the largest decreases was Alta Vista (almost all of their cameras had seen a significant decrease -which can be seen in <a href="#fig15" class="saymore">Figure 15</a>. Also notable is that Kanata and Gloucester were also part of the locations that had a noticeable decrease in violations. Kanata had both of their cameras showing a significant decrease and Gloucester having half of their cameras showing a significant decrease.
+	</p>
+	<p>
+		This decrease in violations could be due to the COVID restrictions which probably led to more people staying at home meaning less people driving. Another reason for this occurrence could be due to the fact that red-light cameras are hypothesized to decrease violations the longer they are kept in place, meaning this could be a natural decrease in violations that we are seeing. In order to find which cause it most likely is, more research would need to be done.
 	</p>
 </div>
 
