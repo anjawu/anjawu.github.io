@@ -10,7 +10,7 @@
 <meta charset="utf-8"/>
 <!-- Set the viewport width to device width for mobile -->
 <meta name="viewport" content="width=device-width"/>
-<title>Anja Wu</title>
+<title>Anja's Projects</title>
 <!-- CSS Files-->
 <link rel="stylesheet" href="stylesheets/style.css">
 <link rel="stylesheet" href="stylesheets/skins/blue.css">
@@ -58,15 +58,16 @@
 			<ul>
 				<li><a href="github.html">GitHub</a></li>
 				<li><a href="libraries.html">Libraries</a></li>
-				<li><a href="stats.html">Statistics</a></li>
+				<li><a href="sql.html">SQL</a></li>
+				<!-- <li><a href="stats.html">Statistics</a></li> -->
 				<li><a href="versus.html">Versus</a></li>
 				<li><a href="funlearn.html">Fun Things Learnt</a></li>
 				<li><a href="environmentsetup.html">Environment Setup</a></li>
 				<!-- <li><a href="terminalbasics.html">Terminal Basics</a></li> -->
 			</ul>
 			</li>
-			<li> Projects
-			<!-- <a href="projects.html">Projects</a> -->
+			<li>
+			<a href="projects.html">Projects</a>
 			<ul>
 				<li><a href="redlight.html">Ottawa Redlight Violations Analysis</a></li>
 				<li><a href="costco.html">Costco</a></li>
@@ -103,15 +104,15 @@
 <div class="row">
 	<!-- Redfin-->
 	<div class="four columns">
-		<h5>Redfin</h5>	
+		<h5>City of Ottawa Red-light Data Analysis</h5>	
 		<div class="portofoliothumb">
-			<!-- <div class="portofoliothumboverlay threeoverlay">
+			<div class="portofoliothumboverlay threeoverlay">
 				<div class="inner threedetail">
-					<a class="projectdetail" href="redfin.html">Project Code →</a>
+					<a class="projectdetail" href="redlight.html">Project Steps →</a>
 				</div>
-			</div> -->
+			</div>
 			<p>
-				This project is currently underway. It will be updated when it is complete. I will be pushing up changes on my <a href="https://github.com/anjawu" class="saymore">GitHub</a> page as I build more of the app.
+				Finally, I had gotten to a place in my confidence in Python coding that I wanted to venture down the path for data analysis. The City of Ottawa has open source data and I found (and used) their data for red light violations from 2016-2020. Here I analyzed questions centered around <u><b>ROI</b></u> for the City of Ottawa: which months/locations have the highest/lowest number of violations, and was there a statistically significant change in number of violations for the year 2020 in comparison to 2019. I used <b><i>Pandas</i></b> to <b><u>analyze the data</u></b>, <b><i>matplotlib</i></b> and <b><i>NumPy</i></b> to <b><u>visualize the data</u></b>, <b><i>Folium</i></b> to <b><u>create map visualizations</u></b>, and <b><i>SciPy</i></b> to run <b><u>t-tests to analyze correlations</u></b>.
 			</p>
 			<br>
 		</div>
@@ -122,26 +123,26 @@
 		<div class="portofoliothumb">
 			<div class="portofoliothumboverlay threeoverlay">
 				<div class="inner threedetail">
-					<a class="projectdetail" href="costco.html">Project Code →</a>
+					<a class="projectdetail" href="costco.html">Project Steps →</a>
 				</div>
 			</div>
 			<p>
-				After the first web scraping two projects - with help from articles I found, I decided to venture out on my own. I decided to make a web scraper that pulls the information for Costco’s coupon section and looks for keywords. I had to learn to use Selenium because it required user input for the location before allowing the coupons to load (as they are based on the location). I also used Pandas again to make the data frame that stores all the coupon information and then also a second data frame that stores only the relevant coupons for the keyword I inputted.  I wanted to automatically run it once a week using Cron, however, I ran into some issues with Cron on a Macbook. So I plan to update my code once I fix the Cron/Macbook error. I also plan to include a list of keywords to look for, as opposed to just one. This project can be taken further by making an email alert with the items listed based on the keywords inputted. It can be taken even further by asking the user to input what words they want to set alerts for.
+				After the first web scraping two projects - with help from articles I found, I decided to venture out on my own. I decided to make a web scraper that pulls the information for Costco’s coupon section and looks for keywords. I had to learn to use <b><i>Selenium</i></b> because it required user input for the location before allowing the coupons to load (as they are based on the location). I also used <b><i>Pandas</i></b> again to make the <u><b>data frame that stores all the coupon information</b></u> and then also a second data frame that stores only the relevant coupons for the keyword I inputted.  I wanted to automatically run it once a week using Cron, however, I ran into some issues with Cron on a Macbook. I was anxious to get to my next project of data analysis so I moved on but there are so many ways this project can be taken further (which I hope to do): update my code once I fix the Cron/Macbook error, include a list of keywords to look for (as opposed to just one), making an email alert with the items listed based on the keywords inputted, and maybe even asking the user to input what words they want to set alerts for. 
 			</p>
 			<br>
 		</div>
 	</div>
 	<!-- Project 3-->
 	<div class="four columns">
-		<h5>Website</h5>
+		<h5>Creating My Website</h5>
 		<div class="portofoliothumb">
 			<div class="portofoliothumboverlay threeoverlay">
 				<div class="inner threedetail">
-					<a class="projectdetail" href="website.html">Project Code →</a>
+					<a class="projectdetail" href="website.html">Project Steps →</a>
 				</div>
 			</div>
 			<p>
-				This website was created using a template that was found online on a free templates website. I picked the template that had the most amount of stuff I liked. I really liked the colour scheme and the basic layout ideas. It also had a lot of features that I could use in whichever way I wanted. As this was the first HTML website I created, the final code might not all be in the best coding practices style.
+				This website was created using a template that was found online on a free templates website. I picked the template that had the most amount of stuff I liked. I really liked the colour scheme and the basic layout ideas. It also had a lot of features that I could use in whichever way I wanted. As this was the first <b><u>HTML</u></b> website I created so the final code might not all be in the best coding practices style. I also went in and changed some of the <u><b>CSS</b></u> in order to style certain things to my liking.
 			</p>
 			<br>
 		</div>
@@ -152,37 +153,37 @@
 <div class="row">
 		<!-- Indeed-->
 	<div class="four columns">
-		<h5>Indeed</h5>
+		<h5>Indeed Web Scraper</h5>
 		<div class="portofoliothumb">
 			<div class="portofoliothumboverlay threeoverlay">
 				<div class="inner threedetail">
-					<a class="projectdetail" href="indeed.html">Project Code →</a>
+					<a class="projectdetail" href="indeed.html">Project Steps →</a>
 				</div>
 			</div>
 			<p>
-				This was my second project using Python, and first project web scraping. I used a guideline web article that scraped the Monster job website. As good as the article was, the Monster website was no longer static, therefore I could not follow along directly with the article. So it took me a lot of extra research because I was just starting to learn about containers and attributes of HTML code. Then I decided to try out what I learned on a similar job search webpage: Indeed.ca. In this project, I used the BeautifulSoup and the requests library for the first time and discovered how amazing they are.
+				This was my second project - first web scraping one - using Python. I used a guideline web article that scraped the Monster job website. As good as the article was, the Monster website was no longer static, therefore I could not follow along directly with the article. So it took me a lot of extra research because I was just starting to learn about containers and attributes of HTML code. Then I decided to try out what I learned on a similar job search webpage: Indeed.ca. In this project, I used the <b><i>BeautifulSoup</i></b> and the <b><i>requests</i></b> library for the first time and discovered how amazing they are.
 			</p>
 			<br>
 		</div>
 	</div>
 	<!-- IMDb-->
 	<div class="four columns">
-		<h5>IMDb</h5>
+		<h5>IMDb Web Scraper</h5>
 		<div class="portofoliothumb">
 			<div class="portofoliothumboverlay threeoverlay">
 				<div class="inner threedetail">
-					<a class="projectdetail" href="imdb.html">Project Code →</a>
+					<a class="projectdetail" href="imdb.html">Project Steps →</a>
 				</div>
 			</div>
 			<p>
-				This was the second web scraping project I did. I used an article as a guide to help me understand further how to store the data in a usable way. This is where I was introduced to Pandas.  I scraped the first 50 top movies from IMDb’s top 100 movies and created a data frame, which was saved to a CSV file, where all the data types stored are correct. I used this as an introduction to starting to clean up data that I have gotten.
+				This was the second web scraping project I did. I used an article as a guide to help me understand further how to <u><b>store the data</b></u> in a usable way. This is where I was introduced to <b><i>Pandas</i></b>.  I scraped the first 50 top movies from IMDb’s top 100 movies and created a data frame, which was saved to a CSV file, where all the data types stored are correct. I used this as an introduction to starting to <u><b>clean up data</b></u> that I have gotten.
 			</p>
 			<br>
 		</div>
 	</div>
 	<!-- Hangman-->
 	<div class="four columns">
-		<h5>Hangman</h5>
+		<h5>Hangman Terminal Game</h5>
 		<div class="portofoliothumb">
 			<div class="portofoliothumboverlay threeoverlay">
 				<div class="inner threedetail">
@@ -190,7 +191,7 @@
 				</div>
 			</div>
 			<p>
-				This project was my very first Python code project, where I was learning the basic language of Python. Here I made a hangman game. It ended up being more of a guess a word game because I didn’t actually have the visual of a hangman, but it did help me learn a lot about the language of Python. As I had mentioned on the Home page, I have a B.Math and had taken some university courses learning Java and C, but this was the first time coding in Python. What I have found is my background has given me a good foundation for the logic aspect of coding, however, I needed to learn a whole new language - Python -  which luckily for me has been a very intuitive language so far! 
+				This project was my <b><i>very first Python code</i></b> project, where I was learning the basic language of Python. Here I made a hangman game. It ended up being more of a guess a word game because I didn’t actually have the visual of a hangman, but it did help me learn a lot about the language of Python. As I had mentioned on the Home page, I have a B.Math and had taken some university courses learning Java and C, but this was the first time coding in Python. What I have found is my background has given me a good foundation for the logic aspect of coding, however, I needed to learn a whole new language - Python -  which luckily for me has been a very intuitive language so far! 
 			</p>
 			<br>
 		</div>
