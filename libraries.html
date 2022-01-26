@@ -10,7 +10,7 @@
 <meta charset="utf-8"/>
 <!-- Set the viewport width to device width for mobile -->
 <meta name="viewport" content="width=device-width"/>
-<title>Anja's Guide to Python Libraries</title>
+<title>Anja's Guide to Some Python Libraries</title>
 <!-- CSS Files-->
 <link rel="stylesheet" href="stylesheets/style.css">
 
@@ -693,7 +693,7 @@
 					<b>Extra Lines on Graph</b>
 				</div>
 				<div class="content" style="overflow: hidden; display: none; ">
-					<h6><a href= "https://pythonguides.com/horizontal-line-matplotlib/">Horizontal Line</a></h6>
+					<h6><a href= "https://pythonguides.com/horizontal-line-matplotlib/" class="saymore">Horizontal Line</a></h6>
 					<p>
 						If you want to show a specific value on the y-axis that is useful for the whole graph, it is useful to use <i>.axhline()</i>. On a bar graph that had information on it already I wanted to draw a line at <i>y=17</i>:
 						<div id="testimonials"><blockquote>
@@ -713,6 +713,27 @@
 					<h6>Vertical Line</h6>
 					<p>
 						The same can be done using <i>.axvline()</i> function to make a vertical line using the x-axis.
+					</p>
+				</div>
+			</li>
+		<!-- Accordion: Saving Plot as Image -->
+			<li class="">
+				<div class="title">
+					<b>Saving Plot as Image</b>
+				</div>
+				<div class="content" style="overflow: hidden; display: none; ">
+					<p>
+						Matplotlib has a lot of <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.savefig.html " class="saymore">different arguments</a> you can use to change how the plot is saved as an image. The two most useful ones I found - which I needed to use in order for my graphs to look good were: <i>bbox_inches</i> and <i>facecolor</i>.
+					</p>
+					<p>
+						<i>bbox_inches</i> was useful because it saves a given portion of the figure. Using the argument value <i>'tight'</i> it makes sure that you don't have extra space around the figure.
+					</p>
+					<p>
+						<i>facecolor</i> is important if you have long names of axis titles which tend to go off the page - combined with the above it allows all your words to be put on the same colour background (using the argument value <i>'white'</i> works best).
+					</p>
+					<p>
+						Example:
+						<div id="testimonials"><blockquote>plt.savefig('/Path/plot_name.png', bbox_inches='tight', facecolor = 'white')</blockquote></div>
 					</p>
 				</div>
 			</li>
@@ -1075,6 +1096,25 @@
 							</p>
 						</li>
 					</ul>
+				</div>
+			</li>
+		<!-- Accordion: Saving Images -->
+			<li class="">
+				<div class="title">
+					<b>Saving DataFrame to Image</b>
+				</div>
+				<div class="content" style="overflow: hidden; display: none; ">
+					<p>
+						I wanted to include my dataframe in a table format on my website, so I found out that you can <a href="https://predictivehacks.com/?all-tips=save-a-pandas-dataframe-as-an-image" class="saymore">save the dataframe as an image</a>.
+					</p>
+					<p>
+						First, you need to install the package: dataframe-image:
+						<div id="testimonials"><blockquote>pip install dataframe-image</blockquote></div>
+						Then, in your file you must import the package:
+						<div id="testimonials"><blockquote>import dataframe_image as dfi</blockquote></div>
+						After you have created your dataframe, you can save it using <i>.export()</i> :
+						<div id="testimonials"><blockquote>dfi.export(dataframe_name, 'dataframe.png')</blockquote></div>
+					</p>
 				</div>
 			</li>
 		</ul>
