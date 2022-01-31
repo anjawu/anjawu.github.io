@@ -20,6 +20,34 @@
 <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
+
+ <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-216360630-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-216360630-1');
+</script>
+
+
+<!-- creating buckets for time spent on page -->
+<script type="text/javascript">
+function timer11(){gtag('event','1', {'event_category':'TimeOnPage','event_label':'11-30 seconds','non_interaction':true});}
+function timer31(){gtag('event','2', {'event_category':'TimeOnPage','event_label':'31-60 seconds','non_interaction':true});}
+function timer61(){gtag('event','3', {'event_category':'TimeOnPage','event_label':'61-180 seconds','non_interaction':true});}
+function timer181(){gtag('event','4', {'event_category':'TimeOnPage','event_label':'181-600 seconds','non_interaction':true});}
+function timer601(){gtag('event','5', {'event_category':'TimeOnPage','event_label':'601-1800 seconds','non_interaction':true});}
+function timer1801(){gtag('event','6', {'event_category':'TimeOnPage','event_label':'1801+ seconds','non_interaction':true});}
+gtag('event','0', {'event_category':'TimeOnPage','event_label':'0-10 seconds','non_interaction':true});
+setTimeout(timer11,11000);
+setTimeout(timer31,31000);
+setTimeout(timer61,61000);
+setTimeout(timer181,181000);
+setTimeout(timer601,601000);
+setTimeout(timer1801,1801000);
+</script>
 </head>
 <body>
 <!-- HIDDEN PANEL 
