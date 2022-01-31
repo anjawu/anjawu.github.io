@@ -31,6 +31,25 @@
 
   gtag('config', 'UA-216360630-1');
 </script>
+
+<script type="text/javascript">
+	// jQuery
+$(window).on(‘beforeunload’, function() {
+	_gaq.push([‘_trackPageview’, ‘/bounce’]);
+});
+
+// Vanilla JavaScript
+window.onbeforeunload = function (e) {
+	e = e || window.event;
+	// For IE and Firefox
+	if (e) {
+		_gaq.push([‘_trackPageview’, ‘/bounce’]);
+	}
+	// For Safari & Chrome
+	return _gaq.push([‘trackPageview’, ‘/bounce’]);
+};
+</script>
+
 </head>
 <body>
 <!-- HIDDEN PANEL 
