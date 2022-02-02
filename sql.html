@@ -31,6 +31,26 @@
 
   gtag('config', 'UA-216360630-1');
 </script>
+
+<!-- creating buckets for time spent on page -->
+<script type="text/javascript">
+function timer11(){gtag('event','1', {'event_category':'sql_TimeOnPage','event_label':'11-30 seconds','non_interaction':true});}
+function timer31(){gtag('event','2', {'event_category':'sql_TimeOnPage','event_label':'31-60 seconds','non_interaction':true});}
+function timer61(){gtag('event','3', {'event_category':'sql_TimeOnPage','event_label':'61-180 seconds','non_interaction':true});}
+function timer181(){gtag('event','4', {'event_category':'sql_TimeOnPage','event_label':'181-360 seconds','non_interaction':true});}
+function timer361(){gtag('event','5', {'event_category':'sql_TimeOnPage','event_label':'361-600 seconds','non_interaction':true});}
+function timer601(){gtag('event','6', {'event_category':'sql_TimeOnPage','event_label':'601-1800 seconds','non_interaction':true});}
+function timer1801(){gtag('event','7', {'event_category':'sql_TimeOnPage','event_label':'1801+ seconds','non_interaction':true});}
+gtag('event','0', {'event_category':'sql_TimeOnPage','event_label':'0-10 seconds','non_interaction':true});
+setTimeout(timer11,11000);
+setTimeout(timer31,31000);
+setTimeout(timer61,61000);
+setTimeout(timer181,181000);
+setTimeout(timer361,361000);
+setTimeout(timer601,601000);
+setTimeout(timer1801,1801000);
+</script>
+
 </head>
 <body>
 <!-- HIDDEN PANEL 
@@ -117,7 +137,7 @@
 		As much as I loved coding in Python, learning SQL has opened up so many opportunities. After spending time coding, I have found that SQL is like Excel and Python had a baby and it came out as a super easy to use data analyzing tool. In order to learn the basic syntax of SQL, I was recommended <a href="https://mode.com/sql-tutorial/" class="saymore">Mode's SQL Tutorial</a>. I <u>LOVED</u> it! If you are new to SQL I would definitely recommend doing it. 
 	</p>
 	<p>
-		Below I will summarize all the syntax I have learnt, then I apply it to my red-light open source data set I got from the City of Ottawa. 
+		Below I will summarize all the syntax and skills I have learnt, along with my reports from the three sections of the hypothetical problems with fake data from the <a href="https://mode.com/sql-tutorial/sql-business-analytics-training/" class="saymore"> Mode Analytics Training</a>.
 	</p>
 </div>
 
@@ -130,11 +150,11 @@
 				<br>Syntax
 			</div>
 		</div>
-		<h4>SQL</h4>
+		<h4>SQL Syntax</h4>
 		<div class="dots blogdots">
 		</div>
 		<p>
-			Currently under way! Stay tuned! :)
+			In the tabs below, you will find a summary of the terminology and tools I learnt from the Mode tutorial.
 		</p>
 		<p>
 			
@@ -143,110 +163,236 @@
 		</div>
 
 		<!-- Accordion: Basics -->
-<!-- 		<ul class="accordion">
+		<ul class="accordion">
 			<li class="">
 				<div class="title">
-					<b>Setting up Pandas</b>
+					<b>Basics</b>
 				</div>
 				<div class="content" style="overflow: hidden; display: none; ">
+					<h6>Clauses</h6>
 					<p>
-						To download, in the terminal enter:
-						<div id="testimonials"><blockquote><p>pip install pandas</p></blockquote></div>
-						To use within a .py (python) file:
-						<div id="testimonials"><blockquote><p>import pandas as pd</p></blockquote></div>
-						Here you are importing the Pandas library and giving it a variable pd, this way when you want to call on a function from Pandas, you do not need to type pandas each time, but can just write pd.
+						The following is in the query clause order it must appear in (<i>only the <b>bold</b> clauses must appear in each search</i>).
 					</p>
+
+					<ul class="disc">
+						<li><b>SELECT</b> - specify which columns to look at (<i>*</i> means all columns) </li> <br>
+						<li><b>FROM</b> - specify which table the data is being pulled from (format of: <i>name of user.name_of_table</i>)</li><br>
+						<li>WHERE - filter data based on a certain condition </li><br>
+						<li>ORDER BY - reorder results based on the data in columns, can be more than one column (<i>DESC</i> used for descending order; otherwise automatically in ascending order)</li><br>
+						<li>LIMIT - to speed up query searches, limit it to the top 100 (LIMIT 100 - Mode does it automatically)</li><br>
+					</ul>
+					<p>
+						Note: to refer to a column use double quotations (“”) only need to do it when column name is the same as a function name in SQL (example: group)
+					</p>
+					<h6>Clause to be used in combination with other clauses</h6>
+					<ul class="disc">
+						<li>AS - used for naming a new column. Example:
+							<div id="testimonials"><blockquote>
+								SELECT west AS west_region
+								<div class="tab">FROM user.housing_info</div>
+							</blockquote></div>
+      			</li>
+					</ul>
+					<h6>Logical Operators</h6>
+					<ul class="disc">
+						<li>AND</li>
+						<li>OR</li>
+						<li>NOT</li>
+						<li>IS NULL</li>
+						<li>BETWEEN</li>
+						<li>
+							LIKE - allows search for keywords (case-sensitive)<br>						
+							ILIKE - allows search for keywords (not case-sensitive)<br>
+							<div class="tab">
+								<i>%</i> is a wildcard character that allows searching for strings with any character or set of characters contained where the <i>%</i> is located
+						</div>
+						</li><br>
+						<li>
+							IN - look at a list of values rather than writing them as separate statements. It can be for any data type. Example: 
+							<div id="testimonials"><blockquote>WHERE <div class="tab"> category IN (‘item one’, ‘item two’, ‘item three’)</div></blockquote></div>
+						</li><br>
+						<li>
+							BETWEEN - look at a range of values, it can be numerical or a string. Example: 
+							<div id="testimonials"><blockquote>WHERE <div class="tab"> name BETWEEN ‘a’ <br>AND ‘m’</div></blockquote></div>
+						</li>
+					</ul>
 				</div>
-			</li> -->
+			</li>
 		<!-- Accordion: Intermediate -->
-<!-- 			<li class="">
+			<li class="">
 				<div class="title">
-					<b>Working with Dataframes</b>
+					<b>Intermediate</b>
 				</div>
 				<div class="content" style="overflow: hidden; display: none; ">
-					<p>
-						
-					</p> -->
-					<!-- Tabs -->
-<!-- 					<dl class="tabs">
-						<dd class="active"><a href="#rk-sort">Rank / Sort Values</a></dd>
-						<dd><a href="#df-functions">Applying Functions</a></dd>
-						<dd><a href="#add-row">Adding Row</a></dd>
-						<dd><a href="#delete">Delete Row or Column</a></dd>
-						<dd><a href="#compare-df">Compare Dataframes</a></dd>
-					</dl>
-					<ul class="tabs-content">
-						<li class="active" id="rk-sortTab">
-							<p>
-								Rank / Sort Values
-							</p>
+					<h6>Clauses</h6>
+					<p>Continuing the query clause order (from the basics section)</p>
+					<ul class="disc">
+						<li><b>SELECT</b></li> 
+						<li>DISTINCT - allows the user to see the unique values in a particular column (for two or more columns then they are listed as ordered pairs). It can be used in combination with aggregate functions - primarily:
+							<div id="testimonials"><blockquote>COUNT(DISTINCT month)</blockquote></div>
 						</li>
-						<li id="df-functionsTab">
-							<p>
-								Applying functions
-							</p>
+						<li>CASE - is like an if/then statement:
+							<div class="tab"> 
+								WHEN - if this condition is true <br>
+								THEN - then we will make it this value (can be string, number or boolean) <br>
+								ELSE - not necessary but use if needed to encompass the rest of the data <br>
+								END - you must always end the case statement <br>
+								Two ways to approach it using aggregate functions:
+								<ol>
+									<li>
+										with aggregate function: 
+										<div id="testimonials"><blockquote>
+										SELECT 
+										<div class="tab">
+											CASE WHEN location = 'west' THEN 'west'
+											<div class="tab">
+										            WHEN location = 'east' THEN 'east'<br>
+										            END AS location_group,<br>
+										            COUNT(1) AS count
+										          </div>
+										</div>
+										    FROM user.housing_info
+										    GROUP BY 1
+										</blockquote></div>
+									</li>
+									<li>
+										inside aggregate function (this pivots the table above) - must put the case statement <u>within</u> the aggregate function. Example:
+										<div id="testimonials"><blockquote>
+											SELECT 
+											<div class="tab">
+											COUNT(CASE WHEN location = 'west' THEN 1 END) AS west_count,<br>
+											COUNT(CASE WHEN location = 'east' THEN 1 END) AS east_count,
+											</div>
+											  FROM user.housing_info
+										</blockquote></div>
+									</li>
+  						</div>
 						</li>
-						<li id="add-rowTab">
-							<p>
-								Adding row
-							</p>
-						</li>
-						<li id="deleteTab">
-							<p>
-								Delete Column or Row
-							</p>
-						</li>
-						<li id="compare-dfTab">
-							<p>
-								Compare Dataframes
-							</p>
-						</li>
+						<li><b>FROM</b></li>
+						<li>
+							JOIN - let’s the user combine different (or the same) tables
+							<div class="tab">
+								INNER JOIN (can be written as just JOIN) - is the intersection between the two tables; any rows that are not in both tables will be disregarded<br>
+								Outer joins - allows inclusion of rows that are not found in both tables. Broken up into:
+								<div class="tab">
+									LEFT JOIN (or OUTER LEFT JOIN) - returns unmatched rows from left table (first one listed)<br>
+									
+									RIGHT JOIN  (or OUTER RIGHT JOIN)- returns unmatched rows from the right table (second one listed). This is not used often because you can get the same results using LEFT JOIN if you switch the order of the tables listed in FROM<br>
+
+									FULL JOIN (or FULL OUTER JOIN) -  returns unmatched rows from both tables; gives the union of the two tables with matching rows being overlapped. This is not used very often but Mode has suggested the most common use is if it is used in conjunction with aggregations to understand the amount of overlap between two tables
+								</div>
+								<a href="https://learnsql.com/blog/join-tables-without-common-column/#:~:text=Yes%2C%20you%20can!,the%20different%20solutions%20with%20examples" class="saymore">CROSS JOIN</a> -  allows the joining of two tables which are not related to each other. This will produce a table that has every permutation of rows from each table
+							</div>
+							<i>Note: You can give a table an alias by typing the variable after a space beside the table name</i><br>
+							Joining with multiple keys - this can add accuracy (and sometimes speed) to the query. AND is used with sets of keys being defined in order to join with multiple keys
+							<br><br>
+							ON - says which columns should be used to map the tables (the columns are called: "foreign keys" or "join keys"). This must be included with JOIN for any inner joins.<br>
+							<i>Note: any conditions put in the ON clause will be applied to the separate tables <u>before</u> the joining of them</i>
+						</li><br>
+						<li>
+							UNION - allows the user to stack two tables one on top of the other. Different from FULL JOIN because it does not look for similarities based on common values within a column, but will drop full rows in the second table if they are identical to the first table. In order to use UNION, the following two conditions  must be satisfied: both tables must have the same number of columns, and the columns must have the same data types in the same order as the first table <br>
+							
+							UNION ALL - is used to append tables together without any rows being dropped (even if the rows are the same)
+						</li><br>
+						<li>WHERE <i>(using JOIN)</i> - will apply the condition(s) after the join; <i>don’t forget WHERE can filter NULL values as a byproduct unintentionally</i></li><br>
+						<li>GROUP BY - allows user to group data based on a specific column(s) (must be used in conjunction with an aggregate function)</li><br>
+						<li>HAVING - like WHERE except allows you to filter on aggregate columns</li><br>
+						<li>ORDER BY</li>
+						<li>LIMIT</li>
+					</ul>
+					<h6>Aggregate functions</h6>
+					<ul class="disc">
+						<li>COUNT counts how many rows are in a particular column</li>
+						<li>SUM adds together all the values in a particular column</li>
+						<li>MIN and MAX return the lowest and highest values in a particular column</li>
+						<li>AVG calculates the average of a group of selected values</li>
 					</ul>
 				</div>
-			</li> -->
+			</li>
 		<!-- Accordion: Advanced -->
-<!-- 			<li class="">
+			<li class="">
 				<div class="title">
-					<b>Calculating using Dataframes</b>
+					<b>Advanced</b>
 				</div>
 				<div class="content" style="overflow: hidden; display: none; ">
+					<h6></h6>
 					<p>
-						
+						This section looks at extending the tools learnt in the basics and intermediate levels.
 					</p>
-					 Tabs -->
-					<!-- <dl class="tabs">
-						<dd class="active"><a href="#operations">Pandas Operations</a></dd>
-						<dd><a href="#counting">Counting</a></dd>
-						<dd><a href="#mean">Mean</a></dd>
-						<dd><a href="#sd">Standard Deviation</a></dd>
-					</dl>
-					<ul class="tabs-content">
-						<li class="active" id="operationsTab">
-							<p>
-								Operations tab
-							</p>
-						</li>
-						<li id="countingTab">
-							<p>
-								Counting tab
-							</p>
-						</li>
-						<li id="meanTab">
-							<p>
-								Mean tab
-							</p>
-						</li>
-						<li id="sdTab">
-							<p>
-								SD tab
-							</p>
-						</li>
-					</ul>
+					<p>
+						Currently under way! Stay tuned! :)
+					</p>
 				</div>
-			</li> --> 
+			</li> 
 
 	</div>
 </div>
+
+<!-- <div class="row">
+	<div class="twelve columns"> -->
+
+		<!-- Mode Analytics Training -->
+		<!-- <div class="circledate">
+			<div class="textcircle">
+				Analytics <br> Training
+			</div>
+		</div>
+		<h4>Mode Analytics Training</h4>
+		<div class="dots blogdots">
+		</div>
+		<p>
+			Currently under way! Stay tuned! :)
+		</p>
+ -->
+		<!-- Accordion: Drop in Engagement-->
+<!-- 			<ul class="accordion">
+			<li class="">
+				<div class="title">
+					<b>A Drop in Engagement</b>
+				</div>
+				<div class="content" style="overflow: hidden; display: none; ">
+					<h6><a href="https://mode.com/sql-tutorial/a-drop-in-user-engagement/#:~:text=managers%20check%20daily.-,The%20problem,shown%20above%20and%2C%20if%20appropriate%2C%20recommending%20solutions%20for%20the%20problem.,-Getting%20oriented" class="saymore"> The Case</a>:</h6>
+					<p>
+						Summary: 
+					</p>
+				</div>
+			</li> -->
+
+		<!-- Accordion: Understanding Search Functionality-->
+<!-- 			<li class="">
+				<div class="title">
+					<b>Understanding Search Functionality</b>
+				</div>
+				<div class="content" style="overflow: hidden; display: none; ">
+					<h6><a href="https://mode.com/sql-tutorial/understanding-search-functionality/#:~:text=or%20date%20range.-,The%20problem,first%20place%20and%2C%20if%20so%2C%20how%20they%20should%20modify%20it,-." class="saymore"> The Case</a>:</h6>
+					<p>
+						Summary: 
+					</p>
+				</div>
+			</li> -->
+
+		<!-- Accordion: A/B Test-->
+<!-- 			<li class="">
+				<div class="title">
+					<b>The Best A/B Test Ever</b>
+				</div>
+				<div class="content" style="overflow: hidden; display: none; ">
+					<h6><a href="https://mode.com/sql-tutorial/validating-ab-test-results/#:~:text=the%20%E2%80%9Ctreatment%20group%E2%80%9D).-,The%20problem,provide%20as%20much%20information%20about%20what%20happened%20as%20you%20can.,-Getting%20oriented" class="saymore"> The Case</a>:</h6>
+					<p>
+						Summary: 
+					</p>
+				</div>
+			</li>
+		</ul> -->
+		
+
+
+		<div class="hr">
+		</div>
+
+	</div>
+</div>
+
 
 <!-- <div class="row">
 	<div class="twelve columns"> -->
