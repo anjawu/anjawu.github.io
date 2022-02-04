@@ -532,10 +532,30 @@ setTimeout(timer1801,1801000);
 									<i>Note: WINDOW clause comes after WHERE</i>
 								</li>
 							</ul>
+							<p>
+								<a href="https://www.postgresql.org/docs/8.4/functions-window.html" class="saymore">Even more window functions!</a>
+							</p>
 						</li>
 
 						<li id="performanceTab">
-							Coming soon!
+							<p>The purpose being to save time and resources with each query.</p>
+							<p>
+								Factors that can be controlled to reduce cost of a query:
+								<ul class="disc">
+									<li>Table size: The more rows you have, the slower the query will run</li>
+									<li>Joins: If a join creates a substantial increase in the number of rows, this will likely slow down your query</li>
+									<li>Aggregations: combining rows and performing operations tends to increase the time required for a query to run</li>
+								</ul>
+							</p>
+							<p> 
+								Things that can be done to mitigate the amount of time/resources spent on each query:
+								<ul class="disc">
+									<li>Limiting dates: if possible look at a smaller range of dates and then expand to a greater set - if needed</li>
+									<li>Run intermediate steps on smaller subsets of data</li>
+									<li>Limit results: limiting results doesn't speed it up if aggregating into one row, so use subqueries to limit before using aggregate function. This is only used to check if you are doing the query correctly, the results will not be a good indication of your whole dataset!</li>
+									<li><i><b>EXPLAIN</b></i> : written at start of query to determine cost of steps in query. Best practice is to run <i>EXPLAIN</i>, and then modify the steps that have the best cost (if possible) and rerun <i>EXPLAIN</i> to see if improvements were made
+								</ul>
+							</p>
 						</li>
 
 						<li id="pivotdataTab">
@@ -547,11 +567,11 @@ setTimeout(timer1801,1801000);
 	</div>
 </div>
 
-<!-- <div class="row">
-	<div class="twelve columns"> -->
+<div class="row">
+	<div class="twelve columns">
 
 		<!-- Mode Analytics Training -->
-		<!-- <div class="circledate">
+		<div class="circledate">
 			<div class="textcircle">
 				Analytics <br> Training
 			</div>
@@ -560,49 +580,49 @@ setTimeout(timer1801,1801000);
 		<div class="dots blogdots">
 		</div>
 		<p>
-			Currently under way! Stay tuned! :)
+			The cases presented in each section is linked to. I am currently working my way through the reports and will update as I finish. Stay tuned! :)
 		</p>
- -->
+
 		<!-- Accordion: Drop in Engagement-->
-<!-- 			<ul class="accordion">
+			<ul class="accordion">
 			<li class="">
 				<div class="title">
 					<b>A Drop in Engagement</b>
 				</div>
 				<div class="content" style="overflow: hidden; display: none; ">
 					<h6><a href="https://mode.com/sql-tutorial/a-drop-in-user-engagement/#:~:text=managers%20check%20daily.-,The%20problem,shown%20above%20and%2C%20if%20appropriate%2C%20recommending%20solutions%20for%20the%20problem.,-Getting%20oriented" class="saymore"> The Case</a>:</h6>
-					<p>
+					<!-- <p>
 						Summary: 
-					</p>
+					</p> -->
 				</div>
-			</li> -->
+			</li>
 
 		<!-- Accordion: Understanding Search Functionality-->
-<!-- 			<li class="">
+			<li class="">
 				<div class="title">
 					<b>Understanding Search Functionality</b>
 				</div>
 				<div class="content" style="overflow: hidden; display: none; ">
 					<h6><a href="https://mode.com/sql-tutorial/understanding-search-functionality/#:~:text=or%20date%20range.-,The%20problem,first%20place%20and%2C%20if%20so%2C%20how%20they%20should%20modify%20it,-." class="saymore"> The Case</a>:</h6>
-					<p>
+					<!-- <p>
 						Summary: 
-					</p>
+					</p> -->
 				</div>
-			</li> -->
+			</li>
 
 		<!-- Accordion: A/B Test-->
-<!-- 			<li class="">
+			<li class="">
 				<div class="title">
 					<b>The Best A/B Test Ever</b>
 				</div>
 				<div class="content" style="overflow: hidden; display: none; ">
 					<h6><a href="https://mode.com/sql-tutorial/validating-ab-test-results/#:~:text=the%20%E2%80%9Ctreatment%20group%E2%80%9D).-,The%20problem,provide%20as%20much%20information%20about%20what%20happened%20as%20you%20can.,-Getting%20oriented" class="saymore"> The Case</a>:</h6>
-					<p>
+					<!-- <p>
 						Summary: 
-					</p>
+					</p> -->
 				</div>
 			</li>
-		</ul> -->
+		</ul>
 		
 
 
