@@ -319,12 +319,231 @@ setTimeout(timer1801,1801000);
 					<p>
 						This section looks at extending the tools learnt in the basics and intermediate levels.
 					</p>
-					<p>
-						Currently under way! Stay tuned! :)
-					</p>
+
+					<!-- Tabs-->
+					<dl class="tabs">
+						<dd class="active"><a href="#datatype">Data Types</a></dd>
+						<dd><a href="#datacleaning">Data Cleaning</a></dd>
+						<dd><a href="#subquery">Subquery</a></dd>
+						<dd><a href="#window">Window Functions</a></dd>
+						<dd><a href="#performance">Performance Tuning</a></dd>
+						<dd><a href="#pivotdata">Pivoting Data</a></dd>
+					</dl>
+
+					<ul class="tabs-content">
+						<li class="active" id="datatypeTab">
+							<ul class="disc">
+								<li>There are a lot of data types; <a href="https://www.w3schools.com/sql/sql_datatypes.asp" class="saymore">W3Schools lists them</a> </li>
+								<li>
+									Common types:
+									<div class="tab">
+										String:		<i>VARCHAR</i><br>
+										Date/Time:	<i>TIMESTAMP</i> <br>
+										Number:	<i>DOUBLE PRECISION</i> <br>	
+										Boolean:	<i>BOOLEAN</i>
+								</li>
+								<li>
+									To change a data type use any of the following:
+									<div class="tab">
+										<i><b>CAST</b>(column_name AS type)</i> <br>
+										column_name <i>::</i> type <br>
+										<i><b>CONVERT(</b> type, ‘string’)</i> <br> 
+									</div>
+								</li>
+								<li>
+									Date formats are YYYY-MM-DD<br>
+									The difference between two dates can be found if they are subtracted, however, be sure the data types are <i>TIMESTAMP</i> (if they aren’t be sure to cast them)
+									<div class="tab">
+										<i><b>INTERVAL</b></i> - defined using terms like '10 seconds' or '5 months'. The follow example returns a week added to the time interval given:
+										<div id="testimonials"><blockquote>column_name :: timestamp + INTERVAL '1 week' </blockquote></div>
+										<i><b>NOW()</b></i> - function which returns the current date and time
+										<div class="tab">
+											The following will also give the current date/time: <br>
+											CURRENT_DATE<br>
+											CURRENT_TIME<br>
+											CURRENT_TIMESTAMP<br>
+											LOCALTIME <br>
+											LOCALTIMESTAMP<br>
+											CURRENT_TIME AT TIME ZONE 'timezone_from_list'
+										</div>
+										<p>
+											Timezones listed <a href="https://www.postgresql.org/docs/7.2/timezones.html" class="saymore">here</a>
+										</p>
+									</div>
+									<i>Note: it is important to take care if importing from Excel as dates in Excel might not be formatted this way</i>
+								</li>
+							</ul>
+						</li>
+
+						<li id="datacleaningTab">
+							<p>
+								Here I will be looking at the various functions that can be used. It would take a long time to show every combination of the functions, so I will write the function with parameters needed along with a couple of more complex examples where the functions are combined.
+							</p>
+							<ul class="disc">
+								<li><i><b>LEFT</b>(string/column_name, number of characters)</i> : used to get a substring from counting characters from the left side</li>
+								<li><i><b>RIGHT</b>(string/column_name, number of characters)</i> : used to get a substring from counting characters from the right side</li><br>
+								<li>
+									<i><b>SUBSTR</b>(string/column_name, starting character position, number of characters)</i> : takes a substring from any position. Example that will be used quite often with dates is if you are given the format 01/31/2014 08:00:00 AM +0000, here is how you can make it into the SQL date format(YYYY-MM-DD):
+									<div id="testimonials"><blockquote>SUBSTR(date, 7, 4) || '-' || LEFT(date, 2) || '-' || SUBSTR(date, 4, 2)</blockquote></div>
+								</li>
+								<li><i><b>LENGTH</b>(string/column_name)</i> : returns number of characters.</li><br>
+								<li><i><b>TRIM</b>(direction ‘characters to remove’ FROM string/column_name)</i> : removes characters. Direction can be: 'leading' (beginning), 'trailing' (end), or 'both'</li><br>
+								<li><i><b>POSITION</b>(‘character/substring’ IN string/column_name)</i> or <i><b>STRPOS</b>(string/column_name,‘character/substring’)</i> : both specify a substring first occurring location (counted with character spaces). Both are case sensitive </li><br>
+								
+								Example combining the above. Given coordinates in the format (37.709725805163, -122.413623946206) to change to two separate columns each containing one number. The first number we want to cut the number from between ‘(‘ and ‘,’ :
+								<div id="testimonials"><blockquote>TRIM(leading '(' FROM LEFT(location, POSITION(',' IN location) -1))</blockquote></div>
+								and the second number we want to take away anything before the ‘,’ and the ‘)’:
+								<div id="testimonials"><blockquote>TRIM(trailing ')' FROM RIGHT(location, length(location) - POSITION(',' IN location)))</blockquote></div>
+								
+								<li>
+									<i><b>CONCAT</b>(string/column_name, 'string to be inserted ', string/column_name)</i> : used to combine strings. It can be used with more than just 3 arguments.<br>
+									Also <b>||</b> can be used to combine to form a string. Example:
+									<div id="testimonials"><blockquote>string/column_name || 'string to be inserted ' || string/column_name</blockquote></div>
+								</li>
+								<li><i><b>UPPER</b>(string/column_name)</i> :  returns the string in uppercase.</li>
+								<li><i><b>LOWER</b>(string/column_name)</i> : returns the string in lowercase.</li><br>
+
+								Example combining the above. Given an all capitalized category column, making the first letter capitalized and the rest lowercase:
+								<div id="testimonials"><blockquote>UPPER(LEFT(category, 1)) || LOWER(RIGHT(category, length(category)-1))</blockquote></div>
+
+								<li><i><b>EXTRACT</b>(‘part_of_date’ FROM date/column_name)</i> : used to pull parts of the date out. ‘part_of_date’ can be 'year', 'month', 'day', 'hour', 'minute', 'second', 'decade', or 'dow' (stands for day of the week)</li><br>
+								<li><i><b>DATE_TRUNC</b>(‘part_of_date’, date/column_name)</i> : rounds date to the ‘part_of_date’ specified</li><br>
+								<li><i><b>COALESCE</b>(column_name, ‘string/number’)</i> : replaces nulls in column</li>
+							</ul>
+						</li>
+
+						<li id="subqueryTab">
+							<p>Subqueries can be helpful in improving the performance of queries.</p>
+							<ul class="disc">
+								<li>
+									Using subquery within the <b>FROM</b>: treat any subquery as it’s own query - meaning if must be able to be run on it’s own. Then give it an alias and you may use it in the outer query. Example, to calculate the average number of crime occurrences each month by category:
+									<div id="testimonials"><blockquote>
+										SELECT
+										<div class="tab">
+										  sub.category,<br>
+										  AVG(sub.monthly_count)
+										</div>
+										FROM (
+										<div class="tab">
+										  SELECT
+										  <div class="tab">
+										    category,<br>
+										    EXTRACT('month' FROM cleaned_date) AS month,<br>
+										    COUNT(incidnt_num) AS monthly_count
+										  </div>
+										  FROM tutorial.sf_crime_incidents_cleandate<br>
+										  GROUP BY 1,2
+										</div>
+										) sub<br>
+										GROUP BY 1
+									</blockquote></div>
+								</li>
+							</ul>
+								<p>
+									You can use subqueries in <a href="https://www.geeksforgeeks.org/sql-conditional-expressions/" class="saymore">conditional logic</a> (in conjunction with <b>WHERE</b>, <b>JOIN/ON</b>, or <b>CASE</b>).
+								</p>
+							<ul class="disc">
+								<li>
+									Subquery within <b>WHERE</b>:
+									<div id="testimonials"><blockquote>
+										SELECT *<br>
+									  FROM tutorial.sf_crime_incidents_2014_01<br>
+									 	WHERE Date = (SELECT MIN(date)
+									 	<div class="tab">
+									 	  FROM tutorial.sf_crime_incidents_2014_01
+									 	</div>
+									  )
+									</blockquote></div>
+									<b>IN</b> is the only type of conditional logic that will work when the inner query contains multiple results. Example where the inner query allows the selection of the bottom 5 dates to be returned from the whole table:
+									<div id="testimonials"><blockquote>
+										SELECT *<br>
+										FROM user.table<br>
+										WHERE Date IN (SELECT date
+										<div class="tab">
+											FROM user.table<br>
+                			ORDER BY date<br>
+                			LIMIT 5
+                		</div>
+              			)
+              		</blockquote></div>
+									<i>Note: that you should not include an alias when you write a subquery in a conditional statement because they are considered value(s), not tables</i>
+								</li>
+								<li>
+									Subquery with <b>JOIN</b>: is powerful because it allows filtering to a greater degree than WHERE. Example for getting a list of all of the 3 least occurring crime categories:
+									<div id="testimonials"><blockquote>
+										SELECT 
+										<div class="tab">
+										  * <br>
+										  sub.category_count AS total_incidents_by_category
+										</div>
+										FROM 
+										<div class="tab">
+										  tutorial.sf_crime_incidents_cleandate crime
+										</div>
+										JOIN (
+										<div class="tab">
+										  SELECT
+										  <div class="tab">
+										    category,<br>
+										    COUNT(incidnt_num) AS category_count
+										  </div>
+										  FROM tutorial.sf_crime_incidents_cleandate<br>
+										  GROUP BY 1 <br>
+										  ORDER BY 2<br>
+										  LIMIT 3
+										</div>
+										) category_sub<br>
+										ON crime.category = category_sub.category
+									</blockquote></div>
+								</li>
+								<li>Subquery with <b>UNION</b>: is particularly useful when you want to get data for all rows when a dataset is separated in different tables (usually occurs when pulling data from Excel)</li>
+							</ul>
+						</li>
+
+						<li id="windowTab">
+							<p>
+								Allows aggregate functions to be used without <i>GROUP BY</i>.
+							</p>
+							<ul class="disc">
+								<li><b><i>OVER</i></b> : is used to establish a window</li><br>
+								<li><b><i>PARTITION BY</i></b> : breaks tables into parts to evaluate the aggregate function over. The aggregate will be calculated once per partition</li><br>
+								<li><b><i>ORDER BY</i></b> : will run the aggregate function over each distinct row within the <i>ORDER BY</i> column specified</li><br>
+								<li><b><i>ROW_NUMBER()</i></b> : returns row number; usually used after the data is ordered in some way</li><br>
+								<li><b><i>RANK()</i></b> : returns the rankings of each row. The ranking numbers are skipped after multiple of the same (e.g. 1, 2, 2, 2, 5, 6, …)</li><br>
+								<li><b><i>DENSE_RANK()</i></b> : returns the rankings of each row. The ranking numbers are not skipped after multiple of the same (e.g. 1, 2, 2, 2, 3, 4, …)</li><br>
+								<li>
+									<b><i>NTILE(# of buckets)</i></b> : gives percentile (or quartile, or any other subdivision) a given row falls into <br>
+									<i>Note: if using percentile but the amount of rows is less than 100, it will return a row number based on rank</i>
+								</li><br>
+								<li>
+									<i><b>LAG</b>(‘column_name’, number of rows before)</i> : pulls from previous rows <br>
+									<i><b>LEAD</b>(‘column_name’, number of rows after)</i> : pulls from following rows <br>
+									Example for looking at previous runner’s time:
+									<div id="testimonials"><blockquote>LAG(duration_seconds, 1) OVER (PARTITION BY start_terminal ORDER BY duration_seconds) AS previous_time</blockquote></div>
+								</li>
+								<li>
+									<b><i>WINDOW</i></b> : window alias - allows defining the window following OVER clause to be reused within the same query. Example:
+									<div id="testimonials"><blockquote>
+										WINDOW ntile_window AS
+										<div class="tab">
+											(PARTITION BY start_terminal ORDER BY duration_seconds)
+										</div>
+									</blockquote></div>
+									<i>Note: WINDOW clause comes after WHERE</i>
+								</li>
+							</ul>
+						</li>
+
+						<li id="performanceTab">
+							Coming soon!
+						</li>
+
+						<li id="pivotdataTab">
+							Coming soon!
+						</li>
+					</ul>	
 				</div>
 			</li> 
-
 	</div>
 </div>
 
