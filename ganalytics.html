@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8"/>
+<!-- Set the viewport width to device width for mobile -->
+<meta name="viewport" content="width=device-width"/>
+<title>Anja's Google Analytics</title>
+<!-- CSS Files-->
+<link rel="stylesheet" href="stylesheets/style.css">
+
+<link rel="stylesheet" href="stylesheets/skins/blue.css">
+<!-- skin color -->
+<link rel="stylesheet" href="stylesheets/responsive.css">
+<!-- IE Fix for HTML5 Tags -->
+<!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-216360630-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-216360630-1');
+</script>
+
+<!-- creating buckets for time spent on page -->
+<script type="text/javascript">
+function timer11(){gtag('event','1', {'event_category':'ganalytics_TimeOnPage','event_label':'11-30 seconds','non_interaction':true});}
+function timer31(){gtag('event','2', {'event_category':'ganalytics_TimeOnPage','event_label':'31-60 seconds','non_interaction':true});}
+function timer61(){gtag('event','3', {'event_category':'ganalytics_TimeOnPage','event_label':'61-180 seconds','non_interaction':true});}
+function timer181(){gtag('event','4', {'event_category':'ganalytics_TimeOnPage','event_label':'181-360 seconds','non_interaction':true});}
+function timer361(){gtag('event','5', {'event_category':'ganalytics_TimeOnPage','event_label':'361-600 seconds','non_interaction':true});}
+function timer601(){gtag('event','6', {'event_category':'ganalytics_TimeOnPage','event_label':'601-1800 seconds','non_interaction':true});}
+function timer1801(){gtag('event','7', {'event_category':'ganalytics_TimeOnPage','event_label':'1801+ seconds','non_interaction':true});}
+gtag('event','0', {'event_category':'ganalytics_TimeOnPage','event_label':'0-10 seconds','non_interaction':true});
+setTimeout(timer11,11000);
+setTimeout(timer31,31000);
+setTimeout(timer61,61000);
+setTimeout(timer181,181000);
+setTimeout(timer361,361000);
+setTimeout(timer601,601000);
+setTimeout(timer1801,1801000);
+</script>
+
+</head>
+<body>
+<!-- HIDDEN PANEL 
+================================================== -->
+<div id="panel">
+	<div class="row">
+		<div class="twelve columns">
+			<img src="http://www.wowthemes.net/demo/studiofrancesca/images/info.png" class="pics" alt="info">
+			<div class="infotext">
+				 Thank you for visiting my website!
+			</div>
+		</div>
+	</div>
+</div>
+<p class="slide">
+	<a href="#" class="btn-slide"></a>
+</p>
+<!-- HEADER
+================================================== -->
+<div class="row">
+	<div class="headerlogo four columns">
+		<div class="logo">
+			<a href="index.html">
+			<h4>Anja Wu</h4>
+			</a>
+		</div>
+	</div>
+	<div class="headermenu eight columns noleftmarg">
+		<nav id="nav-wrap">
+		<ul id="main-menu" class="nav-bar sf-menu">
+			<li class="current">
+			<a href="index.html">Home</a>
+			</li>
+			<li>
+			Coding Info
+			<ul>
+				<li><a href="sql.html">SQL</a></li>
+				<li><a href="libraries.html">Python Libraries</a></li>
+				<!-- <li><a href="stats.html">Statistics</a></li> -->
+				<!-- <li><a href="ml.html">Machine Learning</a></li> -->
+				<li><a href="github.html">GitHub</a></li>
+				<li><a href="ganalytics.html">Google Analytics</a></li>
+				<li><a href="funlearn.html">Fun Things Learnt</a></li>
+				<li><a href="versus.html">Versus</a></li>
+				<li><a href="environmentsetup.html">Environment Setup</a></li>
+			</ul>
+			</li>
+			<li>
+			<a href="projects.html">Projects</a>
+			<ul>
+				<li><a href="redlight.html">Redlight</a></li>
+				<li><a href="costco.html">Costco</a></li>
+				<li><a href="website.html">Website</a></li>
+				<li><a href="indeed.html">Indeed</a></li>
+				<li><a href="imdb.html">IMDb</a></li>
+				<li><a href="hangman.html">Hangman</a></li>
+			</ul>
+			</li>
+<!-- 			<li>
+			<a href="contact.html">Contact</a>
+			</li> -->
+		</ul>
+		</nav>
+	</div>
+</div>
+<div class="clear">
+</div>
+<!-- SUBHEADER
+================================================== -->
+<div id="subheader">
+	<div class="row">
+		<div class="twelve columns">
+			<p class="left">
+				Google Analytics
+			</p>
+		</div>
+	</div>
+</div>
+<div class="hr">
+</div>
+<!-- CONTENT 
+================================================== -->
+<div class="row">
+	<p>
+		
+	</p>
+</div>
+
+
+<div class="row">
+	<div class="twelve columns">
+
+		<!-- Google Data Studios -->
+		<div class="circledate">
+			<div class="textcircle">
+				Data <br> Studios
+			</div>
+		</div>
+		<h4>Google Data Studio</h4>
+		<div class="dots blogdots">
+		</div>
+		<p>
+			Google offers free (for now) BI tool for visualizing data. I decided to take a look and explore, below are the things I learnt.
+		</p>
+
+		<!-- Accordion: Connecting Data Studio to Analytics-->
+		<ul class="accordion">
+			<li class="">
+				<div class="title">
+					<b><a href = 'https://support.google.com/datastudio/answer/6370352?hl=en#zippy=%2Cin-this-article' class = 'saymore'>Connecting Data Studio to Analytics</a></b>
+				</div>
+				<div class="content" style="overflow: hidden; display: none; ">
+					<p>
+						I thought that this would be a lot harder than it actually was. All that you need to do, once you have a data studios account, is click:
+					</p>
+					<ul class="disc">
+						<li>+ Create</li><br>
+						<img src="images/pages/ganalytics/datastudio-create.png" width = "150" height = "auto" alt=""><br><br>
+						<li>Then Data Source</li><br>
+						<img src="images/pages/ganalytics/gconnector.png" width = "500" height = "auto" alt=""><br><br>
+						<li>Then select “Google Analytics”</li>
+						<li>Finally, select whichever website of yours you want to add</li>
+					</ul>
+				</div>
+			</li>
+
+		<!-- Accordion: Data Studio Academy Course-->
+			<li class="">
+				<div class="title">
+					<b><a href="https://analytics.google.com/analytics/academy/course/10" class="saymore">Data Studio Academy Course</a></b>
+				</div>
+				<div class="content" style="overflow: hidden; display: none; ">
+					<p>
+						I am the type of person who likes to explore and try things out, so I wasn’t a huge fan of this academy course. It gave a lot of information, most of which I did not find that useful. Below you will find the bits that I pulled out from the whole course that I found useful for myself. 
+					</p>
+					<h6>Definitions</h6>
+					<ul class="disc">
+						<li>Dimensions: data categories that can be any type value (including unaggregated numbers)</li>
+						<li>Metrics: calculations of various aspects of dimensions (aggregated numbers)</li>
+						<li>Data set: data living outside of Data Studio</li>
+						<li>Data source: Data Studio’s representation of the data set(s)</li>
+						<li>A bullet chart (or “thermometer graph”): visualization for comparing a given metrics performance against target benchmarks (usually used for KPIs)</li>
+					</ul><br>
+					<p>
+						I had no problem understanding how sharing view/edit rights for the report work - as it is like all other Google products - but for some reason I had a hard time wrapping my brain around credentials. 
+					</p>
+					<h6>Credentials</h6>
+					These are just for the data source, <u>not</u> the report.
+					<ul class="disc">
+						<li><b>Owner’s credentials:</b> this needs to be set if the people who will be viewing the report <u>DO NOT</u> have their own access to the <i>data set</i>.</li>
+						<li><b>Viewer’s credentials:</b> this needs to be set if the people who will be viewing the report <u>DO</u> have their own access to the <i>data set</i>.</li>
+					</ul>
+					<h6>Useful Information</h6>
+					<p>
+						Within your data source, you can quick add aggregates (count and count distinct) for dimensions you have: <br>
+						<img src="images/pages/ganalytics/aggregate.png" width = "400" height = "auto" alt=""><br><br>
+						Or you can even create your own formula by clicking add field:<br>
+						<img src="images/pages/ganalytics/add-field.png" width = "900" height = "auto" alt=""><br><br>
+						Then you can type in the formula you want and use the available fields from the left hand column:<br>
+						<img src="images/pages/ganalytics/field-calc.png" width = "900" height = "auto" alt=""><br><br>
+					</p>
+					<p>
+						The most useful information I got out of the whole course was section 4.1:
+						<h6>Foundational principles of visual design</h6>
+						<ol>
+							<li>Start with a quick simple overview of the big picture of the report. </li>
+							<li>Then, allow them to help themselves to more detail as needed. This might come in the form of filter controls, additional report pages, or hyperlinks that will load more detail when the viewer is ready for it.</li>
+							<li>Visual elements that are similar in shape, size, and/or color are perceived to be more closely related.</li>
+							<li>
+								Color is a powerful tool to guide viewers through your report. 
+								<ul class="disc">
+									<li>Use transparency to create visual hierarchy: A sliding scale allows you to make component colors more or less transparent.</li>
+									<li>Use saturation to draw attention: Intense colors draw the eye, so use to highlight key aspects.</li>
+									<li>Don’t rely on color: Too much colour can detract from the main focus points. Some people might also have trouble reading visualizations with too much colour.</li>
+								</ul>
+							</li>
+							<li>
+								Pick (or create) Theme inorder to ensure that the report is stylized the same throughout. It also includes a setting for how colors should apply consistently:
+								<ul class="disc">
+									<li>By series order: The color depends on the order of the item in a series. </li>
+									<li>By dimension values: The same value maintains a fixed color.</li>
+									<li>Finally, you can also choose colors to represent increasing or decreasing metrics across your report.</li>
+								</ul>
+							</li>
+						</ol>
+					</p>
+					<p>
+						<h6>Template Use</h6>
+						If you plan on using your report layout more than once, you can:
+						<ul class="disc">
+							<li>Simply copy a report OR</li>
+							<li>Create a template from the report: Simply take the URL of the report, and append “/preview” to the end of the URL. This will prompt the report to appear with the “USE AS TEMPLATE” button, and click yes</li>
+						</ul>
+					</p>
+					<p>
+						<a href="https://www.benlcollins.com/dashboard/google-data-studio-tips/" class="saymore">More tips to look at.</a>
+					</p>
+				</div>
+			</li>
+
+		<!-- Accordion: My First Report-->
+			<li class="">
+				<div class="title">
+					<b>My First Report</b>
+				</div>
+				<div class="content" style="overflow: hidden; display: none; ">
+					<p>
+						I decided to make a sample report with the metrics that I wanted to know about my website. I often, at night, check to see if anyone has gone on the website and if so there are certain things I care about: how did they get to my website, which pages did they go on, how long did they spend there, and where is the user located. Normally, it would be a good idea to put the higher level summary first, but I was building this report for myself, so I wanted the daily digest first. With both of these facts in mind, I have my report broken into Today and YTD. 
+					</p>
+					<p>
+						My sample report for this website can be found <a href="https://datastudio.google.com/s/nEtRYiLSJfU" class="saymore">here!</a>
+					</p>
+				</div>
+			</li>
+		</ul>
+		
+		<div class="hr">
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="twelve columns">
+
+		<!-- Google Analytics-->
+		<div class="circledate">
+			<div class="textcircle">
+				<br>Analytics
+			</div>
+		</div>
+		<h4>Google Analytics</h4>
+		<div class="dots blogdots">
+		</div>
+		<p>
+			In the tabs below, you will find a summary of steps for various aspects of Google Analytics.
+		</p>
+		<div class="hr">
+		</div>
+
+
+
+		<!-- Accordion: Setting it up -->
+		<ul class="accordion">
+			<li class="">
+				<div class="title">
+					<b>Setting up Basic Google Analytics</b>
+				</div>
+				<div class="content" style="overflow: hidden; display: none; ">
+				<p>
+					Setting it up was not as easy as I thought it would be because there was more than one option and initially I didn’t know which one to pick. Upon further research I found out the difference between the new and the old GA:
+					<ul class="disc">
+						<li><b>New (Google Analytics 4):</b> If you created your website <a href="https://support.google.com/analytics/answer/10840722?hl=en&utm_id=ad#cms" class="saymore">using one of the following</a>: Awesome Motive, Drupal, Duda, Google Sites, Site Kit, Squarespace, TYPO3, Wix, WooCommerce, WordPress.com, Blogger, Cart.com, GoDaddy, HubSpot, Magento, One.com, PrestaShop, Salesforce, Shopify, TYPO3, VTEX, Weebly. </li>
+						<li><b>Old (Universal Analytics):</b> If your created website does not fall into one of the above categories (as mine did not - I have a custom HTML <u>hosted</u> through GoDaddy) you need to use the old version of GA.</li>
+					</ul>
+				</p>
+				<p>
+					Setting up starts the same for both versions -> click “Start measuring”
+					<center><img src="images/pages/ganalytics/welcome-ga.png" width = "450" height = "auto" alt=""></center>
+				</p>
+				<h6>Step 1:</h6>
+				<p>
+					You must pick an account name - this will be seen on all pages of the GA
+					<center><img src="images/pages/ganalytics/account-setup.png" width = "700" height = "auto" alt=""></center>
+				</p>
+				<h6>Step 2:</h6>
+				<p>
+					Selecting Data Sharing: there are several to pick from. I just chose technical support based on the fact that I wanted to just measure views on my own personal website, on which I wasn’t selling anything.
+					<center><img src="images/pages/ganalytics/data-sharing.png" width = "600" height = "auto" alt=""></center>
+				</p>
+				<h6>Step 3:</h6>
+				<p>
+					Property setup: this is where the difference occurs for the New (G-) version and the Old (UA-) version
+				</p>
+					<!-- Tabs-->
+					<dl class="tabs">
+						<dd class="active"><a href="#new">New Version (G-)</a></dd>
+						<dd><a href="#old">Old Version (UA-)</a></dd>
+					</dl>
+
+					<ul class="tabs-content">
+						<li id="newTab">
+							<p>
+								Property Setup: Create a Google Analytics 4 property - give it a name (something that will describe what the website is about - I chose “personal website”)
+								<center><img src="images/pages/ganalytics/ga4-property.png" width = "400" height = "auto" alt=""></center>
+								Click “Next”
+							</p>
+							<h6>Step 4:</h6>
+							<p>
+								Choose your platform - for my example I chose “Web”
+								<center><img src="images/pages/ganalytics/ga4-datastream.png" width = "600" height = "auto" alt=""></center>
+							</p>
+							<h6>Step 5:</h6>
+							<p>
+								Enter your website information
+								<center><img src="images/pages/ganalytics/ga4-webinfo.png" width = "600" height = "auto" alt=""></center>
+							</p>
+							<h6>Step 6:</h6>
+							<p>
+								<center><img src="images/pages/ganalytics/ga4-websteam.png" width = "600" height = "auto" alt=""></center>
+								Include the <i>gtag.js</i> in the < head> section of your website.
+							</p>
+							<p>
+								And you are all done!
+							</p>
+						</li>
+
+						<li id="oldTab">
+							<p>
+								Property Setup: Click “Show advanced options”
+								<center><img src="images/pages/ganalytics/ga4-property-advanced.png" width = "400" height = "auto" alt=""></center>
+								Select Universal Analytics property only
+								<center><img src="images/pages/ganalytics/ua-property.png" width = "800" height = "auto" alt=""></center>
+							</p>
+							<h6>Step 4:</h6>
+							<p>
+								Once it has been created, you can find the information you need to add to the top of your website under "Tracking Code"
+								<center><img src="images/pages/ganalytics/ua-trackingcode.png" width = "200" height = "auto" alt=""></center>
+								It should look something like this:
+								<center><img src="images/pages/ganalytics/ua-trackingid.png" width = "800" height = "auto" alt=""></center>
+							</p>
+							<h6>Step 5:</h6>
+							<p>
+								Copy and paste this code as the first item into the <i>< HEAD></i> of every webpage you want to track.
+							</p>
+							<p>
+								Yay! You are all done! Enjoy the data :)
+							</p>
+						</li>
+					</ul>
+				</div>
+			</li>
+
+		<!-- Accordion: Adding Tracker -->
+			<li class="">
+				<div class="title">
+					<b>Adding Time on Page Tracker</b>
+				</div>
+				<div class="content" style="overflow: hidden; display: none; ">
+					<p>
+						As I used GA for my website, I soon got very frustrated about the view times I was seeing (majority of the time being an average of 0 seconds). Since this seemed like way too small of a number I decided to check out if other people had this experience. Sure enough, a quick search led me to finding that if someone only visited one page and then left, GA would not be able to tell me the time they spent on the page. This was due to the set up of the monitoring by GA, where an action (such as clicking on a new page) must happen for GA to pick an end time from the entrance point. 
+					</p>
+					<p>
+						Since I really wanted to know how long people spent on each page of my website, I spent quite a bit of time researching what to do. After my research, I decided the solution I liked the most was from a <a href="https://help.analyticsedge.com/article/measuring-time-on-bounce-page/" class="saymore">blog post</a> I found.
+					</p>
+					<p>
+						<i>Side note: I did try the other code that they mentioned in the blog, but the website link no longer existed and the copying of the code did not work for me. </i>
+					</p>
+					<p>
+						All I did was add the following code to my GA code at the top of my pages (after my GA global site tag <i>< /script></i>):
+					</p>
+					<div id="testimonials"><blockquote>
+						< script type="text/javascript"> <br>
+						function timer11(){gtag('event','1', {'event_category':'pagename_TimeOnPage','event_label':'11-30 seconds','non_interaction':true});}<br>
+						function timer31(){gtag('event','2', {'event_category':'pagename_TimeOnPage','event_label':'31-60 seconds','non_interaction':true});}<br>
+						function timer61(){gtag('event','3', {'event_category':'pagename_TimeOnPage','event_label':'61-180 seconds','non_interaction':true});}<br>
+						function timer181(){gtag('event','4', {'event_category':'pagename_TimeOnPage','event_label':'181-360 seconds','non_interaction':true});}<br>
+						function timer361(){gtag('event','5', {'event_category':'pagename_TimeOnPage','event_label':'361-600 seconds','non_interaction':true});}<br>
+						function timer601(){gtag('event','6', {'event_category':'pagename_TimeOnPage','event_label':'601-1800 seconds','non_interaction':true});}<br>
+						function timer1801(){gtag('event','7', {'event_category':'pagename_TimeOnPage','event_label':'1801+ seconds','non_interaction':true});}<br>
+						gtag('event','0', {'event_category':'pagename_TimeOnPage','event_label':'0-10 seconds','non_interaction':true});<br>
+						setTimeout(timer11,11000);<br>
+						setTimeout(timer31,31000);<br>
+						setTimeout(timer61,61000);<br>
+						setTimeout(timer181,181000);<br>
+						setTimeout(timer361,361000);<br>
+						setTimeout(timer601,601000);<br>
+						setTimeout(timer1801,1801000);<br>
+						< /script>
+					</blockquote></div>
+					
+				</div>
+			</li>
+	</div>
+</div>
+
+
+<div class="hr">
+</div>
+
+<!-- FOOOTER 
+================================================== -->
+<div id="footer">
+	<footer class="row">
+	<p class="back-top floatright">
+		<a href="#top"><span></span></a>
+	</p>
+	<center>
+		<div class="twelve columns">
+			<h1>Connect with Me</h1>
+			<a class="social github" href="https://github.com/anjawu"></a>
+			<a class="social linkedin" href="https://www.linkedin.com/in/anja-wu/"></a>
+		</div>
+	</center>
+	</footer>
+</div>
+<div class="copyright">
+	<div class="row">
+		<div class="six columns">
+			 &copy;<span class="small"> Copyright 2021 Anja Wu</span>
+		</div>
+		<div class="six columns">
+			<span class="small floatright"> Template by <a href="www.wowthemes.net">WowThemes.net</a></span>
+		</div>
+	</div>
+</div>
+<!-- JAVASCRIPTS 
+================================================== -->
+<!-- Javascript files placed here for faster loading -->
+<script src="javascripts/foundation.min.js"></script>
+<script src="javascripts/jquery.easing.1.3.js"></script>
+<script src="javascripts/elasticslideshow.js"></script>
+<script src="javascripts/jquery.carouFredSel-6.0.5-packed.js"></script>
+<script src="javascripts/jquery.cycle.js"></script>
+<script src="javascripts/app.js"></script>
+<script src="javascripts/modernizr.foundation.js"></script>
+<script src="javascripts/slidepanel.js"></script>
+<script src="javascripts/scrolltotop.js"></script>
+<script src="javascripts/hoverIntent.js"></script>
+<script src="javascripts/superfish.js"></script>
+<script src="javascripts/responsivemenu.js"></script>
+</body>
+</html>
