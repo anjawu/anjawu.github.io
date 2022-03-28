@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8"/>
+<!-- Set the viewport width to device width for mobile -->
+<meta name="viewport" content="width=device-width"/>
+<title>Anja's Machine Learning</title>
+<!-- CSS Files-->
+<link rel="stylesheet" href="stylesheets/style.css">
+
+<link rel="stylesheet" href="stylesheets/skins/blue.css">
+<!-- skin color -->
+<link rel="stylesheet" href="stylesheets/responsive.css">
+<!-- IE Fix for HTML5 Tags -->
+<!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-216360630-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-216360630-1');
+</script>
+
+<!-- creating buckets for time spent on page -->
+<script type="text/javascript">
+function timer11(){gtag('event','1', {'event_category':'ml_TimeOnPage','event_label':'11-30 seconds','non_interaction':true});}
+function timer31(){gtag('event','2', {'event_category':'ml_TimeOnPage','event_label':'31-60 seconds','non_interaction':true});}
+function timer61(){gtag('event','3', {'event_category':'ml_TimeOnPage','event_label':'61-180 seconds','non_interaction':true});}
+function timer181(){gtag('event','4', {'event_category':'ml_TimeOnPage','event_label':'181-360 seconds','non_interaction':true});}
+function timer361(){gtag('event','5', {'event_category':'ml_TimeOnPage','event_label':'361-600 seconds','non_interaction':true});}
+function timer601(){gtag('event','6', {'event_category':'ml_TimeOnPage','event_label':'601-1800 seconds','non_interaction':true});}
+function timer1801(){gtag('event','7', {'event_category':'ml_TimeOnPage','event_label':'1801+ seconds','non_interaction':true});}
+gtag('event','0', {'event_category':'ml_TimeOnPage','event_label':'0-10 seconds','non_interaction':true});
+setTimeout(timer11,11000);
+setTimeout(timer31,31000);
+setTimeout(timer61,61000);
+setTimeout(timer181,181000);
+setTimeout(timer361,361000);
+setTimeout(timer601,601000);
+setTimeout(timer1801,1801000);
+</script>
+
+</head>
+<body>
+<!-- HIDDEN PANEL 
+================================================== -->
+<div id="panel">
+	<div class="row">
+		<div class="twelve columns">
+			<img src="http://www.wowthemes.net/demo/studiofrancesca/images/info.png" class="pics" alt="info">
+			<div class="infotext">
+				 Thank you for visiting my website!
+			</div>
+		</div>
+	</div>
+</div>
+<p class="slide">
+	<a href="#" class="btn-slide"></a>
+</p>
+<!-- HEADER
+================================================== -->
+<div class="row">
+	<div class="headerlogo four columns">
+		<div class="logo">
+			<a href="index.html">
+			<h4>Anja Wu</h4>
+			</a>
+		</div>
+	</div>
+	<div class="headermenu eight columns noleftmarg">
+		<nav id="nav-wrap">
+		<ul id="main-menu" class="nav-bar sf-menu">
+			<li class="current">
+			<a href="index.html">Home</a>
+			</li>
+			<li>
+			Coding Info
+			<ul>
+				<li><a href="sql.html">SQL</a></li>
+				<li><a href="libraries.html">Python Libraries</a></li>
+				<!-- <li><a href="stats.html">Statistics</a></li> -->
+				<li><a href="ml.html">Machine Learning</a></li>
+				<li><a href="github.html">GitHub</a></li>
+				<li><a href="ganalytics.html">Google Analytics</a></li>
+				<li><a href="funlearn.html">Fun Things Learnt</a></li>
+				<li><a href="versus.html">Versus</a></li>
+				<li><a href="environmentsetup.html">Environment Setup</a></li>
+			</ul>
+			</li>
+			<li>
+			<a href="projects.html">Projects</a>
+			<ul>
+				<li><a href="redlight.html">Redlight</a></li>
+				<li><a href="costco.html">Costco</a></li>
+				<li><a href="website.html">Website</a></li>
+				<li><a href="indeed.html">Indeed</a></li>
+				<li><a href="imdb.html">IMDb</a></li>
+				<li><a href="hangman.html">Hangman</a></li>
+			</ul>
+			</li>
+<!-- 			<li>
+			<a href="contact.html">Contact</a>
+			</li> -->
+		</ul>
+		</nav>
+	</div>
+</div>
+<div class="clear">
+</div>
+<!-- SUBHEADER
+================================================== -->
+<div id="subheader">
+	<div class="row">
+		<div class="twelve columns">
+			<p class="left">
+				Machine Learning
+			</p>
+		</div>
+	</div>
+</div>
+<div class="hr">
+</div>
+<!-- CONTENT 
+================================================== -->
+<div class="row">
+	<p>
+		I am currently enrolled in an <a href ="https://vectorinstitute.ai/mothers-and-machine-learning/" class = saymore>Introduction to Machine Learning</a> run by the Vector Institute with Juan Felipe Carrasquilla Álvarez as the professor. Although I am not done the course, I feel that Professor Alvarez has made the course so accessible and is amazing at answering questions! 
+	</p>
+	<p>
+		I have broken down the things I have learnt by my assignment, lectures, and material I have researched. 
+	</p>
+	<p>
+		<b>When I have time during (and after) the course I will be filling in the tabs!</b>
+	</p>
+</div>
+
+
+<div class="row">
+	<div class="twelve columns">
+
+		<!-- Assignments -->
+		<div class="circledate">
+			<div class="textcircle">
+				<br>Projects
+			</div>
+		</div>
+		<h4>Assignments</h4>
+		<div class="dots blogdots">
+		</div>
+		<p>
+			This section is I use for the best take aways from each assignment as opposed to just posting the whole assignment because realistically nobody wants to read a full class assignment - even the TAs had to be paid to do it :)
+		</p>
+
+		<!-- Accordion: Assignment 1-->
+			<ul class="accordion">
+			<li class="">
+				<div class="title">
+					<b>k-NN Assignment</b>
+				</div>
+				<div class="content" style="overflow: hidden; display: none; ">
+					<h6></h6>
+					<p>
+						
+					</p>
+				</div>
+			</li>
+
+		<!-- Accordion: Assignment 2-->
+			<li class="">
+				<div class="title">
+					<b>Decision Trees Assignment </b>
+				</div>
+				<div class="content" style="overflow: hidden; display: none; ">
+					<h6></h6>
+					<p>
+						
+					</p>
+				</div>
+			</li>
+
+		<!-- Accordion: Assignment 3-->
+			<!-- <li class="">
+				<div class="title">
+					<b></b>
+				</div>
+				<div class="content" style="overflow: hidden; display: none; ">
+					<h6></h6>
+					<p>
+						
+					</p>
+				</div>
+			</li>
+		</ul> -->
+		
+		<!-- Accordion: Assignment 4-->
+			<!-- <li class="">
+				<div class="title">
+					<b></b>
+				</div>
+				<div class="content" style="overflow: hidden; display: none; ">
+					<h6></h6>
+					<p>
+						
+					</p>
+				</div>
+			</li>
+		</ul> -->
+
+		<!-- Accordion: Assignment 5-->
+			<!-- <li class="">
+				<div class="title">
+					<b></b>
+				</div>
+				<div class="content" style="overflow: hidden; display: none; ">
+					<h6></h6>
+					<p>
+						
+					</p>
+				</div>
+			</li>
+		</ul> -->
+
+		<!-- Accordion: Assignment 6-->
+			<!-- <li class="">
+				<div class="title">
+					<b></b>
+				</div>
+				<div class="content" style="overflow: hidden; display: none; ">
+					<h6></h6>
+					<p>
+						
+					</p>
+				</div>
+			</li>
+		</ul> -->
+
+
+		<div class="hr">
+		</div>
+
+	</div>
+</div>
+
+<div class="row">
+	<div class="twelve columns">
+
+		<!-- Lecture Material -->
+		<div class="circledate">
+			<div class="textcircle">
+				<br>Class
+			</div>
+		</div>
+		<h4>Lecture Material</h4>
+		<div class="dots blogdots">
+		</div>
+		<p>
+			In the tabs below, you will find a summary of the biggest take aways from the lectures. There was a lot of good material covered in the short time Professor Alvarez had but I just wanted to document the summary of the content.
+		</p>
+		<div class="hr">
+		</div>
+
+		<!-- Accordion: 2 KNN -->
+		<ul class="accordion">
+			<li class="">
+				<div class="title">
+					<b>k Nearest Neighbour</b>
+				</div>
+				<div class="content" style="overflow: hidden; display: none; ">
+					<h6></h6>
+					<p>
+						
+					</p>
+				</div>
+			</li>
+
+		<!-- Accordion: 3 Decision Trees -->
+			<li class="">
+				<div class="title">
+					<b>Decision Trees</b>
+				</div>
+				<div class="content" style="overflow: hidden; display: none; ">
+					<h6></h6>
+					<p>
+						
+					</p>
+				</div>
+			</li>
+
+		<!-- Accordion: 4 Bias-Variance Decomposition -->
+			<li class="">
+				<div class="title">
+					<b>Bias-Variance Decomposition</b>
+				</div>
+				<div class="content" style="overflow: hidden; display: none; ">
+					<h6></h6>
+					<p>
+						
+					</p>
+				</div>
+			</li> 
+
+		<!-- Accordion: 5 Ensemble Methods & Random Forest   -->
+			<li class="">
+				<div class="title">
+					<b>Ensemble Methods & Random Forest</b>
+				</div>
+				<div class="content" style="overflow: hidden; display: none; ">
+					<h6></h6>
+					<p>
+						
+					</p>
+				</div>
+			</li> 
+
+		<!-- Accordion: 6 Linear Regression-->
+			<li class="">
+				<div class="title">
+					<b>Linear Regression</b>
+				</div>
+				<div class="content" style="overflow: hidden; display: none; ">
+					<h6></h6>
+					<p>
+						
+					</p>
+				</div>
+			</li> 
+
+			<!-- Accordion: 7 Linear Classification (binary and Multi-class)-->
+			<li class="">
+				<div class="title">
+					<b>Linear Classification</b>
+				</div>
+				<div class="content" style="overflow: hidden; display: none; ">
+					<h6></h6>
+					<p>
+						
+					</p>
+				</div>
+			</li> 
+
+		<!-- Accordion: 8 Introduction to Neural Networks -->
+			<li class="">
+				<div class="title">
+					<b>Introduction to Neural Networks</b>
+				</div>
+				<div class="content" style="overflow: hidden; display: none; ">
+					<h6></h6>
+					<p>
+						
+					</p>
+				</div>
+			</li> 
+
+		<!-- Accordion: 9 Optimization Methods-->
+			<li class="">
+				<div class="title">
+					<b>Optimization Methods</b>
+				</div>
+				<div class="content" style="overflow: hidden; display: none; ">
+					<h6></h6>
+					<p>
+						
+					</p>
+				</div>
+			</li> 
+
+		<!-- Accordion: 10 Overfitting and Regularization -->
+			<li class="">
+				<div class="title">
+					<b>Overfitting and Regularization</b>
+				</div>
+				<div class="content" style="overflow: hidden; display: none; ">
+					<h6></h6>
+					<p>
+						
+					</p>
+				</div>
+			</li> 
+
+		<!-- Accordion: 11 Unsupervised Learning (PCA, k-Means) -->
+			<li class="">
+				<div class="title">
+					<b>Unsupervised Learning (PCA, k-Means)</b>
+				</div>
+				<div class="content" style="overflow: hidden; display: none; ">
+					<h6></h6>
+					<p>
+						
+					</p>
+				</div>
+			</li> 
+
+		<!-- Accordion: 12 Fairness in ML -->
+			<li class="">
+				<div class="title">
+					<b>Fairness in ML</b>
+				</div>
+				<div class="content" style="overflow: hidden; display: none; ">
+					<h6></h6>
+					<p>
+						
+					</p>
+				</div>
+			</li> 
+
+	<div class="hr">
+	</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="twelve columns">
+		
+		<!-- Researched Extras -->
+		<div class="circledate">
+			<div class="textcircle">
+				<br>Extras
+			</div>
+		</div>
+		<h4>Researched Extras</h4>
+		<div class="dots blogdots">
+		</div>
+		<p>
+			Along the way I spent time researching different aspects of the course that I <strike>wanted</strike> needed to know more about
+		</p>
+
+		<!-- Accordion: Statistical Model -->
+			<ul class="accordion">
+			<li class="">
+				<div class="title">
+					<b>Statistical Model</b>
+				</div>
+				<div class="content" style="overflow: hidden; display: none; ">
+					<h6></h6>
+					<p>
+						
+					</p>
+					
+					<!-- Tabs-->
+					<dl class="tabs">
+						<dd class="active"><a href="#overunderfit">Overfit vs Underfit</a></dd>
+						<dd><a href="#hyperparameters">Hyperparameters</a></dd>
+					</dl>
+
+					<ul class="tabs-content">
+						<li class="active" id="overunderfitTab">
+						</li>
+
+						<li id="hyperparametersTab">
+							
+						</li>
+
+						<li id="decisionalgorithmTab">
+							
+						</li>
+					</ul>	
+				</div>
+			</li>
+
+
+
+		<!-- Accordion: Decision Trees -->
+			<ul class="accordion">
+			<li class="">
+				<div class="title">
+					<b>Decision Trees</b>
+				</div>
+				<div class="content" style="overflow: hidden; display: none; ">
+					<h6></h6>
+					<p>
+						
+					</p>
+					
+					<!-- Tabs-->
+					<dl class="tabs">
+						<dd class="active"><a href="#decisionalgorithm">Decision Tree Algorithm Types</a></dd>
+						<dd><a href="#pruning">Pruning a Tree</a></dd>
+						<dd><a href="#dtrules">Extracting Decision Tree Rules</a></dd>
+					</dl>
+
+					<ul class="tabs-content">
+						<li class="active" id="decisionalgorithmTab">
+
+						</li>
+
+						<li id="hyperparametersTab">
+							
+						</li>
+
+						<li id="dtrulesTab">
+							
+						</li>
+
+					</ul>	
+
+				</div>
+			</li>
+
+	</div>
+</div>
+
+
+
+
+
+
+
+
+					<!-- Tabs-->
+					<!-- <dl class="tabs">
+						<dd class="active"><a href="#datatype"></a></dd>
+						<dd><a href="#datacleaning"></a></dd>
+					</dl>
+
+					<ul class="tabs-content">
+						<li class="active" id="datatypeTab">
+						</li>
+
+						<li id="datacleaningTab">
+							
+						</li>
+					</ul>	 -->
+
+
+<div class="hr">
+</div>
+
+<!-- FOOOTER 
+================================================== -->
+<div id="footer">
+	<footer class="row">
+	<p class="back-top floatright">
+		<a href="#top"><span></span></a>
+	</p>
+	<center>
+		<div class="twelve columns">
+			<h1>Connect with Me</h1>
+			<a class="social github" href="https://github.com/anjawu"></a>
+			<a class="social linkedin" href="https://www.linkedin.com/in/anja-wu/"></a>
+		</div>
+	</center>
+	</footer>
+</div>
+<div class="copyright">
+	<div class="row">
+		<div class="six columns">
+			 &copy;<span class="small"> Copyright 2021 Anja Wu</span>
+		</div>
+		<div class="six columns">
+			<span class="small floatright"> Template by <a href="www.wowthemes.net">WowThemes.net</a></span>
+		</div>
+	</div>
+</div>
+<!-- JAVASCRIPTS 
+================================================== -->
+<!-- Javascript files placed here for faster loading -->
+<script src="javascripts/foundation.min.js"></script>
+<script src="javascripts/jquery.easing.1.3.js"></script>
+<script src="javascripts/elasticslideshow.js"></script>
+<script src="javascripts/jquery.carouFredSel-6.0.5-packed.js"></script>
+<script src="javascripts/jquery.cycle.js"></script>
+<script src="javascripts/app.js"></script>
+<script src="javascripts/modernizr.foundation.js"></script>
+<script src="javascripts/slidepanel.js"></script>
+<script src="javascripts/scrolltotop.js"></script>
+<script src="javascripts/hoverIntent.js"></script>
+<script src="javascripts/superfish.js"></script>
+<script src="javascripts/responsivemenu.js"></script>
+</body>
+</html>
