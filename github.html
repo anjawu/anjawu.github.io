@@ -159,39 +159,58 @@ setTimeout(timer1801,1801000);
 		<!-- Tabs-->
 		<dl class="tabs">
 			<dd class="active"><a href="#simple1">Creating Repository</a></dd>
-			<dd><a href="#simple2">Push Existing Repository</a></dd>
+			<dd><a href="#simple2">git:master instead of git:main</a></dd>
 			<dd><a href="#simple3">Incorrect Credentials</a></dd>
 		</dl>
 		<ul class="tabs-content">
 			<li class="active" id="simple1Tab">
 				<p>
-				In case you missed it on GitHub, here are the steps to take to create a new repository from the command line.
+				On GitHub there are the steps to take to create a new git repository from the command line (don't forget you still have to create one on GitHub).
+				<div id="testimonials"><blockquote>git init </blockquote></div>
+				<div class="tab">
+					<ul class="disc">
+						<li>this will make your local folder into a git repository</li>
+						<li>Important to note: this for some reason gave me git:master branch instead of the updated git:main. If this happens to you to, go to the next tab on how to troubleshoot!</li>
+					</ul>
+				</div>
+				Continuing on:
 				<div id="testimonials">
 					<blockquote>
-						<p>
-							git init <br>
 							git commit -m “first commit”<br>
 							git branch -M main<br>
 							git remote add origin https://github.com/username/repositoryname.git<br>
 							git push -u origin main
-						</p>
 					</blockquote>
 				</div>
 				</p>
 			</li>
 			<li id="simple2Tab">
-				<p>
-				In case you missed it on GitHub, here are the steps to take to create a new repository from the command line.
-				<div id="testimonials">
-					<blockquote>
-						<p>
-							git remote add origin https://github.com/username/repositoryname.git<br>
-							git branch -M main<br>
-							git push -u origin main<br>
-						</p>
-					</blockquote>
-				</div>
-				</p>
+				<ol>
+					<li>
+						First, you must remove .git from your local repository:
+						<div id="testimonials"><blockquote>rm -rf .git</blockquote></div>
+					</li>
+					<li>
+						Next, make sure your git version is up to date:
+						<div id="testimonials"><blockquote>git –version</blockquote></div>
+						If it is not (and you have homebrew):
+						<div id="testimonials"><blockquote>brew install git</blockquote></div>
+						Check version again. If you do not have the correct version (something that ends with “<i>(Apple Git-...)</i>”) on an MacOS, you might have to manually set your path. So try:
+						<div id="testimonials"><blockquote>export PATH=/usr/local/bin:$PATH</blockquote></div>
+						Now you should have the correct version!<br><br>
+						<i>Future updates to git can be done with:</i>
+						<div id="testimonials"><blockquote>brew upgrade git</blockquote></div>
+					</li>
+					<li>
+						Now you can change the global configuration to make the default branch main:
+						<div id="testimonials"><blockquote>git config --global init.defaultBranch main</blockquote></div>
+					</li>
+					<li>
+						Now when you run:
+						<div id="testimonials"><blockquote>git init</blockquote></div>
+						you should see that you are on the “main” branch instead of “master”!
+					</li>
+			</ol>
 			</li>
 			<li id="simple3Tab">
 				<p>
