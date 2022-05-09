@@ -135,13 +135,13 @@ setTimeout(timer1801,1801000);
 ================================================== -->
 <div class="row">
 	<p>
-		I am currently enrolled in an <a href ="https://vectorinstitute.ai/mothers-and-machine-learning/" class = saymore>Introduction to Machine Learning</a> run by the Vector Institute with Juan Felipe Carrasquilla Álvarez as the professor. Although I am not done the course, I feel that Professor Alvarez has made the course so accessible and is amazing at answering questions! 
+		I recently completed the <a href ="https://vectorinstitute.ai/mothers-and-machine-learning/" class = saymore>Introduction to Machine Learning</a> run by the Vector Institute with Juan Felipe Carrasquilla Álvarez as the professor. I really enjoyed the course and learnt so much!
 	</p>
 	<p>
 		I have broken down the things I have learnt by my assignment, lectures, and material I have researched. 
 	</p>
 	<p>
-		<b>When I have time during (and after) the course I will be filling in the tabs!</b>
+		<b>I have begun to fill out the sections slowly! I have provided a link to my GitHub for all of the assignments and created a tab for every topic that was covered in the course. I plan on adding to each tab bit by bit!</b>
 	</p>
 </div>
 
@@ -159,7 +159,7 @@ setTimeout(timer1801,1801000);
 		<div class="dots blogdots">
 		</div>
 		<p>
-			This section is I use for the best take aways from each assignment as opposed to just posting the whole assignment because realistically nobody wants to read a full class assignment - even the TAs had to be paid to do it :)
+			This section has the best take aways from each assignment as opposed to just posting the whole assignment. I do link to the GitHub repo that has all of my code posted. I will be updating the learning from each assignment shortly.
 		</p>
 
 		<!-- Accordion: Assignment 1-->
@@ -250,11 +250,40 @@ setTimeout(timer1801,1801000);
 		<!-- Accordion: Assignment 5-->
 			<li class="">
 				<div class="title">
-					<b>HR Attrition Analysis (Logistic Regression, Decision Tree, and kNN)</b>
+					<b>HR Attrition Analysis (Logistic Regression and Decision Tree)</b>
 				</div>
 				<div class="content" style="overflow: hidden; display: none; ">
 					<p>
-						<a href="https://github.com/anjawu/machine-learning/tree/main/Capstone" class="saymore">Here</a> is the link to the GitHub code part of the assignment.
+						<a href="https://github.com/anjawu/machine-learning/tree/main/HR-attrition-new" class="saymore">Here</a> is the link to the GitHub code part of the assignment.
+						<!-- <ul class="disc">
+							<li>"AnjaWu_HW4_FeedForwardNN.ipynb": has a complete neural network, in which optimal hyperparameters are analyzed and selected.</li>
+						</ul> -->
+					</p>
+					<p>
+						<a href="images/HR_Attrition_Analysis.pdf" class="saymore">Here</a> is the final written report!
+					</p>
+					<h6>Summary of Assignment:</h6>
+					<p>
+						<b>My insights:</b> <br>
+						From the logistic model, the random oversampling method performed the best in terms of predictions (accuracy range of 0.59-0.65). When looking at the features, there were certain ones that cannot be controlled by the company such as: age, years at company, number of companies worked, and marital status. However, there were features that could provide insights in which the company could act on to help keep more employees. 
+						<ul class="disc">
+							<li>In terms of performance and salary: people with a higher performance are more likely to leave but people with a higher percent salary hike are less likely to leave. Meaning the company should reward those high impact individuals who they would like to keep. </li>
+							<li>Along this thread, it was found that the longer it has been since a person has been promoted, the more likely they are to leave. Thus it would be important to dig in individual cases whether the company is hiring externally when they should have promoted someone from within. </li>
+							<li>The more training an individual had the more likely it was that they would stay. This means the company should encourage professional development.</li>
+							<li>Sales executives and research directors tend to be more likely to leave, so it would be worthwhile to flag it to their leadership and look into the why for these groups. </li>
+							<li>Individuals who travel more, tend to leave more. Given the lack of information on the company, it would be hard to come up with a reasonable action for the company to take in this regard. </li>
+							<li>The last main actionable insight was: the worse an individual's work-life balance was, the more likely they were to leave. The company should ensure they are encouraging days off when needed, in order to retain their employees.</li>
+						</ul>
+					</p>
+					<p>
+						The decision tree performed really well at predicting (accuracy range of 0.89-0.95) regardless of the imbalanced sampling method chosen. This can be used to predict which employees might leave within the next year and try to keep them on.
+					</p>
+					<p>
+						<b>My process:</b><br>
+						Through the data processing stage there were several things done to ensure data was ready for machine learning algorithms. Initially, I had to encode the categorical features, both ordinal and nominal features. For the ordinal features, I chose a simple encoding of 0 to n-1 (for n features). For the nominal categories, I chose one hot encoding and dropped a specific column as the reference to prevent collinearity. After the feature encoding, I looked at the collinearity of the data and found a potential for multi-collinearity between some features. For this I ran the VIF (variance inflation factor) method and found that there were no values high enough to consider the variables collinear. After moving forward with the data, I noticed an imbalance in the attrition outcome. So with this I tried several methods to deal with it: random oversampling, random undersampling, SMOTE, and Tomek links for the two algorithms: logistic regression and decision tree. Logistic regression was used to see which feature(s) had the biggest effects on attrition and the decision tree was used to best predict attrition (due to it performing the best on imbalanced data). For the logistic regression, I used statsmodels in order to calculate the p-value for the coefficients to determine which were considered the most statistically significant effect on attrition. At the end of the models, I wrote a report comparing the methods and algorithms used plus the insights gained.
+					</p>
+					<p>
+						I only had about a week (part-time) to work on this and naturally that would mean there are improvements to be done. For instance, I would interpret the logistic regression coefficients in a more meaningful way by transforming the coefficients (e^coefficient) to determine how much more likely a person is to leave for each specific feature.
 					</p>
 					<!-- <h6>Highlights of Learning:</h6> -->
 					<p>
@@ -345,7 +374,7 @@ setTimeout(timer1801,1801000);
 		<!-- Accordion: 6 Linear Regression-->
 			<li class="">
 				<div class="title">
-					<b>Linear Regression</b>
+					<b>Linear and Logistic Regression</b>
 				</div>
 				<div class="content" style="overflow: hidden; display: none; ">
 					<h6></h6>
@@ -410,7 +439,7 @@ setTimeout(timer1801,1801000);
 		<!-- Accordion: 11 Unsupervised Learning (PCA, k-Means) -->
 			<li class="">
 				<div class="title">
-					<b>Unsupervised Learning (PCA, k-Means)</b>
+					<b>Unsupervised Learning (PCA)</b>
 				</div>
 				<div class="content" style="overflow: hidden; display: none; ">
 					<h6></h6>
@@ -421,17 +450,17 @@ setTimeout(timer1801,1801000);
 			</li> 
 
 		<!-- Accordion: 12 Fairness in ML -->
-			<li class="">
+<!-- 			<li class="">
 				<div class="title">
 					<b>Fairness in ML</b>
 				</div>
 				<div class="content" style="overflow: hidden; display: none; ">
 					<h6></h6>
 					<p>
-						
+						This is a big topic that needs to be regarded whenever you use machine learning. It is important to consider 
 					</p>
 				</div>
-			</li> 
+			</li>  -->
 
 	<div class="hr">
 	</div>
@@ -490,7 +519,6 @@ setTimeout(timer1801,1801000);
 
 
 		<!-- Accordion: Decision Trees -->
-			<ul class="accordion">
 			<li class="">
 				<div class="title">
 					<b>Decision Trees</b>
@@ -525,6 +553,48 @@ setTimeout(timer1801,1801000);
 
 				</div>
 			</li>
+
+			<!-- Accordion: k-Means -->
+			<li class="">
+				<div class="title">
+					<b>k-Means</b>
+				</div>
+				<div class="content" style="overflow: hidden; display: none; ">
+					<h6></h6>
+					<p>
+						
+					</p>
+					
+					<!-- Tabs-->
+					<!-- <dl class="tabs">
+						<dd class="active"><a href="#decisionalgorithm">Decision Tree Algorithm Types</a></dd>
+						<dd><a href="#pruning">Pruning a Tree</a></dd>
+						
+					</dl>
+
+					<ul class="tabs-content">
+						<li class="active" id="decisionalgorithmTab">
+
+						</li>
+
+						<li id="hyperparametersTab">
+							
+						</li>
+
+						<li id="dtrulesTab">
+							
+						</li>
+
+					</ul>	
+ -->
+				</div>
+			</li>
+
+
+
+
+
+		</ul>
 
 	</div>
 </div>
