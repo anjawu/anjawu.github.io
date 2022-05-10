@@ -166,22 +166,229 @@ setTimeout(timer1801,1801000);
 			<ul class="accordion">
 			<li class="">
 				<div class="title">
-					<b>k-NN Assignment</b>
+					<b>k-Nearest Neighbours Assignment</b>
 				</div>
 				<div class="content" style="overflow: hidden; display: none; ">
 					<p>
-						<a href="https://github.com/anjawu/machine-learning" class="saymore">Here</a> is the link to the GitHub code part of the assignment:
+						<a href="https://github.com/anjawu/machine-learning/tree/main/H1" class="saymore">Here</a> is the link to the GitHub code part of the assignment:
 						<ul class="disc">
-							<li>"Anja_H1_Question_2_KNN_2Features.ipynb": has the K-Nearest Neighbours using two features from the sklearn iris database</li>
-							<li>"Anja_H1_Question_2_KNN_4Features.ipynb": has the K-Nearest Neighbours using four features from the sklearn iris database</li>
+							<li>"Anja_H1_Question_2_KNN_2Features.ipynb": has the analysis and selection of the "k" hyperparameter in the Iris database from sklearn focusing on just two features (the sepal ones) to predict classification of three species.  </li>
+							<li>"Anja_H1_Question_2_KNN_4Features.ipynb": has the above k-Nearest Neighbours analysis but done using all four features for the prediction of the species classification.</li>
 						</ul>
 					</p>
-					<!-- 
-					<h6>Highlights of Learning:</h6> 
+					 
+					<h6>Highlights of Learning</h6> 
+					Steps
+					<ol>
+						<li>
+							<b>Defining a data set from the Iris dataset (did 2 then 4 features):</b><br>
+							Taking the first 2 features from the data matrix:
+							<div id="testimonials"><blockquote>
+								X = iris.data[:, :2]<br>
+								y = iris.target # The class labels
+							</blockquote></div>
+							Extending the matrix to all four features:
+							<div id="testimonials"><blockquote>								
+								X = iris.data[:, :4]<br>
+								y = iris.target
+							</blockquote></div>
+						</li><br>
+
+						<li>
+							<b>Splitting training and test set:</b><br>
+							<div id="testimonials"><blockquote>								
+								from sklearn.model_selection import train_test_split
+							</blockquote></div>
+							We set 20% of the dataset as the test set, and 80% as the training set
+							<div id="testimonials"><blockquote>								
+								X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+							</blockquote></div>
+						</li><br>
+
+						<li>
+							<b>Creating scatter plot to visualize (two different sets):</b><br>
+							<u>For the first two features</u><br>
+							Making a scatterplot for two features (sepal) and three species:
+							<div id="testimonials"><blockquote>								
+								f, axs = plt.subplots(figsize=(8,6))<br>
+								the_scatter = axs.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.Set1, edgecolor='k')
+							</blockquote></div>
+
+							Change the legend name of the class to be Iris species like Setosa, Versicolour, and Virginica:
+							<div id="testimonials"><blockquote>								
+								lines, legend_names = the_scatter.legend_elements()<br>
+								legend1 = axs.legend(lines, ['Setosa', 'Versicolour', 'Virginica'], title="Classes")<br>
+								axs.add_artist(legend1)
+							</blockquote></div>
+							<img src="images/pages/ml/a1-g1-sepal.png" width = "385" height = "auto" alt=""><br>
+
+							<u>For the last two features</u><br>
+							Making a scatterplot for two features (petal) and three species:
+							<div id="testimonials"><blockquote>								
+								f, axs = plt.subplots(figsize=(8,6))<br>
+								the_scatter = axs.scatter(X[:, 2], X[:, 3], c=y, cmap=plt.cm.Set1, edgecolor='k')
+							</blockquote></div>
+							<img src="images/pages/ml/a1-g2-petal.png" width = "385" height = "auto" alt=""><br><br>
+
+							As can be seen two of the features (petal) give a lot more information in the boundary decisions. We would expect when we include them for our predictions to be done well.
+						</li><br>
+
+						<li>
+							<b>Creating function that will print out the features from the integers in the dataset:</b><br>
+							Due to the fact that the categorical variables needed to be encoded, we must pull out the type in order for the values to be interpretable in our data. So we define a function <i>print_features(x,y)</i> that will print out the Iris type and sepal width/length, in a clean format.
+							<div id="testimonials"><blockquote>								
+							def print_features(x,y):
+							<div class="tab">
+								print('Iris type:', ['Setosa', 'Versicolour', 'Virginica'][y-1])<br>
+								print('Sepal Length: %.1f \t Sepal Width: %.1f'%(x[0], x[1]))  
+							</div>
+						</blockquote></div>
+						</li><br>
+
+						<li>
+							<b>Creating Euclidean distance function:</b><br>
+							This was done for fun to check if the same neighbours would be returned as using the k-nearest neighbour function from sklearn (to further understand what was occuring "under the hood" for the algorithm.
+							<div id="testimonials"><blockquote>								
+								def euclidean_distance(x1, x2):
+								<div class="tab">
+									distance = sqrt(np.sum((x2-x1)**2))<br>
+									return distance
+								</div>
+							</blockquote></div>
+						</li><br>
+
+						<li>
+							<b>Printing out nearest neighbours:</b><br>
+							<u>Using my Euclidean distance formula</u><br>
+							First, we randomly select a test example (#11) and print features so we can compare to the nearest neightbours:
+							<div id="testimonials"><blockquote>
+								sample = X_test[10]<br>
+								print('Test Sample:')<br>
+								print_features(sample, y_test[10])
+							</blockquote></div>
+
+							Next, we calculate the euclidean distance to this test example:
+							<div id="testimonials"><blockquote>
+								distances = []<br>
+								for i, row in enumerate(X_train):
+								<div class="tab">
+								    distance = euclidean_distance(sample, row)<br>
+								#     print(f"{i}: {distance} from x1: {sample} and x2: {row}") # Checking calculations above for correctedness<br>
+								    distances.append((i, distance))
+								</div>
+								distances.sort(key=lambda tup: tup[1]) # sorting distances
+							</blockquote></div>
+
+							Finally, we print the closest 2 neighbours with their features for comparison:
+							<div id="testimonials"><blockquote>
+								k = 2 # Number of nearest neighbors<br>
+								print('\nTop %d Nearest Neighbors:' % k)<br>
+								for nn in range(k):
+								<div class="tab">
+								    print_features(X_train[distances[nn][0]], y_train[distances[nn][0]])
+								</div>
+							</blockquote></div><br>
+
+							<u>Using sklearn k-NN</u><br>
+							Import function from library:
+							<div id="testimonials"><blockquote>
+								from sklearn.neighbors import KNeighborsClassifier
+							</blockquote></div>
+							Just like before, we select test example #11 and print features so we can compare to the nearest neightbours. Then we use the sklearn function <i>KNeighborsClassifier()</i> to specify looking at the top 5 neighbours:
+							<div id="testimonials"><blockquote>
+								k=5<br>
+								neigh = KNeighborsClassifier()<br>
+								neigh.fit(X_train, y_train)<br>
+								dists, neighbor_ids = neigh.kneighbors(X=[sample], n_neighbors = 5)
+							</blockquote></div>
+							Finally, we print the closest 5 neighbours with their features for comparison:
+
+							<div id="testimonials"><blockquote>
+								print('\nClosest 5 neighbors to this test sample:')<br>
+								for knn in range(5):
+								<div class="tab">
+								    print('\nNeighbor %d ===> distance:%f'%(knn, dists[0][knn]))<br>
+								    print_features(X_train[neighbor_ids[0][knn]], y_train[neighbor_ids[0][knn]])
+								</div>
+							</blockquote></div><br>
+
+							From the results, both produced the same top 2 nearest neighbours. This makes sense because in reading the documentation for <a href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html" class="saymore">KNeighborsClassifier()</a> the metric is technically Minkowski, but when p=2 (power parameter) it is equivalent to Euclidean metric. Since the default is p=2, we know that the calculations should be the same.
+						</li><br>
+
+						<li>
+							<b>Create heatmap to analyze the training set distance from the test set distance:</b><br>
+							Creating list to store distances between the test set and the training set
+							<div id="testimonials"><blockquote>
+								distances = []<br>
+								for x_test in X_test:
+								<div class="tab">
+								    distance = np.sum((x_test[np.newaxis, ...] - X_train) ** 2, axis=1)<br>
+								    distances.append(distance)
+								</div>
+							</blockquote></div>
+
+							Creating a "colorbar" graph to display distance from each training example to each test example
+							<div id="testimonials"><blockquote>
+								distances = np.array(distances)<br>
+								plt.figure(figsize=(50, 20))<br>
+								plt.imshow(distances)<br>
+								plt.colorbar()<br>
+								plt.xlabel('Training examples id', fontsize=40)<br>
+								plt.ylabel('Test examples id', fontsize=40)<br>
+								plt.xticks(np.arange(0, 120, 2), fontsize=20)<br>
+								plt.yticks(np.arange(0, 30, 1), fontsize=20)
+								plt.show
+							</blockquote></div>
+							<img src="images/pages/ml/a1-heatmap.png" width = "600" height = "auto" alt=""><br><br>
+
+							<b><i>Note: a good reason to check this is because we want the distances between the sets to be small. This is when k-Nearest Neighbours works best. If the heatmap shows a lot more further distances, this means the sample was not done well.</i></b>
+						</li><br>
+
+						<li>
+							<b>Creating a line graph to show test accuracy based on k:</b><br>
+							Creating list of all test accuracies based on changes in k
+							<div id="testimonials"><blockquote>
+								test_accs = []<br>
+								for k in range(1, X_train.shape[0]):
+								<div class="tab">
+								  # Create K nearest neighbors classifier<br>
+								  neigh = KNeighborsClassifier(n_neighbors=k)<br>
+								  neigh.fit(X_train, y_train)<br><br>
+								  
+								  # Prediction<br>
+								  y_pred = neigh.predict(X_test)<br><br>
+								  
+								  # Calculate accuracy<br>
+								  acc = (y_pred == y_test).mean()<br>
+								  test_accs.append(acc)
+								</div>
+							</blockquote></div>
+							Creating a line graph to depict accuracy to be able to find the best hyperparameter (in this case, k value) visually:
+							<div id="testimonials"><blockquote>
+								plt.figure(figsize=(30, 10))<br>
+								plt.plot(list(range(1, X_train.shape[0])), test_accs)<br>
+								plt.axhline(y=0.93, color='r', linestyle='-')<br>
+								plt.axvline(x=29, color='b', linestyle='--')<br>
+								plt.xlabel('Number of nearest neighbors (k)')<br>
+								plt.ylabel('Test set accuracy')<br>
+								plt.xticks(np.arange(0, 120, 2), fontsize=18)<br>
+								plt.yticks(np.arange(0, 1.0, 0.05), fontsize=18)<br>
+								plt.grid()<br>
+								plt.show
+							</blockquote></div>
+							<u>For 2 features:</u><br>
+							<img src="images/pages/ml/a1-2feature-accuracy.png" width = "600" height = "auto" alt=""><br><br>
+							<b><i>We can see the accuracy of the test set decreasing the larger k-values we have due to the fact that we are underfitting the model on the training set leading to a decrease in finding the underlying relationship. At a low level of k, we can see that the accuracy performs more poorly due to overfitting on the training model and capturing more noise than the underlying relationship.</i></b><br><br>
+							<u>For 4 features:</u><br>
+							<img src="images/pages/ml/a1-4feature-accuracy.png" width = "600" height = "auto" alt=""><br><br>
+							<b><i>As can be seen the more features that are added the more accurate the predictions. </i></b><br>
+							
+						</li><br>
+					</ol>
+					<b>*Note*</b>
 					<p>
-						
+						After this assignment we discussed the fact that the data should be divided into three sections: training set, validation set, and test set. This way the test set is only used once to check accuracy and the validation set is used to determine the best hyperparameters. 
 					</p>
-				-->
 				</div>
 			</li>
 
@@ -192,7 +399,7 @@ setTimeout(timer1801,1801000);
 				</div>
 				<div class="content" style="overflow: hidden; display: none; ">
 					<p>
-						<a href="https://github.com/anjawu/machine-learning" class="saymore">Here</a> is the link to the GitHub code part of the assignment:
+						<a href="https://github.com/anjawu/machine-learning/tree/main/H2" class="saymore">Here</a> is the link to the GitHub code part of the assignment:
 						<ul class="disc">
 							<li>"AnjaWu_H2_DecisionTrees.ipynb": has a decision tree that was created from Kaggle real and fake news headlines.</li>
 						</ul>
@@ -211,7 +418,7 @@ setTimeout(timer1801,1801000);
 				</div>
 				<div class="content" style="overflow: hidden; display: none; ">
 					<p>
-						<a href="https://github.com/anjawu/machine-learning" class="saymore">Here</a> is the link to the GitHub code part of the assignment:
+						<a href="https://github.com/anjawu/machine-learning/tree/main/H3" class="saymore">Here</a> is the link to the GitHub code part of the assignment:
 						<ul class="disc">
               
 							<li>"AnjaWu_HW3_code-Regression&Classification": has the creation of linear and logistic regression analysis on health data analyzed to predict hospital charges. Most code was done by a TA in the course, however, I chose to comment the code to further my understanding on how to build regression models using Scikit Learn.</li>
@@ -232,7 +439,7 @@ setTimeout(timer1801,1801000);
 				</div>
 				<div class="content" style="overflow: hidden; display: none; ">
 					<p>
-						<a href="https://github.com/anjawu/machine-learning" class="saymore">Here</a> is the link to the GitHub code part of the assignment.
+						<a href="https://github.com/anjawu/machine-learning/tree/main/H4" class="saymore">Here</a> is the link to the GitHub code part of the assignment.
 				 
 						 <ul class="disc">
 							<li>"AnjaWu_HW4_FeedForwardNN.ipynb": has a complete neural network, in which optimal hyperparameters are analyzed and selected.</li>
@@ -322,7 +529,7 @@ setTimeout(timer1801,1801000);
 		<ul class="accordion">
 			<li class="">
 				<div class="title">
-					<b>k Nearest Neighbour</b>
+					<b>k-Nearest Neighbour</b>
 				</div>
 				<div class="content" style="overflow: hidden; display: none; ">
 					<h6></h6>
@@ -487,7 +694,7 @@ setTimeout(timer1801,1801000);
 			<ul class="accordion">
 			<li class="">
 				<div class="title">
-					<b>Statistical Model</b>
+					<b>General ML Model Concepts</b>
 				</div>
 				<div class="content" style="overflow: hidden; display: none; ">
 					<h6></h6>
@@ -503,15 +710,25 @@ setTimeout(timer1801,1801000);
 
 					<ul class="tabs-content">
 						<li class="active" id="overunderfitTab">
+							<a href="https://www.edureka.co/community/15471/what-are-the-differences-between-overfitting-underfitting" class="saymore">From this article</a> I got a good understanding of overfitting and underfitting, along with the notes taken in class.<br>
+							<u>Overfitting:</u><br>
+							<p>
+								When overfitting occurs it means the model is picking up on noise instead of the relationship. This occurs if your model is too complex. For instances, small k or large depth for a decision tree.<br>
+								When looking at variance (the amount of variability in the data) we are talking about overfitting (for squared error).
+							</p>
+
+							<u>Underfitting:</u><br>
+							<p>
+								When underfitting occurs the model has failed to have enough insights to get the relationship of the data. This occurs if a model is too simple or uses the wrong type of model. For instance, large k or small depth for decision tree or fitting a linear model on non-linear data.<br>
+								When talking about bias (how wrong the prediction is) we are talking about undercutting (for squared error).
+							</p>
+
 						</li>
 
 						<li id="hyperparametersTab">
-							
+							https://towardsdatascience.com/parameters-and-hyperparameters-aa609601a9ac# 
 						</li>
 
-						<li id="decisionalgorithmTab">
-							
-						</li>
 					</ul>	
 				</div>
 			</li>
@@ -538,15 +755,30 @@ setTimeout(timer1801,1801000);
 
 					<ul class="tabs-content">
 						<li class="active" id="decisionalgorithmTab">
-
+							https://www.kdnuggets.com/2020/01/decision-tree-algorithm-explained.html  
 						</li>
 
-						<li id="hyperparametersTab">
-							
+						<li id="pruningTab">
+							<a href="https://towardsdatascience.com/3-techniques-to-avoid-overfitting-of-decision-trees-1e7d3d985a09#" class="saymore">This article</a> had a lot of good ways to avoid overfitting. In it "pruning a tree" was discussed.<br>
+
+							We use "pruning a tree" to avoid overfitting. The method works by setting limits on specific hyperparameters. These hyperparameters for <a href="https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html" class="saymore">DecisionTreeClassifier()</a> include max_depth, min_samples_leaf, and min_samples_split and can early stop the growth of the tree:
+							<ul class="disc">
+								<li>
+									Max_depth: if you decrease the max_depth allowed, you will decrease the overfitting.
+								</li>
+								<li>
+									Min_samples_leaf: "The minimum number of samples required to be at a leaf node" (default 1). The larger this number the more overfitting is decreased.
+								</li>
+								<li>
+									Min_samples_split: "The minimum number of samples required to split an internal node" (default 2). The larger this number the more overfitting is decreased.
+								</li>
+							</ul>
+
 						</li>
 
 						<li id="dtrulesTab">
-							
+							https://mljar.com/blog/extract-rules-decision-tree/ <br>
+							https://mljar.com/blog/visualize-decision-tree/ <- great for visualization
 						</li>
 
 					</ul>	
