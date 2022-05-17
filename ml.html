@@ -180,7 +180,18 @@ setTimeout(timer1801,1801000);
 					<h6>Highlights of Learning</h6> 
 					Steps
 					<ol>
-						<li>
+						<li><a href="#a1s1" class="saymore">Defining a data set from the Iris dataset</a></li>
+						<li><a href="#a1s2" class="saymore">Splitting training and test set</a></li>
+						<li><a href="#a1s3" class="saymore">Creating scatter plot to visualize</a></li>
+						<li><a href="#a1s4" class="saymore">Creating function that will print out the features from the integers in the dataset</a></li>
+						<li><a href="#a1s5" class="saymore">Creating Euclidean distance function</a></li>
+						<li><a href="#a1s6" class="saymore">Printing out nearest neighbours</a></li>
+						<li><a href="#a1s7" class="saymore">Create heatmap to analyze the training set distance from the test set distance</a></li>
+						<li><a href="#a1s8" class="saymore">Creating a line graph to show test accuracy based on k</a></li>
+					</ol>
+					<br><br>
+					<ol>
+						<li id="a1s1">
 							<b>Defining a data set from the Iris dataset (did 2 then 4 features):</b><br>
 							Taking the first 2 features from the data matrix:
 							<div id="testimonials"><blockquote>
@@ -194,7 +205,7 @@ setTimeout(timer1801,1801000);
 							</blockquote></div>
 						</li><br>
 
-						<li>
+						<li id="a1s2">
 							<b>Splitting training and test set:</b><br>
 							<div id="testimonials"><blockquote>								
 								from sklearn.model_selection import train_test_split
@@ -205,7 +216,7 @@ setTimeout(timer1801,1801000);
 							</blockquote></div>
 						</li><br>
 
-						<li>
+						<li id="a1s3">
 							<b>Creating scatter plot to visualize (two different sets):</b><br>
 							<u>For the first two features</u><br>
 							Making a scatterplot for two features (sepal) and three species:
@@ -233,7 +244,7 @@ setTimeout(timer1801,1801000);
 							As can be seen two of the features (petal) give a lot more information in the boundary decisions. We would expect when we include them for our predictions to be done well.
 						</li><br>
 
-						<li>
+						<li id="a1s4"> 
 							<b>Creating function that will print out the features from the integers in the dataset:</b><br>
 							Due to the fact that the categorical variables needed to be encoded, we must pull out the type in order for the values to be interpretable in our data. So we define a function <i>print_features(x,y)</i> that will print out the Iris type and sepal width/length, in a clean format.
 							<div id="testimonials"><blockquote>								
@@ -245,7 +256,7 @@ setTimeout(timer1801,1801000);
 						</blockquote></div>
 						</li><br>
 
-						<li>
+						<li id="a1s5">
 							<b>Creating Euclidean distance function:</b><br>
 							This was done for fun to check if the same neighbours would be returned as using the k-nearest neighbour function from sklearn (to further understand what was occuring "under the hood" for the algorithm.
 							<div id="testimonials"><blockquote>								
@@ -257,7 +268,7 @@ setTimeout(timer1801,1801000);
 							</blockquote></div>
 						</li><br>
 
-						<li>
+						<li id="a1s6">
 							<b>Printing out nearest neighbours:</b><br>
 							<u>Using my Euclidean distance formula</u><br>
 							First, we randomly select a test example (#11) and print features so we can compare to the nearest neightbours:
@@ -315,7 +326,7 @@ setTimeout(timer1801,1801000);
 							From the results, both produced the same top 2 nearest neighbours. This makes sense because in reading the documentation for <a href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html" class="saymore">KNeighborsClassifier()</a> the metric is technically Minkowski, but when p=2 (power parameter) it is equivalent to Euclidean metric. Since the default is p=2, we know that the calculations should be the same.
 						</li><br>
 
-						<li>
+						<li id="a1s7">
 							<b>Create heatmap to analyze the training set distance from the test set distance:</b><br>
 							Creating list to store distances between the test set and the training set
 							<div id="testimonials"><blockquote>
@@ -344,7 +355,7 @@ setTimeout(timer1801,1801000);
 							<b><i>Note: a good reason to check this is because we want the distances between the sets to be small. This is when k-Nearest Neighbours works best. If the heatmap shows a lot more further distances, this means the sample was not done well.</i></b>
 						</li><br>
 
-						<li>
+						<li id="a1s8">
 							<b>Creating a line graph to show test accuracy based on k:</b><br>
 							Creating list of all test accuracies based on changes in k
 							<div id="testimonials"><blockquote>
@@ -404,10 +415,380 @@ setTimeout(timer1801,1801000);
 							<li>"AnjaWu_H2_DecisionTrees.ipynb": has a decision tree that was created from Kaggle real and fake news headlines.</li>
 						</ul>
 					</p>
-					<!-- <h6>Highlights of Learning:</h6> -->
+					<h6>Highlights of Learning:</h6>
 					<p>
-						
+						Steps
+					<ol>
+						<li><a href="#a2s1" class="saymore">Create data splitting function</a></li>
+						<li><a href="#a2s2" class="saymore">Vectorizing titles from news headlines</a></li>
+						<li><a href="#a2s3" class="saymore">Creating accuracy calculation function</a></li>
+						<li><a href="#a2s4" class="saymore">Checking max depth of trees based on criterion</a></li>
+						<li><a href="#a2s5" class="saymore">Creating loop to check optimal depth and criterion</a></li>
+						<li><a href="#a2s6" class="saymore">Plotting depth and criterion to visually be able to select best based on accuracy of val and train set</a></li>
+						<li><a href="#a2s7" class="saymore">Testing test accuracy for selected model</a></li>
+						<li><a href="#a2s8" class="saymore">Visualizing decision tree</a></li>
+					</ol>
+					<br>
 					</p>
+					<ol>
+						<li id="a2s1">
+							<b>Create data splitting function (into three sections: training, validation, and test set):</b><br>
+							We will define a function to split the data for us
+							<div id="testimonials"><blockquote>
+								def split_data(X, y, train_size=0.7, val_size=0.15):
+							</blockquote></div>
+							Then we have to figure out the shape of our data to be able to split the data properly.
+							<div id="testimonials"><blockquote class="tab"> 
+								total_data = X.shape[0] 
+							</blockquote></div>
+							After we have the shape, we can specify the integers required for the size of each set based on the inputted data and the <i>train_size</i> and <i>val_size</i> specified.
+							<div id="testimonials"><blockquote class="tab"> 
+								train_size = int(train_size * total_data) <br>
+					   		val_size = int(val_size * total_data) <br>
+					    	test_size = total_data - train_size - val_size 
+							</blockquote></div>
+							Now we want to make sure that the data is randomized instead of being split sequentially:
+							<div id="testimonials"><blockquote class="tab"> 
+								all_indices = np.random.permutation(np.arange(total_data)) 
+							</blockquote></div>
+							Then we will split all the indices based on the size specified (.70 for training, .15 for val and .15 for test):
+							<div id="testimonials"><blockquote class="tab"> 
+								train_indices = all_indices[:train_size]<br>
+						    val_indices = all_indices[train_size:train_size + val_size]<br>
+						    test_indices = all_indices[train_size+val_size:]
+							</blockquote></div>
+							Now we have to split our data into features and outcome. In this case, X being the words vectorized, y being the real or fake category.
+							<div id="testimonials"><blockquote class="tab"> 
+								train_X, train_y = X[train_indices], y[train_indices]<br>
+						    val_X, val_y = X[val_indices], y[val_indices]<br>
+						    test_X, test_y = X[test_indices], y[test_indices]
+							</blockquote></div>
+							Finally, we need to have our function return a dictionary so that it outputs our split datasets for all 3 along with the X and y.
+							<div id="testimonials"><blockquote class="tab"> 
+								return {
+									<div class="tab">
+						        'train': (train_X, train_y),<br>
+						        'val':  (val_X, val_y),<br>
+						        'test': (test_X, test_y)
+						      </div>
+						    }
+							</blockquote></div>
+						</li>
+
+						<li id="a2s2">
+							<b>Vectorizing titles from news headlines:</b>
+							<p>
+								Since the inputted data is words from headlines that then need to be classified by real or fake news, we need to vectorize the input in order to be able to breakdown the title into words.
+							</p>
+							<p>
+								So we create a function to read the data and vectorize it, <i>load_data</i>.
+							</p>
+							<div id="testimonials"><blockquote>
+								def load_data(paths):
+							</blockquote></div>
+							After we have loaded the data, we need to convert the text to a matrix of token counts using <a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html" class="saymore">CountVectorizer()</a>. We also want to create a list for each title (to store words) and then a list to count how many words lines we have.
+							<div id="testimonials"><blockquote class="tab">
+								vec = CountVectorizer(input='content')<br>
+						    lines = []<br>
+						    counts = []
+							</blockquote></div>
+							Then we want to go through each line in the path, count how many there are and add each line to a list. <a href="https://www.w3schools.com/python/ref_file_readlines.asp" class="saymore">.readlines()</a> returns a list that has each line from the file. <a href="https://www.w3schools.com/python/ref_list_extend.asp" class="saymore">.extend()</a> allows the appending of more than one element to a list. 
+							<div id="testimonials"><blockquote class="tab">
+								for p in paths: 
+								<div class="tab">
+					        with open(p) as f:
+					        <div class="tab">
+					          file_lines = f.readlines()
+					         </div>
+					        counts.append(len(file_lines))<br>
+					        lines.extend([l.strip() for l in file_lines])
+					      </div>
+							</blockquote></div>
+							<p>
+								<a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html#sklearn.feature_extraction.text.CountVectorizer.fit" class="saymore">.fit()</a> returns a vector corresponding to each vocabulary dictionary from all headlines. <a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html#sklearn.feature_extraction.text.CountVectorizer.transform" class="saymore">.transform()</a> takes every line from the files makes them into a matrix. So we can combine those two using <a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html#:~:text=Fitted%20vectorizer.-,fit_transform(raw_documents%2C%20y%3DNone),Document%2Dterm%20matrix.,-get_feature_names()" class="saymore"> .fit_transform()</a>. Then we make it into an array for ease of use.
+							</p>
+							<div id="testimonials"><blockquote class="tab">
+								data_matrix = vec.fit_transform(lines).toarray()
+							</blockquote></div>
+							<p>
+								Because the inputted data was in the form of real news titles first and then fake news titles next, we can do the following. An array of 0s is made for labels for real data and and array of 1s for labels of fake data. Then <a href="https://numpy.org/doc/stable/reference/generated/numpy.concatenate.html" class="saymore">np.concatenate</a> combines the labels of real and fake news into one array.
+							</p>
+							<div id="testimonials"><blockquote class="tab">
+								y = np.concatenate((np.zeros(counts[0]), np.ones(counts[1]))) 
+							</blockquote></div>
+							<p>
+								Then we us our split_data() function to take the data_matrix we made above and puts it as X and the real/fake label as y and <a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html#:~:text=get_feature_names_out(%5Binput_features%5D),names%20for%20transformation." class="saymore">.get_feature_names_out()</a> maps every single word that appears in all the headers and creates a vector.
+							</p>
+							<div id="testimonials"><blockquote class="tab">
+								return split_data(data_matrix, y), vec.get_feature_names_out()
+							</blockquote></div>
+							<p>
+								Using the above function, we pull out the data and features from the two text files: real news titles and fake news titles.
+							</p>
+							<div id="testimonials"><blockquote>
+								data, feature_names = load_data(['/content/clean_real.txt', '/content/clean_fake.txt'])
+							</blockquote></div>
+						</li>
+
+						<li id="a2s3">
+							<b>Creating accuracy calculation function</b><br>
+							<p>
+								We create a function to compute the accuracy of a given model on input data X and label t.
+							</p>
+							<div id="testimonials"><blockquote>
+								def get_acc(model, X, t):
+								<div class="tab">
+							    y_pred = model.predict(X)<br>
+							    y_test = t<br>
+							    acc = (y_pred == y_test).mean()<br>
+							    return acc
+							  </div>
+							</blockquote></div>
+						</li>
+
+						<li id="a2s4">
+							<b>Checking max depth of trees based on criterion</b><br>
+							<p>
+								We define a decision tree with the criterion of choice (need to test for each criterion you want as you can get different depths) and print out the <i>max_depth</i> so we have some idea of the depth we should be testing for the best depth hyperparameter. Remember that the tree must be for onto our training dataset. Since the fit takes X and y, we can write <i>*</i> to "unpack" the <i>data['train']</i> dictionary to get both the X and y lists.
+							</p>
+							<div id="testimonials"><blockquote>
+								clf = tree.DecisionTreeClassifier(criterion = 'entropy')<br>
+								clf = clf.fit(*data['train'])<br>
+								print(clf.tree_.max_depth)
+							</blockquote></div>
+						</li>
+
+						<li id="a2s5">
+							<b>Creating loop to check optimal depth and criterion</b><br>
+							<p>
+								We create a list of depths we want to explore. These are selected with reasonable spacing, not exceeding the <i>max_depth</i> by much. 
+							</p>
+							<div id="testimonials"><blockquote>
+								depths = [1, 5, 8, 10, 15, 30, 35, 45, 50, 55, 60, 65, 70, 75, 80, 90, 100, 105, 140] 
+							</blockquote></div>
+							<p>
+								Since we are not sure whether we want to use entropy or Gini as the criterion, we must test both. For Entropy: train the models with the entropy criterion then we list depths and data as variables so when we loop through we can test different depths and use not our training and validation datasets. 
+							</p>
+							<div id="testimonials"><blockquote>
+								res_entropy = select_model(depths,data, "entropy")
+							</blockquote></div>
+							<p>
+								Since we want to track the best depth and best accuracy, we create variables and set them to nothing.
+							</p>
+							<div id="testimonials"><blockquote>
+								best_d_entropy = None<br>
+								best_acc_entropy = 0
+							</blockquote></div>
+							<p>
+								Then we loop over the various depths, while training the model on the training set and checking the accuracy on the validation set. different models and accuracies to find the optimal model according to its validation accuracy
+								<div id="testimonials"><blockquote>
+									for d in res_entropy:
+									<div class="tab">
+								    val_acc = res_entropy[d]['val']<br>
+								    print("Depth: {}   Train: {}    Val: {}".format(d, res_entropy[d]['train'], val_acc))<br>
+								    if val_acc  > best_acc_entropy:
+								    <div class="tab">
+							        best_d_entropy = d<br>
+							        best_acc_entropy = val_acc
+								     </div>
+								  </div>
+								</blockquote></div>
+							</p>
+							<p>
+								Now we can run the exact same process but this time using our select_model() function we can specify "gini":
+								<div id="testimonials"><blockquote>
+									res_gini = select_model(depths,data,"gini")
+								</blockquote></div>
+							</p>
+							<p>
+								We would end up with an output like this
+							</p>
+							<center><img src="images/pages/ml/a2-acc-readout.png" width="300" height=”auto” alt=""></center>
+						</li>
+
+						<li id="a2s6">
+							<b>Plotting depth and criterion to visually be able to select best based on accuracy of val and train set</b><br>
+							<p>
+								First, we have to store all the accuracy values for both the training and validation sets.
+							</p>
+							<div id="testimonials"><blockquote>
+								entropy_val = []
+								entropy_train = []<br>
+								depth_val = []<br>
+							</blockquote></div>
+							<p>
+								Then we create a loop to store every accuracy value for every depth value in the list specified above.
+							</p>
+							<div id="testimonials"><blockquote>
+								for d in res_entropy:
+								<div class="tab">
+							    entropy_val.append(res_entropy[d]['val'])<br>
+							    entropy_train.append(res_entropy[d]['train'])<br>
+							    depth_val.append(d)
+							  </div>
+							</blockquote></div>
+							<p>
+								We can do the exact same thing for the gini criterion.
+							</p>
+							<p>
+								We want to calculate the absolute minimum and maximum of the accuracies to be able to set the Y-axis for the graph.
+							</p>
+							<div id="testimonials"><blockquote>
+								minimum_acc = min(min(gini_train), min(gini_val), min(entropy_train), min(entropy_val))<br>
+								maximum_acc = max(max(gini_train), max(gini_val), max(entropy_train), max(entropy_val))
+							</blockquote></div>
+							<p>
+								Next, we can use <a href="https://numpy.org/doc/stable/reference/generated/numpy.argmax.html" class="saymore">np.argmax()</a> to get the corresponding depth (x-valur) for the maximum validation set accuracy. This is used to make a vertical line to show us where the maximum accuracies occur.
+							</p>
+							<div id="testimonials"><blockquote>
+								entropy_max_x = depth_val[np.argmax(entropy_val)]
+								gini_max_x = depth_val[np.argmax(gini_val)]
+							</blockquote></div>
+							<p>
+								Next, we can create the actual line graph comparing Entropy and Gini criterion, with varying depths.
+							</p>
+							<div id="testimonials"><blockquote>
+								plt.figure(figsize=(30, 10))<br>
+								plt.plot(depth_val, entropy_train, label = "IG Train Dataset", color="rebeccapurple", linewidth=4)<br>
+								plt.plot(depth_val, entropy_val, label = "IG Val Dataset", color="mediumorchid", linewidth=4)<br>
+								plt.plot(depth_val, gini_train, label = "Gini Train Dataset", color="seagreen", linewidth=4)<br>
+								plt.plot(depth_val, gini_val, label = "Gini Val Dataset", color="lightgreen", linewidth=4)<br><br>
+
+								plt.title('Figure 1: Accuracy Comparison ', fontsize=25)<br>
+								plt.xlabel('Depth Value', fontsize=20)<br>
+								plt.ylabel('Accuracy', fontsize=20)<br>
+								plt.legend(bbox_to_anchor=(0.8, -0.1), ncol=4, fontsize=20)<br><br>
+
+								# use <a href="https://numpy.org/doc/stable/reference/generated/numpy.arange.html" class="saymore">np.arange()</a> to space out the axes evenly.<br>
+								plt.xticks(np.arange(0, max(depth_val), 5), fontsize=18)<br>
+								plt.yticks(np.arange(minimum_acc, maximum_acc, 0.02), fontsize=18)<br><br>
+
+								# Looking for x and y coordinates for the maximum accuracy for both models<br>
+								plt.axhline(y = max(entropy_val), color='r', linestyle='dashed')<br>
+								plt.axvline(x=entropy_max_x, color='r', linestyle='dashed')<br>
+								plt.axhline(y = max(gini_val), color='g', linestyle='dotted')<br>
+								plt.axvline(x=gini_max_x, color='g', linestyle='dotted')<br><br>
+
+								plt.grid()<br>
+								plt.show
+							</blockquote></div>
+							<p>
+								We end up with
+							</p>
+							<center><img src="images/pages/ml/a2-acc-linegraph.png" width="600" height=”auto” alt=""></center>
+						</li>
+
+						<li id="a2s7">
+							<b>Testing test accuracy for selected model</b><br>
+							<p>
+								Once we have run the above several times we can find the best hyperparameters to test the model against the test set.
+							</p>
+							<div id="testimonials"><blockquote>
+								test_model = DecisionTreeClassifier(criterion = 'entropy', max_depth = 80)<br>
+								test_model = test_model.fit(data['train'][0], data['train'][1])<br>
+								get_acc(test_model, *data['test'])
+							</blockquote></div>
+						</li>
+
+						<li id="a2s8">
+							<b>Visualizing decision tree</b><br>
+							<p>
+								I did this with two different ways: using tree.plot_tree and the other editing the .dot file that was produced from tree_viz. I found a <a href="https://mljar.com/blog/visualize-decision-tree/" class="saymore">great resource</a> that goes through several ways to visualize trees. 
+							</p>
+							<ol>
+								<li>
+									Using plot_tree function from sklearn tree package
+								</li>
+								<p>
+									First, specify figure size and then the tree you want to draw (same as when it was fitted before)
+								</p>
+								<div id="testimonials"><blockquote>
+									fig = plt.figure(figsize=(15,10))<br>
+									clf = tree.DecisionTreeClassifier(max_depth=80, criterion = 'entropy')<br>
+									clf = clf.fit(*data['train'])
+								</blockquote></div>
+								<p>
+									After that we can display the top two layers. We use "<i>_</i>" to allow us to skip showing the annotations that are returned using <i>plot_tree</i>.
+								</p>
+								<div id="testimonials"><blockquote>
+									_ = tree.plot_tree(clf, feature_names = vec.get_feature_names_out(), filled=True, max_depth=1)
+								</blockquote></div>
+								<center><img src="images/pages/ml/a2-dt.png" width="300" height=”auto” alt=""></center>
+								<li>
+									Using .dot file edits
+								</li>
+								<p>
+									First, we must fit the tree like we did before (saved as tree_viz). Then we must export it to dot format using <a href="https://scikit-learn.org/stable/modules/generated/sklearn.tree.export_graphviz.html" class="saymore">.export_graphviz</a> from sklearn.
+								</p>
+								<div id="testimonials"><blockquote>
+									dot_data_tree = tree.export_graphviz(tree_viz, out_file=None, max_depth=2, feature_names = vec.get_feature_names_out(), class_names=['Real news','Fake news'], filled=True)
+								</blockquote></div>
+								<p>
+									If we put <i>out_file=None</i>, then once we compile the following code, it will render a decision tree similar to our previous version.  We must import graphviz and use <i>.Source()</i> to create the PNG format for the rendering of the .dot file.
+								</p>
+								<div id="testimonials"><blockquote>
+									import graphviz<br>
+									graph = graphviz.Source(dot_data_tree, format="png") <br>
+									graph
+								</blockquote></div>
+								<p>
+									Produces this
+								</p>
+								<center><img src="images/pages/ml/a2-dt-dot.png" width="400" height=”auto” alt=""></center>
+								<p>
+									Now, if we wanted to use the .dot file to make more detailed changes, in the original line exporting the tree the <i>out_file</i> must be changed to contain the name of choice for tree ending with ".dot".
+								</p>
+								<div id="testimonials"><blockquote>
+									dot_data_tree = tree.export_graphviz(tree_viz, out_file='name.dot', max_depth=2, feature_names = vec.get_feature_names_out(), class_names=['Real news','Fake news'], filled=True)
+								</blockquote></div>
+								<p>
+									Once you compile the previous line, you will now have a .dot file you can open in your text editor. I will bold the parts I added/changed from the original .dot file.
+								</p>
+								<div id="testimonials"><blockquote>
+									digraph Tree {
+										node [shape=<b>Mdiamond</b>, fontname="helvetica",color=black,fontcolor=black];<br>
+										// edge [fontname="helvetica", arrowhead = vee, <b>color = coral3</b>] ;<br>
+										0 [label="the <= 0.5\nentropy = 0.974\nsamples = 2286\nvalue = [1360, 926]"] ;<br><br>
+
+										node [<b>shape=tab</b>, fontname="helvetica",color=black,fontcolor=<b>blueviolet</b>] ;<br>
+										edge [fontname="helvetica", arrowhead = <b>vee</b>, <b>color = blueviolet</b>] ; <br>
+										1 [label="donald <= 0.5\nentropy = 0.932\nsamples = 1931\nvalue = [1259, 672]"] ;<br>
+										0 -> 1 [labeldistance=2.5, labelangle=45];#, headlabel="True", <b>labelfontcolor=blueviolet</b>] ;<br>
+										2 [label="hillary <= 0.5\nentropy = 0.985\nsamples = 1278\nvalue = [730, 548]"] ;<br>
+										1 -> 2 ;<br>
+										3 [label="...", shape=none] ;<br>
+										2 -> 3 ;<br>
+										// 348 [label="(...)"] ;<br>
+										// 2 -> 348 ;<br>
+										355 [label="hillary <= 0.5\nentropy = 0.701\nsamples = 653\nvalue = [529, 124]"] ;<br>
+										1 -> 355 ;<br>
+										356 [label="...", shape=none];<br>
+										355 -> 356 ;<br>
+										// 521 [label="(...)"] ;<br>
+										// 355 -> 521 ;<br><br>
+
+										node [<b>shape=tab</b>, fontname="helvetica",color=black,fontcolor=<b>coral3</b>] ;<br>
+										edge [fontname="helvetica", <b>arrowhead = vee</b>, color = <b>coral3</b>] <br>
+										544 [label="trumps <= 0.5\nentropy = 0.862\nsamples = 355\nvalue = [101, 254]"] ;<br>
+										0 -> 544 [labeldistance=2.5, labelangle=-45];#, headlabel="False", labelfontcolor=<b>coral3</b>] ;<br>
+										545 [label="it <= 0.5\nentropy = 0.83\nsamples = 343\nvalue = [90, 253]"] ;<br>
+										544 -> 545 ;<br>
+										// 546 [label="(...)"] ;<br>
+										// 545 -> 546 ;<br>
+										699 [label="...", shape=none];<br>
+										545 -> 699 ;<br>
+										700 [label="market <= 0.5\nentropy = 0.414\nsamples = 12\nvalue = [11, 1]"] ;<br>
+										544 -> 700 ;<br>
+										// 701 [label="(...)"] ;<br>
+										// 700 -> 701 ;<br>
+										702 [label="...", shape=none] ;<br>
+										700 -> 702 ;<br>
+										}
+								</blockquote></div>
+								<center><img src="images/pages/ml/a2-dt-dot2.png" width="400" height=”auto” alt=""></center>
+							</ol>
+						</li>
+					</ol>
 				</div>
 			</li>
 			
@@ -425,10 +806,328 @@ setTimeout(timer1801,1801000);
 							<li>"AnjaWu_EntropyCalculations": has code that I made to calculate entropy from the assignment, rather than doing them all by hand.</li>
 						</ul>
 					</p>
-					<!-- <h6>Highlights of Learning:</h6> -->
+					<h6>Highlights of Learning:</h6>
 					<p>
-						
+						Steps
+					<ol>
+						<li><a href="#a3s1" class="saymore">Check data structure</a></li>
+						<li><a href="#a3s2" class="saymore">Check data distribution for outcome variable</a></li>
+						<li><a href="#a3s3" class="saymore">Check collinearity</a></li>
+						<li><a href="#a3s4" class="saymore">Plot the variables to analyze distribution</a></li>
+						<li><a href="#a3s5" class="saymore">Changing BMI value to ordinal categorical labels</a></li>
+						<li><a href="#a3s6" class="saymore">Plot the independent variables vs charges to see if there are any insights to be gained</a></li>
+						<li><a href="#a3s7" class="saymore">Encoding values</a></li>
+						<li><a href="#a3s8" class="saymore">Splitting data</a></li>
+						<li><a href="#a3s9" class="saymore">Instantiate and fit the linear model on our training set to predict medical charges</a></li>
+						<li><a href="#a3s10" class="saymore">Prediction y_test</a></li>
+						<li><a href="#a3s11" class="saymore">Calculate MSE and MAE</a></li>
+						<li><a href="#a3s12" class="saymore">Logistic model to predict smoker vs non-smoker</a></li>
+					</ol>
+					<br>
 					</p>
+					<ol>
+						<li id="a3s1">
+							<b>Check data structure:</b><br>
+							<p>
+								First, print out the number of rows and columns in the dataset
+							</p>
+							<div id="testimonials"><blockquote>
+								print("Dimensionality of the DataFrame:", df.shape)
+							</blockquote></div>
+							<p>
+								Then, we can print out summary statistics for each variable in the dataset, just to have a broad overview of the data.
+							</p>
+							<div id="testimonials"><blockquote>
+								df.describe()
+							</blockquote></div>
+							<p>
+								Print out the data type of each feature in the dataset.
+							</p>
+							<div id="testimonials"><blockquote>
+								print("Data type of each feature:")<br>
+								df.dtypes
+							</blockquote></div>
+							<p>
+								Determine if there are any missing datapoints or duplicate rows in the dataset.
+							</p>
+							<div id="testimonials"><blockquote>
+								print("\nAre there any missing datapoints in the dataset?", df.isnull().values.any())<br>
+								print("Number of duplicated rows:", df.duplicated().sum())
+							</blockquote></div>
+							<p>
+								Remove the duplicate row from the dataset (keeping the first iteration).
+							</p>
+							<div id="testimonials"><blockquote>
+								df.drop_duplicates(keep='first', inplace=True)
+							</blockquote></div>
+							<p>
+								Confirm the final number of rows and columns in the dataset after data cleaning.
+							</p>
+							<div id="testimonials"><blockquote>
+								print("df.shape =", df.shape)<br>
+								print("Number of rows =", df.shape[0])<br>
+								print("Number of columns =", df.shape[1])
+							</blockquote></div>
+						</li>
+
+						<li id="a3s2">
+							<b>Check data distribution for outcome variable:</b><br>
+							<p>
+								Plot a histogram to show the distribution of our outcome variable: the "charges" variable. <a href="https://seaborn.pydata.org/generated/seaborn.histplot.html" class="saymore"><i>kde</a> = True</i> draws a line estimate of distribution using the kernel density estimate.
+							</p>
+							<div id="testimonials"><blockquote>
+								import seaborn as sns<br><br>
+
+								sns.histplot(df['charges'], kde=True)
+							</blockquote></div>
+							<p>
+								Then we can use The Shapiro-Wilk test to test the null hypothesis that the data was drawn from a normal distribution. The distribution must be normal prior to doing linear regression. 
+							</p>
+							<div id="testimonials"><blockquote>
+								from scipy import stats<br><br>
+
+								print(stats.shapiro(df['charges']));
+							</blockquote></div>
+							<center><img src="images/pages/ml/a3-shapiro.png" width="400" height=”auto” alt=""></center>
+							<p>
+								The Shapiro-Wilk result is approximately 0.814 with extremely small p-value, therefore, the data was most likely NOT drawn from a normal distribution (enough evidence to reject null).
+							</p>
+							<p>
+								<b>**We need to have the distribution be normal in order to do a linear regression, so we must transform the data.**</b>
+							</p>
+							<p>
+								In order to transform the target variable to a normal distribution we can use the <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.boxcox.html" class="saymore">.boxcox()</a>. The function transforms the data using Box-Cox power. We must specify the first index [0] because <i>stats.boxcox</i> returns a tuple (Box-Cox power transformed array & lambda max log-likelihood) and we only want the first index.
+							</p>
+							<div id="testimonials"><blockquote>
+								charges_transformed = stats.boxcox(df['charges'])[0]
+							</blockquote></div>
+							<p>
+								Then plot it to check.
+							</p>
+							<div id="testimonials"><blockquote>
+								sns.histplot(charges_transformed, kde=True);
+								plt.xlabel('charges (transformed)')
+							</blockquote></div>
+							<center><img src="images/pages/ml/a3-boxcox.png" width="400" height=”auto” alt=""></center>
+						</li>
+
+						<li id="a3s3">
+							<b>Check collinearity:</b><br>
+							<p>
+								Low collinearity implies independence of variables. We need independent variables in order to have the most accurate regression model. We can use a heatmap to check for collinearity between variables. The darker the value the higher the correlation.
+							</p>
+							<div id="testimonials"><blockquote>
+								sns.heatmap(df.corr(), cmap='Blues', annot=True);
+							</blockquote></div>
+							<center><img src="images/pages/ml/a3-collinearity.png" width="300" height=”auto” alt=""></center>
+							<p>
+								Correlation coefficient values below 0.3 are considered to be weak; 0.3-0.7 are moderate; >0.7 are strong. In this case, all correlations are 0.3 or below, so we can conclude that the variables are independent from one another.<br>
+								<b>**Independence of variables is a condition for regression.**</b>
+							</p>
+						</li>
+
+						<li id="a3s4">
+							<b>Plot the variables to analyze distribution:</b><br>
+							<p>
+								Plot the distribution of age, BMI, and number of children to see what kind of data we are working with.
+							</p>
+							<div id="testimonials"><blockquote>
+								fig, (ax0, ax1, ax2) = plt.subplots(1, 3, figsize=(20,5))<br>
+								sns.histplot(x=df['age'], kde=True, ax=ax0);<br>
+								sns.histplot(x=df['bmi'], kde=True, ax=ax1);<br>
+								sns.countplot(x=df['children'], ax=ax2);
+							</blockquote></div>
+							<center><img src="images/pages/ml/a3-3-indep.png" width="600" height=”auto” alt=""></center>
+						</li>
+
+						<li id="a3s5">
+							<b>Changing BMI value to ordinal categorical labels:</b><br>
+							<p>
+								In order to get better understanding on the effect of BMI on charges, we can change the BMI value to the ordinal categorical labels normally used:  (1) underweight; (2) normal weight; (3) overweight; and (4) obese. We want to use <a href="https://numpy.org/doc/stable/reference/generated/numpy.select.html" class="saymore">np.select()</a> to returns array from input (condition) and output (labels) to add as a column in the original dataframe.
+							</p>
+							<div id="testimonials"><blockquote>
+								conditions = [(df['bmi'] < 18.5),
+								<div class="tab"> 
+		              (df['bmi'] >= 18.5) & (df['bmi'] < 25),<br>
+		              (df['bmi'] >= 25) & (df['bmi'] < 30),<br>
+		              (df['bmi'] >= 30)]
+		            </div>
+		            labels = ['underweight', 'normal weight', 'overweight', 'obese']<br>
+		            df['bmi_categories'] = np.select(conditions, labels)<br>
+							</blockquote></div>
+						</li>
+
+						<li id="a3s6">
+							<b>Plot the independent variables vs charges to see if there are any insights to be gained:</b><br>
+							<div id="testimonials"><blockquote>
+								fig, (ax0, ax1, ax2) = plt.subplots(1, 3, figsize=(20,5))<br>
+								sns.lineplot(x='age', y='charges', data=df, ax=ax0);<br>
+								sns.barplot(x='bmi_categories', y='charges', data=df,<br>
+								order=['underweight', 'normal weight', 'overweight', 'obese'], ax=ax1);<br>
+								sns.barplot(x='children', y='charges', data=df, ax=ax2);<br>
+							</blockquote></div>
+							<center><img src="images/pages/ml/a3-1st-3-indep.png" width="600" height=”auto” alt=""></center>
+							<p>
+								We can see that for BMI there is a statistically significant difference for an increase in charges for someone who is obese. Also there seems to be a statistical significance for a decrease in charges for people with 5 children. Otherwise, just by the graphs we cannot see statistically significant differences.
+							</p>
+							<p>
+								Same thing down for the other 3 independent variables. Keep in mind that .pointplot() returns point estimates and confidence intervals.
+							</p>
+							<div id="testimonials"><blockquote>
+								fig, (ax0, ax1, ax2) = plt.subplots(1, 3, figsize=(20,5))<br>
+								sns.pointplot(x='sex', y='charges',data=df, ax=ax0);<br>
+								sns.pointplot(x='smoker',y='charges', data=df, ax=ax1);<br>
+								sns.pointplot(x='region',y='charges', data=df, ax=ax2);
+							</blockquote></div>
+							<center><img src="images/pages/ml/a3-2nd-3-indep.png" width="600" height=”auto” alt=""></center>
+							<p>
+								Neither sex nor region seems to have a statistically significant difference for charges but smoker vs non-smokers does have a statistically significant difference to the charges incurred.
+							</p>
+						</li>
+						
+						<li id="a3s7">
+							<b>Encoding values</b><br>
+							<p>
+								Now that we have analyzed all the graphs we want to do a linear regression to predict the medical charges that a person will most likely incur based on the features given. In order to do that we have to transform our categorical features into numerical values. In our case, we will be using a simple label encoder that turns the target labels to values between 0 and n_classes-1 (used for ordinal categorical features).
+							</p>
+							<div id="testimonials"><blockquote>
+								from sklearn.preprocessing import LabelEncoder<br><br>
+
+								encoder = LabelEncoder()<br>
+								df['sex_encoded'] = encoder.fit_transform(df['sex'])<br>
+								df['smoker_encoded'] = encoder.fit_transform(df['smoker'])<br>
+								df['region_encoded'] = encoder.fit_transform(df['region'])<br>
+								df['charges_transformed'] = stats.boxcox(df['charges'])[0]<br>
+							</blockquote></div>
+						</li>
+						
+						<li id="a3s8">
+							<b>Splitting data</b><br>
+							<p>
+								We define X (features) and y (target) and remove duplicate features that will not be used in the model. We will first split the dataset into different datasets: (1) training set; and (2) test set. We retain 10% of the data for testing, and use a random state value of "0".
+							</p>
+							<div id="testimonials"><blockquote>
+								from sklearn.model_selection import train_test_split<br><br>
+
+								X = df.drop(['sex', 'smoker', 'region', 'charges', 'bmi_categories', 'charges_transformed'], axis=1)<br>
+								y = df['charges_transformed']<br>
+								X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1, random_state=0)
+							</blockquote></div>
+						</li>
+						
+						<li id="a3s9">
+							<b>Instantiate and fit the linear model on our training set to predict medical charges</b><br>
+							<p>
+								First, we  instantiate a linear regression model
+							</p>
+							<div id="testimonials"><blockquote>
+								from sklearn.linear_model import LinearRegression<br><br>
+
+								linear_model = LinearRegression() 
+							</blockquote></div>
+							<p>
+								Then we fit the model using the training data and we can print out the intercept and coefficients for the linear regression model.
+							</p>
+							<div id="testimonials"><blockquote>
+								linear_model.fit(X_train, y_train) <br><br>
+
+								print(linear_model.intercept_)<br>
+								print(linear_model.coef_)
+							</blockquote></div>
+						</li>
+						
+						<li id="a3s10">
+							<b>Prediction y_test</b><br>
+							<p>
+								For each record in the test set, make a prediction for the y value (transformed value of charges). The predicted values are stored in the y_pred array.
+							</p>
+							<div id="testimonials"><blockquote>
+								y_pred = linear_model.predict(X_test)
+							</blockquote></div>
+						</li>
+						
+						<li id="a3s11">
+							<b>Calculate MSE and MAE</b><br>
+							<p>
+								The metrics package in Python can derive the model evaluation metrics for mean squared error and mean absolute error along with the R^2 value.
+							</p>
+							<div id="testimonials"><blockquote>
+								from sklearn import metrics<br><br>
+
+								print("Mean squared error (MSE) =", metrics.mean_squared_error(y_test, y_pred))<br>
+								print("Mean absolute error (MAE) =", metrics.mean_absolute_error(y_test, y_pred))<br>
+								print("R^2 =", metrics.r2_score(y_test, y_pred))
+							</blockquote></div>
+							<p>
+								The results we get are
+							</p>
+							<div id="testimonials"><blockquote>
+								Mean squared error (MSE) = 0.3544682461419291<br>
+								Mean absolute error (MAE) = 0.39858557168153946<br>
+								R^2 = 0.8284407853175861
+							</blockquote></div>
+							<p>
+								A R^2 value of approximately 83% indicates that our model can explain 83% of the variance in the data, so it performs quite well! This means we can use our features to predict the approximate amount of medical costs (based on insurance claims) the individual is likely to incur.
+							</p>
+						</li>
+						
+						<li id="a3s12">
+							<b>Logistic model to predict smoker vs non-smoker</b><br>
+							<p>
+								Now we want to use a logistic model to predict smoker vs non-smokers (because it is a binary outcome). First we need to define the new df and split data - just like before.
+							</p>
+							<div id="testimonials"><blockquote>
+								X = df[['age', 'bmi', 'children', 'sex_encoded', 'region_encoded', 'charges_transformed']]<br>
+								y = df['smoker_encoded']<br>
+								X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1, random_state=0)
+							</blockquote></div>
+
+							<p>
+								Next, we instantiate a <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html" class="saymore">Logistic Regression</a> model and name it "logit_model".
+							</p>
+							<div id="testimonials"><blockquote>
+								from sklearn.linear_model import LogisticRegression<br><br>
+
+								logit_model = LogisticRegression()<br>
+							</blockquote></div>
+
+							<p>
+								Fit the logistic regression model with the training data
+							</p>
+							<div id="testimonials"><blockquote>
+								logit_model.fit(X_train, y_train) 
+							</blockquote></div>
+
+							<p>
+								Next, we predict the label of smoker versus not for the test set.
+							</p>
+							<div id="testimonials"><blockquote>
+								y_pred = logit_model.predict(X_test)
+							</blockquote></div>
+
+							<p>
+								Now, we generate the Confusion Matrix for this logistic regression model to check how well the predictions performed. The confusion matrix is created this time using the sklearn metrics package.
+							</p>
+							<div id="testimonials"><blockquote>
+								from sklearn import metrics<br><br>
+
+								cm = metrics.confusion_matrix(y_test, y_pred, labels=logit_model.classes_)<br>
+								disp = metrics.ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=logit_model.classes_)<br>
+								disp.plot(cmap='Blues')<br>
+								plt.show()
+							</blockquote></div>
+							<center><img src="images/pages/ml/a3-log-reg-acc-matrix.png" width="300" height=”auto” alt=""></center>
+
+							<p>
+								The confusion matrix does a good job of visually displaying how well the prediction did but we can see numerically by using the <i>metrics.classification_report()</i>.
+							</p>
+							<div id="testimonials"><blockquote>
+								print(metrics.classification_report(y_test, y_pred, target_names=['non-smoker', 'smoker']));
+							</blockquote></div>
+							<center><img src="images/pages/ml/a3-log-reg-acc.png" width="300" height=”auto” alt=""></center>
+						</li>
+
+					</ol>
 				</div>
 			</li>
 		
@@ -462,9 +1161,6 @@ setTimeout(timer1801,1801000);
 				<div class="content" style="overflow: hidden; display: none; ">
 					<p>
 						<a href="https://github.com/anjawu/machine-learning/tree/main/HR-attrition-new" class="saymore">Here</a> is the link to the GitHub code part of the assignment.
-						<!-- <ul class="disc">
-							<li>"AnjaWu_HW4_FeedForwardNN.ipynb": has a complete neural network, in which optimal hyperparameters are analyzed and selected.</li>
-						</ul> -->
 					</p>
 					<p>
 						<a href="images/HR_Attrition_Analysis.pdf" class="saymore">Here</a> is the final written report!
@@ -491,10 +1187,6 @@ setTimeout(timer1801,1801000);
 					</p>
 					<p>
 						I only had about a week (part-time) to work on this and naturally that would mean there are improvements to be done. For instance, I would interpret the logistic regression coefficients in a more meaningful way by transforming the coefficients (e^coefficient) to determine how much more likely a person is to leave for each specific feature.
-					</p>
-					<!-- <h6>Highlights of Learning:</h6> -->
-					<p>
-						
 					</p>
 				</div>
 			</li>
@@ -722,7 +1414,6 @@ setTimeout(timer1801,1801000);
 								When underfitting occurs the model has failed to have enough insights to get the relationship of the data. This occurs if a model is too simple or uses the wrong type of model. For instance, large k or small depth for decision tree or fitting a linear model on non-linear data.<br>
 								When talking about bias (how wrong the prediction is) we are talking about undercutting (for squared error).
 							</p>
-
 						</li>
 
 						<li id="hyperparametersTab">
@@ -773,7 +1464,6 @@ setTimeout(timer1801,1801000);
 									Min_samples_split: "The minimum number of samples required to split an internal node" (default 2). The larger this number the more overfitting is decreased.
 								</li>
 							</ul>
-
 						</li>
 
 						<li id="dtrulesTab">
@@ -830,28 +1520,6 @@ setTimeout(timer1801,1801000);
 
 	</div>
 </div>
-
-
-
-
-
-
-
-
-					<!-- Tabs-->
-					<!-- <dl class="tabs">
-						<dd class="active"><a href="#datatype"></a></dd>
-						<dd><a href="#datacleaning"></a></dd>
-					</dl>
-
-					<ul class="tabs-content">
-						<li class="active" id="datatypeTab">
-						</li>
-
-						<li id="datacleaningTab">
-							
-						</li>
-					</ul>	 -->
 
 
 <div class="hr">
