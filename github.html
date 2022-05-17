@@ -243,11 +243,55 @@ setTimeout(timer1801,1801000);
 <!-- Step Instructions-->
 <div class="row">
 	<div class="twelve columns">    
-	    
 	    <div class="sectiontitle">
 			<h4>Step Instructions</h4>
 		</div>
 		<ul class="accordion">
+			<li class="">
+			<div class="title">
+				<b>Pushing up local repository to GitHub</b>
+			</div>
+			<div class="content" style="overflow: hidden; display: none; ">
+				<a href="https://docs.github.com/en/get-started/importing-your-projects-to-github/importing-source-code-to-github/adding-locally-hosted-code-to-github" class="saymore"> GitHub has a great way of explaining the steps</a>:
+				<ol>
+					<li>On GitHub: Create a new repository with no initialization (no added files)
+						<center><img src="images/pages/codinginfo/GitHub/create-repo.png" width="400" height=”auto” alt=""></center>
+					</li>
+					<li>In the terminal, within the working directory: 
+						<div id="testimonials"><blockquote>git init -b main</blockquote></div>
+					</li>
+					<li>
+						Now you need to add the files:
+						<div id="testimonials"><blockquote>git add .</blockquote></div>
+					</li>
+					<li>
+						Now commit the changes:
+						<div id="testimonials"><blockquote>git commit -m "Write commit message"</blockquote></div>
+					</li>
+					<li>
+						Get URL of GitHub's repository:
+						<center><img src="images/pages/codinginfo/GitHub/repo-url.png" width="400" height=”auto” alt=""></center>
+						
+						Then in your terminal:
+						<div id="testimonials"><blockquote>git remote add origin URL</blockquote></div>
+						This sets the remote connection
+					</li>
+					<li>
+						To verify that the connection was done well:
+						<div id="testimonials"><blockquote>git remote -v</blockquote></div>
+						Your two lines should be the same, e.g. of output
+						<div id="testimonials"><blockquote>
+							origin	https://github.com/anjawu/test.git (fetch)<br>
+							origin	https://github.com/anjawu/test.git (push)
+						</blockquote></div>
+					</li>
+					<li>
+						Now push the changes to finish:
+						<div id="testimonials"><blockquote>git push -u origin main</blockquote></div>
+					</li>
+				</ol>
+			</div>
+			</li>
 			<li class="">
 			<div class="title">
 				<b>Downloading the repository from GitHub</b>
