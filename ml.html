@@ -141,7 +141,7 @@ setTimeout(timer1801,1801000);
 		I have broken down the things I have learnt by my assignment, lectures, and material I have researched. 
 	</p>
 	<p>
-		<b>I have begun to fill out the sections slowly! I have provided a link to my GitHub for all of the assignments and created a tab for every topic that was covered in the course. I plan on adding to each tab bit by bit!</b>
+		<b>All the assignments have been explained and a link to the GitHub section provided. I plan on adding bit by bit to each tab for the lecture take aways!</b>
 	</p>
 </div>
 
@@ -159,7 +159,7 @@ setTimeout(timer1801,1801000);
 		<div class="dots blogdots">
 		</div>
 		<p>
-			This section has the best take aways from each assignment as opposed to just posting the whole assignment. I do link to the GitHub repo that has all of my code posted. I will be updating the learning from each assignment shortly.
+			This section has the best take aways from each assignment as opposed to just posting the whole assignment. I link to the GitHub repo that has all of the code posted.
 		</p>
 
 		<!-- Accordion: Assignment 1-->
@@ -1141,14 +1141,481 @@ setTimeout(timer1801,1801000);
 						<a href="https://github.com/anjawu/machine-learning/tree/main/H4" class="saymore">Here</a> is the link to the GitHub code part of the assignment.
 				 
 						 <ul class="disc">
-							<li>"AnjaWu_HW4_FeedForwardNN.ipynb": has a complete neural network, in which optimal hyperparameters are analyzed and selected.</li>
+							<li>"AnjaWu_HW4_FeedForwardNN.ipynb": has a complete neural network (created by a TA and completed by myself), in which optimal hyperparameters are analyzed and selected.</li>
 						</ul>
 
 					</p>
-					<!-- <h6>Highlights of Learning:</h6> -->
+					<h6>Highlights of Learning:</h6>
 					<p>
-						
+						Steps
+						<ol>
+							<li><a href="#a4s1" class="saymore">Creating data set</a></li>
+							<li><a href="#a4s2" class="saymore">Define the network architecture</a></li>
+							<li><a href="#a4s3" class="saymore">Training the model</a></li>
+							<li><a href="#a4s4" class="saymore">Changing hyperparameters: activation functions</a></li>
+							<li><a href="#a4s5" class="saymore">Changing hyperparameters: learning rate</a></li>
+							<li><a href="#a4s6" class="saymore">Changing hyperparameters: number of neurons in hidden layer</a></li>
+							<li><a href="#a4s7" class="saymore">Changing dataset details: magnitude of noise</a></li>
+							<li><a href="#a4s8" class="saymore">Changing dataset details: number of labels</a></li>
+						</ol>
+						<br>
 					</p>
+					<ol>
+						<li id="a4s1">
+							<b>Creating data set</b><br>
+							<p>
+								Specify the number of points and the number of branches (different colours of swirls).
+							</p>
+							<div id="testimonials"><blockquote>
+								N = 50 # number of points per branch<br>
+								K = 3  # number of branches
+							</blockquote></div>
+							
+							<p>
+								In order to count the number of points that will be contained in the training set we must multiply the number of points per branch with the number of branches.
+							</p>
+							<div id="testimonials"><blockquote>
+								N_train = N*K 
+							</blockquote></div>
+							
+							<p>
+								Then we need to create the matrix for the data points and their labels.
+							</p>
+							<div id="testimonials"><blockquote>
+								x_train = np.zeros((N_train,2)) # matrix containing the 2-dimensional datapoints<br>
+								t_train = np.zeros(N_train, dtype='uint8') # labels (not in one-hot representation)
+							</blockquote></div>
+							
+							<p>
+								The <i>mag_noise</i> determines how close together and interwoven the various spiral colours are. The difference in theta will space apart the degrees between each spiral.
+							</p>
+							<div id="testimonials"><blockquote>
+								mag_noise = 0.3  # controls how much noise gets added to the data<br>
+								dTheta    = 4    # difference in theta in each branch
+							</blockquote></div>
+							
+							<p>
+								Now that we have set up the variables, we can do the data generation. First, for all the branches we will specify the indices to be used in the dataset by multiplying the number of points by the number of branches. Then we will make evenly spaced points using <a href="https://numpy.org/doc/stable/reference/generated/numpy.linspace.html" class="saymore">.linspace()</a> in a radius with numbers from 0.01 to 1. The theta determines the width (in terms of degree in radians) of the spiral colours. Then we concat (using <a href="https://numpy.org/doc/stable/reference/generated/numpy.c_.html" class="saymore">np.c_</a>) the cosine and sine of theta, which results as x,y coordinates giving us a special.The label of the spiral is given the number corresponding to the branch number.
+							</p>
+							<div id="testimonials"><blockquote>
+								for j in range(K):
+								<div class="tab">
+								  ix = range(N*j,N*(j+1))<br>
+								  r  = np.linspace(0.01,1,N) # radius<br>
+								  th = np.linspace(j*(2*np.pi)/K,j*(2*np.pi)/K + dTheta,N) + np.random.randn(N)*mag_noise # theta<br>
+								  x_train[ix] = np.c_[r*np.cos(th), r*np.sin(th)]<br>
+								  t_train[ix] = j
+								</div>
+							</blockquote></div>
+
+							<p>
+								Now, we plot the spirals.
+							</p>
+							<div id="testimonials"><blockquote>
+								fig = plt.figure(1, figsize=(5,5))<br>
+								plt.scatter(x_train[:, 0], x_train[:, 1], c=t_train, s=40)<br>
+								plt.xlim([-1,1])<br>
+								plt.ylim([-1,1])<br>
+								plt.xlabel(r'$x_1$')<br>
+								plt.ylabel(r'$x_2$')<br>
+								plt.show()
+							</blockquote></div>
+						</li>
+
+						<li id="a4s2">
+							<b>Define the network architecture</b><br>
+							<p>
+								We have to instantiate a Feed Forward Neural Network class. We define the initialization of the class by using <i>super()</i>. <i>super()</i> is calling to inherit a lot of functionality from a feed-forward NN that is pre-defined in torch.
+							</p>
+							<div id="testimonials"><blockquote>
+								import torch<br><br>
+
+								class FeedforwardNN(torch.nn.Module):
+								<div class="tab">
+								    def __init__(self, input_size, hidden_size, output_size):
+								    <div class="tab">
+			              	super(FeedforwardNN, self).__init__()
+			             </div>
+			           </div>
+							</blockquote></div>
+
+							<p>
+								Then we have to specify the sizes which come from the input of the initialization.
+							</p>
+							<div id="testimonials"><blockquote>
+								self.input_size = input_size<br>
+				        self.hidden_size = hidden_size<br>
+				        self.output_size = output_size
+							</blockquote></div>
+							
+							<p>
+								Next, we have to specify the flow of the layers and the type of transformation for the neural network.
+							</p>
+							<div id="testimonials"><blockquote>
+								self.linear1 = torch.nn.Linear(self.input_size, self.hidden_size)<br>
+        				self.linear2 = torch.nn.Linear(self.hidden_size, self.output_size)
+							</blockquote></div>
+							
+							<p>
+								Then we have to define the function by calling the activation function from the torch library.
+							</p>
+							<div id="testimonials"><blockquote>
+								self.relu    = torch.nn.ReLU()<br>
+				        self.sigmoid = torch.nn.Sigmoid()<br>
+				        self.softmax = torch.nn.Softmax()
+							</blockquote></div>
+							
+							<p>
+								After that, we need to define how our neural network propagates. Since we want a feed-forward network, we make a definition of a forward() function. In this function we define which activation function should be used in the hidden and output layers.
+							</p>
+							<div id="testimonials"><blockquote>
+								def forward(self, x):
+								<div class="tab">
+					        #Layer 1:<br>
+					        linear1_out = self.linear1(x)<br>
+					        h1 = self.softmax(linear1_out)<br><br>
+
+					        #Layer 2:<br>
+					        linear2_out = self.linear2(h1)<br>
+					        h2 = self.softmax(linear2_out)<br><br>
+
+					        #Network output:<br>
+					        y = h2
+					      </div>
+							</blockquote></div>
+							
+							<p>
+								Then to finish the propagation function we must return the final value after all the transformations.
+							</p>
+							<div id="testimonials"><blockquote class="tab">
+								return y
+							</blockquote></div>
+							
+							<p>
+								Here we specify the size that we want for our model and create the model.
+							</p>
+							<div id="testimonials"><blockquote>
+								input_size = 2 #2D data<br>
+								hidden_size = 4<br>
+								output_size = K <br>
+								model = FeedforwardNN(input_size, hidden_size, output_size)
+							</blockquote></div>
+							
+							<p>
+								Next, we store the input data as a PyTorch tensor.
+							</p>
+							<div id="testimonials"><blockquote>
+								x_train = torch.tensor(x_train, dtype = torch.float)
+							</blockquote></div>
+							
+							<p>
+								For best practice, it is a good idea to change the target values using one hot encoding.
+							</p>
+							<div id="testimonials"><blockquote>
+								t_onehot = np.zeros((t_train.size, K))<br>
+								t_onehot[np.arange(t_train.size),t_train] = 1<br>
+								t_onehot = torch.tensor(t_onehot, dtype = torch.float)
+							</blockquote></div>
+							
+							<p>
+								We must use backpropagation to minimize the cost function - in this case we use a learning rate of 1 and <a href="https://pytorch.org/docs/stable/generated/torch.optim.SGD.html" class="saymore">the stocastic gradient descent algorithm</a>.
+							</p>
+							<div id="testimonials"><blockquote>
+								learning_rate = 1
+								optimizer = torch.optim.SGD(model.parameters(), lr=learning_rate)
+							</blockquote></div>
+							
+							<p>
+								We define the cost function - in this case <a href="https://pytorch.org/docs/stable/generated/torch.nn.CrossEntropyLoss.html" class="saymore">the cross entropy loss</a>.
+							</p>
+							<div id="testimonials"><blockquote>
+								cost_func = torch.nn.CrossEntropyLoss()
+							</blockquote></div>
+							
+							<p>
+								Finally, we define the number of times to run gradient descent (epochs).
+							</p>
+							<div id="testimonials"><blockquote>
+								N_epochs = 55000 
+							</blockquote></div>
+						</li>
+
+						<li id="a4s3">
+							<b>Training the model</b><br>
+							<p>
+								Create lists to store the epoch number, the cost, and the accuracy of every run.
+							</p>
+							<div id="testimonials"><blockquote>
+								epoch_list    = []<br>
+								cost_training = []<br>
+								acc_training  = []
+							</blockquote></div>
+							
+							<p>
+								We then create a plot function that will update with each training run.
+							</p>
+							<div id="testimonials"><blockquote>
+								def updatePlot():
+							</blockquote></div>
+							
+							<p>
+								First, we want to design the graph. We want to have the x-value minimum and maximum defined based on each set, with padding. Then we specify the grid spacing.
+							</p>
+							<div id="testimonials"><blockquote class="tab"> 
+								padding = 0.1<br>
+						    spacing = 0.02<br>
+						    x1_min, x1_max = x_train[:, 0].min() - padding, x_train[:, 0].max() + padding<br>
+						    x2_min, x2_max = x_train[:, 1].min() - padding, x_train[:, 1].max() + padding<br>
+						    x1_grid, x2_grid = np.meshgrid(np.arange(x1_min, x1_max, spacing), np.arange(x2_min, x2_max, spacing))
+							</blockquote></div>
+							
+							<p>
+								We want to generate coordinates covering the whole plane. We do this by using <a href="https://numpy.org/doc/stable/reference/generated/numpy.ravel.html" class="saymore">.ravel()</a> that takes the x value grid and turns it into a 1D array., which is then stored as an x, y coordinate in a tensor format. Then this is inputted into our feed-forward nn model. From there, we take the the output given from the model and detach it from the tensor format to be used as an array and get the final index (using <a href="https://numpy.org/doc/stable/reference/generated/numpy.argmax.html" class="saymore">np.argmax()</a>). This let's us get the prediction of the last prediction in the array.
+							</p>
+							<div id="testimonials"><blockquote class="tab">
+								torch_input = torch.tensor(np.c_[x1_grid.ravel(), x2_grid.ravel()], dtype = torch.float)<br>
+						    NN_output = model(torch_input)<br>
+						    predicted_class = np.argmax(NN_output.detach().numpy(), axis=1)
+							</blockquote></div>
+							
+							<p>
+								Now we can get to the plotting. We want to plot 3 different things:the classifier (showing the boundaries based on the predictions), the cost function with each run, and the training accuracy for each run.
+							</p>
+							<p>
+								First, for the classifier: we must create a <a href="https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.subplot.html" class="saymore"> subplot</a> (number of rows, number of columns, position). Then we use <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.contourf.html" class="saymore">.contoured()</a> to draw the boundaries, using the grid and the predicted values). We specify a blend (transparency) level for the colours (<i>alpha =.8</i>). 
+							</p>
+							<div id="testimonials"><blockquote class="tab">
+						    plt.subplot(121)<br>
+						    plt.contourf(x1_grid, x2_grid, predicted_class.reshape(x1_grid.shape), K, alpha=0.8)<br>
+						    plt.scatter(x_train[:, 0], x_train[:, 1], c=t_train, s=40)<br>
+						    plt.xlim(x1_grid.min(), x1_grid.max())<br>
+						    plt.ylim(x2_grid.min(), x2_grid.max())<br>
+						    plt.xlabel(r'$x_1$')<br>
+						    plt.ylabel(r'$x_2$')
+							</blockquote></div>
+							
+							<p>
+								Next, we plot the cost function during training. This is done by calling upon the <i>epoch_list</i> we created along with the <i>cost_training</i> list.
+							</p>
+							<div id="testimonials"><blockquote class="tab">
+								plt.subplot(222)<br>
+						    plt.plot(epoch_list,cost_training,'o-')<br>
+						    plt.xlabel('Epoch')<br>
+						    plt.ylabel('Training cost')
+							</blockquote></div>
+							
+							<p>
+								Finally, we plot the accuracy function during training. This is done by calling upon the <i>epoch_list</i> we created along with the <i>acc_training</i> list.
+							</p>
+							<div id="testimonials"><blockquote class="tab">
+								plt.subplot(224)<br>
+						    plt.plot(epoch_list,acc_training,'o-')<br>
+						    plt.xlabel('Epoch')<br>
+						    plt.ylabel('Training accuracy')
+							</blockquote></div>
+							
+							<p>
+								Now to get the value from our three lists above (epoch_list, cost_training and acc_training), we create a for loop. We will loop through every epoch from 0 to our pre-specified max epochs.
+							</p>
+							<div id="testimonials"><blockquote>
+								for epoch in range(N_epochs):
+							</blockquote></div>
+							
+							<p>
+								First, we need to set the gradients to zero because PyTorch accumulates the gradients, we do this by using <a href="https://pytorch.org/docs/stable/generated/torch.optim.Optimizer.zero_grad.html" class="saymore">optimizer.zero_grad()</a>. We then input our model and the outcome for our cost_func and then using <a href="https://pytorch.org/docs/stable/generated/torch.Tensor.backward.html" class="saymore">.backward()</a> we compute the gradient. Then after this has been completed we must update the parameters, using <a href="https://pytorch.org/docs/stable/generated/torch.optim.Optimizer.step.html" class="saymore">optimizer.step()</a>.
+							</p>
+							<div id="testimonials"><blockquote class="tab">
+								optimizer.zero_grad() <br>
+						    NN_output = model(x_train) <br>
+						    cost = cost_func(NN_output, t_onehot)<br>
+						    cost.backward() <br>
+						    optimizer.step()
+							</blockquote></div>
+							
+							<p>
+								Since it would overload the computer we will set the plot to update and print results every 500 epochs. Just like before we define the predicted_class by using the max of the model output array. The accuracy we calculate by taking the mean of the predictions. Finally we update our 3 lists to contain the values for every 500 epochs.
+							</p>
+							<div id="testimonials"><blockquote>
+								if epoch % 500 == 0:
+								<div class="tab">
+					        predicted_class = np.argmax(NN_output.detach().numpy(), axis=1)<br>
+					        accuracy = np.mean(predicted_class == t_train)<br><br>
+					        
+					        epoch_list.append(epoch)<br>
+					        cost_training.append(cost.detach().numpy())<br>
+					        acc_training.append(accuracy)
+					      </div>
+							</blockquote></div>
+							
+							<p>
+								Then we update the plot of the resulting classifier.
+							</p>
+							<div id="testimonials"><blockquote class="tab">
+								fig = plt.figure(2,figsize=(10,5))<br>
+				        fig.subplots_adjust(hspace=.3,wspace=.3)<br>
+				        plt.clf() # <a href="https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.clf.html" class="saymore">clears the figure</a>  <br>
+				        updatePlot()<br>
+				        display.display(plt.gcf()) # <a href="https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.gcf.html" class="saymore">displays the current figure</a> <br>
+				        print("Iteration %d:\n  Training cost %f\n  Training accuracy %f\n" % (epoch, cost, accuracy) )<br>
+				        display.clear_output(wait=True)
+							</blockquote></div>
+							
+							<p>
+								I created lists to record: max accuracy, max accuracy epoch value, max accuracy cost value. These lists were written here to collect data. This was used to figure out the best parameters.
+							</p>
+							<div id="testimonials"><blockquote>
+								accuracy_max = max(acc_training)<br>
+								max_index = acc_training.index(max(acc_training))<br>
+								epoch_max = epoch_list[max_index]<br>
+								cost_max = cost_training[max_index]
+							</blockquote></div>
+
+							<p>
+								The same was done for the purpose of getting more information for each parameter changed in my part of the assignment. Here is a sample:
+							</p>
+							<div id="testimonials"><blockquote>
+								alpha6_final_accr.append(accuracy)<br>
+								alpha6_max_accr.append(accuracy_max)<br>
+								alpha6_max_accr_epoch.append(epoch_max)<br>
+								alpha6_final_cost.append(cost)<br>
+								alpha6_max_accr_cost.append(cost_max)
+							</blockquote></div>
+
+							<p>
+								Here is what was displayed:
+							</p>
+							<center><img src="images/pages/ml/a4-plot.png" width="400" height=”auto” alt=""></center>
+						</li>
+
+						<li id="a4s4">
+							<b>Changing hyperparameters: activation functions</b><br>
+							<p>
+								I did every permutation for all three activation functions, Softmax, Sigmoid, ReLU, for both layers. However, that was done more for curiosity's sake. The softmax is used in the final output layer when there is a multi-class problem, such as this one. Sigmoid is used best when looking at probability and ReLU should only be used in the output layer if there are two outcomes.
+							</p>
+							<p>
+								I found some interesting results:
+							</p>
+							<center><img src="images/pages/ml/a4-activn-fn.png" width="800" height=”auto” alt=""></center>
+							<p>
+								Analyzing data for max of softmax, sigmoid, relu (second function being softmax):<br>
+								The maximum occurs at: sigmoid_max_accr <br>
+								with a maximum accuracy of: 0.8593333333333334
+							</p>
+							<p>
+								The same was done with the second function being sigmoid<br>
+								The maximum occurs at: sigmoid_max_accr <br>
+								with a maximum accuracy of: 0.716
+							</p>
+							<p>
+								The same was done with the second function being relu<br>
+								The maximum occurs at: relu_max_accr <br>
+								with a maximum accuracy of: 0.6839999999999999
+							</p>
+							<p>
+								In conclusion, on average it can clearly be seen that the activation combination that works best is:
+								<ul class="disc">
+									<li>
+										First layer activation function: sigmoid
+									</li>
+									<li>
+										Second layer activation function: softmax
+									</li>
+								</ul>
+								with accuracy of 0.859 on average.
+							</p>
+							<p>
+								As can be seen above, it also has the least cost for the maximum accuracy (average of 0.724206). However, it also did have the most amount of "optimization runs" needed (epoch = 8000).
+							</p>
+						</li>
+
+						<li id="a4s5">
+							<b>Changing hyperparameters: learning rate</b><br>
+							<p>
+								In changing the learning rate, there were several values tried: 0.1,0.5, 1, 2, 3, 4. As a summary, we see:
+							</p>
+							<center><img src="images/pages/ml/a4-learningrate.png" width="400" height=”auto” alt=""></center>
+							<p>
+								The maximum occurs at: 4_max_accr with a maximum accuracy of: 0.828
+							</p>
+							<center><img src="images/pages/ml/a4-lr4.png" width="400" height=”auto” alt=""></center>
+							<p>
+								In conclusion, as can be seen, the learning rate of 4 (0.828000) had the best accuracy, followed by 1. 4 also had the lowest cost (0.735654) and was in the bottom 3 for epoch runs (23050).
+							</p>
+
+						</li>
+
+						<li id="a4s6">
+							<b>Changing hyperparameters: number of neurons in hidden layer </b><br>
+							<p>
+								Number of neurons in the hidden layers was changed to include:  2, 4, 6, 10, 14, 15, 16, 17, 20. Here are the results for the accuracy based on the number of neurons in the hidden layer.
+							</p>
+							<center><img src="images/pages/ml/a4-neurons.png" width="500" height=”auto” alt=""></center><br>
+							<p>
+								A scatterplot of number of neurons vs accuracy was created for all 10 trials to analyze the variation and accuracy to help determine the best.
+							</p>
+							<center><img src="images/pages/ml/a4-neuron-acc-10.png" width="500" height=”auto” alt=""></center><br>
+							<p>
+								This graph was then condensed to contain the mean for all 10 trials along with error bars. In order to make CI indicators, to show how variant the avgs are from the other points, <a href="https://matplotlib.org/3.5.0/api/_as_gen/matplotlib.pyplot.errorbar.html" class="saymore">plt.errorbar()</a> was used with the <i>yerr</i> being the 'ci' that I calculated per neuron:
+
+							</p>
+							<div id="testimonials"><blockquote>
+								plt.errorbar(x_nodes_avgs, avg_df.loc['mean'], yerr=avg_df.loc['ci'], color='red', linestyle='')<br><br>
+
+								plt.show
+							</blockquote></div>
+							<center><img src="images/pages/ml/a4-neuron-acc-10-avg.png" width="500" height=”auto” alt=""></center><br>
+							<p>
+								As can be seen, 16 neurons in the hidden layer did the best, on average. Close behind was 17 and then 10. 16 also had less variation than the other Q values. It is statistically better (less noise) than the surrounding number of neurons.
+							</p>
+						</li>
+
+						<li id="a4s7">
+							<b>Changing dataset details: magnitude of noise</b><br>
+							<p>
+								The magnitude of noise in the data that was analyzed was: 0.1, 0.2, 0.3, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0. it is expected the more noise you have the harder classification will be. But I was curious as to what extent the learning accuracy decreased. For 10 trials run for each magnitude here is the accuracy:
+							</p>
+							<center><img src="images/pages/ml/a4-mag.png" width="500" height=”auto” alt=""></center><br>
+
+							<p>
+								Like before, a scatterplot of number of neurons vs accuracy was created for all 10 trials to analyze the variation and accuracy to help determine the best.
+							</p>
+							<center><img src="images/pages/ml/a4-mag-acc-10.png" width="500" height=”auto” alt=""></center><br>
+
+
+							<p>
+								Then same as before, the above graph was condensed to include error bars to show variance.
+							</p>
+							<center><img src="images/pages/ml/a4-mag-acc-10-avg.png" width="500" height=”auto” alt=""></center><br>
+
+							<p>
+								As stated before, obviously the algorithms did better with less noise in the data. There was a large dip after 0.6 magnitude and it is interesting to note that with 0.9 magnitude the algorithms did better than surrounding (and it also had the least variability in the data). I'm not quite sure why that is, but it was an interesting fact from the data collected.
+							</p>
+						</li>
+
+						<li id="a4s8">
+							<b>Changing dataset details: number of labels</b><br>
+							<p>
+								The number of labels in the dataset that was chosen to analyze was 2, 3, 4, 5, 6, 7. Like before, the more labels you have the harder it will be for the model to predict accurately, so I wanted to explore how the accuracy changed between the number of labels.
+							</p>
+							<center><img src="images/pages/ml/a4-labels.png" width="400" height=”auto” alt=""></center><br>
+
+							<p>
+								Plotting the scatterplot of number of labels vs accuracy for 10 trails per level:
+							</p>
+							<center><img src="images/pages/ml/a4-labels-acc-10.png" width="500" height=”auto” alt=""></center><br>
+
+							<p>
+								Then same as before, the above graph was condensed to include error bars to show variance.
+							</p>
+							<center><img src="images/pages/ml/a4-labels-acc-10-avg.png" width="500" height=”auto” alt=""></center><br>
+
+							<p>
+								As expected, the training accuracy severely decreases as the number of labels increases, but the pattern was linear. The accuracy could probably be improved by increasing the number of hidden layer neurons, and increasing epochs even more. I wanted to keep the majority of variables the same throughout my trials in order to be able to compare the change in labels (having to adjust epochs and learning rate to get optimal results for the rest of the variables being held the same).
+							</p>
+						</li>
+
+
+					</ol>
 				</div>
 			</li>
 
@@ -1212,7 +1679,7 @@ setTimeout(timer1801,1801000);
 		<div class="dots blogdots">
 		</div>
 		<p>
-			In the tabs below, you will find a summary of the biggest take aways from the lectures. There was a lot of good material covered in the short time Professor Alvarez had but I just wanted to document the summary of the content.
+			In the tabs below <i>(when I complete filling them out)</i>, you will find a summary of the biggest take aways from the lectures. There was a lot of good material covered in the short time Professor Alvarez had but I just wanted to document the summary of the content.
 		</p>
 		<div class="hr">
 		</div>
@@ -1484,7 +1951,7 @@ setTimeout(timer1801,1801000);
 				<div class="content" style="overflow: hidden; display: none; ">
 					<h6></h6>
 					<p>
-						
+						https://towardsdatascience.com/interpretable-k-means-clusters-feature-importances-7e516eeb8d3c 
 					</p>
 					
 					<!-- Tabs-->
