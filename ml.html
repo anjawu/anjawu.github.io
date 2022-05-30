@@ -1684,17 +1684,145 @@ setTimeout(timer1801,1801000);
 		<div class="hr">
 		</div>
 
-		<!-- Accordion: 2 KNN -->
+		<!-- Accordion: 1 Intro-->
 		<ul class="accordion">
 			<li class="">
 				<div class="title">
-					<b>k-Nearest Neighbour</b>
+					<b>Intro to ML</b>
 				</div>
 				<div class="content" style="overflow: hidden; display: none; ">
-					<h6></h6>
 					<p>
-						
+						In machine learning there are different ways for a machine to learn:
+						<ul class="disc">
+							<li>
+								<b>Supervised learning:</b> you know correct input and output and you want program to learn mapping x -> y
+							</li>
+							<li>
+								<b>Unsupervised learning:</b> given data find patterns/structure in data
+							</li>
+							<li>
+								<b>Online learning:</b> supervised learning but when data is given in sequence
+							</li>
+							<li>
+								<b>Reinforcement learning:</b> learning by trial and error in a way but with negative and positive reinforcements (e.g. in a game like tetris: you get scored based on your moves as a computer - the higher score, the bigger score you get - program the computer to understand the reinforcement)
+							</li>
+							<li>
+								<b>Active learning:</b> supervised learning without labels, e.g. when you give an image and ask the oracle to label the picture
+							</li>
+						</ul>
 					</p>
+					Steps:
+					<ol>
+						
+						<li>
+							ML workflow:
+							<div class="tab">
+							Should I use ML on this problem?<br>
+							Is there a pattern to detect<br>
+							Can I solve it analytically?<br>
+							Do I have data?
+							</div>
+						</li>
+						<li>
+							Gather and organize data
+						</li>
+						<li>
+							Preprocessing, cleaning, visualizing
+						</li>
+						<li>
+							Establishing a baseline
+						</li>
+						<li>
+							Choosing a model, loss, regularization
+						</li>
+						<li>
+							Optimization
+						</li>
+						<li>
+							Hyperparameter search
+						</li>
+						<li>
+							Analyze performance and mistakes and iterate back to step 5 (or 3)
+						</li>
+					</ol><br>
+					<p>
+						Important fact is to try simple models before moving to complex. <i>Example: try logistic regression before building a deep neural net because it is cheaper computationally and easier to interpret.</i>
+					</p>
+				</div>
+			</li>
+
+		<!-- Accordion: 2 KNN -->
+			<li class="">
+				<div class="title">
+					<b>k-NN</b>
+				</div>
+				<div class="content" style="overflow: hidden; display: none; ">
+					<h6>k-Nearest Neighbours</h6>
+					<p>
+						Nearest neighbours is a machine learning method in which a label is given to an unknown based on the feature mappings to the physically closest features of known labels. The mathematical algorithm looks like:
+					</p>
+					<center><img src="images/pages/ml/l2-nn-formula.png" width="400" height=”auto” alt=""></center><br>
+					<p>
+						There are <a href="https://www.analyticsvidhya.com/blog/2021/08/how-knn-uses-distance-measures/" class="saymore">several different distance formulas</a> that can be used. In the course, we discussed Euclidean. Euclidean is the same as Minkowski distance for the case where p=2. The Minkowski algorithm formula is:
+					</p>
+					<center><img src="images/pages/ml/l2-minkowski.png" width="200" height=”auto” alt=""></center><br>
+					<p>
+						In the case of p=2, we get the Euclidean distance:
+					</p>
+					<center><img src="images/pages/ml/l2-euclidean.png" width="300" height=”auto” alt=""></center><br>
+					<p>
+						Decision boundaries are used to classify points based on where they are located (according to the features). We can visualize (if in 2D) the decision boundaries using a Voronoi diagram. These decision boundaries are defined by the nearest neighbours algorithms. The k-nearest neighbours algorithm looks at k-amount of neighbours around a specific point and classifies that point based on the majority label of the k-neighbours:
+					</p>
+					<center><img src="images/pages/ml/l2-knn.png" width="300" height=”auto” alt=""></center><br>
+					<p>
+						The value of k is determined by the user. This is a hyperparameter which will affect the decision boundaries of the classification. It is important to find the ideal k value as:
+					</p>
+					<ul class="disc">
+						<li>
+							Too small of a k: 
+							<ul class="disc">
+								<li>
+									will give you a good reading of the fine-grained patterns
+								</li>
+								<li>
+									BUT can overfit the data: meaning it becomes too sensitive to fine-grained patterns that are only specific to the training model. This will lead to bad validation/test set accuracy.
+								</li>
+							</ul>
+						</li>
+						<li>
+							Too big of a k:
+							<ul class="disc">
+								<li>
+									Will be less likely to be impacted by singularities 
+								</li>
+								<li>
+									BUT can underfit the data: meaning it doesn’t pick up on smaller regularities. This will lead to not only bad validation/test set accuracy but also training set accuracy.
+								</li>
+							</ul>
+						</li>
+					</ul>
+
+					<h6>Curse of Dimensionality</h6>
+					<p>
+						This occurs with all high dimension data. In particular, for kNN most points are considered far apart and approximately the same distance. This can be seen in a proof where the mean of the distances is the dimension, meaning in high dimension the points are further apart and the standard deviation (sqrt(d)) becomes small relative to mean (d), meaning that the distances do not have much variation - implying approximately the same distance.
+					</p>
+					<p>
+						We can use dimension reduction techniques (more on this later) to reduce dimensions and allow our model to perform better. 
+					</p>
+
+					<h6>Normalization</h6>
+					<p>
+						We have two types of regularization: L1 and L2. We will discuss this more in detail later. In a nutshell, for kNN they can be sensitive to large ranges of feature values. In order to combat this you can normalize each dimension to be zero.
+					</p>
+					<h6>Why kNN?</h6>
+					<ul class="disc">
+						<li>
+							Fewer hyperparameters
+						</li>
+						<li>
+							Able to handle attributes that interact in complex ways
+						</li>
+					</ul>
 				</div>
 			</li>
 
@@ -1704,10 +1832,124 @@ setTimeout(timer1801,1801000);
 					<b>Decision Trees</b>
 				</div>
 				<div class="content" style="overflow: hidden; display: none; ">
-					<h6></h6>
+					<h6>Decision Tree</h6>
 					<p>
-						
+						A decision tree makes predictions by splitting on features according to an algorithm to get the best split. 
 					</p>
+					<p>
+						The structure of a decision tree:
+						<center><img src="images/pages/ml/l3-dt-structure.png" width="500" height=”auto” alt=""></center><br>
+					</p>
+					<p>
+						There are two types of decision trees aka CART (Classification and Regression Tree):
+						<ol>
+							<li>
+								Classification Tree
+								<div class="tab">
+									<ul class="disc">
+										<li>
+											Output is discrete
+										</li>
+										<li>
+											Leaf value is the most common value within the leaf node set
+										</li>
+									</ul>
+								</div>
+							</li>
+							<li>
+								Regression Tree
+								<div class="tab">
+									<ul class="disc">
+										<li>
+											Output is continuous
+										</li>
+										<li>
+											Leaf value is the most mean value within the leaf node set
+										</li>
+									</ul>
+								</div>
+							</li>
+						</ol>
+					</p>
+					<h6>Learning</h6>
+					<p>						
+						The decision tree splits according to a greedy heuristic. This means that at each split the algorithm splits according to the optimal choice for that specific node. The optimal choice is determined by the greatest reduction for the loss function. This is done recursively for each node until the leaf node is reached.
+					</p>
+					<p>
+						What algorithm do we use for our loss function?<br>
+						Information Gain or Gini Impurity
+					</p>
+					<h6>Entropy/Information Gain</h6>
+					<p>
+						Entropy of discrete random variables is a number that quantifies the uncertainty of the outcomes. This means that a high entropy will not be able to be predicted well because the split of the data is closer to even (would look more like a uniform distribution). Whereas, a low entropy will give us more of a defined split in which we would have a greater chance of predicting where our data falls.
+					</p>
+					<p>
+						Entropy is calculated as:
+						<center><img src="images/pages/ml/l3-entropy-calc.png" width="400" height=”auto” alt=""></center><br>
+					</p>
+					<p>
+						Entropy of joint distributions:
+						<center><img src="images/pages/ml/l3-joint-entropy.png" width="300" height=”auto” alt=""></center><br>
+					</p>
+					<p>
+						Specific conditional entropy:
+						<center><img src="images/pages/ml/l3-specific-conditional-entropy.png" width="300" height=”auto” alt=""></center><br>
+					</p>
+					<p>
+						Conditional entropy:
+						<center><img src="images/pages/ml/l3-conditional-entropy.png" width="300" height=”auto” alt=""></center><br>
+					</p>
+					<p>
+						Information Gain is what determines the split. The higher the information gain the better. Information gain is (1 - entropy) or for conditional cases:
+						<center><img src="images/pages/ml/l3-IG-conditional.png" width="200" height=”auto” alt=""></center><br>
+					</p>
+					<p>
+						Information gain <a href="https://analyticsindiamag.com/understanding-the-maths-behind-the-gini-impurity-method-for-decision-tree-split/" class="saymore">favours smaller partitions (distributions) with a variety of diverse values.</a>
+					</p>
+					<h6>Gini Impurity</h6>
+					<p>
+						<a href="https://medium.com/poli-data/deep-dive-into-the-basics-of-gini-impurity-in-decision-trees-with-math-intuition-46c721d4aaec" class="saymore">Gini impurity</a> calculates probability of diversity of the data. Gini index of 0 implies that the split is pure, this means that all the data falls in one division.
+					</p>
+					<p>
+						Mathematically calculated:
+						<center><img src="images/pages/ml/l3-gini-impurity.png" width="200" height=”auto” alt=""></center><br>
+					</p>
+					<p>
+						Gini Impurity <a href="https://analyticsindiamag.com/understanding-the-maths-behind-the-gini-impurity-method-for-decision-tree-split/" class="saymore">favours bigger partitions (distributions).</a>
+					</p>
+					<h6><a href="https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html" class="saymore">Hyperparameters</a></h6>
+					<p>
+						There are many hyperparameters that can be changed to improve accuracy and to prevent overfitting and underfitting. Here are some:
+						<ul class="disc">
+							<li>
+								Max depth of tree: the lower this number, the more you risk underfitting the model.
+							</li>
+							<li>
+								Minimum number of samples required to split an internal node: the lower this number, the more you risk overfitting to the training.
+							</li>
+							<li>
+								Minimum number of samples required to be at a leaf node: the lower this number, the more you risk overfitting to the training.
+							</li>
+							<li>
+								Purity at nodes: you can specify the lowest level of impurity that you want to split by. The lower the impurity level, the more you risk overfitting.
+							</li>
+						</ul>
+					</p>
+					<h6>Why use decision trees?</h6>
+					<ul class="disc">
+						<li>
+							More interpretable 
+						</li>
+						<li>
+							Works well with lots of attributes (but only a few important ones)
+						</li>
+						<li>
+							Works well with imbalanced data
+						</li>
+						<li>
+							Fairly fast 
+						</li>
+					</ul>
 				</div>
 			</li>
 
@@ -1717,53 +1959,174 @@ setTimeout(timer1801,1801000);
 					<b>Bias-Variance Decomposition</b>
 				</div>
 				<div class="content" style="overflow: hidden; display: none; ">
-					<h6></h6>
 					<p>
-						
+						We can quantify the effects of underfitting and overfitting models in terms of bias/variance decomposition. We have the formula for calculating expected loss (using squared error), given by:
+						<center><img src="images/pages/ml/l4-expected-loss.png" width="600" height=”auto” alt=""></center><br>
+					</p>
+					<p>
+						As can be seen:
+						<ul class="disc">
+							<li>Bias: how wrong the expected prediction is (underfitting)</li>
+							<li>Variance: the amount of variability in the predictions (overfitting)</li>
+							<li>Bayes error: the inherent unpredictability of the targets</li>
+						</ul>
+						<i>Note: Even though this analysis only applies to squared error, we often loosely use “bias” and “variance” as synonyms for “underfitting” and “overfitting”.</i>
+					</p>
+					<p>
+						Low Bayes error makes predicting easier. Using a Venn diagram as an example, if the Bayes error is low the circles have little to no intersection:
+						<center><img src="images/pages/ml/l4-low-bayes-err.png" width="200" height=”auto” alt=""></center><br>
+					</p>
+					<p>
+						If Bayes error is high, it is a lot harder to predict:
+						<center><img src="images/pages/ml/l4-high-bayes-err.png" width="150" height=”auto” alt=""></center><br>
+					</p>
+					<p>
+						Really awesome visual for understanding effects of bias and variance:
+						<center><img src="images/pages/ml/l4-bias-variance-accuracy.png" width="300" height=”auto” alt=""></center><br>
+					</p>
+					<p>
+						Bayes optimal is defined as the best any learning algorithm can do. In order to calculate Bayes optimal, you need to have access to the true population distribution. This very rarely occurs in real life problems.
 					</p>
 				</div>
 			</li> 
 
-		<!-- Accordion: 5 Ensemble Methods & Random Forest   -->
+		<!-- Accordion: 5 Ensembling Learning  -->
 			<li class="">
 				<div class="title">
-					<b>Ensemble Methods & Random Forest</b>
+					<b>Ensembling Learning</b>
 				</div>
 				<div class="content" style="overflow: hidden; display: none; ">
-					<h6></h6>
 					<p>
-						
+						<a href="https://machinelearningmastery.com/tour-of-ensemble-learning-algorithms/" class="saymore">Ensemble learning</a> is a general meta approach to machine learning that seeks better predictive performance by combining the predictions from multiple models.
+					</p>
+					<p>
+						The three main classes of ensemble learning methods are bagging, stacking, and boosting.
+						<ul class="disc">
+							<li>
+								<i>Bagging (aka Bootstrap aggregating):</i> is an ensemble learning method that seeks a diverse group of ensemble members by varying the training data. The final model is made by combining ensemble members using simple statistics, such as voting or averaging. It involves fitting many decision trees on different samples of the same dataset and averaging the predictions. An example would be Random Forest (large number of individual decision trees split randomly that operate as an ensemble)!
+							</li> 
+							<li>
+								<i>Stacking (Stacked Generalization):</i> is an ensemble method that involves fitting many different models types on the same data and using another model to learn how to best combine the predictions.
+							</li>
+							<li>
+								<i>Boosting:</i> is an ensemble method that seeks to change the training data to focus attention on examples that previous fit models on the training dataset have gotten wrong. It involves adding ensemble members sequentially that correct the predictions made by prior models and outputs a weighted average of the predictions.
+							</li>
+						</ul>
+					</p>
+					<h6>Bagging</h6>
+					<p>
+						We cannot change Bayes error, as we have no control over it. The expected value of the average prediction is the same expected value of the individual, so the bias does not change either. We can see mathematically that bagging reduces the variance (overfitting of a model) when we average over independent samples:
+						<center><img src="images/pages/ml/l5-variance.png" width="400" height=”auto” alt=""></center><br>
+					</p>
+					<p>
+						The variance is 1/m smaller as we have taken the average. There is a proof that I did as an exercise that showed that bagging also reduces the variable even when the samples are not independent. It just does not reduce it as greatly as when they are independent.
 					</p>
 				</div>
 			</li> 
 
-		<!-- Accordion: 6 Linear Regression-->
+		<!-- Accordion: 6 Regression Models-->
 			<li class="">
 				<div class="title">
-					<b>Linear and Logistic Regression</b>
+					<b>Regression Models</b>
 				</div>
 				<div class="content" style="overflow: hidden; display: none; ">
-					<h6></h6>
 					<p>
-						
+						Ideally, we want to have the following flow for our algorithms:
+						<ul class="disc">
+							<li>Choose a model</li>
+							<li>Define a loss function, this is used to quantify how bad the fit to the data is.</li>
+							<li>Pick a regularizer, <a href="https://www.simplilearn.com/tutorials/machine-learning-tutorial/regularization-in-machine-learning" class="saymore"> this minimizes the adjusted loss function and prevents overfitting or underfitting.</a></li>
+							<li>After those, you can use an optimization algorithm, if need be. An optimization algorithm is a procedure that finds the parameters that result in an optimum.</li>
+						</ul>
+						We want to vectorize our data because it will increase the speed of computation due to linear algebra calculations on matrices.
+					</p>
+					<h6>Loss functions</h6>
+					<p>
+						There are <a href="https://medium.com/analytics-vidhya/mae-mse-rmse-coefficient-of-determination-adjusted-r-squared-which-metric-is-better-cd0326a5697e" class="saymore"> different loss functions depending on the data you are working with. The ones that we looked at are:
+						<ul class="disc">
+							<li>
+								Squared error loss function
+								<ul class="disc">
+									<li>
+										<a href="https://peltarion.com/knowledge-center/documentation/modeling-view/build-an-ai-model/loss-functions/mean-squared-error" class="saymore"> MSE (mean squared error)</a>: use when doing a regression, that is normally distributed, and where you want to penalize bigger mistakes more than smaller ones. 
+									</li>
+									<li>
+										MAE (mean absolute error)
+									</li>
+								</ul>
+							</li>
+							<li>
+								Cost function: loss function averaged over all training examples. For a linear squared error loss function we would get:
+								<center><img src="images/pages/ml/l6-cost-fn.png" width="250" height=”auto” alt=""></center><br>
+							</li>
+							<li>
+								Cross-entropy loss: this is a loss function used for logistic regression. It heavily penalizes the wrong classification. The equation and graph look like:
+							</li>
+						</ul>
+					</p>
+					<h6>Optimization Algorithm</h6>
+					<p>
+						There are also different optimization algorithms that can be used:
+						<ul class="disc">
+							<li>
+								Direct calculus solution: this does not occur often, and even when it does it can be so computationally expensive that one would opt for the iterative solution.
+							</li>
+							<li>
+								Gradient descent (iterative solution) is this the main optimization algorithm:
+								<ul>
+									<li>
+										The main concept of gradient descent is taking partial derivatives of the cost function and moving towards the optimum value (derivative of 0). This is done in an iterative fashion moving in the direction of steepest descent.
+									</li>
+									<li>
+										We can adjust a learning rate to determine the size of the “steps” we take for each iteration of the gradient descent algorithm.
+									</li>
+									<li>
+										There will be more on this when we go over Neural Networks
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</p>
+					<h6>Regression</h6>
+					<p>
+						Regression is very interpretable. In order to accurately interpret the regression you must look at both the p-values of all the coefficients and the coefficients themselves. P-values are often between 0.05 and 0.01. Each coefficient is given a p-value, which can tell you if your result is statistically significant (in this case meaning that the feature DOES have a statistically significant impact on your outcome). The sign of the coefficient tells you whether the relationship between the feature and the outcome are positive (increasing) or negative (decreasing). The value of the coefficient tells you the magnitude of the effect of the feature on the outcome.
+					</p>
+					<p>
+						It is important that you understand that setting up your model and picking a p-value is very important. <a href="https://info.umkc.edu/drbanderson/p-hacking-and-the-problem-of-multiple-comparisons/" class="saymore">Here is an article</a> that speaks well to three big errors: multiple comparisons, p-hacking, and hypothesizing after the results are known (HARKing). 
+					</p>
+					<h6>Linear Regression</h6>
+					<p>
+						For a linear regression, a linear functions created from the features is used to make a prediction, y, of our target value, t, using weights, w, and bias, b:
+					</p>
+					<center><img src="images/pages/ml/l6-lin-reg.png" width="200" height=”auto” alt=""></center><br>
+					<p>
+						This can be done with D-features. The larger D is, the more complex the model will be - so dimension reduction techniques should be used if possible. One possible way of doing linear regression on a relationship that is not linear is by feature mapping. 
+					</p>
+					<p>
+						Polynomial feature mapping occurs when the data is fit with a degree-M poly nominal function:
+						<center><img src="images/pages/ml/l6-poly-eqn.png" width="300" height=”auto” alt=""></center><br>
+						which will then give us the feature mapping of:
+						<center><img src="images/pages/ml/l6-poly-feature-map.png" width="200" height=”auto” alt=""></center><br>
+						which is linear wrt each weight.
+					</p>
+					<p>
+						It is important to keep in mind that too small of an M will result in underfitting but too large of an M will result in overfitting.
+					</p>
+					<h6>Logistic Regression</h6>
+					<p>
+						Logistic regression is used when we have a binary classification problem. In this case, we do not have values outside of [0,1]. This is why the logistic function is a kind of sigmoid:
+						<center><img src="images/pages/ml/l6-log-fn.png" width="400" height=”auto” alt=""></center><br>
+					</p>
+					<p>
+						The coefficients of a logistic regression are highly interpretable because you can transform the values to be the percent increase/decrease towards your outcome. This is done by putting the coefficient as an exponent of e. Here are two articles that discuss how to interpret the coefficient: <a href="https://towardsdatascience.com/a-simple-interpretation-of-logistic-regression-coefficients-e3a40a62e8cf" class="saymore">1</a> and <a href="https://quantifyinghealth.com/interpret-logistic-regression-coefficients/" class="saymore">2</a>.
+					</p>
+					<p>
+						<a href="https://towardsdatascience.com/introduction-to-logistic-regression-66248243c148" class="saymore">More details on logistic regression.</a>
 					</p>
 				</div>
 			</li> 
 
-			<!-- Accordion: 7 Linear Classification (binary and Multi-class)-->
-			<li class="">
-				<div class="title">
-					<b>Linear Classification</b>
-				</div>
-				<div class="content" style="overflow: hidden; display: none; ">
-					<h6></h6>
-					<p>
-						
-					</p>
-				</div>
-			</li> 
-
-		<!-- Accordion: 8 Introduction to Neural Networks -->
+		<!-- Accordion: 7/8 Introduction to Neural Networks -->
 			<li class="">
 				<div class="title">
 					<b>Introduction to Neural Networks</b>
