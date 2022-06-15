@@ -2136,32 +2136,94 @@ setTimeout(timer1801,1801000);
 					<p>
 						
 					</p>
-				</div>
-			</li> 
-
-		<!-- Accordion: 9 Optimization Methods-->
-			<li class="">
-				<div class="title">
-					<b>Optimization Methods</b>
-				</div>
-				<div class="content" style="overflow: hidden; display: none; ">
-					<h6></h6>
+					<h6>Optimization</h6>
+					<p>
+						You can optimize by brute force or by using variations of gradient descent.
+					</p>
 					<p>
 						
 					</p>
 				</div>
 			</li> 
 
-		<!-- Accordion: 10 Overfitting and Regularization -->
+		<!-- Accordion: 10 Generalization -->
 			<li class="">
 				<div class="title">
-					<b>Overfitting and Regularization</b>
+					<b>Generalization (Overfitting and Regularization)</b>
 				</div>
 				<div class="content" style="overflow: hidden; display: none; ">
-					<h6></h6>
 					<p>
-						
+						There are several things that can be done to train a model to generalize well (reduce <a href="https://www.youtube.com/watch?v=DEMmkFC6IGM" class="saymore">overfitting</a>):
 					</p>
+					<h6><a href="https://www.youtube.com/watch?v=rfM4DaLTkMs&list=PLZbbT5o_s2xq7LwI2y8_QtvuXZedL6tQU&index=17" class="saymore">Data augmentation</a></h6>
+							<ul class="square">
+								<li>
+									If you need more data you can transform the data you have to create more training examples that are slightly different.
+								</li>
+							</ul>
+
+							<h6>Reduce number of parameters or model complexity:</h6>
+							 <ul class="square">
+							 	<li>Underfitting can have too few parameters</li>
+							 	<li>Overfitting can have too many parameters</li>
+							 	<li>
+							 		For a NN, you can:
+							 		<ul >
+							 			<li>Reduce number of layers</li>
+							 			<li>Reduce number of parameters per layer</li>
+							 			<li>Add linear bottleneck: layer which restricts the number of connections able to be passed through</li>
+							 		</ul>
+							 	</li>
+							 </ul>
+
+
+							<h6>Weight decay / L2 regularization</h6>
+							<ul class="square">
+								<li>
+									Regularizer is a function that quantifies how much we prefer one hypothesis over another in our model. We attach a function to the cost function to penalize larger weights.
+								</li>
+								<li>
+									We want smaller weights so that the model is not swayed by small discrepancies.
+								</li>
+								<li>
+									<a href="https://www.youtube.com/watch?v=iuJgyiS7BKM&list=PLZbbT5o_s2xq7LwI2y8_QtvuXZedL6tQU&index=35" class="saymore">Here</a> is an amazing video that explains the L2 regularization well.
+								</li> 
+								<li>
+									We can choose different regularizer penalties. In the case of L2 penalty we use the squared norms (can be Euclidean distance) of the weight matrices. This will penalize weights that are large to a greater degree than smaller weights.
+								</li>
+								<li>
+									There are many kinds of regularizers to choose from (e.g. sum of absolute values, LASSO regression, etc.)
+								</li>
+							</ul>
+
+							<h6>Early stopping</h6>
+							<ul class="square">
+								<li>
+									This will monitor performance on the validation set and stop the training when the validation error starts increasing instead of decreasing.
+								</li>
+								<li>
+									There can be an issue that arises because not every epoch will create a decrease in validation error, so it is part of the model to determine when the validation error has actually leveled off.
+								</li>
+								<li>
+									Early stopping works because weights start off small and progressively get bigger, so stopping early in the epoch count will allow the weights to stay smaller.
+								</li>
+							</ul>
+
+							<h6>Ensembles</h6>
+							<ul class="square">
+								<li>Averaging over trials using various methods will make your generalization better off.</li>
+							</ul>
+
+							<h6>Stochastic regularization (e.g. dropout)</h6>
+							<ul class="square">
+								<li>
+									With dropout, the network is run many times and for each trial various nodes are dropped from the network. The predictions are then averaged over the trials.
+								</li>
+								<li>
+									Other stochastic regularizers have been proposed: DropConnect (dropping connections instead of nodes), batch normalization, etc.
+								</li>
+							</ul>
+
 				</div>
 			</li> 
 
@@ -2171,9 +2233,17 @@ setTimeout(timer1801,1801000);
 					<b>Unsupervised Learning (PCA)</b>
 				</div>
 				<div class="content" style="overflow: hidden; display: none; ">
-					<h6></h6>
 					<p>
-						
+						Unsupervised learning is when there are no labels to the data and we must find patterns within the data. Principal component analysis is a type of unsupervised machine learning algorithm in which linear dimensionality reduction occurs.
+					</p>
+					<p>
+						Principal component analysis is a type of unsupervised machine learning algorithm in which linear dimensionality reduction occurs.
+					</p>
+					<p>
+						The data is mapped to a lower dimensional space by projections. We want to pick the subspace that maximizes variance in order to preserve the most data (and minimize error). Next, we want to ensure that we are picking an orthogonal basis. After those two requirements are met, we project each vector individually and sum together their projections. As a result of the process we end up with a decorrelation of features.
+					</p>
+					<p>
+						Representative learning is learning where a mapping is created that is easier to visualize or manipulate.
 					</p>
 				</div>
 			</li> 
@@ -2195,6 +2265,10 @@ setTimeout(timer1801,1801000);
 	</div>
 	</div>
 </div>
+
+
+
+
 
 <div class="row">
 	<div class="twelve columns">
