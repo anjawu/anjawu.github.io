@@ -138,10 +138,7 @@ setTimeout(timer1801,1801000);
 		I recently completed the <a href ="https://vectorinstitute.ai/mothers-and-machine-learning/" class = saymore>Introduction to Machine Learning</a> run by the Vector Institute with Juan Felipe Carrasquilla Álvarez as the professor. I really enjoyed the course and learnt so much!
 	</p>
 	<p>
-		I have broken down the things I have learnt by my assignment, lectures, and material I have researched. 
-	</p>
-	<p>
-		<b>All the assignments have been explained and a link to the GitHub section provided. I plan on adding bit by bit to each tab for the lecture take aways!</b>
+		All the assignments have been explained and a link to the GitHub section provided. I also summarized my main lecture take aways!
 	</p>
 </div>
 
@@ -1679,7 +1676,7 @@ setTimeout(timer1801,1801000);
 		<div class="dots blogdots">
 		</div>
 		<p>
-			In the tabs below <i>(when I complete filling them out)</i>, you will find a summary of the biggest take aways from the lectures. There was a lot of good material covered in the short time Professor Alvarez had but I just wanted to document the summary of the content.
+			In the tabs below you will find a summary of the biggest take aways from each of the lectures. There was a lot of good material covered in the short time Professor Alvarez had but I just wanted to document the summary of the content.
 		</p>
 		<div class="hr">
 		</div>
@@ -2132,16 +2129,77 @@ setTimeout(timer1801,1801000);
 					<b>Introduction to Neural Networks</b>
 				</div>
 				<div class="content" style="overflow: hidden; display: none; ">
-					<h6></h6>
 					<p>
-						
+						A neural network is a simplistic version modelled after the human brain. The format is:
+						<ul class="disc">
+							<li>Layers (input, hidden, and output)</li>
+							<li>Nodes (or neurons)</li>
+							<li>
+								Connections between neurons (how connections are made depend on the type of neural network - e.g. in a feed-forward NN each neuron from one layer is connected to the neurons directly in the layer proceeding it)
+								<p>
+									Each connection is modelled by:
+									<center><img src="images/pages/ml/l7-connection-formula.png" width="150" height=”auto” alt=""></center><br>
+									Where the activation function can change from layer to layer (common ones being: ReLU, softmax, hard-threshold, logistic, sigmoid and many more)
+								</p>
+								<p>
+									Activation functions are currently being researched to find the best ones to increase predictions. ReLU has been a top performing one as it is non-linear "enough", but there are issues that arise (such as dying ReLU problem where a neuron is unable to learn). So there have been modifications made and new versions of ReLU exist. 
+								</p>
+							</li>
+					</p>
+					<p>
+						A multi-layer perceptron is a multilayer network that has fully connect layers (meaning all input nodes are connected to output nodes for each layer).
+					</p>
+					<p>
+						Example of a feed-forward NN:
+						<center><img src="images/pages/ml/l7-nn-diagram.png" width="550" height=”auto” alt=""></center><br>
+					</p>
+					<p>
+						<a href="https://www.youtube.com/watch?v=qO_NLVjD6zE" class="saymore">Here</a> is a video that discusses some issues with neural networks and how to deal with it (vanishing and exploding gradient).
 					</p>
 					<h6>Optimization</h6>
 					<p>
-						You can optimize by brute force or by using variations of gradient descent.
+						You can optimize by brute force or by using variations of gradient descent. Optimization occurs when parameters are updated to give the greatest learning or lowest error rate.
 					</p>
 					<p>
-						
+						In order to train the neural network, you must go through runs (epochs) of the neural network where each iteration the weights (and bias) are updated by learning - backpropagation (e.g. using gradient descent). Backpropagation is done automatically using libraries such as PyTorch or TensorFlow.
+					</p>
+					<h6>Gradient Descent</h6>
+					<p>
+						Gradient descent is the method of taking the partial derivative of the loss function wrt the weight and taking the average to move towards the direction of steepest descent to achieve a global extrema.
+					</p>
+					<p>
+						Stochastic gradient descent is when you randomly uniformly sample the training set and do batch gradient update on each set. We are able to do this because when randomly sampled we get an unbiased estimate of the batched gradient. Also on average the SGD will move downwards, it will just tend to follow a more noisy trend compared to batch gradient descent.
+					</p>
+					<p>
+						We can adjust the learning rate, which dictates how large of a step we take for each learning iteration (epoch).
+					</p>
+					<p>
+						Here are two videos that describe gradient descent well: <a href="https://www.youtube.com/watch?v=IHZwWFHWa-w" class="saymore">3Blue1Brown</a> and <a href="https://www.youtube.com/watch?v=qg4PchTECck" class="saymore">VisuallyExplained</a>.
+					</p>
+
+					<h6>Convolutional Networks</h6>
+					<p>
+						These are usually used when working with images. They are used because their convolution layers have filters which can break down an image to its parts (such as edges, lines, or more complex shapes/objects). Each layer can have one or more filters that allow certain features to be pulled out of the image. In a CNN, we normally have detection layers (convolution layers) and pooling layers.
+					</p>
+					<p>
+						<a href="https://www.youtube.com/watch?v=YRhxdVk_sIs&t=5s" class="saymore">Great video</a> explaining visually convolution networks. To summarize the video: the process of a CNN layer is a filter (matrix) is convolved (scanned) over the image (can be varying sizes) and a dot product is done to get new values to be stored in a new image matrix which has pulled out features you are looking for with the filter.
+					</p>
+
+					<h6>Pooling</h6>
+					<p>
+						Pooling allows us to reduce the size of the representation and build in invariance to small transformations. How it works is the user defines a sized matrix (nxn) and the stride (how many pixels the filter will move across the filter, i.e. m). There are different functions that can be used in order to pool the values, most often it is taking the max. The nxn filter is placed on our original image and the “max” (or other value) is taken of the matrix and stored in a new (smaller) image. Then we slide over by our stride and continue the process. This is done to reduce the parameters in the network and it helps reduce overfitting. 
+					</p>
+					<p>
+						<a href="https://www.youtube.com/watch?v=ZjM_XQa5s6s" class="saymore">Great video</a> explaining visually max pooling.
+					</p>
+
+					<h6>Resources</h6>
+					<p>
+						I would highly recommend these two series to watch to fully understand neural networks:
+						<ul class="disc">
+							<li><a href="https://www.youtube.com/channel/UCYO_jab_esuFRV4b17AJtAw" class="saymore">3Blue1Brown</li>
+							<li><a href="https://www.youtube.com/watch?v=gZmobeGL0Yg&list=PLZbbT5o_s2xq7LwI2y8_QtvuXZedL6tQU&index=1" class="saymore">Deeplizard</li>
+							<li><a href="http://neuralnetworksanddeeplearning.com/chap2.html" class="saymore"> Michael Nielsen's deep learning book</a></li>
 					</p>
 				</div>
 			</li> 
@@ -2227,7 +2285,7 @@ setTimeout(timer1801,1801000);
 				</div>
 			</li> 
 
-		<!-- Accordion: 11 Unsupervised Learning (PCA, k-Means) -->
+		<!-- Accordion: 11 Unsupervised Learning (PCA) -->
 			<li class="">
 				<div class="title">
 					<b>Unsupervised Learning (PCA)</b>
