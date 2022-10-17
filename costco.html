@@ -142,28 +142,108 @@ setTimeout(timer1801,1801000);
 ================================================== -->
 <div class="row">
 	<div class="sectiontitle">
-		<h4>Costco Deal Hunter  <a class="social github2" href="https://github.com/anjawu/costco-deal-hunter"></a></h4>
+		<h4>Costco Deal Hunter</h4>
 	</div>
 	<p>
 		Costco always has great deals, but I am a sucker for their sales items. So often when I am shopping, I always check their online flyer (or go to the end of each aisle where the sales items are) and end up purchasing things that I definitely did not need. So my lovely husband suggested that a great project for me to work on would be to build a web scraper and alert system for the things I want but don’t want to pay full price for. He told me that it would be a great learning experience, but I think he just wanted me to stop buying random stuff we don’t need and filling our house with junk… Who’s to say what his true motives were, but away I went and started on this path. As with most beginner coding projects I definitely hit roadblocks and fell down some research rabbit holes, so I’ve written about the lessons learned but kept it a lot shorter than the deep research holes I fell into. In this post, we will be looking at grabbing data from the flyer section on costco.ca and then creating an alert when specific items appear on this list. 
 	</p>
+	<p>
+		I have broken up the project into two parts:<br>
+		<a href="#part2" class="saymore">Part 2: Comparing Costco Deals to Real Canadian Superstore Prices</a><br>
+		<a href="#part1" class="saymore">Part 1: Pulling Costco Deal Item Details</a>
+	</p>
+</div>
+
+<div class="row">
+	<h4 id="part2">Part 2: Comparing Costco Deals to Real Canadian Superstore Prices <a class="social github2" href="https://github.com/anjawu/rcs"></a></h4> 
 	<div class="four columns">
-		<a href="#part1" class="saymore"> Part 1: Setting up</a><br>
-		<a href="#part2" class="saymore"> Part 2: Accessing Webpage</a>
+		<a href="#part2.1" class="saymore"> Part 2.1: Process</a><br>
 	</div>
 	<div class="four columns">
-		<a href="#part3" class="saymore"> Part 3: Pulling Data</a><br>
-		<a href="#part4" class="saymore"> Part 4: Data Analysis</a>
+		<a href="#part2.2" class="saymore"> Part 2.2: Findings</a>
 	</div>
 	<div class="four columns">
-		<a href="#part5" class="saymore"> Part 5: Completed Code</a><br>
+		<a href="#part2.3" class="saymore"> Part 2.3: Caveats</a>
+	</div>
+</div>
+
+<div class="row">
+	<h5 id="part2.1">2.1: Process</h5>
+	<p>
+		I created a program that inputted each item one-by-one into the search bar and scraped the first item returned on the RCS. I chose to just pull the first item because it, theoretically, should be the closest match. Costco only has one bin that holds the brand name and item name, meaning that the name cannot be separated into two separate sections. Whereas, RCS has a bin for the brand and a bin for the item name, meaning that I was able to separate the brand name from the item name when storing it into the dataframe.
+	</p>
+	<p>
+		Initially, I ran the full name of the item through the search bar and stored the matched brand and item name in a data frame called “rcs_costco”.
+	</p>
+	<p>
+		Next, what I did was manually separate the brand from the item name for the Costco items and then ran a search with just the item name through RCS. I stored the brand name and the item name of both the Costco and RCS items in the “stripped_rcs_costco” data frame.
+	</p>
+	<p>
+		I wanted to know which data frame would be better to use based on which had more and better matches. 
+	</p>
+	<p>
+		Right away, the items that did not have a brand name returned almost 2 times the amount of results (106 versus 54 iems). Then it was important to see how closely related the two items were from the different stores.
+	</p>
+	<p>
+		My first approach was to use NLTK. I compared the percentage similarities with both stopwords included and stopwords not included. When I analyzed the items that came back as a very high match vs a very low match there wasn’t a clear indication that the similarity percentage actually dictated the closeness of the items. So I abandoned this method. 
+	</p>
+	<p>
+		Since I did not have many items (max of 106), I decided to go by hand and put 0 for not matched and 1 for matched, then proceeded to remove the not matches from the data frame (“matched_rcs_costco”).
+	</p>
+	<p>
+		Then I was able to start analyzing the data to get my answer to my question of are Costco deals really better?
+	</p>
+
+
+	<h5 id="part2.2">2.2: Findings</h5>
+	<ul class="disc">
+		<li>
+			Costco beat the price for the same product at RCS 82% of the time. Which is great, but you have to pay for a membership at Costco so you need to decide if the price difference is really worth it. This led me to look at the distribution of the price difference, as seen below.
+			<center><img src="images/pages/projects/costco/rcs_costco_price_distribution.png" width="750" height=”auto” alt=""></center>
+			<i><b>Figure 2.2.1:</b> Spread of price differences when comparing Costco and RCS prices (using Costco quantities multiplied by the unit prices from each store).</i>
+		</li>
+		<li>
+			When the Costco price is cheaper than the RCS, the average (median, due to outliers) price difference is $18.53, vs. only $8.32 when RCS is cheaper. 
+		</li>
+		<li>
+			RCS had one item that was significantly cheaper than at Costco: a Lorex security camera system. However, since scraping the data the camera has been removed from RCS, meaning it was probably a clearance price that was scraped initially. 
+		</li>
+		<li>
+			It seems there is significant savings at Costco. Which would mean that the membership is worth it - if you shop the deals.
+		</li>
+	</ul>
+
+	<h5 id="part2.3">2.3: Caveats</h5>
+	<ul class="disc">
+		<li>
+			I started with 144 items from a couple batches of Costco’s online coupons. There were not too many overlapping items between Costco and RCS: 54 items returned at least one match from RCS’s search. Out of those, 44 were actual product matches when I compared manually. So the sample size of my work (44 products) wasn’t large.
+		</li>
+		<li>
+			The price difference I used was by getting the unit price at both stores and multiplying it by the amount you would get at Costco to have a graph that more clearly showed if Costco really was better, as we all know how much quantity you get when you shop at Costco. 
+		</li>
+	</ul>
+</div>
+
+
+<div class="row">
+	<h4 id="part1">Part 1: Pulling Costco Deal Item Details<a class="social github2" href="https://github.com/anjawu/costco-deal-hunter"></a></h4>
+	<div class="four columns">
+		<a href="#part1.1" class="saymore"> Part 1.1: Setting up</a><br>
+		<a href="#part1.2" class="saymore"> Part 1.2: Accessing Webpage</a>
+	</div>
+	<div class="four columns">
+		<a href="#part1.3" class="saymore"> Part 1.3: Pulling Data</a><br>
+		<a href="#part1.4" class="saymore"> Part 1.4: Data Analysis</a>
+	</div>
+	<div class="four columns">
+		<a href="#part1.5" class="saymore"> Part 1.5: Completed Code</a><br>
 		<!-- <a href="#part6" class="saymore"> Part 6: Automating Runs - Cron</a> -->
 	</div>
 </div>
 
 <!-- Part 1: Setting up -->
 <div class="row">
-	<h5 id="part1">1: Setting up</h5>
+	<h5 id="part1.1">1.1: Setting up</h5>
 	<p>
 		As before we must import our libraries:
 		<div id="testimonials"><blockquote>
@@ -214,7 +294,7 @@ setTimeout(timer1801,1801000);
 
 <!-- Part 2: Accessing Webpage -->
 <div class="row">
-	<h5 id="part2">2: Accessing Webpage</h5>
+	<h5 id="part1.2">1.2: Accessing Webpage</h5>
 	<p>
 		For this section, I got a lot of help from a specific <a href="https://www.youtube.com/watch?v=b5jt2bhSeXs" class="saymore">youtube programmer</a>. <br>
 		To access/open the webpage:
@@ -277,7 +357,7 @@ setTimeout(timer1801,1801000);
 
 <!-- Part 3: Pulling Data -->
 <div class="row">
-	<h5 id="part3">3: Pulling Data</h5>
+	<h5 id="part1.3">1.3: Pulling Data</h5>
 	<p>
 		We need to make sure the page is fully loaded before we can try to pull the data from it, so we need to use <a href="https://selenium-python.readthedocs.io/waits.html" class="saymore"> wait</a>.
 	</p>
@@ -486,7 +566,7 @@ setTimeout(timer1801,1801000);
 
 <!-- Part 4: Data Analysis -->
 <div class="row">
-	<h5 id="part4">4: Data Analysis</h5>
+	<h5 id="part1.4">1.4: Data Analysis</h5>
 	<p>
 		Now that we have all the data collected it is time to search for our keyword. First, let's set what our key word is (for testing purposes, we will pick chicken, as there are two iterations of it in the data):
 		<div id="testimonials"><blockquote>key_word = "chicken"</blockquote></div>
@@ -547,7 +627,7 @@ setTimeout(timer1801,1801000);
 
 <!-- Part 5: Completed Code -->
 <div class="row">
-	<h5 id="part5">5: Completed Code</h5>
+	<h5 id="part1.5">1.5: Completed Code</h5>
 	<p>
 		The completed code you can get on my <a href="https://github.com/anjawu/costco-deal-hunter" class="saymore"> GitHub</a> page.
 	</p>
