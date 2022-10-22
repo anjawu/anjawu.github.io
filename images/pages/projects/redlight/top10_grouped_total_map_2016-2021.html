@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_21bf373ac2c14b3892746cff59b4e310 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+    <script src="https://cdn.jsdelivr.net/gh/marslan390/BeautifyMarker/leaflet-beautify-marker-icon.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/marslan390/BeautifyMarker/leaflet-beautify-marker-icon.min.css"/>
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_21bf373ac2c14b3892746cff59b4e310" ></div>
+        
+</body>
+<script>    
+    
+            var map_21bf373ac2c14b3892746cff59b4e310 = L.map(
+                "map_21bf373ac2c14b3892746cff59b4e310",
+                {
+                    center: [45.395411119965914, -75.67927164024104],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 11,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+            L.control.scale().addTo(map_21bf373ac2c14b3892746cff59b4e310);
+
+            
+
+        
+    
+            var tile_layer_5577da9bd0344c6f83fb76b979125cb7 = L.tileLayer(
+                "https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"http://cartodb.com/attributions\"\u003eCartoDB\u003c/a\u003e, CartoDB \u003ca href =\"http://cartodb.com/attributions\"\u003eattributions\u003c/a\u003e", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 9, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_21bf373ac2c14b3892746cff59b4e310);
+        
+    
+            var marker_dc94b7f65fa645e58d95d99bceafdbe2 = L.marker(
+                [45.43246673708666, -75.68908745779],
+                {}
+            ).addTo(map_21bf373ac2c14b3892746cff59b4e310);
+        
+    
+            var beautify_icon_6dcb66b5c3454d90b80d4ab5c44baab9 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 1, "textColor": "dodgerblue"}
+            )
+            marker_dc94b7f65fa645e58d95d99bceafdbe2.setIcon(beautify_icon_6dcb66b5c3454d90b80d4ab5c44baab9);
+        
+    
+            marker_dc94b7f65fa645e58d95d99bceafdbe2.bindTooltip(
+                `<div>
+                     1) KING EDWARD @ ST. PATRICK: Southbound - avg yearly total ~3630
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_468571fe0ffe496a9b719f0b6e10ccd2 = L.marker(
+                [45.39990521, -75.62158646],
+                {}
+            ).addTo(map_21bf373ac2c14b3892746cff59b4e310);
+        
+    
+            var beautify_icon_77d3dbc41c4e4607bb5e6033c32929de = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 2, "textColor": "dodgerblue"}
+            )
+            marker_468571fe0ffe496a9b719f0b6e10ccd2.setIcon(beautify_icon_77d3dbc41c4e4607bb5e6033c32929de);
+        
+    
+            marker_468571fe0ffe496a9b719f0b6e10ccd2.bindTooltip(
+                `<div>
+                     2) RUSSELL @ ST-LAURENT: Southbound - avg yearly total ~2702
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_b0966f4c940b49ceaf2c23bb1eb7417c = L.marker(
+                [45.34747262, -75.66147357],
+                {}
+            ).addTo(map_21bf373ac2c14b3892746cff59b4e310);
+        
+    
+            var beautify_icon_10bb5d6a54504fe2bc5187c66015b08a = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 3, "textColor": "dodgerblue"}
+            )
+            marker_b0966f4c940b49ceaf2c23bb1eb7417c.setIcon(beautify_icon_10bb5d6a54504fe2bc5187c66015b08a);
+        
+    
+            marker_b0966f4c940b49ceaf2c23bb1eb7417c.bindTooltip(
+                `<div>
+                     3) HUNT CLUB @ DOWNPARTICK /MCCARTY: Eastbound - avg yearly total ~2536
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_e99b8d332c8d484aaf9d7a5477fccbdc = L.marker(
+                [45.433795391218204, -75.6899119810084],
+                {}
+            ).addTo(map_21bf373ac2c14b3892746cff59b4e310);
+        
+    
+            var beautify_icon_04128ca26bb9450981fbe8de58e082b5 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 4, "textColor": "dodgerblue"}
+            )
+            marker_e99b8d332c8d484aaf9d7a5477fccbdc.setIcon(beautify_icon_04128ca26bb9450981fbe8de58e082b5);
+        
+    
+            marker_e99b8d332c8d484aaf9d7a5477fccbdc.bindTooltip(
+                `<div>
+                     4) KING EDWARD @ ST. ANDREW : Northbound - avg yearly total ~2001
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_04c777a0c4204002a7f33956ac85c33e = L.marker(
+                [45.3822204, -75.63422114],
+                {}
+            ).addTo(map_21bf373ac2c14b3892746cff59b4e310);
+        
+    
+            var beautify_icon_fa57d852a3294c229e47096806c37a62 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 5, "textColor": "dodgerblue"}
+            )
+            marker_04c777a0c4204002a7f33956ac85c33e.setIcon(beautify_icon_fa57d852a3294c229e47096806c37a62);
+        
+    
+            marker_04c777a0c4204002a7f33956ac85c33e.bindTooltip(
+                `<div>
+                     5) WALKLEY @ RYDER / DON RIED: Westbound - avg yearly total ~1774
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_f98f1f3cd67b427198642a76e13a8c06 = L.marker(
+                [45.41059368844953, -75.6894643684662],
+                {}
+            ).addTo(map_21bf373ac2c14b3892746cff59b4e310);
+        
+    
+            var beautify_icon_c70f14e268dc4498bd020301e31da1eb = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 6, "textColor": "dodgerblue"}
+            )
+            marker_f98f1f3cd67b427198642a76e13a8c06.setIcon(beautify_icon_c70f14e268dc4498bd020301e31da1eb);
+        
+    
+            marker_f98f1f3cd67b427198642a76e13a8c06.bindTooltip(
+                `<div>
+                     6) CATHERINE & O'CONNOR @ HWY 417 WB: Westbound - avg yearly total ~1390
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_39e4b170b3844242b25799c8309b5121 = L.marker(
+                [45.37840360046507, -75.6694586466716],
+                {}
+            ).addTo(map_21bf373ac2c14b3892746cff59b4e310);
+        
+    
+            var beautify_icon_4a702f175d3d4fd2a5e66202cbf1d461 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 7, "textColor": "dodgerblue"}
+            )
+            marker_39e4b170b3844242b25799c8309b5121.setIcon(beautify_icon_4a702f175d3d4fd2a5e66202cbf1d461);
+        
+    
+            marker_39e4b170b3844242b25799c8309b5121.bindTooltip(
+                `<div>
+                     7) HERON @ 155m W OF BANK : Eastbound - avg yearly total ~1315
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_3bad1a710a0943a19ae548d6d269d072 = L.marker(
+                [45.40941288318687, -75.6942720478848],
+                {}
+            ).addTo(map_21bf373ac2c14b3892746cff59b4e310);
+        
+    
+            var beautify_icon_eb07e288a4884a25b5022df48385508f = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 8, "textColor": "dodgerblue"}
+            )
+            marker_3bad1a710a0943a19ae548d6d269d072.setIcon(beautify_icon_eb07e288a4884a25b5022df48385508f);
+        
+    
+            marker_3bad1a710a0943a19ae548d6d269d072.bindTooltip(
+                `<div>
+                     8) KENT @ ARLINGTON: Northbound - avg yearly total ~1280
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_d4442f55660d4f8688bcf6f9f161ab83 = L.marker(
+                [45.38802033925273, -75.67623737058946],
+                {}
+            ).addTo(map_21bf373ac2c14b3892746cff59b4e310);
+        
+    
+            var beautify_icon_9a618a7501f248f997a59582d73c6c18 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 9, "textColor": "dodgerblue"}
+            )
+            marker_d4442f55660d4f8688bcf6f9f161ab83.setIcon(beautify_icon_9a618a7501f248f997a59582d73c6c18);
+        
+    
+            marker_d4442f55660d4f8688bcf6f9f161ab83.bindTooltip(
+                `<div>
+                     9) BANK @ RIVERSIDE S. : Northbound - avg yearly total ~1191
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_f7ed744aee3249618036efb10144c0d6 = L.marker(
+                [45.37182033, -75.76700336],
+                {}
+            ).addTo(map_21bf373ac2c14b3892746cff59b4e310);
+        
+    
+            var beautify_icon_f8bf8ccc2fd24be890718bb3590c13b2 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 10, "textColor": "dodgerblue"}
+            )
+            marker_f7ed744aee3249618036efb10144c0d6.setIcon(beautify_icon_f8bf8ccc2fd24be890718bb3590c13b2);
+        
+    
+            marker_f7ed744aee3249618036efb10144c0d6.bindTooltip(
+                `<div>
+                     10) CARLING @ IROQUOIS: Eastbound - avg yearly total ~989
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>
