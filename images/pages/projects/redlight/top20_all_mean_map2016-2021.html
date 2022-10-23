@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_dc2cc71c4d994a22aced3651d90c75a4 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+    <script src="https://cdn.jsdelivr.net/gh/marslan390/BeautifyMarker/leaflet-beautify-marker-icon.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/marslan390/BeautifyMarker/leaflet-beautify-marker-icon.min.css"/>
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_dc2cc71c4d994a22aced3651d90c75a4" ></div>
+        
+</body>
+<script>    
+    
+            var map_dc2cc71c4d994a22aced3651d90c75a4 = L.map(
+                "map_dc2cc71c4d994a22aced3651d90c75a4",
+                {
+                    center: [45.40882383530077, -75.67489850472634],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 11,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+            L.control.scale().addTo(map_dc2cc71c4d994a22aced3651d90c75a4);
+
+            
+
+        
+    
+            var tile_layer_62c43c45b457499abc2594c84e798f83 = L.tileLayer(
+                "https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"http://cartodb.com/attributions\"\u003eCartoDB\u003c/a\u003e, CartoDB \u003ca href =\"http://cartodb.com/attributions\"\u003eattributions\u003c/a\u003e", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 9, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_dc2cc71c4d994a22aced3651d90c75a4);
+        
+    
+            var marker_60a34f93e9f64ef4b286d83335e9f9be = L.marker(
+                [45.43246674, -75.68908746],
+                {}
+            ).addTo(map_dc2cc71c4d994a22aced3651d90c75a4);
+        
+    
+            var beautify_icon_e48acf1c36a24f2399a3bb7f23e9f7bd = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 1, "textColor": "dodgerblue"}
+            )
+            marker_60a34f93e9f64ef4b286d83335e9f9be.setIcon(beautify_icon_e48acf1c36a24f2399a3bb7f23e9f7bd);
+        
+    
+            marker_60a34f93e9f64ef4b286d83335e9f9be.bindTooltip(
+                `<div>
+                     1) KING EDWARD @ ST. PATRICK: Southbound 2021 - monthly mean ~489
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_12eac42812524605b766037114016a9b = L.marker(
+                [45.43246673563, -75.689087456685],
+                {}
+            ).addTo(map_dc2cc71c4d994a22aced3651d90c75a4);
+        
+    
+            var beautify_icon_bd0cbfeab63c4f1ab69b756a4f7c8db7 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 2, "textColor": "dodgerblue"}
+            )
+            marker_12eac42812524605b766037114016a9b.setIcon(beautify_icon_bd0cbfeab63c4f1ab69b756a4f7c8db7);
+        
+    
+            marker_12eac42812524605b766037114016a9b.bindTooltip(
+                `<div>
+                     2) KING EDWARD @ ST. PATRICK: Southbound 2019 - monthly mean ~395
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_97041a7a67ae4272b33525c7123c5463 = L.marker(
+                [45.43246673563, -75.689087456685],
+                {}
+            ).addTo(map_dc2cc71c4d994a22aced3651d90c75a4);
+        
+    
+            var beautify_icon_adbdfb693fe34013902e886d770b92f2 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 3, "textColor": "dodgerblue"}
+            )
+            marker_97041a7a67ae4272b33525c7123c5463.setIcon(beautify_icon_adbdfb693fe34013902e886d770b92f2);
+        
+    
+            marker_97041a7a67ae4272b33525c7123c5463.bindTooltip(
+                `<div>
+                     3) KING EDWARD @ ST. PATRICK: Southbound 2018 - monthly mean ~346
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_32661fd18cec4a68a4c7f311bb6fd137 = L.marker(
+                [45.3784036006976, -75.6694586450074],
+                {}
+            ).addTo(map_dc2cc71c4d994a22aced3651d90c75a4);
+        
+    
+            var beautify_icon_479d29b6d5ab4c439910a83d4adfe106 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 4, "textColor": "dodgerblue"}
+            )
+            marker_32661fd18cec4a68a4c7f311bb6fd137.setIcon(beautify_icon_479d29b6d5ab4c439910a83d4adfe106);
+        
+    
+            marker_32661fd18cec4a68a4c7f311bb6fd137.bindTooltip(
+                `<div>
+                     4) HERON @ 155m W OF BANK : Eastbound 2017 - monthly mean ~275
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_92cb073232704be4868cf042e4ffdb54 = L.marker(
+                [45.43246674, -75.68908746],
+                {}
+            ).addTo(map_dc2cc71c4d994a22aced3651d90c75a4);
+        
+    
+            var beautify_icon_a9d073c54df148ab839a9bba65e1f793 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 5, "textColor": "dodgerblue"}
+            )
+            marker_92cb073232704be4868cf042e4ffdb54.setIcon(beautify_icon_a9d073c54df148ab839a9bba65e1f793);
+        
+    
+            marker_92cb073232704be4868cf042e4ffdb54.bindTooltip(
+                `<div>
+                     5) KING EDWARD @ ST. PATRICK: Southbound 2020 - monthly mean ~267
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_e0e91120e25049bfad52a5a67fc8fc1c = L.marker(
+                [45.39990521, -75.62158646],
+                {}
+            ).addTo(map_dc2cc71c4d994a22aced3651d90c75a4);
+        
+    
+            var beautify_icon_3a0fa9b891a249a49fda6349ee015143 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 6, "textColor": "dodgerblue"}
+            )
+            marker_e0e91120e25049bfad52a5a67fc8fc1c.setIcon(beautify_icon_3a0fa9b891a249a49fda6349ee015143);
+        
+    
+            marker_e0e91120e25049bfad52a5a67fc8fc1c.bindTooltip(
+                `<div>
+                     6) RUSSELL @ ST-LAURENT: Southbound 2021 - monthly mean ~265
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_f0d1d1b1feeb4296bad3743ba611eeb6 = L.marker(
+                [45.3784036006976, -75.6694586450074],
+                {}
+            ).addTo(map_dc2cc71c4d994a22aced3651d90c75a4);
+        
+    
+            var beautify_icon_6bcfe74289d046c2a6051e855ce0abf7 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 7, "textColor": "dodgerblue"}
+            )
+            marker_f0d1d1b1feeb4296bad3743ba611eeb6.setIcon(beautify_icon_6bcfe74289d046c2a6051e855ce0abf7);
+        
+    
+            marker_f0d1d1b1feeb4296bad3743ba611eeb6.bindTooltip(
+                `<div>
+                     7) HERON @ 155m W OF BANK : Eastbound 2018 - monthly mean ~265
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_8c88ddeabaf5492c92ccaf0f3bac603d = L.marker(
+                [45.3822204, -75.63422114],
+                {}
+            ).addTo(map_dc2cc71c4d994a22aced3651d90c75a4);
+        
+    
+            var beautify_icon_655cfcbc333e465fb13fb931776c788b = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 8, "textColor": "dodgerblue"}
+            )
+            marker_8c88ddeabaf5492c92ccaf0f3bac603d.setIcon(beautify_icon_655cfcbc333e465fb13fb931776c788b);
+        
+    
+            marker_8c88ddeabaf5492c92ccaf0f3bac603d.bindTooltip(
+                `<div>
+                     8) WALKLEY @ RYDER / DON RIED: Westbound 2021 - monthly mean ~241
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_e4310ced1d5a4481a1c2b10f455bd878 = L.marker(
+                [45.4094128847803, -75.6942720468272],
+                {}
+            ).addTo(map_dc2cc71c4d994a22aced3651d90c75a4);
+        
+    
+            var beautify_icon_aa0dd16795bb43b3be72ff2fb375fa8c = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 9, "textColor": "dodgerblue"}
+            )
+            marker_e4310ced1d5a4481a1c2b10f455bd878.setIcon(beautify_icon_aa0dd16795bb43b3be72ff2fb375fa8c);
+        
+    
+            marker_e4310ced1d5a4481a1c2b10f455bd878.bindTooltip(
+                `<div>
+                     9) KENT @ ARLINGTON: Northbound 2019 - monthly mean ~235
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_ab972d29d8ab4510aaf287f68bfd1025 = L.marker(
+                [45.4337953918273, -75.6899119815126],
+                {}
+            ).addTo(map_dc2cc71c4d994a22aced3651d90c75a4);
+        
+    
+            var beautify_icon_c6c7023fb8ae4f3598c3741c81a454c4 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 10, "textColor": "dodgerblue"}
+            )
+            marker_ab972d29d8ab4510aaf287f68bfd1025.setIcon(beautify_icon_c6c7023fb8ae4f3598c3741c81a454c4);
+        
+    
+            marker_ab972d29d8ab4510aaf287f68bfd1025.bindTooltip(
+                `<div>
+                     10) KING EDWARD @ ST. ANDREW : Northbound 2018 - monthly mean ~232
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_fdffe371346c4a2b9f1cced6b8f87588 = L.marker(
+                [45.43379539, -75.68991198],
+                {}
+            ).addTo(map_dc2cc71c4d994a22aced3651d90c75a4);
+        
+    
+            var beautify_icon_bcf5d32828a54e7a9331b4a4faea42a5 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 11, "textColor": "dodgerblue"}
+            )
+            marker_fdffe371346c4a2b9f1cced6b8f87588.setIcon(beautify_icon_bcf5d32828a54e7a9331b4a4faea42a5);
+        
+    
+            marker_fdffe371346c4a2b9f1cced6b8f87588.bindTooltip(
+                `<div>
+                     11) KING EDWARD @ ST. ANDREW : Northbound 2021 - monthly mean ~230
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_cabadb4c322f4998a24d990f3616a92c = L.marker(
+                [45.3784036006976, -75.6694586450074],
+                {}
+            ).addTo(map_dc2cc71c4d994a22aced3651d90c75a4);
+        
+    
+            var beautify_icon_080503ce977349198808f05821f8e5df = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 12, "textColor": "dodgerblue"}
+            )
+            marker_cabadb4c322f4998a24d990f3616a92c.setIcon(beautify_icon_080503ce977349198808f05821f8e5df);
+        
+    
+            marker_cabadb4c322f4998a24d990f3616a92c.bindTooltip(
+                `<div>
+                     12) HERON @ 155m W OF BANK : Eastbound 2019 - monthly mean ~226
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_774bd2ae6aac444ea8ffa0966c9593a5 = L.marker(
+                [45.34747262, -75.66147357],
+                {}
+            ).addTo(map_dc2cc71c4d994a22aced3651d90c75a4);
+        
+    
+            var beautify_icon_92b52f5789ff4077b662e9e84bf882c8 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 13, "textColor": "dodgerblue"}
+            )
+            marker_774bd2ae6aac444ea8ffa0966c9593a5.setIcon(beautify_icon_92b52f5789ff4077b662e9e84bf882c8);
+        
+    
+            marker_774bd2ae6aac444ea8ffa0966c9593a5.bindTooltip(
+                `<div>
+                     13) HUNT CLUB @ DOWNPARTICK /MCCARTY: Eastbound 2021 - monthly mean ~211
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_dffe4665cb23424f9d1231ff13e149e1 = L.marker(
+                [45.43379539, -75.68991198],
+                {}
+            ).addTo(map_dc2cc71c4d994a22aced3651d90c75a4);
+        
+    
+            var beautify_icon_b8a26d26ee9641eb98041df673fa6037 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 14, "textColor": "dodgerblue"}
+            )
+            marker_dffe4665cb23424f9d1231ff13e149e1.setIcon(beautify_icon_b8a26d26ee9641eb98041df673fa6037);
+        
+    
+            marker_dffe4665cb23424f9d1231ff13e149e1.bindTooltip(
+                `<div>
+                     14) KING EDWARD @ ST. ANDREW : Northbound 2020 - monthly mean ~207
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_db21cb33df05431e83b71bda7b82021c = L.marker(
+                [45.4105936876743, -75.6894643676993],
+                {}
+            ).addTo(map_dc2cc71c4d994a22aced3651d90c75a4);
+        
+    
+            var beautify_icon_f117916bbfc94eb89b837edd19eb2814 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 15, "textColor": "dodgerblue"}
+            )
+            marker_db21cb33df05431e83b71bda7b82021c.setIcon(beautify_icon_f117916bbfc94eb89b837edd19eb2814);
+        
+    
+            marker_db21cb33df05431e83b71bda7b82021c.bindTooltip(
+                `<div>
+                     15) CATHERINE & O'CONNOR @ HWY 417 WB: Westbound 2017 - monthly mean ~204
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_1f7838d2a8324aebbb4aa7c9e1830773 = L.marker(
+                [45.4105936876743, -75.6894643676993],
+                {}
+            ).addTo(map_dc2cc71c4d994a22aced3651d90c75a4);
+        
+    
+            var beautify_icon_13e85f979acc4263a098507536ee1ff5 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 16, "textColor": "dodgerblue"}
+            )
+            marker_1f7838d2a8324aebbb4aa7c9e1830773.setIcon(beautify_icon_13e85f979acc4263a098507536ee1ff5);
+        
+    
+            marker_1f7838d2a8324aebbb4aa7c9e1830773.bindTooltip(
+                `<div>
+                     16) CATHERINE & O'CONNOR @ HWY 417 WB: Westbound 2018 - monthly mean ~185
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_58140451b3694d6493d3be846025830c = L.marker(
+                [45.39990521, -75.62158646],
+                {}
+            ).addTo(map_dc2cc71c4d994a22aced3651d90c75a4);
+        
+    
+            var beautify_icon_765c866c8f3c4a4eb3925acdd302c9a1 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 17, "textColor": "dodgerblue"}
+            )
+            marker_58140451b3694d6493d3be846025830c.setIcon(beautify_icon_765c866c8f3c4a4eb3925acdd302c9a1);
+        
+    
+            marker_58140451b3694d6493d3be846025830c.bindTooltip(
+                `<div>
+                     17) RUSSELL @ ST-LAURENT: Southbound 2020 - monthly mean ~185
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_13b3417127cf44239853bf461dad8da3 = L.marker(
+                [45.42809335, -75.68529062],
+                {}
+            ).addTo(map_dc2cc71c4d994a22aced3651d90c75a4);
+        
+    
+            var beautify_icon_94b49d4d41f144a383a423494de7bef0 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 18, "textColor": "dodgerblue"}
+            )
+            marker_13b3417127cf44239853bf461dad8da3.setIcon(beautify_icon_94b49d4d41f144a383a423494de7bef0);
+        
+    
+            marker_13b3417127cf44239853bf461dad8da3.bindTooltip(
+                `<div>
+                     18) KING EDWARD @ BESSERER: Northbound 2020 - monthly mean ~177
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_6d6e7686479246acb1ab7f02976f387e = L.marker(
+                [45.3880203388791, -75.6762373708842],
+                {}
+            ).addTo(map_dc2cc71c4d994a22aced3651d90c75a4);
+        
+    
+            var beautify_icon_31308909154f4817b6602f95d8c1f9a2 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 19, "textColor": "dodgerblue"}
+            )
+            marker_6d6e7686479246acb1ab7f02976f387e.setIcon(beautify_icon_31308909154f4817b6602f95d8c1f9a2);
+        
+    
+            marker_6d6e7686479246acb1ab7f02976f387e.bindTooltip(
+                `<div>
+                     19) BANK @ RIVERSIDE S. : Northbound 2017 - monthly mean ~171
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_43ec2221d8484b4983348f07ae8c7d42 = L.marker(
+                [45.4337953918273, -75.6899119815126],
+                {}
+            ).addTo(map_dc2cc71c4d994a22aced3651d90c75a4);
+        
+    
+            var beautify_icon_3d5aa93b721849779df6aa141bbecb9d = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 20, "textColor": "dodgerblue"}
+            )
+            marker_43ec2221d8484b4983348f07ae8c7d42.setIcon(beautify_icon_3d5aa93b721849779df6aa141bbecb9d);
+        
+    
+            marker_43ec2221d8484b4983348f07ae8c7d42.bindTooltip(
+                `<div>
+                     20) KING EDWARD @ ST. ANDREW : Northbound 2019 - monthly mean ~168
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>

@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_d493cf6bbf9541e28e2d7b510c4cac13 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+    <script src="https://cdn.jsdelivr.net/gh/marslan390/BeautifyMarker/leaflet-beautify-marker-icon.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/marslan390/BeautifyMarker/leaflet-beautify-marker-icon.min.css"/>
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_d493cf6bbf9541e28e2d7b510c4cac13" ></div>
+        
+</body>
+<script>    
+    
+            var map_d493cf6bbf9541e28e2d7b510c4cac13 = L.map(
+                "map_d493cf6bbf9541e28e2d7b510c4cac13",
+                {
+                    center: [45.40944027576589, -75.67658824647599],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 11,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+            L.control.scale().addTo(map_d493cf6bbf9541e28e2d7b510c4cac13);
+
+            
+
+        
+    
+            var tile_layer_c9d98c3387534661bb82561e52e5bb1a = L.tileLayer(
+                "https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"http://cartodb.com/attributions\"\u003eCartoDB\u003c/a\u003e, CartoDB \u003ca href =\"http://cartodb.com/attributions\"\u003eattributions\u003c/a\u003e", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 9, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_d493cf6bbf9541e28e2d7b510c4cac13);
+        
+    
+            var marker_f0335558ff224f5383cc2adcfe39fa2d = L.marker(
+                [45.43246674, -75.68908746],
+                {}
+            ).addTo(map_d493cf6bbf9541e28e2d7b510c4cac13);
+        
+    
+            var beautify_icon_eeb3e1edab6e408da1295408a4fb8681 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 1, "textColor": "dodgerblue"}
+            )
+            marker_f0335558ff224f5383cc2adcfe39fa2d.setIcon(beautify_icon_eeb3e1edab6e408da1295408a4fb8681);
+        
+    
+            marker_f0335558ff224f5383cc2adcfe39fa2d.bindTooltip(
+                `<div>
+                     1) KING EDWARD @ ST. PATRICK: Southbound 2021 - total ~5868.0
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_0632d61ee48e45e3856c9e7d33e79627 = L.marker(
+                [45.43246673563, -75.689087456685],
+                {}
+            ).addTo(map_d493cf6bbf9541e28e2d7b510c4cac13);
+        
+    
+            var beautify_icon_7fe9639b82934752a8d53270d2048038 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 2, "textColor": "dodgerblue"}
+            )
+            marker_0632d61ee48e45e3856c9e7d33e79627.setIcon(beautify_icon_7fe9639b82934752a8d53270d2048038);
+        
+    
+            marker_0632d61ee48e45e3856c9e7d33e79627.bindTooltip(
+                `<div>
+                     2) KING EDWARD @ ST. PATRICK: Southbound 2019 - total ~4739.0
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_37000fa7727c447895d5f0dc31d429ba = L.marker(
+                [45.43246673563, -75.689087456685],
+                {}
+            ).addTo(map_d493cf6bbf9541e28e2d7b510c4cac13);
+        
+    
+            var beautify_icon_fe928b0c27404811912fa3adfee361a8 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 3, "textColor": "dodgerblue"}
+            )
+            marker_37000fa7727c447895d5f0dc31d429ba.setIcon(beautify_icon_fe928b0c27404811912fa3adfee361a8);
+        
+    
+            marker_37000fa7727c447895d5f0dc31d429ba.bindTooltip(
+                `<div>
+                     3) KING EDWARD @ ST. PATRICK: Southbound 2018 - total ~4154.0
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_6d531b9a69844dfcb5081837ae876ec6 = L.marker(
+                [45.43246674, -75.68908746],
+                {}
+            ).addTo(map_d493cf6bbf9541e28e2d7b510c4cac13);
+        
+    
+            var beautify_icon_00b2437bd0b64c789a22024a560f0719 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 4, "textColor": "dodgerblue"}
+            )
+            marker_6d531b9a69844dfcb5081837ae876ec6.setIcon(beautify_icon_00b2437bd0b64c789a22024a560f0719);
+        
+    
+            marker_6d531b9a69844dfcb5081837ae876ec6.bindTooltip(
+                `<div>
+                     4) KING EDWARD @ ST. PATRICK: Southbound 2020 - total ~3203.0
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a973e19a66a4438081324aa73a7d466c = L.marker(
+                [45.39990521, -75.62158646],
+                {}
+            ).addTo(map_d493cf6bbf9541e28e2d7b510c4cac13);
+        
+    
+            var beautify_icon_758a58a57d55427baf82a6655a7d814d = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 5, "textColor": "dodgerblue"}
+            )
+            marker_a973e19a66a4438081324aa73a7d466c.setIcon(beautify_icon_758a58a57d55427baf82a6655a7d814d);
+        
+    
+            marker_a973e19a66a4438081324aa73a7d466c.bindTooltip(
+                `<div>
+                     5) RUSSELL @ ST-LAURENT: Southbound 2021 - total ~3184.0
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_4c0535eef89d4d119d59c9e86adfaa7e = L.marker(
+                [45.3784036006976, -75.6694586450074],
+                {}
+            ).addTo(map_d493cf6bbf9541e28e2d7b510c4cac13);
+        
+    
+            var beautify_icon_0f2633c94b7e4c24b6a4e2b379c1b497 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 6, "textColor": "dodgerblue"}
+            )
+            marker_4c0535eef89d4d119d59c9e86adfaa7e.setIcon(beautify_icon_0f2633c94b7e4c24b6a4e2b379c1b497);
+        
+    
+            marker_4c0535eef89d4d119d59c9e86adfaa7e.bindTooltip(
+                `<div>
+                     6) HERON @ 155m W OF BANK : Eastbound 2018 - total ~3180.0
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_191384d9eea9457bae36380adacca77c = L.marker(
+                [45.3822204, -75.63422114],
+                {}
+            ).addTo(map_d493cf6bbf9541e28e2d7b510c4cac13);
+        
+    
+            var beautify_icon_4f350860f85944fb856e48ad6c3afa18 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 7, "textColor": "dodgerblue"}
+            )
+            marker_191384d9eea9457bae36380adacca77c.setIcon(beautify_icon_4f350860f85944fb856e48ad6c3afa18);
+        
+    
+            marker_191384d9eea9457bae36380adacca77c.bindTooltip(
+                `<div>
+                     7) WALKLEY @ RYDER / DON RIED: Westbound 2021 - total ~2893.0
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_8602ee58d4d6469d90207e0369890b0a = L.marker(
+                [45.4094128847803, -75.6942720468272],
+                {}
+            ).addTo(map_d493cf6bbf9541e28e2d7b510c4cac13);
+        
+    
+            var beautify_icon_4499ef5b3fd1403382a84c6fec4eb752 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 8, "textColor": "dodgerblue"}
+            )
+            marker_8602ee58d4d6469d90207e0369890b0a.setIcon(beautify_icon_4499ef5b3fd1403382a84c6fec4eb752);
+        
+    
+            marker_8602ee58d4d6469d90207e0369890b0a.bindTooltip(
+                `<div>
+                     8) KENT @ ARLINGTON: Northbound 2019 - total ~2825.0
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c58f4274c7de402eb6689a67b3c90dfc = L.marker(
+                [45.4337953918273, -75.6899119815126],
+                {}
+            ).addTo(map_d493cf6bbf9541e28e2d7b510c4cac13);
+        
+    
+            var beautify_icon_f42cb497e5cc44f2abbda98930229d9c = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 9, "textColor": "dodgerblue"}
+            )
+            marker_c58f4274c7de402eb6689a67b3c90dfc.setIcon(beautify_icon_f42cb497e5cc44f2abbda98930229d9c);
+        
+    
+            marker_c58f4274c7de402eb6689a67b3c90dfc.bindTooltip(
+                `<div>
+                     9) KING EDWARD @ ST. ANDREW : Northbound 2018 - total ~2784.0
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_fa059eeaf72f41f4b1911d50543215f8 = L.marker(
+                [45.3784036006976, -75.6694586450074],
+                {}
+            ).addTo(map_d493cf6bbf9541e28e2d7b510c4cac13);
+        
+    
+            var beautify_icon_6aa2c49bb0fb467dab768a6128f5da5f = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 10, "textColor": "dodgerblue"}
+            )
+            marker_fa059eeaf72f41f4b1911d50543215f8.setIcon(beautify_icon_6aa2c49bb0fb467dab768a6128f5da5f);
+        
+    
+            marker_fa059eeaf72f41f4b1911d50543215f8.bindTooltip(
+                `<div>
+                     10) HERON @ 155m W OF BANK : Eastbound 2019 - total ~2706.0
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_1d3a604e2e4b47d08d53437c195bec8a = L.marker(
+                [45.34747262, -75.66147357],
+                {}
+            ).addTo(map_d493cf6bbf9541e28e2d7b510c4cac13);
+        
+    
+            var beautify_icon_81ee525bd12f49bf89af029f1ab9b1e6 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 11, "textColor": "dodgerblue"}
+            )
+            marker_1d3a604e2e4b47d08d53437c195bec8a.setIcon(beautify_icon_81ee525bd12f49bf89af029f1ab9b1e6);
+        
+    
+            marker_1d3a604e2e4b47d08d53437c195bec8a.bindTooltip(
+                `<div>
+                     11) HUNT CLUB @ DOWNPARTICK /MCCARTY: Eastbound 2021 - total ~2536.0
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_ee2d54fbbb504caf942283c4e977f73d = L.marker(
+                [45.43379539, -75.68991198],
+                {}
+            ).addTo(map_d493cf6bbf9541e28e2d7b510c4cac13);
+        
+    
+            var beautify_icon_e6d180e6ee8c4d19a4086fd642cc9c11 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 12, "textColor": "dodgerblue"}
+            )
+            marker_ee2d54fbbb504caf942283c4e977f73d.setIcon(beautify_icon_e6d180e6ee8c4d19a4086fd642cc9c11);
+        
+    
+            marker_ee2d54fbbb504caf942283c4e977f73d.bindTooltip(
+                `<div>
+                     12) KING EDWARD @ ST. ANDREW : Northbound 2021 - total ~2529.0
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_efdde717cb8f45b7b155fb8196e86287 = L.marker(
+                [45.43379539, -75.68991198],
+                {}
+            ).addTo(map_d493cf6bbf9541e28e2d7b510c4cac13);
+        
+    
+            var beautify_icon_8428066d1f7847f3a65a82a97c5c3e39 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 13, "textColor": "dodgerblue"}
+            )
+            marker_efdde717cb8f45b7b155fb8196e86287.setIcon(beautify_icon_8428066d1f7847f3a65a82a97c5c3e39);
+        
+    
+            marker_efdde717cb8f45b7b155fb8196e86287.bindTooltip(
+                `<div>
+                     13) KING EDWARD @ ST. ANDREW : Northbound 2020 - total ~2482.0
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_57a7fe9b586444f2a9d194906fd2b545 = L.marker(
+                [45.4105936876743, -75.6894643676993],
+                {}
+            ).addTo(map_d493cf6bbf9541e28e2d7b510c4cac13);
+        
+    
+            var beautify_icon_e542b3fee64844408492ce11525f894e = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 14, "textColor": "dodgerblue"}
+            )
+            marker_57a7fe9b586444f2a9d194906fd2b545.setIcon(beautify_icon_e542b3fee64844408492ce11525f894e);
+        
+    
+            marker_57a7fe9b586444f2a9d194906fd2b545.bindTooltip(
+                `<div>
+                     14) CATHERINE & O'CONNOR @ HWY 417 WB: Westbound 2018 - total ~2224.0
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_6bd321b1353342f0be77babdad555e5e = L.marker(
+                [45.39990521, -75.62158646],
+                {}
+            ).addTo(map_d493cf6bbf9541e28e2d7b510c4cac13);
+        
+    
+            var beautify_icon_96b2ce5e377840a0a4575c7e176d7617 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 15, "textColor": "dodgerblue"}
+            )
+            marker_6bd321b1353342f0be77babdad555e5e.setIcon(beautify_icon_96b2ce5e377840a0a4575c7e176d7617);
+        
+    
+            marker_6bd321b1353342f0be77babdad555e5e.bindTooltip(
+                `<div>
+                     15) RUSSELL @ ST-LAURENT: Southbound 2020 - total ~2221.0
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_0867bfeb226347ea9f1ae4883cf73bba = L.marker(
+                [45.4105936876743, -75.6894643676993],
+                {}
+            ).addTo(map_d493cf6bbf9541e28e2d7b510c4cac13);
+        
+    
+            var beautify_icon_651e6ce9a67342258ff1fcfb8f96ead0 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 16, "textColor": "dodgerblue"}
+            )
+            marker_0867bfeb226347ea9f1ae4883cf73bba.setIcon(beautify_icon_651e6ce9a67342258ff1fcfb8f96ead0);
+        
+    
+            marker_0867bfeb226347ea9f1ae4883cf73bba.bindTooltip(
+                `<div>
+                     16) CATHERINE & O'CONNOR @ HWY 417 WB: Westbound 2017 - total ~2039.0
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_4a71f1a2752c46aab6ae4dfc342d4769 = L.marker(
+                [45.4337953918273, -75.6899119815126],
+                {}
+            ).addTo(map_d493cf6bbf9541e28e2d7b510c4cac13);
+        
+    
+            var beautify_icon_a5ff3620e32b40138173baeb66a78f7c = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 17, "textColor": "dodgerblue"}
+            )
+            marker_4a71f1a2752c46aab6ae4dfc342d4769.setIcon(beautify_icon_a5ff3620e32b40138173baeb66a78f7c);
+        
+    
+            marker_4a71f1a2752c46aab6ae4dfc342d4769.bindTooltip(
+                `<div>
+                     17) KING EDWARD @ ST. ANDREW : Northbound 2019 - total ~2014.0
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_64af6fc2ceb54daa8ae3d55a57042ad2 = L.marker(
+                [45.40941288, -75.69427205],
+                {}
+            ).addTo(map_d493cf6bbf9541e28e2d7b510c4cac13);
+        
+    
+            var beautify_icon_597224db838f4b57ad75e9b61f268b35 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 18, "textColor": "dodgerblue"}
+            )
+            marker_64af6fc2ceb54daa8ae3d55a57042ad2.setIcon(beautify_icon_597224db838f4b57ad75e9b61f268b35);
+        
+    
+            marker_64af6fc2ceb54daa8ae3d55a57042ad2.bindTooltip(
+                `<div>
+                     18) KENT @ ARLINGTON: Northbound 2021 - total ~1957.0
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_742c35fab31c42fbb792482c1337680c = L.marker(
+                [45.3880203388791, -75.6762373708842],
+                {}
+            ).addTo(map_d493cf6bbf9541e28e2d7b510c4cac13);
+        
+    
+            var beautify_icon_3c9d7cae4c3942019ed045138cbc2218 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 19, "textColor": "dodgerblue"}
+            )
+            marker_742c35fab31c42fbb792482c1337680c.setIcon(beautify_icon_3c9d7cae4c3942019ed045138cbc2218);
+        
+    
+            marker_742c35fab31c42fbb792482c1337680c.bindTooltip(
+                `<div>
+                     19) BANK @ RIVERSIDE S. : Northbound 2018 - total ~1938.0
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_e5bfd037b00e4c23a53d50408a107d8b = L.marker(
+                [45.40941288, -75.69427205],
+                {}
+            ).addTo(map_d493cf6bbf9541e28e2d7b510c4cac13);
+        
+    
+            var beautify_icon_f8cec0d783fb4843a37a2ca30133bdb7 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 20, "textColor": "dodgerblue"}
+            )
+            marker_e5bfd037b00e4c23a53d50408a107d8b.setIcon(beautify_icon_f8cec0d783fb4843a37a2ca30133bdb7);
+        
+    
+            marker_e5bfd037b00e4c23a53d50408a107d8b.bindTooltip(
+                `<div>
+                     20) KENT @ ARLINGTON: Northbound 2020 - total ~1935.0
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>

@@ -161,7 +161,7 @@ setTimeout(timer1801,1801000);
 		This problem will be broken down into three main sub-sections, which focus on different aspects of the main problem:<br>
 		<b>
 			<a href="#question1" class="saymore"> Question 1) Which month(s) see the most number of violations?</a><br>
-			<a href="#question2" class="saymore"> Question 2) Which location(s) have the most violations?</a><br>
+			<a href="#question2" class="saymore"> Question 2) Which location(s) have the most violations (2016-2020)?</a>    <a href="#question22021" class="saymore">2021 update</a><br>
 			<a href="#question3"  class="saymore"> Question 3) Which locations, if any, had a statistically significant change in the redlight camera violation occurrences for the year 2020?</a><br>
 		</b>
 		For the questions, it is important to analyze the current data available (2020) to see patterns due to regular changes that would occur year-over-year but also major changes that would have occurred during the pandemic (beginning mid March 2020 in Ottawa). It is also useful to analyze previous yearly data because it provides us with a larger picture of patterns that might occur through the years.
@@ -505,7 +505,117 @@ setTimeout(timer1801,1801000);
 	<p>
 		It is important to note that although <b>Heron @ 155m W Of Bank: <i>Eastbound</i></b> had a consistently high number of violations since install in 2017, in 2020 it started to decline during COVID restrictions (March 2020), with a sharp decrease in April and May. This is why this location is no longer recommended to ensure it is up and running. It would be a good idea to analyze this redlight camera once restrictions from COVID have fully been removed, to see if there will be an increase in violations again.
 	</p>
-</div>
+
+
+	<h5 id='question22021'>2021 Update</h5>
+	<h6>Findings:</h6>
+	<p><b><i>Top 10 Locations</i></b></p>
+	<p>
+		Below you will find a table looking at the top 10 locations for both 2020 and 2021 (using the monthly mean and the total yearly violations).
+	</p>
+	<center><img  src="images/pages/projects/redlight/top_10_locations_table.png" width="400" height="auto"></center>
+	<p>
+		What we can see that there are some consistencies between the years, such as King Edward @ St. Patrick and @ St. Andrew, Russell @ St-Laurent, Kent @ Arlington, Bank @ Riverside S., and Walkley @ Ryder / Don Ried. But we can also see that there are some locations that have dropped out such as King Edward @ Besserer.
+	</p>
+
+	<p><b><i>Breakeven Locations</i></b></p>
+	<div class="six columns">
+		<center><img  src="images/pages/projects/redlight/grouped-intersection-mean-barh2016-2021.png" width="550" height="auto"></center>
+	</div>
+
+	<div class="six columns">
+		<center><img  src="images/pages/projects/redlight/grouped-intersection-total-barh2016-2021.png" width="550" height="auto"></center>
+	</div>
+
+	<p>
+		Interestingly some locations only fell below breakeven for 2020, but jumped back up for 2021:
+		<ul class="disc">
+			<li>Aviation Parkway @ Ogilvie: Westbound <i>(which we had listed to keep an eye out for given past data)</i></li>
+			<li>Bank @ Hunt Club: Northbound</li>
+			<li>Booth @ Wellington (RR40): Eastbound</li>
+			<li>Catherine @ Kent: Northbound had 0 for 2020, so must have been down for the year</li>
+			<li>Fallowfield @ Cedarview: Westbound</li>
+			<li>Conroy @ Lorry Greenberg: Southbound was very close to being below breakpoint but jumped back up in 2021 <i>(which we had listed to keep an eye out for given past data)</i></li>
+		</ul>
+	</p>
+	<p>
+	These locations still are not breaking even in 2021:
+		<ul class="disc">
+			<li>Carling @ Island Park: Eastbound continuously decreasing</li>
+			<li>Hawthorne @ Leitrim: Northbound</li>
+			<li>Innes @ Orleans: Southbound 2021 higher than 2020 but still not breakeven</li>
+			<li>O'Connor st @ HWY 417 WB on ramp / Catherine: Southbound 2020 well below breakeven, 2021 just at breakeven</li>
+		</ul>
+	</p>
+
+	<p>
+		These locations are not breaking even but just starting in 2021, so stay tuned to them:
+		<ul class="disc">
+			<li>Bay @ Slater: Eastbound was 0 for 2021; has not recorded any violations since August 2020 - Cyrville @ Innes: Westbound</li>
+			<li>Jockvale @ Strandherd: Eastbound it was trending down starting in 2020</li>
+			<li>King Edward @ Besserer: Northbound had a HUGE decline from 2020; when analyzed it was due to inactivity except for December 2021</li>
+			<li>March @ Carp: Eastbound</li>
+		</ul>
+	</p>
+
+	<p>
+		These locations are continuously zero for most years and most likely are no longer running:
+		<ul class="disc">
+			<li>Albert @ Booth: Eastbound</li>
+			<li>Berrigan @ Wessex/Greenbank: Southbound</li>
+		</ul>
+	</p>
+	<p>
+		Here are more detailed calculations for locations that are not breaking even (and their historical profit):
+	</p>
+	<center><img  src="images/pages/projects/redlight/total_profit_coloured_df.png" width="800" height="auto"></center>
+
+	<h6>Conclusion:</h6>
+	<p>
+		Locations <b>consistently losing</b> the city money:
+		<ul class="disc">
+			<li>Hawthrone  @ Leitrim: Northbound - lost the city <span style="color:#cc0000">$41,820</span> for 2021 (moved up to first place in 2021 for highest loss)</li>
+			<li>Carling @ Island Park: Eastbound - lost the city <span style="color:#cc0000">$39,220</span>  for 2021 <i>(has been losing money since 2018)</i></li>
+			<li>Innes @ Orleans: Southbound - lost the city <span style="color:#cc0000">$3,860</span> for 2021 <i>(which is a significantly smaller loss than the 2020 amount of <span style="color:#cc0000">$20,500</span>)</i></li>
+		</ul>
+	</p>
+	<p>
+		Locations that <b>just started losing money</b> in 2021, to keep an eye on for next year:
+		<ul class="disc">
+			<li>Cyrville @ Innes: Westbound - lost the city <span style="color:#cc0000">$6,200</span> in 2021</li>
+			<li>Jockvale @ Strandherd: Eastbound - lost the city <span style="color:#cc0000">$7,760</span> in 2021</li>
+			<li>March @ Carp: Eastbound - lost the city <span style="color:#cc0000">$8,800</span> in 2021</li>
+		</ul>
+	</p>
+
+	<p>
+		Locations to ensure they are being <b>maintained</b> (because they always give a big return):
+		<ul class="disc">
+			<li>King Edward @ St. Patrick</li>
+			<li>King Edward @ St. Andrew</li>
+			<li>Russell @ St-Laurent</li>
+			<li>Kent @ Arlington</li>
+			<li>Bank @ Riverside S.</li>
+			<li>Walkley @ Ryder / Don Ried</li>
+		</ul>
+	</p>
+	<p>
+		Locations that have a <b>high return right now</b>:
+		<ul class="disc">
+			<li>Hunt Club @ Downpatrick /Mccarty</li>
+			<li>Carling @ Iroquois</li>
+			<li>Prince Of Wales @ Hogs Back /Meadowlands</li>
+		</ul>
+	</p>
+
+
+
+
+
+
+
+</div><br><br>
+
 
 <div class="row">
 	<h5 id="question3"><center>Question 3) Which locations, if any, had a statistically significant change in the redlight camera violation occurrences for the year 2020?</center></h5>
@@ -564,6 +674,13 @@ setTimeout(timer1801,1801000);
 	<p>
 		This decrease in violations could be due to the COVID restrictions which probably led to more people staying at home meaning less people driving. Another reason for this occurrence could be due to the fact that red-light cameras are hypothesized to decrease violations the longer they are kept in place, meaning this could be a natural decrease in violations that we are seeing. In order to find which cause it most likely is, more research would need to be done.
 	</p>
+</div>
+
+<div>
+	<h4>Extensions</h4>
+	<ul class="disc">
+		<li>It would be interesting to see if there is a correlation between direction of camera and number of violations.</li>
+	</ul>
 </div>
 
 <div class="hr">

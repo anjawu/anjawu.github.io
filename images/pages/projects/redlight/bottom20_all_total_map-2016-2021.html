@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_9c2d6dc8b56a4fb4a8d305f5cfdea8bc {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+    <script src="https://cdn.jsdelivr.net/gh/marslan390/BeautifyMarker/leaflet-beautify-marker-icon.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/marslan390/BeautifyMarker/leaflet-beautify-marker-icon.min.css"/>
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_9c2d6dc8b56a4fb4a8d305f5cfdea8bc" ></div>
+        
+</body>
+<script>    
+    
+            var map_9c2d6dc8b56a4fb4a8d305f5cfdea8bc = L.map(
+                "map_9c2d6dc8b56a4fb4a8d305f5cfdea8bc",
+                {
+                    center: [45.37942189331896, -75.65653036806822],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 10,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+            L.control.scale().addTo(map_9c2d6dc8b56a4fb4a8d305f5cfdea8bc);
+
+            
+
+        
+    
+            var tile_layer_abce19ecc0994a31a7a37318a05c57b1 = L.tileLayer(
+                "https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"http://cartodb.com/attributions\"\u003eCartoDB\u003c/a\u003e, CartoDB \u003ca href =\"http://cartodb.com/attributions\"\u003eattributions\u003c/a\u003e", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 8, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_9c2d6dc8b56a4fb4a8d305f5cfdea8bc);
+        
+    
+            var marker_1b85885512904014904dd2850668dee9 = L.marker(
+                [45.42809335, -75.68529062],
+                {}
+            ).addTo(map_9c2d6dc8b56a4fb4a8d305f5cfdea8bc);
+        
+    
+            var beautify_icon_1a7512e0c4064394ae3c49994fba58e0 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 287, "textColor": "dodgerblue"}
+            )
+            marker_1b85885512904014904dd2850668dee9.setIcon(beautify_icon_1a7512e0c4064394ae3c49994fba58e0);
+        
+    
+            marker_1b85885512904014904dd2850668dee9.bindTooltip(
+                `<div>
+                     287) KING EDWARD @ BESSERER: Northbound 2021 - total ~137.0
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_d313dc9c7bb3426c9965dcedfd6b5093 = L.marker(
+                [45.27866592, -75.7799176],
+                {}
+            ).addTo(map_9c2d6dc8b56a4fb4a8d305f5cfdea8bc);
+        
+    
+            var beautify_icon_4016cb1b7dac48e5b1ccb7f9aab87686 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 288, "textColor": "dodgerblue"}
+            )
+            marker_d313dc9c7bb3426c9965dcedfd6b5093.setIcon(beautify_icon_4016cb1b7dac48e5b1ccb7f9aab87686);
+        
+    
+            marker_d313dc9c7bb3426c9965dcedfd6b5093.bindTooltip(
+                `<div>
+                     288) FALLOWFIELD @ CEDARVIEW: Westbound 2020 - total ~133.0
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_b0f3417134d14e74a3dea3072806360d = L.marker(
+                [45.44450342, -75.53280378],
+                {}
+            ).addTo(map_9c2d6dc8b56a4fb4a8d305f5cfdea8bc);
+        
+    
+            var beautify_icon_6e2554a6f25d49bd857985a77b9c5b21 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 289, "textColor": "dodgerblue"}
+            )
+            marker_b0f3417134d14e74a3dea3072806360d.setIcon(beautify_icon_6e2554a6f25d49bd857985a77b9c5b21);
+        
+    
+            marker_b0f3417134d14e74a3dea3072806360d.bindTooltip(
+                `<div>
+                     289) INNES @ ORLEANS: Southbound 2020 - total ~125.0
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_7699865183b34e6caa92bad1bb6aa7e3 = L.marker(
+                [45.3891915481429, -75.7266271322122],
+                {}
+            ).addTo(map_9c2d6dc8b56a4fb4a8d305f5cfdea8bc);
+        
+    
+            var beautify_icon_c7cfbdc4b8dd4a95a3cb04236a4520fe = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 290, "textColor": "dodgerblue"}
+            )
+            marker_7699865183b34e6caa92bad1bb6aa7e3.setIcon(beautify_icon_c7cfbdc4b8dd4a95a3cb04236a4520fe);
+        
+    
+            marker_7699865183b34e6caa92bad1bb6aa7e3.bindTooltip(
+                `<div>
+                     290) CARLING @ ISLAND PARK : Eastbound 2019 - total ~113.0
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_1da9b26b8d2c4c6ab1934754f91e77c8 = L.marker(
+                [45.2749753012558, -75.74900598571],
+                {}
+            ).addTo(map_9c2d6dc8b56a4fb4a8d305f5cfdea8bc);
+        
+    
+            var beautify_icon_a80eeb31ee8a48a88751270d5b35891f = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 291, "textColor": "dodgerblue"}
+            )
+            marker_1da9b26b8d2c4c6ab1934754f91e77c8.setIcon(beautify_icon_a80eeb31ee8a48a88751270d5b35891f);
+        
+    
+            marker_1da9b26b8d2c4c6ab1934754f91e77c8.bindTooltip(
+                `<div>
+                     291) BERRIGAN @ WESSEX / GREENBANK: Northbound 2016 - total ~109.0
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_4624bffe267d4a1ab9daf0694d0341b0 = L.marker(
+                [45.4436640643479, -75.6390982160083],
+                {}
+            ).addTo(map_9c2d6dc8b56a4fb4a8d305f5cfdea8bc);
+        
+    
+            var beautify_icon_d69ccb18d907436781c6083abc3aaa0a = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 292, "textColor": "dodgerblue"}
+            )
+            marker_4624bffe267d4a1ab9daf0694d0341b0.setIcon(beautify_icon_d69ccb18d907436781c6083abc3aaa0a);
+        
+    
+            marker_4624bffe267d4a1ab9daf0694d0341b0.bindTooltip(
+                `<div>
+                     292) AVIATION PARKWAY @ MONTREAL: Eastbound 2017 - total ~103.0
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_5026633d067f46f78ed72a48ef020c73 = L.marker(
+                [45.4087885189798, -75.6937826888553],
+                {}
+            ).addTo(map_9c2d6dc8b56a4fb4a8d305f5cfdea8bc);
+        
+    
+            var beautify_icon_97e77e5ec475470dac2f8f59f4419eed = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 293, "textColor": "dodgerblue"}
+            )
+            marker_5026633d067f46f78ed72a48ef020c73.setIcon(beautify_icon_97e77e5ec475470dac2f8f59f4419eed);
+        
+    
+            marker_5026633d067f46f78ed72a48ef020c73.bindTooltip(
+                `<div>
+                     293) CATHERINE @ KENT: Northbound 2018 - total ~89.0
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_2c1e767fe1f74072a65953c9649da8a9 = L.marker(
+                [45.3406130237996, -75.5782393258675],
+                {}
+            ).addTo(map_9c2d6dc8b56a4fb4a8d305f5cfdea8bc);
+        
+    
+            var beautify_icon_535a0ca5b44b4699b6eef5776828bc0a = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 294, "textColor": "dodgerblue"}
+            )
+            marker_2c1e767fe1f74072a65953c9649da8a9.setIcon(beautify_icon_535a0ca5b44b4699b6eef5776828bc0a);
+        
+    
+            marker_2c1e767fe1f74072a65953c9649da8a9.bindTooltip(
+                `<div>
+                     294) HAWTHORNE @ LEITRIM : Northbound 2018 - total ~82.0
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_ff9099a1583e4f9c94b66719370c5d1b = L.marker(
+                [45.4052915663227, -75.7097367170391],
+                {}
+            ).addTo(map_9c2d6dc8b56a4fb4a8d305f5cfdea8bc);
+        
+    
+            var beautify_icon_466c2049b3734e05aaf3c740d5185f07 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 295, "textColor": "dodgerblue"}
+            )
+            marker_ff9099a1583e4f9c94b66719370c5d1b.setIcon(beautify_icon_466c2049b3734e05aaf3c740d5185f07);
+        
+    
+            marker_ff9099a1583e4f9c94b66719370c5d1b.bindTooltip(
+                `<div>
+                     295) GLADSTONE @ ROCHESTER: Westbound 2017 - total ~80.0
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_aa1a93c2ad9f4a7a8098abe0e719d857 = L.marker(
+                [45.34061302, -75.57823933],
+                {}
+            ).addTo(map_9c2d6dc8b56a4fb4a8d305f5cfdea8bc);
+        
+    
+            var beautify_icon_8d53652e99b64620a0a057f4a26bfbce = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 296, "textColor": "dodgerblue"}
+            )
+            marker_aa1a93c2ad9f4a7a8098abe0e719d857.setIcon(beautify_icon_8d53652e99b64620a0a057f4a26bfbce);
+        
+    
+            marker_aa1a93c2ad9f4a7a8098abe0e719d857.bindTooltip(
+                `<div>
+                     296) HAWTHORNE @ LEITRIM : Northbound 2020 - total ~70.0
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_edf8a9c8103e4a9bbe4545bfb9722645 = L.marker(
+                [45.278665922032, -75.7799175968818],
+                {}
+            ).addTo(map_9c2d6dc8b56a4fb4a8d305f5cfdea8bc);
+        
+    
+            var beautify_icon_c92240d5ca4943e48b76c9968f0127de = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 297, "textColor": "dodgerblue"}
+            )
+            marker_edf8a9c8103e4a9bbe4545bfb9722645.setIcon(beautify_icon_c92240d5ca4943e48b76c9968f0127de);
+        
+    
+            marker_edf8a9c8103e4a9bbe4545bfb9722645.bindTooltip(
+                `<div>
+                     297) FALLOWFIELD @ CEDARVIEW: Westbound 2017 - total ~67.0
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_3b7a626aca364eee9793697c89596e3f = L.marker(
+                [45.38919155, -75.72662713],
+                {}
+            ).addTo(map_9c2d6dc8b56a4fb4a8d305f5cfdea8bc);
+        
+    
+            var beautify_icon_514abd569c584d8ab1c8681499f99d09 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 298, "textColor": "dodgerblue"}
+            )
+            marker_3b7a626aca364eee9793697c89596e3f.setIcon(beautify_icon_514abd569c584d8ab1c8681499f99d09);
+        
+    
+            marker_3b7a626aca364eee9793697c89596e3f.bindTooltip(
+                `<div>
+                     298) CARLING @ ISLAND PARK : Eastbound 2021 - total ~53.0
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_bb577411a2a049b1ba42bd53331e53a7 = L.marker(
+                [45.38919155, -75.72662713],
+                {}
+            ).addTo(map_9c2d6dc8b56a4fb4a8d305f5cfdea8bc);
+        
+    
+            var beautify_icon_989cede77e5b4697a97f0a897a2d49fc = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 299, "textColor": "dodgerblue"}
+            )
+            marker_bb577411a2a049b1ba42bd53331e53a7.setIcon(beautify_icon_989cede77e5b4697a97f0a897a2d49fc);
+        
+    
+            marker_bb577411a2a049b1ba42bd53331e53a7.bindTooltip(
+                `<div>
+                     299) CARLING @ ISLAND PARK : Eastbound 2020 - total ~51.0
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_e320fea6fa99424faf8e029473e81b6a = L.marker(
+                [45.35363104, -75.64733066],
+                {}
+            ).addTo(map_9c2d6dc8b56a4fb4a8d305f5cfdea8bc);
+        
+    
+            var beautify_icon_ef9453c4f655498194a934e7a2be6205 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 300, "textColor": "dodgerblue"}
+            )
+            marker_e320fea6fa99424faf8e029473e81b6a.setIcon(beautify_icon_ef9453c4f655498194a934e7a2be6205);
+        
+    
+            marker_e320fea6fa99424faf8e029473e81b6a.bindTooltip(
+                `<div>
+                     300) BANK @ HUNT CLUB: Northbound 2020 - total ~49.0
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_b9684db22b81487cb412cefa7efb661f = L.marker(
+                [45.4445034213538, -75.5328037773343],
+                {}
+            ).addTo(map_9c2d6dc8b56a4fb4a8d305f5cfdea8bc);
+        
+    
+            var beautify_icon_160f50ff3ef740c3816377cf0f655a78 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 301, "textColor": "dodgerblue"}
+            )
+            marker_b9684db22b81487cb412cefa7efb661f.setIcon(beautify_icon_160f50ff3ef740c3816377cf0f655a78);
+        
+    
+            marker_b9684db22b81487cb412cefa7efb661f.bindTooltip(
+                `<div>
+                     301) INNES @ ORLEANS: Southbound 2017 - total ~47.0
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_945d9b9d3bbc4252a625c6ee53099a89 = L.marker(
+                [45.41059366, -75.68946433],
+                {}
+            ).addTo(map_9c2d6dc8b56a4fb4a8d305f5cfdea8bc);
+        
+    
+            var beautify_icon_13ad7333cd1148f5ba491cdf7139c9d5 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 302, "textColor": "dodgerblue"}
+            )
+            marker_945d9b9d3bbc4252a625c6ee53099a89.setIcon(beautify_icon_13ad7333cd1148f5ba491cdf7139c9d5);
+        
+    
+            marker_945d9b9d3bbc4252a625c6ee53099a89.bindTooltip(
+                `<div>
+                     302) O'CONNOR ST @ HWY 417 WB ON RAMP / CATHERINE: Southbound 2020 - total ~44.0
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_b72bb95eebd14c2a8ef4dfad93fb04b9 = L.marker(
+                [45.34061302, -75.57823933],
+                {}
+            ).addTo(map_9c2d6dc8b56a4fb4a8d305f5cfdea8bc);
+        
+    
+            var beautify_icon_0d50867f2c72446fba1bc4b4efe5fed8 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 303, "textColor": "dodgerblue"}
+            )
+            marker_b72bb95eebd14c2a8ef4dfad93fb04b9.setIcon(beautify_icon_0d50867f2c72446fba1bc4b4efe5fed8);
+        
+    
+            marker_b72bb95eebd14c2a8ef4dfad93fb04b9.bindTooltip(
+                `<div>
+                     303) HAWTHORNE @ LEITRIM : Northbound 2021 - total ~43.0
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a5182a33f2c141519d75046e57e87254 = L.marker(
+                [45.4024346708227, -75.700513271232],
+                {}
+            ).addTo(map_9c2d6dc8b56a4fb4a8d305f5cfdea8bc);
+        
+    
+            var beautify_icon_0ba5b3f6d69f476aa2b67f7202a254b4 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 304, "textColor": "dodgerblue"}
+            )
+            marker_a5182a33f2c141519d75046e57e87254.setIcon(beautify_icon_0ba5b3f6d69f476aa2b67f7202a254b4);
+        
+    
+            marker_a5182a33f2c141519d75046e57e87254.bindTooltip(
+                `<div>
+                     304) BRONSON @ POWELL: Southbound 2017 - total ~23.0
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_408190dbfacb43f4a11b5b85cfc7f04b = L.marker(
+                [45.3406130237996, -75.5782393258675],
+                {}
+            ).addTo(map_9c2d6dc8b56a4fb4a8d305f5cfdea8bc);
+        
+    
+            var beautify_icon_2c2c84fa16a0445cad477b29912dad5a = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 305, "textColor": "dodgerblue"}
+            )
+            marker_408190dbfacb43f4a11b5b85cfc7f04b.setIcon(beautify_icon_2c2c84fa16a0445cad477b29912dad5a);
+        
+    
+            marker_408190dbfacb43f4a11b5b85cfc7f04b.bindTooltip(
+                `<div>
+                     305) HAWTHORNE @ LEITRIM : Northbound 2017 - total ~21.0
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_12f5208478e74dfc98a5829c85563ed2 = L.marker(
+                [45.4846002755224, -75.4981034143561],
+                {}
+            ).addTo(map_9c2d6dc8b56a4fb4a8d305f5cfdea8bc);
+        
+    
+            var beautify_icon_2db933e63ea946e19047a439729bfcff = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "dodgerblue", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 306, "textColor": "dodgerblue"}
+            )
+            marker_12f5208478e74dfc98a5829c85563ed2.setIcon(beautify_icon_2db933e63ea946e19047a439729bfcff);
+        
+    
+            marker_12f5208478e74dfc98a5829c85563ed2.bindTooltip(
+                `<div>
+                     306) ST. JOSEPH @ OLD TENTH LINE : Eastbound 2016 - total ~18.0
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>
