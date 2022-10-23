@@ -954,7 +954,7 @@ setTimeout(timer1801,1801000);
 					</ul>
 				</div>
 			</li>
-			<!-- Accordion: manipulating dataframe -->
+	<!-- Accordion: manipulating dataframe -->
 			<li class="">
 				<div class="title">
 					<b>Manipulating DataFrames</b>
@@ -965,11 +965,44 @@ setTimeout(timer1801,1801000);
 					</p>
 					<!-- Tabs -->
 					<dl class="tabs">
-						<dd class="active"><a href="#pivot">Pivot</a></dd>
+						<dd class="active"><a href="#indexColumns">Index and Columns Tips</a></dd>
+						<dd><a href="#setNan">Set Cell to NaN</a></dd>
+						<dd><a href="#pivot">Pivot</a></dd>
 						<!-- <dd><a href="#adddelete-rowcolumn">Adding & Deleting</a></dd> -->
 					</dl>
 					<ul class="tabs-content">
-						<li class="active" id="pivotTab">
+						<li class="active" id="indexColumnsTab">
+							<h6>Set Index</h6>
+							<p>
+								In some circumstances it may be useful to <a href="https://pynative.com/pandas-set-index/" class="saymore">set the index</a> to any values you want. 
+							</p>
+							<p>
+								<div id="testimonials"><blockquote>
+									DataFrame.set_index(keys, drop=True, append=False, inplace=False, verify_integrity=False)
+								</blockquote></div>
+							</p>
+							<h6>Insert Column</h6>
+							<p>
+								You can <a href="https://www.geeksforgeeks.org/insert-a-given-column-at-a-specific-position-in-a-pandas-dataframe/" class="saymore">insert a column in any location</a>. You only have to specify using the <i>loc=#</i> parameter.
+							</p>
+							<p>
+								<div id="testimonials"><blockquote>
+									df.insert(loc = 0, column = 'col1', value = new_col)
+								</blockquote></div>
+							</p>
+						</li>
+						<li id="setNanTab">
+							<h6></h6>
+							<p>
+								You can set all cells with a specific value to null. I found this solution on <a href="https://stackoverflow.com/questions/34794067/how-to-set-a-cell-to-nan-in-a-pandas-dataframe " class="saymore">Stack Overflow</a>. 
+							</p>
+							<p>
+								<div id="testimonials"><blockquote>
+									df.replace('N/A',np.NaN)
+								</blockquote></div>
+							</p>
+						</li>
+						<li id="pivotTab">
 							<p>
 								Sometimes it is very useful to change the layout of your dataframe, in particular if you need to graph the data. 
 							</p>
@@ -1173,7 +1206,7 @@ setTimeout(timer1801,1801000);
 						<div id="testimonials"><blockquote><p>pip install selenium</p></blockquote></div>
 					</p>
 					<p>
-						Next, you must install the correct webdriver: for using Firefox you need to install <a href="https://github.com/mozilla/geckodriver/releases" class="saymore">GeckoDriver</a> and for using Chrome you need to install <a href="https://sites.google.com/a/chromium.org/chromedriver/downloads" class="saymore">Chromium</a>. Personally, I use Chrome (and MacOS Catalina has a known <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1588081" class="saymore">error</a> with Firefox webdriver). For Chrome, I downloaded the correct version of Chromium - which at the time of writing this was version 92. You can check your version by:
+						Next, you must install the correct webdriver: for using Firefox you need to install <a href="https://github.com/mozilla/geckodriver/releases" class="saymore">GeckoDriver</a> and for using Chrome you need to install <a href="https://sites.google.com/chromium.org/driver/" class="saymore">Chromium</a>. Personally, I use Chrome (and MacOS Catalina has a known <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1588081" class="saymore">error</a> with Firefox webdriver). For Chrome, I downloaded the correct version of Chromium - which at the time of writing this was version 92. You can check your version by:
 						<ol class="tab">
 							<li>
 								On a MacBook, you can click “Chrome” in the top left and select “About Google Chrome”. A new tab will open that says the version:
