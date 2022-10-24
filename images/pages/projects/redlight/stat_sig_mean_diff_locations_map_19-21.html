@@ -1,0 +1,1304 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_78b51f630b594caba1e1f410feca5fc4 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_78b51f630b594caba1e1f410feca5fc4" ></div>
+        
+</body>
+<script>    
+    
+            var map_78b51f630b594caba1e1f410feca5fc4 = L.map(
+                "map_78b51f630b594caba1e1f410feca5fc4",
+                {
+                    center: [45.38516331916667, -75.69665522999999],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 11,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+            L.control.scale().addTo(map_78b51f630b594caba1e1f410feca5fc4);
+
+            
+
+        
+    
+            var tile_layer_dfb3f430ebce49799125f93856e6089e = L.tileLayer(
+                "https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"http://cartodb.com/attributions\"\u003eCartoDB\u003c/a\u003e, CartoDB \u003ca href =\"http://cartodb.com/attributions\"\u003eattributions\u003c/a\u003e", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 9, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_78b51f630b594caba1e1f410feca5fc4);
+        
+    
+            var marker_42fa779dfd224da0b834401d061045e2 = L.marker(
+                [45.32259424, -75.8871873],
+                {}
+            ).addTo(map_78b51f630b594caba1e1f410feca5fc4);
+        
+    
+            var icon_d990a70d3e59434c95188c98c4bc60ff = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-minus-o", "iconColor": "black", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_42fa779dfd224da0b834401d061045e2.setIcon(icon_d990a70d3e59434c95188c98c4bc60ff);
+        
+    
+            marker_42fa779dfd224da0b834401d061045e2.bindTooltip(
+                `<div>
+                     ('CAMPEAU @ HWY 417 WB: Northbound) 21/20 p-value 0.0135, 20/19 p-value: 0.04259',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_e84f0ffb4bb245dba72b28523b9f8990 = L.marker(
+                [45.36528328, -75.73082093],
+                {}
+            ).addTo(map_78b51f630b594caba1e1f410feca5fc4);
+        
+    
+            var icon_9ee4cc98675443c0b9ed651b4b19ca76 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-minus-o", "iconColor": "black", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_e84f0ffb4bb245dba72b28523b9f8990.setIcon(icon_9ee4cc98675443c0b9ed651b4b19ca76);
+        
+    
+            marker_e84f0ffb4bb245dba72b28523b9f8990.bindTooltip(
+                `<div>
+                     ('BASELINE @ MERIVALE: Westbound) 21/20 p-value 0.94736, 20/19 p-value: 0.02954',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_4c58a260ea1847c0b3aebea034867eb2 = L.marker(
+                [45.35363104, -75.64733066],
+                {}
+            ).addTo(map_78b51f630b594caba1e1f410feca5fc4);
+        
+    
+            var icon_eafdcd04800544cc955088df1c126da8 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-minus-o", "iconColor": "black", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_4c58a260ea1847c0b3aebea034867eb2.setIcon(icon_eafdcd04800544cc955088df1c126da8);
+        
+    
+            marker_4c58a260ea1847c0b3aebea034867eb2.bindTooltip(
+                `<div>
+                     ('BANK @ HUNT CLUB: Eastbound) 21/20 p-value 0.0016, 20/19 p-value: 0.00196',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_5df9b6ef602c43d9acef3d0cb605b8f8 = L.marker(
+                [45.47732608, -75.4974114],
+                {}
+            ).addTo(map_78b51f630b594caba1e1f410feca5fc4);
+        
+    
+            var icon_519170beaa5b4596aef933fb58f08792 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-minus-o", "iconColor": "black", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_5df9b6ef602c43d9acef3d0cb605b8f8.setIcon(icon_519170beaa5b4596aef933fb58f08792);
+        
+    
+            marker_5df9b6ef602c43d9acef3d0cb605b8f8.bindTooltip(
+                `<div>
+                     ('TENTH LINE  / CHARLEMAGNE @ TOMPKINS : Southbound) 21/20 p-value 0.01662, 20/19 p-value: 0.00015',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_51f18562d65b4d75a7248e1b1d100eca = L.marker(
+                [45.38882841, -75.67723452],
+                {}
+            ).addTo(map_78b51f630b594caba1e1f410feca5fc4);
+        
+    
+            var icon_91d5e60c44f54c919b02fcb7f070dc88 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-minus-o", "iconColor": "black", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_51f18562d65b4d75a7248e1b1d100eca.setIcon(icon_91d5e60c44f54c919b02fcb7f070dc88);
+        
+    
+            marker_51f18562d65b4d75a7248e1b1d100eca.bindTooltip(
+                `<div>
+                     ('BANK @ RIVERSIDE N. (RR19): Westbound) 21/20 p-value 0.00358, 20/19 p-value: 0.00388',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_84862f9119444b978050165e99aac589 = L.marker(
+                [45.38919155, -75.72662713],
+                {}
+            ).addTo(map_78b51f630b594caba1e1f410feca5fc4);
+        
+    
+            var icon_c565cd11b66a45c992fb4d971bcb51a7 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-minus-o", "iconColor": "black", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_84862f9119444b978050165e99aac589.setIcon(icon_c565cd11b66a45c992fb4d971bcb51a7);
+        
+    
+            marker_84862f9119444b978050165e99aac589.bindTooltip(
+                `<div>
+                     ('CARLING @ ISLAND PARK : Eastbound) 21/20 p-value 0.91275, 20/19 p-value: 0.00241',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_af134adaff3541549567f2168bfd9e0f = L.marker(
+                [45.43246674, -75.68908746],
+                {}
+            ).addTo(map_78b51f630b594caba1e1f410feca5fc4);
+        
+    
+            var icon_60203a4fae7947f3a2d82b0e2ee31177 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-minus-o", "iconColor": "black", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_af134adaff3541549567f2168bfd9e0f.setIcon(icon_60203a4fae7947f3a2d82b0e2ee31177);
+        
+    
+            marker_af134adaff3541549567f2168bfd9e0f.bindTooltip(
+                `<div>
+                     ('KING EDWARD @ ST. PATRICK: Southbound) 21/20 p-value 0.00237, 20/19 p-value: 0.01344',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_bbe105f56367490ea85a090561f2cd19 = L.marker(
+                [45.37857171, -75.66755153],
+                {}
+            ).addTo(map_78b51f630b594caba1e1f410feca5fc4);
+        
+    
+            var icon_4936e18996554a02b0298b7a5c51f18e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-minus-o", "iconColor": "black", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_bbe105f56367490ea85a090561f2cd19.setIcon(icon_4936e18996554a02b0298b7a5c51f18e);
+        
+    
+            marker_bbe105f56367490ea85a090561f2cd19.bindTooltip(
+                `<div>
+                     ('BANK @ HERON: Northbound) 21/20 p-value 0.01868, 20/19 p-value: 0.00327',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_04b8647a35674bafa066de17ba7b41c5 = L.marker(
+                [45.42798671, -75.62701694],
+                {}
+            ).addTo(map_78b51f630b594caba1e1f410feca5fc4);
+        
+    
+            var icon_caedc039a3b94826bcfacca62ad005a9 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-minus-o", "iconColor": "black", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_04b8647a35674bafa066de17ba7b41c5.setIcon(icon_caedc039a3b94826bcfacca62ad005a9);
+        
+    
+            marker_04b8647a35674bafa066de17ba7b41c5.bindTooltip(
+                `<div>
+                     ('AVIATION PARKWAY @ OGILVIE : Westbound) 21/20 p-value 0.00203, 20/19 p-value: 0.01998',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_071e42e67d764cf7a946402f5b6d425e = L.marker(
+                [45.36263085, -75.71144959],
+                {}
+            ).addTo(map_78b51f630b594caba1e1f410feca5fc4);
+        
+    
+            var icon_4995b334b47d4e3ea543b8fd18dc2ff3 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-minus-o", "iconColor": "black", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_071e42e67d764cf7a946402f5b6d425e.setIcon(icon_4995b334b47d4e3ea543b8fd18dc2ff3);
+        
+    
+            marker_071e42e67d764cf7a946402f5b6d425e.bindTooltip(
+                `<div>
+                     ('FISHER @ MEADOWLANDS: Southbound) 21/20 p-value 0.72139, 20/19 p-value: 0.01841',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_544075f1379c48fcba11f1b886851abe = L.marker(
+                [45.40054791, -75.63148873],
+                {}
+            ).addTo(map_78b51f630b594caba1e1f410feca5fc4);
+        
+    
+            var icon_f3a5ee4667d14c8abf3afb880cb4e34a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-minus-o", "iconColor": "black", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_544075f1379c48fcba11f1b886851abe.setIcon(icon_f3a5ee4667d14c8abf3afb880cb4e34a);
+        
+    
+            marker_544075f1379c48fcba11f1b886851abe.bindTooltip(
+                `<div>
+                     ('SAUNDERSON @ SMYTH: Eastbound) 21/20 p-value 0.82962, 20/19 p-value: 0.00041',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c0552939073e4901ac4ae1d38e5ed30d = L.marker(
+                [45.26870306, -75.75116853],
+                {}
+            ).addTo(map_78b51f630b594caba1e1f410feca5fc4);
+        
+    
+            var icon_b696e7d583c84e38a128ea026229fa19 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-minus-o", "iconColor": "black", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_c0552939073e4901ac4ae1d38e5ed30d.setIcon(icon_b696e7d583c84e38a128ea026229fa19);
+        
+    
+            marker_c0552939073e4901ac4ae1d38e5ed30d.bindTooltip(
+                `<div>
+                     ('JOCKVALE @ STRANDHERD: Eastbound) 21/20 p-value 0.46476, 20/19 p-value: 0.00118',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_d5886a7f90564c268ba4bd43f36f9ca9 = L.marker(
+                [45.43336965, -75.60745592],
+                {}
+            ).addTo(map_78b51f630b594caba1e1f410feca5fc4);
+        
+    
+            var icon_b8545caded38407994574d0db9a544d6 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-minus-o", "iconColor": "black", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_d5886a7f90564c268ba4bd43f36f9ca9.setIcon(icon_b8545caded38407994574d0db9a544d6);
+        
+    
+            marker_d5886a7f90564c268ba4bd43f36f9ca9.bindTooltip(
+                `<div>
+                     ('BLAIR @ REGIONAL RD 174 W.: Eastbound) 21/20 p-value 0.10498, 20/19 p-value: 0.04236',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_402308f695784357b4cda205759bcd3d = L.marker(
+                [45.37677184, -75.69148988],
+                {}
+            ).addTo(map_78b51f630b594caba1e1f410feca5fc4);
+        
+    
+            var icon_c8881dc40d0a4794acb8043424d3e74d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-minus-o", "iconColor": "black", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_402308f695784357b4cda205759bcd3d.setIcon(icon_c8881dc40d0a4794acb8043424d3e74d);
+        
+    
+            marker_402308f695784357b4cda205759bcd3d.bindTooltip(
+                `<div>
+                     ('HERON @ RIVERSIDE : Eastbound) 21/20 p-value 0.39152, 20/19 p-value: 0.00499',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_ae3086fa48fc4227b6a7b686b6ecd212 = L.marker(
+                [45.36078523, -75.79226646],
+                {}
+            ).addTo(map_78b51f630b594caba1e1f410feca5fc4);
+        
+    
+            var icon_ce61945cca5b4b1b86baacabc3a8a71f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-minus-o", "iconColor": "black", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_ae3086fa48fc4227b6a7b686b6ecd212.setIcon(icon_ce61945cca5b4b1b86baacabc3a8a71f);
+        
+    
+            marker_ae3086fa48fc4227b6a7b686b6ecd212.bindTooltip(
+                `<div>
+                     ('CARLING @ RICHMOND: Westbound) 21/20 p-value 0.0006, 20/19 p-value: 0.00885',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_b104b3e4628f49029e19923da5dff809 = L.marker(
+                [45.30407235, -75.87677745],
+                {}
+            ).addTo(map_78b51f630b594caba1e1f410feca5fc4);
+        
+    
+            var icon_f07b855c99a54e92a1d3068b29ae3cf9 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-minus-o", "iconColor": "black", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_b104b3e4628f49029e19923da5dff809.setIcon(icon_f07b855c99a54e92a1d3068b29ae3cf9);
+        
+    
+            marker_b104b3e4628f49029e19923da5dff809.bindTooltip(
+                `<div>
+                     ('HAZELDEAN / ROBERTSON @ EAGLESON: Southbound) 21/20 p-value 0.00186, 20/19 p-value: 0.00239',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_78268a5c2d3141b2ad7cb3e7a3e18e88 = L.marker(
+                [45.38802034, -75.67623737],
+                {}
+            ).addTo(map_78b51f630b594caba1e1f410feca5fc4);
+        
+    
+            var icon_7cddac0e623042288a99e6b0364e179f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-minus-o", "iconColor": "black", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_78268a5c2d3141b2ad7cb3e7a3e18e88.setIcon(icon_7cddac0e623042288a99e6b0364e179f);
+        
+    
+            marker_78268a5c2d3141b2ad7cb3e7a3e18e88.bindTooltip(
+                `<div>
+                     ('BANK @ RIVERSIDE S. : Northbound) 21/20 p-value 0.04891, 20/19 p-value: 0.02348',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_68a8ae55a890433da5481c2757ec4458 = L.marker(
+                [45.38163119, -75.73846511],
+                {}
+            ).addTo(map_78b51f630b594caba1e1f410feca5fc4);
+        
+    
+            var icon_969cb9ba4d724115ada2f5718adb911d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-minus-o", "iconColor": "black", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_68a8ae55a890433da5481c2757ec4458.setIcon(icon_969cb9ba4d724115ada2f5718adb911d);
+        
+    
+            marker_68a8ae55a890433da5481c2757ec4458.bindTooltip(
+                `<div>
+                     ('KIRKWOOD @ COLDREY: Northbound) 21/20 p-value 0.00807, 20/19 p-value: 0.02334',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_774a1ba4c08e4b6eb3f926ceeb43975d = L.marker(
+                [45.40529157, -75.70973672],
+                {}
+            ).addTo(map_78b51f630b594caba1e1f410feca5fc4);
+        
+    
+            var icon_25a9b38d4d1c4d379adfaf94efeca373 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-minus-o", "iconColor": "black", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_774a1ba4c08e4b6eb3f926ceeb43975d.setIcon(icon_25a9b38d4d1c4d379adfaf94efeca373);
+        
+    
+            marker_774a1ba4c08e4b6eb3f926ceeb43975d.bindTooltip(
+                `<div>
+                     ('GLADSTONE @ ROCHESTER: Westbound) 21/20 p-value 0.06492, 20/19 p-value: 0.00051',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_56708e91524d4c3b9d1b22e6b3f51e16 = L.marker(
+                [45.41687927, -75.70547366],
+                {}
+            ).addTo(map_78b51f630b594caba1e1f410feca5fc4);
+        
+    
+            var icon_a904f4583db94441ac2be85ac040de56 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-minus-o", "iconColor": "black", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_56708e91524d4c3b9d1b22e6b3f51e16.setIcon(icon_a904f4583db94441ac2be85ac040de56);
+        
+    
+            marker_56708e91524d4c3b9d1b22e6b3f51e16.bindTooltip(
+                `<div>
+                     ('BAY @ SLATER: Eastbound) 21/20 p-value 0.00191, 20/19 p-value: 0.00031',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_dddf93f30b644452b83ba6d3930ea1b0 = L.marker(
+                [45.44366406, -75.63909822],
+                {}
+            ).addTo(map_78b51f630b594caba1e1f410feca5fc4);
+        
+    
+            var icon_b69937b0cb3b4ebb8771ec12143c6382 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-minus-o", "iconColor": "black", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_dddf93f30b644452b83ba6d3930ea1b0.setIcon(icon_b69937b0cb3b4ebb8771ec12143c6382);
+        
+    
+            marker_dddf93f30b644452b83ba6d3930ea1b0.bindTooltip(
+                `<div>
+                     ('AVIATION PARKWAY @ MONTREAL: Eastbound) 21/20 p-value 0.03301, 20/19 p-value: 0.00548',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_3ec77e4e1a0a4129b2b1fcd616a1bcd8 = L.marker(
+                [45.36973398, -75.66494736],
+                {}
+            ).addTo(map_78b51f630b594caba1e1f410feca5fc4);
+        
+    
+            var icon_4a8fd6bcbbcb4c2797f9f948eb63fee7 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-minus-o", "iconColor": "black", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_3ec77e4e1a0a4129b2b1fcd616a1bcd8.setIcon(icon_4a8fd6bcbbcb4c2797f9f948eb63fee7);
+        
+    
+            marker_3ec77e4e1a0a4129b2b1fcd616a1bcd8.bindTooltip(
+                `<div>
+                     ('WALKLEY @ GLENHAVEN / ANAND: Eastbound) 21/20 p-value 0.5428, 20/19 p-value: 0.02074',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_91049d7db7c6413482074aae9dfad3f8 = L.marker(
+                [45.3784036, -75.66945865],
+                {}
+            ).addTo(map_78b51f630b594caba1e1f410feca5fc4);
+        
+    
+            var icon_79f87e7e9e7b40c0858c964c44c1d5ad = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-minus-o", "iconColor": "black", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_91049d7db7c6413482074aae9dfad3f8.setIcon(icon_79f87e7e9e7b40c0858c964c44c1d5ad);
+        
+    
+            marker_91049d7db7c6413482074aae9dfad3f8.bindTooltip(
+                `<div>
+                     ('HERON @ 155m W OF BANK : Eastbound) 21/20 p-value 0.95822, 20/19 p-value: 0.02612',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_85f78c794fcb4f669a01d136f145325c = L.marker(
+                [45.417535, -75.703944],
+                {}
+            ).addTo(map_78b51f630b594caba1e1f410feca5fc4);
+        
+    
+            var icon_7a36ec68062e468db979a50637ff8d07 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-minus-o", "iconColor": "black", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_85f78c794fcb4f669a01d136f145325c.setIcon(icon_7a36ec68062e468db979a50637ff8d07);
+        
+    
+            marker_85f78c794fcb4f669a01d136f145325c.bindTooltip(
+                `<div>
+                     ('LYON @ SLATER: Southbound) 21/20 p-value 0.0097, 20/19 p-value: 0.0294',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_4d822591dcdc423d94d4ef55051b6744 = L.marker(
+                [45.39294866, -75.60758145],
+                {}
+            ).addTo(map_78b51f630b594caba1e1f410feca5fc4);
+        
+    
+            var icon_7b54428d954546709c09831b364d6fd5 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-plus-o", "iconColor": "black", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_4d822591dcdc423d94d4ef55051b6744.setIcon(icon_7b54428d954546709c09831b364d6fd5);
+        
+    
+            marker_4d822591dcdc423d94d4ef55051b6744.bindTooltip(
+                `<div>
+                     ('WALKEY @ HAWTHORNE  / RUSSELL : Eastbound) 21/20 p-value 0.00622, 20/19 p-value: 0.12599',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_d29979617b444ba0a5f04a7ae6a09e80 = L.marker(
+                [45.41183341, -75.63045981],
+                {}
+            ).addTo(map_78b51f630b594caba1e1f410feca5fc4);
+        
+    
+            var icon_c169aa6cd5494794ab2a4a041dfc61e8 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-plus-o", "iconColor": "black", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_d29979617b444ba0a5f04a7ae6a09e80.setIcon(icon_c169aa6cd5494794ab2a4a041dfc61e8);
+        
+    
+            marker_d29979617b444ba0a5f04a7ae6a09e80.bindTooltip(
+                `<div>
+                     ('ST LAURENT @ BELFAST: Southbound) 21/20 p-value 0.01282, 20/19 p-value: 0.62537',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_6baacbd76855460fba35a0b56b1b961e = L.marker(
+                [45.32259424, -75.8871873],
+                {}
+            ).addTo(map_78b51f630b594caba1e1f410feca5fc4);
+        
+    
+            var icon_51bc0b74db3847458c4045c87c6b9b17 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-plus-o", "iconColor": "black", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_6baacbd76855460fba35a0b56b1b961e.setIcon(icon_51bc0b74db3847458c4045c87c6b9b17);
+        
+    
+            marker_6baacbd76855460fba35a0b56b1b961e.bindTooltip(
+                `<div>
+                     ('CAMPEAU @ HWY 417 WB: Northbound) 21/20 p-value 0.0135, 20/19 p-value: 0.04259',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a4e0480a99d34967bb561c7833fb0cc2 = L.marker(
+                [45.35363104, -75.64733066],
+                {}
+            ).addTo(map_78b51f630b594caba1e1f410feca5fc4);
+        
+    
+            var icon_35f12987451d4402979b745d1b84d32e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-plus-o", "iconColor": "black", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_a4e0480a99d34967bb561c7833fb0cc2.setIcon(icon_35f12987451d4402979b745d1b84d32e);
+        
+    
+            marker_a4e0480a99d34967bb561c7833fb0cc2.bindTooltip(
+                `<div>
+                     ('BANK @ HUNT CLUB: Eastbound) 21/20 p-value 0.0016, 20/19 p-value: 0.00196',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_ebe97fdcd71e42ea926ca3153149653d = L.marker(
+                [45.41629602, -75.71467416],
+                {}
+            ).addTo(map_78b51f630b594caba1e1f410feca5fc4);
+        
+    
+            var icon_39c66b613c944c0a9b8457b8a48158a4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-plus-o", "iconColor": "black", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_ebe97fdcd71e42ea926ca3153149653d.setIcon(icon_39c66b613c944c0a9b8457b8a48158a4);
+        
+    
+            marker_ebe97fdcd71e42ea926ca3153149653d.bindTooltip(
+                `<div>
+                     ('BOOTH @ WELLINGTON (RR40): Eastbound) 21/20 p-value 0.00205, 20/19 p-value: nan',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_9eca357db4304db9a79e1ab58b2c51f0 = L.marker(
+                [45.47732608, -75.4974114],
+                {}
+            ).addTo(map_78b51f630b594caba1e1f410feca5fc4);
+        
+    
+            var icon_6c9bace22e0c4bfa82327628391ad0e2 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-plus-o", "iconColor": "black", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_9eca357db4304db9a79e1ab58b2c51f0.setIcon(icon_6c9bace22e0c4bfa82327628391ad0e2);
+        
+    
+            marker_9eca357db4304db9a79e1ab58b2c51f0.bindTooltip(
+                `<div>
+                     ('TENTH LINE  / CHARLEMAGNE @ TOMPKINS : Southbound) 21/20 p-value 0.01662, 20/19 p-value: 0.00015',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_53eba573f48644daa64b10593441b8e0 = L.marker(
+                [45.38882841, -75.67723452],
+                {}
+            ).addTo(map_78b51f630b594caba1e1f410feca5fc4);
+        
+    
+            var icon_1de63d9bec48489481e18c42a97e9766 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-plus-o", "iconColor": "black", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_53eba573f48644daa64b10593441b8e0.setIcon(icon_1de63d9bec48489481e18c42a97e9766);
+        
+    
+            marker_53eba573f48644daa64b10593441b8e0.bindTooltip(
+                `<div>
+                     ('BANK @ RIVERSIDE N. (RR19): Westbound) 21/20 p-value 0.00358, 20/19 p-value: 0.00388',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_e0902c02f14049b8b2450d801277d870 = L.marker(
+                [45.43246674, -75.68908746],
+                {}
+            ).addTo(map_78b51f630b594caba1e1f410feca5fc4);
+        
+    
+            var icon_0c4a9537cb3f439eb4ffd90b379bcb24 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-plus-o", "iconColor": "black", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_e0902c02f14049b8b2450d801277d870.setIcon(icon_0c4a9537cb3f439eb4ffd90b379bcb24);
+        
+    
+            marker_e0902c02f14049b8b2450d801277d870.bindTooltip(
+                `<div>
+                     ('KING EDWARD @ ST. PATRICK: Southbound) 21/20 p-value 0.00237, 20/19 p-value: 0.01344',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_3b99f7e4cdf04a27a2b10b0b781c14ed = L.marker(
+                [45.41572863, -75.70823681],
+                {}
+            ).addTo(map_78b51f630b594caba1e1f410feca5fc4);
+        
+    
+            var icon_1f25e86067d94e488bf74fbaa740cafd = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-plus-o", "iconColor": "black", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_3b99f7e4cdf04a27a2b10b0b781c14ed.setIcon(icon_1f25e86067d94e488bf74fbaa740cafd);
+        
+    
+            marker_3b99f7e4cdf04a27a2b10b0b781c14ed.bindTooltip(
+                `<div>
+                     ('BRONSON @ COMMISSIONER / SLATER : Southbound) 21/20 p-value 0.00511, 20/19 p-value: 0.60883',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_27cbf83d9539426b97ebe6db3018455d = L.marker(
+                [45.37857171, -75.66755153],
+                {}
+            ).addTo(map_78b51f630b594caba1e1f410feca5fc4);
+        
+    
+            var icon_14292467a53a4f8eb41b9292f7b705e5 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-plus-o", "iconColor": "black", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_27cbf83d9539426b97ebe6db3018455d.setIcon(icon_14292467a53a4f8eb41b9292f7b705e5);
+        
+    
+            marker_27cbf83d9539426b97ebe6db3018455d.bindTooltip(
+                `<div>
+                     ('BANK @ HERON: Northbound) 21/20 p-value 0.01868, 20/19 p-value: 0.00327',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_71195ff769ba4e1080386a1abdd77ce5 = L.marker(
+                [45.41648492, -75.60244499],
+                {}
+            ).addTo(map_78b51f630b594caba1e1f410feca5fc4);
+        
+    
+            var icon_d1fe41b9897a4e9cab6283a0838f19da = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-plus-o", "iconColor": "black", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_71195ff769ba4e1080386a1abdd77ce5.setIcon(icon_d1fe41b9897a4e9cab6283a0838f19da);
+        
+    
+            marker_71195ff769ba4e1080386a1abdd77ce5.bindTooltip(
+                `<div>
+                     ('CYRVILLE @ INNES: Westbound) 21/20 p-value 0.00067, 20/19 p-value: 0.47987',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_fcfd7ae364a542ecaa91feb450766a74 = L.marker(
+                [45.47762664, -75.51259116],
+                {}
+            ).addTo(map_78b51f630b594caba1e1f410feca5fc4);
+        
+    
+            var icon_97ea5897ae2c437cad08121c3844dca4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-plus-o", "iconColor": "black", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_fcfd7ae364a542ecaa91feb450766a74.setIcon(icon_97ea5897ae2c437cad08121c3844dca4);
+        
+    
+            marker_fcfd7ae364a542ecaa91feb450766a74.bindTooltip(
+                `<div>
+                     ("DUFORD / PLACE D'ORLEANS @ ST JOSEPH: Westbound) 21/20 p-value 0.00039, 20/19 p-value: 0.94415",)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_5b98c32453674bee8fc6267c5da25a35 = L.marker(
+                [45.38857382, -75.72576713],
+                {}
+            ).addTo(map_78b51f630b594caba1e1f410feca5fc4);
+        
+    
+            var icon_7ab9c271a59a4f5b97f45a4aedf3f718 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-plus-o", "iconColor": "black", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_5b98c32453674bee8fc6267c5da25a35.setIcon(icon_7ab9c271a59a4f5b97f45a4aedf3f718);
+        
+    
+            marker_5b98c32453674bee8fc6267c5da25a35.bindTooltip(
+                `<div>
+                     ('HOLLAND & ISLAND PARK @ NCC DRIVEWAY: Southbound) 21/20 p-value 0.04769, 20/19 p-value: 0.19795',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_98fd6cee1abc4ac6b29cc039120b84a3 = L.marker(
+                [45.36947236, -75.62207744],
+                {}
+            ).addTo(map_78b51f630b594caba1e1f410feca5fc4);
+        
+    
+            var icon_2c8f9af1506842fea1cfd2dcc2c113a2 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-plus-o", "iconColor": "black", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_98fd6cee1abc4ac6b29cc039120b84a3.setIcon(icon_2c8f9af1506842fea1cfd2dcc2c113a2);
+        
+    
+            marker_98fd6cee1abc4ac6b29cc039120b84a3.bindTooltip(
+                `<div>
+                     ('CONROY @ LORRY GREENBERG : Southbound) 21/20 p-value 0.03297, 20/19 p-value: 0.05144',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_622cd919258846708921578e582b2bbe = L.marker(
+                [45.42798671, -75.62701694],
+                {}
+            ).addTo(map_78b51f630b594caba1e1f410feca5fc4);
+        
+    
+            var icon_c7bada3e3a4f44f49d7d709d7f21ad11 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-plus-o", "iconColor": "black", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_622cd919258846708921578e582b2bbe.setIcon(icon_c7bada3e3a4f44f49d7d709d7f21ad11);
+        
+    
+            marker_622cd919258846708921578e582b2bbe.bindTooltip(
+                `<div>
+                     ('AVIATION PARKWAY @ OGILVIE : Westbound) 21/20 p-value 0.00203, 20/19 p-value: 0.01998',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_01c6be1a2a074bcaab327ed3d56a2ceb = L.marker(
+                [45.35090342, -75.73351715],
+                {}
+            ).addTo(map_78b51f630b594caba1e1f410feca5fc4);
+        
+    
+            var icon_9eb4cac91c8849d3a53e3a19fb1995ad = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-plus-o", "iconColor": "black", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_01c6be1a2a074bcaab327ed3d56a2ceb.setIcon(icon_9eb4cac91c8849d3a53e3a19fb1995ad);
+        
+    
+            marker_01c6be1a2a074bcaab327ed3d56a2ceb.bindTooltip(
+                `<div>
+                     ('MERIVALE @ MEADOWLANDS: Northbound) 21/20 p-value 7e-05, 20/19 p-value: 0.88607',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a481158d6c494311b83eb5620767c31c = L.marker(
+                [45.36078523, -75.79226646],
+                {}
+            ).addTo(map_78b51f630b594caba1e1f410feca5fc4);
+        
+    
+            var icon_7313c949cb9948309b5c6c23f420b200 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-plus-o", "iconColor": "black", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_a481158d6c494311b83eb5620767c31c.setIcon(icon_7313c949cb9948309b5c6c23f420b200);
+        
+    
+            marker_a481158d6c494311b83eb5620767c31c.bindTooltip(
+                `<div>
+                     ('CARLING @ RICHMOND: Westbound) 21/20 p-value 0.0006, 20/19 p-value: 0.00885',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_6e2414644c514896b8a7f7a779343a58 = L.marker(
+                [45.40100097, -75.69965431],
+                {}
+            ).addTo(map_78b51f630b594caba1e1f410feca5fc4);
+        
+    
+            var icon_aee36cc48b0d427eb827bcd401ab6114 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-plus-o", "iconColor": "black", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_6e2414644c514896b8a7f7a779343a58.setIcon(icon_aee36cc48b0d427eb827bcd401ab6114);
+        
+    
+            marker_6e2414644c514896b8a7f7a779343a58.bindTooltip(
+                `<div>
+                     ('BRONSON @ CARLING / GLEBE: Southbound) 21/20 p-value 0.02719, 20/19 p-value: 0.05305',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_433a5dc9f8b74cf89b25d3f2bb4fd979 = L.marker(
+                [45.4242409, -75.63736161],
+                {}
+            ).addTo(map_78b51f630b594caba1e1f410feca5fc4);
+        
+    
+            var icon_96687ba5cd1b4fcf91db80cd510fb57e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-plus-o", "iconColor": "black", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_433a5dc9f8b74cf89b25d3f2bb4fd979.setIcon(icon_96687ba5cd1b4fcf91db80cd510fb57e);
+        
+    
+            marker_433a5dc9f8b74cf89b25d3f2bb4fd979.bindTooltip(
+                `<div>
+                     ('COVENTRY / OGILVIE @ ST. LAURENT : Northbound) 21/20 p-value 0.01008, 20/19 p-value: 0.36683',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_935c60d0fa59404db9f9d1c70b2183a5 = L.marker(
+                [45.30407235, -75.87677745],
+                {}
+            ).addTo(map_78b51f630b594caba1e1f410feca5fc4);
+        
+    
+            var icon_71311b6cb73048678b62eccdf4cca1cb = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-plus-o", "iconColor": "black", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_935c60d0fa59404db9f9d1c70b2183a5.setIcon(icon_71311b6cb73048678b62eccdf4cca1cb);
+        
+    
+            marker_935c60d0fa59404db9f9d1c70b2183a5.bindTooltip(
+                `<div>
+                     ('HAZELDEAN / ROBERTSON @ EAGLESON: Southbound) 21/20 p-value 0.00186, 20/19 p-value: 0.00239',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_deda321b7fb74a62b3ff24fc340f3007 = L.marker(
+                [45.2749753, -75.74900599],
+                {}
+            ).addTo(map_78b51f630b594caba1e1f410feca5fc4);
+        
+    
+            var icon_6dddda116ed14d3eb07ef10316dac931 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-plus-o", "iconColor": "black", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_deda321b7fb74a62b3ff24fc340f3007.setIcon(icon_6dddda116ed14d3eb07ef10316dac931);
+        
+    
+            marker_deda321b7fb74a62b3ff24fc340f3007.bindTooltip(
+                `<div>
+                     ('BERRIGAN @ WESSEX / GREENBANK: Northbound) 21/20 p-value 0.00018, 20/19 p-value: 0.23627',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_601c8a2746a24c7a83dea37454f71f66 = L.marker(
+                [45.48460028, -75.49810341],
+                {}
+            ).addTo(map_78b51f630b594caba1e1f410feca5fc4);
+        
+    
+            var icon_32c1161fed8145ccb9a0c8f5b9cee90b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-plus-o", "iconColor": "black", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_601c8a2746a24c7a83dea37454f71f66.setIcon(icon_32c1161fed8145ccb9a0c8f5b9cee90b);
+        
+    
+            marker_601c8a2746a24c7a83dea37454f71f66.bindTooltip(
+                `<div>
+                     ('ST. JOSEPH @ OLD TENTH LINE : Eastbound) 21/20 p-value 0.00816, 20/19 p-value: 0.57807',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_b732296665fe4edfbacc62ccd2886a54 = L.marker(
+                [45.40878852, -75.69378269],
+                {}
+            ).addTo(map_78b51f630b594caba1e1f410feca5fc4);
+        
+    
+            var icon_62026296bfd449f3af4a5567806f7471 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-plus-o", "iconColor": "black", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_b732296665fe4edfbacc62ccd2886a54.setIcon(icon_62026296bfd449f3af4a5567806f7471);
+        
+    
+            marker_b732296665fe4edfbacc62ccd2886a54.bindTooltip(
+                `<div>
+                     ('CATHERINE @ KENT: Northbound) 21/20 p-value 1e-05, 20/19 p-value: 0.06685',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_93797da8e06a4179ad709324b3c63084 = L.marker(
+                [45.38802034, -75.67623737],
+                {}
+            ).addTo(map_78b51f630b594caba1e1f410feca5fc4);
+        
+    
+            var icon_120bf7cbca2b419f93c2abb9adfe871d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-plus-o", "iconColor": "black", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_93797da8e06a4179ad709324b3c63084.setIcon(icon_120bf7cbca2b419f93c2abb9adfe871d);
+        
+    
+            marker_93797da8e06a4179ad709324b3c63084.bindTooltip(
+                `<div>
+                     ('BANK @ RIVERSIDE S. : Northbound) 21/20 p-value 0.04891, 20/19 p-value: 0.02348',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_51a54773d0c04e878d2b427710037ccd = L.marker(
+                [45.38163119, -75.73846511],
+                {}
+            ).addTo(map_78b51f630b594caba1e1f410feca5fc4);
+        
+    
+            var icon_2aef9e8ece0849a0b717a345230b4c04 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-plus-o", "iconColor": "black", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_51a54773d0c04e878d2b427710037ccd.setIcon(icon_2aef9e8ece0849a0b717a345230b4c04);
+        
+    
+            marker_51a54773d0c04e878d2b427710037ccd.bindTooltip(
+                `<div>
+                     ('KIRKWOOD @ COLDREY: Northbound) 21/20 p-value 0.00807, 20/19 p-value: 0.02334',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_f157f43282384470be0e48692dc52108 = L.marker(
+                [45.41687927, -75.70547366],
+                {}
+            ).addTo(map_78b51f630b594caba1e1f410feca5fc4);
+        
+    
+            var icon_eabea05b2982487984cf24a1a0f58eb5 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-plus-o", "iconColor": "black", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_f157f43282384470be0e48692dc52108.setIcon(icon_eabea05b2982487984cf24a1a0f58eb5);
+        
+    
+            marker_f157f43282384470be0e48692dc52108.bindTooltip(
+                `<div>
+                     ('BAY @ SLATER: Eastbound) 21/20 p-value 0.00191, 20/19 p-value: 0.00031',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_569384e05f954dd9bdbcac773c09a6da = L.marker(
+                [45.40243467, -75.70051327],
+                {}
+            ).addTo(map_78b51f630b594caba1e1f410feca5fc4);
+        
+    
+            var icon_3a7597227f8d4320a7b3fd39f5b5b928 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-plus-o", "iconColor": "black", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_569384e05f954dd9bdbcac773c09a6da.setIcon(icon_3a7597227f8d4320a7b3fd39f5b5b928);
+        
+    
+            marker_569384e05f954dd9bdbcac773c09a6da.bindTooltip(
+                `<div>
+                     ('BRONSON @ POWELL: Southbound) 21/20 p-value 0.00442, 20/19 p-value: 0.48067',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_544e486e73aa4517b51e43ef41107faf = L.marker(
+                [45.44366406, -75.63909822],
+                {}
+            ).addTo(map_78b51f630b594caba1e1f410feca5fc4);
+        
+    
+            var icon_9e79ea8b31d1495b921a427aa063583a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-plus-o", "iconColor": "black", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_544e486e73aa4517b51e43ef41107faf.setIcon(icon_9e79ea8b31d1495b921a427aa063583a);
+        
+    
+            marker_544e486e73aa4517b51e43ef41107faf.bindTooltip(
+                `<div>
+                     ('AVIATION PARKWAY @ MONTREAL: Eastbound) 21/20 p-value 0.03301, 20/19 p-value: 0.00548',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_748b880432d046e598724b9bb04c65b8 = L.marker(
+                [45.27866592, -75.7799176],
+                {}
+            ).addTo(map_78b51f630b594caba1e1f410feca5fc4);
+        
+    
+            var icon_e3b665da66c047fbaafd55540e1af1df = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-plus-o", "iconColor": "black", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_748b880432d046e598724b9bb04c65b8.setIcon(icon_e3b665da66c047fbaafd55540e1af1df);
+        
+    
+            marker_748b880432d046e598724b9bb04c65b8.bindTooltip(
+                `<div>
+                     ('FALLOWFIELD @ CEDARVIEW: Westbound) 21/20 p-value 0.02097, 20/19 p-value: 0.59593',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c8ce9457a771464d8072d4801cd8ac0b = L.marker(
+                [45.44450342, -75.53280378],
+                {}
+            ).addTo(map_78b51f630b594caba1e1f410feca5fc4);
+        
+    
+            var icon_da8fe486c1af4f38a61d5664f71ab1f7 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-plus-o", "iconColor": "black", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_c8ce9457a771464d8072d4801cd8ac0b.setIcon(icon_da8fe486c1af4f38a61d5664f71ab1f7);
+        
+    
+            marker_c8ce9457a771464d8072d4801cd8ac0b.bindTooltip(
+                `<div>
+                     ('INNES @ ORLEANS: Southbound) 21/20 p-value 0.01315, 20/19 p-value: 0.13042',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_0915851197da4768b0700cce6f84485a = L.marker(
+                [45.48355406, -75.50105058],
+                {}
+            ).addTo(map_78b51f630b594caba1e1f410feca5fc4);
+        
+    
+            var icon_c4c5dfaedabd44d5b6612df4f4e30b70 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-plus-o", "iconColor": "black", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_0915851197da4768b0700cce6f84485a.setIcon(icon_c4c5dfaedabd44d5b6612df4f4e30b70);
+        
+    
+            marker_0915851197da4768b0700cce6f84485a.bindTooltip(
+                `<div>
+                     ('ST. JOSEPH @ TENTH LINE : Eastbound) 21/20 p-value 0.00162, 20/19 p-value: 0.31593',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_cfac46d0e28d4c0e9de49ba9516aaaa0 = L.marker(
+                [45.45833915, -75.48637951],
+                {}
+            ).addTo(map_78b51f630b594caba1e1f410feca5fc4);
+        
+    
+            var icon_47a07468acc74ce79511701dd3ff38a3 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-plus-o", "iconColor": "black", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_cfac46d0e28d4c0e9de49ba9516aaaa0.setIcon(icon_47a07468acc74ce79511701dd3ff38a3);
+        
+    
+            marker_cfac46d0e28d4c0e9de49ba9516aaaa0.bindTooltip(
+                `<div>
+                     ('TENTH LINE @ VANGUARD: Northbound) 21/20 p-value 0.03209, 20/19 p-value: 0.85828',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_751a2e8f42c8492ebf29bccc457be9a1 = L.marker(
+                [45.417535, -75.703944],
+                {}
+            ).addTo(map_78b51f630b594caba1e1f410feca5fc4);
+        
+    
+            var icon_d565c7666fb24a26a36acc4be89d6dec = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-plus-o", "iconColor": "black", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_751a2e8f42c8492ebf29bccc457be9a1.setIcon(icon_d565c7666fb24a26a36acc4be89d6dec);
+        
+    
+            marker_751a2e8f42c8492ebf29bccc457be9a1.bindTooltip(
+                `<div>
+                     ('LYON @ SLATER: Southbound) 21/20 p-value 0.0097, 20/19 p-value: 0.0294',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_0bdd1f6ca89040b4a2095d3151ce9baf = L.marker(
+                [45.3822204, -75.63422114],
+                {}
+            ).addTo(map_78b51f630b594caba1e1f410feca5fc4);
+        
+    
+            var icon_c41cba1ceed540fb8e89f5ae1a601029 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-plus-o", "iconColor": "black", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_0bdd1f6ca89040b4a2095d3151ce9baf.setIcon(icon_c41cba1ceed540fb8e89f5ae1a601029);
+        
+    
+            marker_0bdd1f6ca89040b4a2095d3151ce9baf.bindTooltip(
+                `<div>
+                     ('WALKLEY @ RYDER / DON RIED: Westbound) 21/20 p-value 0.00063, 20/19 p-value: nan',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_d447eb62c4954e5aab4acab8ae05ebb8 = L.marker(
+                [45.35363104, -75.64733066],
+                {}
+            ).addTo(map_78b51f630b594caba1e1f410feca5fc4);
+        
+    
+            var icon_ac965cae5c0c4b058bfffe0e73fa3e77 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-plus-o", "iconColor": "black", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_d447eb62c4954e5aab4acab8ae05ebb8.setIcon(icon_ac965cae5c0c4b058bfffe0e73fa3e77);
+        
+    
+            marker_d447eb62c4954e5aab4acab8ae05ebb8.bindTooltip(
+                `<div>
+                     ('BANK @ HUNT CLUB: Northbound) 21/20 p-value 0.00098, 20/19 p-value: nan',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_f49283b714ae430081efc0246af203fd = L.marker(
+                [45.37182033, -75.76700336],
+                {}
+            ).addTo(map_78b51f630b594caba1e1f410feca5fc4);
+        
+    
+            var icon_60e958fcd1a446ff9f9bad1fbab2c0da = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-plus-o", "iconColor": "black", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_f49283b714ae430081efc0246af203fd.setIcon(icon_60e958fcd1a446ff9f9bad1fbab2c0da);
+        
+    
+            marker_f49283b714ae430081efc0246af203fd.bindTooltip(
+                `<div>
+                     ('CARLING @ IROQUOIS: Eastbound) 21/20 p-value 0.02151, 20/19 p-value: nan',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_419e72f69d7d4e358574dd5027c6b531 = L.marker(
+                [45.42809335, -75.68529062],
+                {}
+            ).addTo(map_78b51f630b594caba1e1f410feca5fc4);
+        
+    
+            var icon_b4e4aef043d74b13ad4e179d68a62970 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-plus-o", "iconColor": "black", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_419e72f69d7d4e358574dd5027c6b531.setIcon(icon_b4e4aef043d74b13ad4e179d68a62970);
+        
+    
+            marker_419e72f69d7d4e358574dd5027c6b531.bindTooltip(
+                `<div>
+                     ('KING EDWARD @ BESSERER: Northbound) 21/20 p-value 0.00777, 20/19 p-value: nan',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_10a9bc92d3eb4ed7a41e2a51a7ffa2e4 = L.marker(
+                [45.39990521, -75.62158646],
+                {}
+            ).addTo(map_78b51f630b594caba1e1f410feca5fc4);
+        
+    
+            var icon_b20dd5e6a56f4c44af29bfb86e4613ea = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar-plus-o", "iconColor": "black", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_10a9bc92d3eb4ed7a41e2a51a7ffa2e4.setIcon(icon_b20dd5e6a56f4c44af29bfb86e4613ea);
+        
+    
+            marker_10a9bc92d3eb4ed7a41e2a51a7ffa2e4.bindTooltip(
+                `<div>
+                     ('RUSSELL @ ST-LAURENT: Southbound) 21/20 p-value 0.01093, 20/19 p-value: nan',)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>

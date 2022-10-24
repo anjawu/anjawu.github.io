@@ -162,7 +162,7 @@ setTimeout(timer1801,1801000);
 		<b>
 			<a href="#question1" class="saymore"> Question 1) Which month(s) see the most number of violations?</a><br>
 			<a href="#question2" class="saymore"> Question 2) Which location(s) have the most violations (2016-2020)?</a>    <a href="#question22021" class="saymore">2021 update</a><br>
-			<a href="#question3"  class="saymore"> Question 3) Which locations, if any, had a statistically significant change in the redlight camera violation occurrences for the year 2020?</a><br>
+			<a href="#question3"  class="saymore"> Question 3) Which locations, if any, had a statistically significant change in the redlight camera violation occurrences for the year 2020?</a> <a href="#question32021" class="saymore">2021 update</a><br>
 		</b>
 		For the questions, it is important to analyze the current data available (2020) to see patterns due to regular changes that would occur year-over-year but also major changes that would have occurred during the pandemic (beginning mid March 2020 in Ottawa). It is also useful to analyze previous yearly data because it provides us with a larger picture of patterns that might occur through the years.
 	</p>
@@ -607,14 +607,9 @@ setTimeout(timer1801,1801000);
 			<li>Prince Of Wales @ Hogs Back /Meadowlands</li>
 		</ul>
 	</p>
-
-
-
-
-
-
-
 </div><br><br>
+
+
 
 
 <div class="row">
@@ -673,8 +668,59 @@ setTimeout(timer1801,1801000);
 	</p>
 	<p>
 		This decrease in violations could be due to the COVID restrictions which probably led to more people staying at home meaning less people driving. Another reason for this occurrence could be due to the fact that red-light cameras are hypothesized to decrease violations the longer they are kept in place, meaning this could be a natural decrease in violations that we are seeing. In order to find which cause it most likely is, more research would need to be done.
-	</p>
-</div>
+	</p><br><br>
+
+	<h5 id='question32021'>2021 Update</h5>
+		<h6>Findings:</h6>
+		<p>
+			Number of locations that are statistically significantly different:
+    	<div class="tab">
+    		from 2019 to 2020: 24 locations <br>
+		    from 2020 to 2021: 38 locations
+		  </div>
+		</p><br>
+		<center><p>
+			<i><b>Table:</b> Looking at violation count changes that are statistically significant by location - p-values less than 0.05 (p-values that are greater than 0.05 are blacked out). Red box means a decrease between years highlighted; green means an increase.</i>
+		</p>
+		<img src="images/pages/projects/redlight/p-value_sig_comparison_19-21_coloured_pvalue.png" width="45%" height="auto"></center><br><br>
+		
+		<p>
+			From 2019 to 2020 we can see all are decreases, except:
+			<ul class="disc">
+				<li>Kirkwood @ Coldrey: Northbound (continuously increasing from 2019 to 2021)</li>
+			</ul>
+		</p>
+		<p>
+			From 2020 to 2021 we see majority are an increase except:
+			<ul class="disc">
+				<li>Cyrville @ Inness: Westbound</li>
+				<li>Holland & Island Park @ NCC Driveway: Southbound</li>
+				<li>Bay @ Slater: Eastbound (continuously decreasing since 2019)</li>
+				<li>Lyon @ Slater: Southbound (continuously decreasing since 2019)</li>
+				<li>King Edward @ Besserer: Northbound (this was discussed before and the camera was down except for the month of Dec in 2021)</li>
+			</ul>
+		</p>
+		<p>
+			There were 11 locations which saw a statistically significant decrease from 2019 to 2020 but then saw a statistically significant increase from 2020 to 2021:
+			<ul class="disc">
+				<li>Campeau @ Hwy 417 Wb: Northbound</li>
+				<li>Bank @ Hunt Club: Eastbound</li>
+				<li>Tenth Line / Charlemagne @ Tompkins : Southbound</li>
+				<li>Bank @ Riverside N. (Rr19): Westbound</li>
+				<li>King Edward @ St. Patrick: Southbound</li>
+				<li>Bank @ Heron: Northbound</li>
+				<li>Aviation Parkway @ Ogilvie : Westbound</li>
+				<li>Carling @ Richmond: Westbound</li>
+				<li>Hazeldean / Robertson @ Eagleson: Southbound</li>
+				<li>Bank @ Riverside S. : Northbound</li>
+				<li>Aviation Parkway @ Montreal: Eastbound</li>
+			</ul>
+		</p>
+		<center>
+			<iframe src="images/pages/projects/redlight/stat_sig_mean_diff_locations_map_19-21.html" width="500" height="350"></iframe><br>
+			<i>Figure: Statistically significant decreases in locational red-light camera violations from 2019 to 2020 (red) compared to (mostly) increases from 2020 to 2021 (green)</i>
+		</center>
+</div><br><br>
 
 <div>
 	<h4>Extensions</h4>
