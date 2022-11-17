@@ -87,11 +87,11 @@ setTimeout(timer1801,1801000);
 			Coding Info
 			<ul>
 				<li><a href="sql.html">SQL</a></li>
+				<li><a href="ganalytics.html">Google Data</a></li>
 				<li><a href="libraries.html">Python Libraries</a></li>
 				<!-- <li><a href="stats.html">Statistics</a></li> -->
 				<li><a href="ml.html">Machine Learning</a></li>
 				<li><a href="github.html">GitHub</a></li>
-				<li><a href="ganalytics.html">Google Analytics</a></li>
 				<li><a href="funlearn.html">Fun Things Learnt</a></li>
 				<li><a href="versus.html">Versus</a></li>
 				<li><a href="environmentsetup.html">Environment Setup</a></li>
@@ -143,7 +143,7 @@ setTimeout(timer1801,1801000);
 				</div>
 			</div>
 			<p>
-				Finally, I had gotten to a place in my confidence in Python coding that I wanted to venture down the path for data analysis. The City of Ottawa has open source data and I found (and used) their data for red light violations from 2016-2020. Here I analyzed questions centered around <u><b>ROI</b></u> for the City of Ottawa: which months/locations have the highest/lowest number of violations, and was there a statistically significant change in number of violations for the year 2020 in comparison to 2019. I used <b><i>Pandas</i></b> to <b><u>analyze the data</u></b>, <b><i>matplotlib</i></b> and <b><i>NumPy</i></b> to <b><u>visualize the data</u></b>, <b><i>Folium</i></b> to <b><u>create map visualizations</u></b>, and <b><i>SciPy</i></b> to run <b><u>t-tests to analyze correlations</u></b>.
+				Finally, I had gotten to a place in my confidence in Python coding that I wanted to venture down the path for data analysis. The City of Ottawa has open source data and I found (and used) their data for red light violations from 2016-2020. Here I analyzed questions centered around <u><b>ROI</b></u> for the City of Ottawa: which months/locations have the highest/lowest number of violations, and was there a statistically significant change in number of violations for the year 2020 in comparison to 2019. I also re-ran the code to include the newest dataset for 2021. There is an updated report to include 2016-2021 data. I used <b><i>Pandas</i></b> to <b><u>analyze the data</u></b>, <b><i>matplotlib</i></b> and <b><i>NumPy</i></b> to <b><u>visualize the data</u></b>, <b><i>Folium</i></b> to <b><u>create map visualizations</u></b>, and <b><i>SciPy</i></b> to run <b><u>t-tests to analyze correlations</u></b>.
 			</p>
 			<br>
 		</div>
@@ -158,8 +158,14 @@ setTimeout(timer1801,1801000);
 				</div>
 			</div>
 			<p>
-				After the first web scraping two projects - with help from articles I found, I decided to venture out on my own. I decided to make a web scraper that pulls the information for Costco’s coupon section and looks for keywords. I had to learn to use <b><i>Selenium</i></b> because it required user input for the location before allowing the coupons to load (as they are based on the location). I also used <b><i>Pandas</i></b> again to make the <u><b>data frame that stores all the coupon information</b></u> and then also a second data frame that stores only the relevant coupons for the keyword I inputted.  I wanted to automatically run it once a week using Cron, however, I ran into some issues with Cron on a Macbook. I was anxious to get to my next project of data analysis so I moved on but there are so many ways this project can be taken further (which I hope to do): update my code once I fix the Cron/Macbook error, include a list of keywords to look for (as opposed to just one), making an email alert with the items listed based on the keywords inputted, and maybe even asking the user to input what words they want to set alerts for. 
+				After the first web scraping two projects - with help from articles I found, I decided to venture out on my own. I decided to make a web scraper that pulls the information for Costco’s coupon section and looks for keywords. I had to learn to use <b><i>Selenium</i></b> because it required user input for the location before allowing the coupons to load (as they are based on the location). I also used <b><i>Pandas</i></b> again to make the <u><b>data frame that stores all the coupon information</b></u> and then also a second data frame that stores only the relevant coupons for the keyword I inputted.  
 			</p>
+			<p>
+				The second part of this project involved a comparison in prices between Costco and Real Canadian Superstore. Initially, I automated the inputting the coupon item names into Real Canadian Superstore search and scraping the details to be stored into a dataframe. After this was done, the two dataframes (from different sources) were combined and cleaned to allow the analysis of the price to be done. The prices were compared by unit prices and the overall price difference distribution was displayed using the average quanity. 
+			</p>
+
+				<!-- I wanted to automatically run it once a week using Cron, however, I ran into some issues with Cron on a Macbook. I was anxious to get to my next project of data analysis so I moved on but there are so many ways this project can be taken further (which I hope to do): update my code once I fix the Cron/Macbook error, include a list of keywords to look for (as opposed to just one), making an email alert with the items listed based on the keywords inputted, and maybe even asking the user to input what words they want to set alerts for.  -->
+			
 			<br>
 		</div>
 	</div>
