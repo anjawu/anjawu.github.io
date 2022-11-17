@@ -88,11 +88,11 @@ setTimeout(timer1801,1801000);
 			Coding Info
 			<ul>
 				<li><a href="sql.html">SQL</a></li>
+				<li><a href="ganalytics.html">Google Data</a></li>
 				<li><a href="libraries.html">Python Libraries</a></li>
 				<!-- <li><a href="stats.html">Statistics</a></li> -->
 				<li><a href="ml.html">Machine Learning</a></li>
 				<li><a href="github.html">GitHub</a></li>
-				<li><a href="ganalytics.html">Google Analytics</a></li>
 				<li><a href="funlearn.html">Fun Things Learnt</a></li>
 				<li><a href="versus.html">Versus</a></li>
 				<li><a href="environmentsetup.html">Environment Setup</a></li>
@@ -124,7 +124,7 @@ setTimeout(timer1801,1801000);
 	<div class="row">
 		<div class="twelve columns">
 			<p class="left">
-				Google Analytics
+				Google Data
 			</p>
 		</div>
 	</div>
@@ -143,17 +143,93 @@ setTimeout(timer1801,1801000);
 <div class="row">
 	<div class="twelve columns">
 
-		<!-- Google Data Studios -->
+		<!-- BigQuery -->
 		<div class="circledate">
 			<div class="textcircle">
-				Data <br> Studios
+				<br>BigQuery
 			</div>
 		</div>
-		<h4>Google Data Studio</h4>
+		<h4>BigQuery</h4>
 		<div class="dots blogdots">
 		</div>
 		<p>
-			Google offers free (for now) BI tool for visualizing data. I decided to take a look and explore, below are the things I learnt.
+			BigQuery is a data warehouse. Since it is Google's they have a lot of other products that can be connected, it lets you scale your data and really build a good project for free. Google offers <a href="https://cloud.google.com/bigquery#section-5" class="saymore">various tiers</a> for using their data warehouse. As someone working on personal projects, I am using the <a href="https://cloud.google.com/bigquery/pricing#free-tier" class="saymore">free tier</a>. I found this to be the best resource to use to practice SQL queries on my own data. There are SQL servers that will let you input your own data, but none that I had explored was as easy to set up and free like BigQuery.
+		</p>
+
+		<!-- Accordion: Connecting BigQuery to GSheet-->
+		<ul class="accordion">
+			<li class="">
+				<div class="title">
+					<b>Setting up dataset</b>
+				</div>
+				<div class="content" style="overflow: hidden; display: none; ">
+					<p>
+						<i>Connecting BigQuery to Google Sheet</i>
+					</p>
+					<p>
+						On your BigQuery homepage for SQL workspace, you can add data:
+						<center><img src="images/pages/bigquery/get_started_sql.png" width = "600" height = "auto" alt=""></center><br><br>
+					</p>
+					<p>
+						BigQuery gives lots of options for what kind of data you can add. For myself, I had my data as a GSheet, so I clicked Google Drive:
+						<center><img src="images/pages/bigquery/add_data.png" width = "450" height = "auto" alt=""></center><br><br>
+					</p>
+					<p>
+						Here is how creating a table using Google Drive looks like:
+						<center><img src="images/pages/bigquery/blank_data_info.png" width = "550" height = "auto" alt=""></center><br><br>
+					</p>
+					<p>
+						For the source section:
+						<ul class="disc">
+							<li>Get your google sheet shareable link</li>
+							<li>If you want, you can specify the cells of data to import (if there are things you want to discard). There are also “Advanced options” that let you take away certain rows/columns (such as the header rows, or any row that doesn't have the same number of columns like the rest of the dataset).</li>
+						</ul>
+						<center><img src="images/pages/bigquery/datatable_source.png" width = "800" height = "auto" alt=""></center><br><br>
+					</p>
+					<p>
+						For the destination section:
+						<ul class="disc">
+							<li>If you have already created a dataset, this is where you can access it. In my case, I needed to create the dataset.</li>
+						</ul>
+						<center><img src="images/pages/bigquery/destination_create_dataset.png" width = "800" height = "auto" alt=""></center><br><br>
+					</p>
+					<p>
+						For creating the dataset:
+						<ul class="disc">
+							<li>Create a dataset ID that will be used to reference the tables that will be listed under the dataset</li>
+							<li>I did not want the table to expire because I knew it was a small amount of data and I wanted to keep it as my project to reference for future uses</li>
+						</ul>
+						<center><img src="images/pages/bigquery/create_dataset.png" width = "400" height = "auto" alt=""></center><br><br>
+					</p>
+					<p>
+						After the dataset is created, we need to specify the table name for the table we are currently adding. 
+						<center><img src="images/pages/bigquery/dataset_destination.png" width = "700" height = "auto" alt=""></center>
+						From here on, if you wanted to add more tables to the same dataset, then you just need to select the correct dataset (not create a new one).
+					</p>
+					<p>
+						Next you can either autodetect the schema or you can specify it:
+						<center><img src="images/pages/bigquery/schema.png" width = "400" height = "auto" alt=""></center>
+						For my dataset I chose to try the “Auto detect” because I wanted to practice my data cleaning skills using SQL as opposed to having BigQuery do it for me!
+					</p>
+				</div>
+			</li>
+
+		</ul>
+		
+		<div class="hr">
+		</div>
+
+		<!-- Google Data Studio -->
+		<div class="circledate">
+			<div class="textcircle">
+				<br>Looker
+			</div>
+		</div>
+		<h4>Looker Studio</h4>
+		<div class="dots blogdots">
+		</div>
+		<p>
+			Google offers free (for now) BI tool for visualizing data. <a href="https://searchengineland.com/google-data-studio-now-known-as-looker-studio-388658" class="saymore">Formerly known as Google Data Studio</a>. I decided to take a look and explore, below are the things I learnt.
 		</p>
 
 		<!-- Accordion: Connecting Data Studio to Analytics-->
