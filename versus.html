@@ -132,13 +132,219 @@ setTimeout(timer1801,1801000);
 <!-- CONTENT 
 ================================================== -->
 <div class="row">
-	<!-- Project 1-->
-	<div class="six columns columnborder" style="padding: 2em;">
-		<h5><center><b>Package/Library vs. Module</b></center></h5>
-			<div class="row">
+	<ul class="accordion">
+
+		<!-- ETL vs ELT -->
+		<li class="">
+			<div class="title">
+				<b>ETL vs ELT</b>
+			</div>
+			<div class="content" style="overflow: hidden; display: none; ">
+				<div class="tab" align="center">
+					<p>
+						For both the letters stand for the same thing: extract, load, and transform. 
+						<ul align="left">
+							<li><b>Extract:</b> process of obtaining data from a source system. Data can be retrieved from an API (python process), or it can be accessed from an OLTP database.</li>
+							<li><b>Transform:</b> process of transforming the extracted data. This includes things like changing field types and names, enhancing data, creating schemas, etc.</li>
+							<li><b>Load:</b> process of loading transformed data into the data asset used by the end-user. This would lead to things to further analyze the data, like reporting and visualization or ML/AI tools.</li>
+						</ul>
+						The biggest difference between the two is the ordering of the process.
+					</p>
+
+				</div>
+				<div class="six column" align="right">
+					<h6>ETL</h6>
+					<p>
+						For ETL, the data is extracted from a source, transformed, and loaded into tables for end-user usage (can be done with Python, Spark, Scala, or SQL in the data warehouse). ETL is an older method ideal for complex transformations of smaller data sets. This creates a bottleneck because you have engineers who have to transform all the data before moving it to a bigger access point for others. 
+					</p>
+				</div>
+				<div class="six column" align="left">
+					<h6>ELT</h6>
+					<p>
+						For ELT, the data is extracted from a source, then the raw data is loaded into a data warehouse where it is transformed. From there, the warehouse is connected to analysis tools to access the transformed tables. ELT is a newer technology that provides more flexibility to analysts and is perfect for processing both structured and unstructured data. <a href="https://www.youtube.com/watch?v=25X0oh-H_mk" class="saymore">This video</a> does a good job of going through ELT and why to use it.
+					</p>
+				</div>
+				<div class="tab" align="center">
+					<p>
+						<a href="https://rivery.io/blog/etl-vs-elt/" class="saymore">This website</a> had a great detailed account of what the difference between the two terms is. <a href="https://youtu.be/efsqqD_Gak0?t=97" class="saymore">This video</a> also did a great job visualizing the difference between the two terms. <a href="https://www.analyticsvidhya.com/blog/2022/03/a-quick-overview-of-data-engineering/#:~:text=ETL%20%26%20ELT,reporting%20and%20visualization." class="saymore">Analytics Vidhya</a> blog has an article that has a section which talks about ELT and ETL. 
+					</p>
+				</div>
+			</div>
+		</li>
+
+		<!-- OLAP vs OLTP -->
+		<li class="">
+			<div class="title">
+				<b>OLAP vs OLTP</b>
+			</div>
+			<div class="content" style="overflow: hidden; display: none; ">
+				<div class="six column" align="right">
+					<h6>OLTP</h6>
+					<p>
+						OLTP (online transaction processing) is the processing of the datasets that contain real-time execution of transactions. <a href="https://www.heavy.ai/technical-glossary/analytical-database#:~:text=Difference%20Between%20Analytical,for%20efficient%20analysis." class="saymore">Also referred to as operational database</a>.
+					</p>
+				</div>
+				<div class="six column" align="left">
+					<h6>OLAP</h6>
+					<p>
+						OLAP (online analytical processing) is the changing of data within a data warehouse that leads to data analysis being able to be done <a href="https://www.heavy.ai/technical-glossary/analytical-database#:~:text=Difference%20Between%20Analytical,for%20efficient%20analysis." class="saymore">Also referred to as analytical database</a>.
+					</p>
+				</div>
+				<div class="tab" align="center">
+					<p>
+						The two can be connected in terms of data flow, I loved the visual I found from <a href="https://www.analyticsvidhya.com/blog/2020/11/oltp-vs-olap/" class="saymore">Analytics Vidhya</a>: 
+						<center><img src="images/pages/versus/oltp-olap.png" width = "500" height = "auto" alt=""></center><br><br>
+					</p>
+					<p>
+						<a href="https://www.youtube.com/watch?v=iw-5kFzIdgY" class="saymore">This video</a> describes the difference very well.
+					</p>
+				</div>
+			</div>
+		</li>
+
+		<!-- Data Lake vs Data Warehouse -->
+		<li class="">
+			<div class="title">
+				<b>Data Lake vs Data Warehouse</b>
+			</div>
+			<div class="content" style="overflow: hidden; display: none; ">
+				<div class="six column" align="right">
+					<h6>Data Lake</h6>
+					<p>
+						Data lakes are data stores that hold raw data. This was a popular method to be used because it was a lot cheaper to store all the raw data and then pull out what you needed rather than transforming it before storing. Now as cloud technology improves data lakes are not necessarily needed.
+					</p>
+				</div>
+				<div class="six column" align="left">
+					<h6>Data Warehouse</h6>
+					<p>
+						Data warehouses are data stores that hold structured (or semi-structured) data. This means that in order for data to be stored in a warehouse it will have to be transformed to be in some sort of structured format, such as connected tables. Now that more companies are going the way of ELT, this means that the raw data is being dumped in the same spot as it is being transformed. This means that some modern data warehouses are both data lakes and warehouses.
+					</p>
+				</div>
+				<div class="tab" align="center">
+					Resources I used: <a href="https://www.qubole.com/data-lakes-vs-data-warehouses-the-co-existence-argument" class="saymore">(1)</a> and <a href="https://www.youtube.com/watch?v=WgIbvkyY4mI" class="saymore">(2)</a>
+				</div>
+			</div>
+		</li>
+
+		<!-- Table: Fact vs Dimensional -->
+		<li class="">
+			<div class="title">
+				<b>Table: Fact vs Dimensional</b>
+			</div>
+			<div class="content" style="overflow: hidden; display: none; ">
+				<div class="tab" align="center">
+					<p>
+						<a href="https://www.guru99.com/fact-table-vs-dimension-table.html" class="saymore"> This website</a> had a great long description and comparison of the two tables.
+					</p>
+					<p>
+						The fact table contains measurements, metrics, and facts about a business process, while the dimension table is a companion to the fact table, which contains descriptive attributes to be used as query constraining.
+					</p>
+				</div>
+				<div class="six column" align="right">
+					<h6>Fact Table</h6>
+					<p>
+						Fact tables are at the centre of a schema and they contain general information that create links to more detailed tables. They contain things like measurement, metrics and facts about something business related.
+					</p>
+				</div>
+				<div class="six column" align="left">
+					<h6>Dimensional Table</h6>
+					<p>
+						Dimensional tables are at the edges of a schema and they contain more descriptive attributes of the attributes from the fact table.
+					</p><br>
+				</div>
+				<div class="tab" align="center">
+					<p>
+						A cool trick <a href="https://youtu.be/a906b80lCE8?t=171" class="saymore">this video</a> showed me was that fact tables are long (due to having more entries), whereas dimensional tables will be wide (due to having more details). Here is a diagram of how they are linked:
+						<center><img src="images/pages/versus/fact-dimensional-table2.png" width = "300" height = "auto" alt=""></center><br><br>
+					</p>
+				</div>
+			</div>
+		</li>
+
+		<!-- Key: Primary vs Foreign -->
+		<li class="">
+			<div class="title">
+				<b>Key: Primary vs Foreign</b>
+			</div>
+			<div class="content" style="overflow: hidden; display: none; ">
+				
+				<div class="six column" align="right">
+					<h6>Foreign key</h6>
+					<p>
+						Foreign key is used to describe an attribute on a table that can contain repeating values to link to other tables that might contain more details about the attribute. Some facts about foreign keys are:
+						<ul class="disc" align="left">
+							<li>They create a relationship between two tables </li>
+							<li>Multiple foreign keys can be used in a table</li>
+							<li>Can accept null values</li>
+						</ul>
+					</p>
+				</div>
+				<div class="six column" align="left">
+					<h6>Primary key</h6>
+					<p>
+						Primary key is used to reference the link of attributes in the detailed table to the general fact table. Some facts about primary keys are:
+						<br><br>
+						<ul class="disc">
+							<li>Uniquely identifies each row </li>
+							<li>Single primary key in a table</li>
+							<li>Never accepts null values</li>
+						</ul>
+					</p>
+				</div>
+				<div class="tab" align="center">
+					<p>
+						Here is an example of where the two keys might occur in a star schema:
+						<center><img src="images/pages/versus/foreign-primary-key.png" width = "300" height = "auto" alt=""></center><br><br>
+					</p>
+					<p>
+						<a href="https://www.guru99.com/difference-between-primary-key-and-foreign-key.html" class="saymore">Here</a> is a detailed article about keys. 
+					</p>
+				</div>
+			</div>
+		</li>
+
+		<!-- Schema: Star vs Snowflake -->
+		<li class="">
+			<div class="title">
+				<b>Schema: Star vs Snowflake</b>
+			</div>
+			<div class="content" style="overflow: hidden; display: none; ">
+				<div class="tab" align="center">
+					Both star and snowflake are schemas used for storing data in a data warehouse.
+				</div>
+				<div class="six column" align="right">
+					<h6>Star Schema</h6>
+					<p>
+						
+						Star schemas have one fact table (with foreign keys) which is split into dimension tables (linked to fact table by primary keys). This schema is not normalized, meaning there are data redundancies. Here is a graphic of how a star schema would look like:
+						<center><img src="images/pages/versus/star-schema.png" width = "400" height = "auto" alt=""></center><br><br>
+					</p>
+				</div>
+				<div class="six column" align="left">
+					<h6>Snowflake Schema</h6>
+					<p>
+						Snowflake schemas have one fact table and dimensional tables, like the star schema, but it also has lookup tables. Lookup tables are secondary dimensional tables connecting to the initial dimensional table that split the primary dimensional tables until normalized (no redundancy of data). Here is a graphic of how a snowflake schema would look like:
+						<center><img src="images/pages/versus/snowflake-schema.png" width = "400" height = "auto" alt=""></center><br><br>
+					</p>
+				</div>
+				<div class="tab" align="center">
+					<p>
+						<a href="https://www.keboola.com/blog/star-schema-vs-snowflake-schema" class="saymore">Here</a> is a great article that goes through a more detailed view of everything. This visual from the article explains the pros and cons very neatly:
+						<center><img src="images/pages/versus/star-snowflake-schema.png" width = "600" height = "auto" alt=""></center><br><br>
+					</p>
+				</div>
+			</div>
+		</li>
+
+		<!-- Package/Library vs. Module< -->
+		<li class="">
+			<div class="title">
+				<b>Package/Library vs. Module</b>
+			</div>
+			<div class="content" style="overflow: hidden; display: none; ">
 				<div class="six column">
 					<p align="right">
-						<br>
+						<h6>Packages/Libraries</h6>
 						<u>Packages</u> are collections of modules. In order to identify it as a package, it must contain __init__.py file.
 						<br><br>
 						<u>Libraries</u> are collections of code that have similar functions. An example would be the Pandas library. This allows us to import the library to our code and then make use of great data analysis functions without having to create the methods ourselves. Remember that you must always first import the library before being about to call on the methods of that library. The language of a library and package can be interchanged.
@@ -147,21 +353,24 @@ setTimeout(timer1801,1801000);
 				</div>
 				<div class="six column">
 					<p align="left">
-						<br>
+						<h6>Modules</h6>
 						<u>Modules</u> are files that have functions and global variables. 
 						<br><br>
 						You can think of it this way: a module is a subsection of a Package.
 					</p>
 				</div>
 			</div>
-		</div>
-	<!-- Project 2-->
-	<div class="six columns columnborder" style="padding: 1.35em;">
-		<h5><center><b>Function vs. Method</b></center></h5>
-			<div class="row">
+		</li>
+
+		<!-- Function vs. Method -->
+		<li class="">
+			<div class="title">
+				<b>Function vs. Method</b>
+			</div>
+			<div class="content" style="overflow: hidden; display: none; ">
 				<div class="six column" align="right">
+					<h6>Function</h6>
 					<p>
-						<br>
 						When you have a specific task that needs to be done a couple of times throughout your code, the best practice is to make a <u>function</u> for it. A function is a self-contained block of code, defined using the “def” keyword, which carries out a specific task, and is called by name (<a href="https://www.tutorialspoint.com/difference-between-method-and-function-in-python" class="saymore">source</a>). When a function is called, it will usually only operate and return a value. 
 						<br><br>
 						<i>There are two main kinds of functions:</i>
@@ -171,96 +380,130 @@ setTimeout(timer1801,1801000);
 						</ol>
 					</p>
 				</div>
-				<p class="six column" align="left">
-					<br>
-					A <u>method</u> in python is a self-contained block of code that carries out a specific task - like a function. However, unlike a function, it is used on an object/class. Because it is called on an object/class it can alter the object/class's data.
-					<br><br>
-					How to spot a method: if it has “.” it is a method: <i>.method()</i> because it must be called upon by an object/class.
-				</p>
+				<div class="six column" align="left">
+					<h6>Method</h6>
+					<p>
+						A <u>method</u> in python is a self-contained block of code that carries out a specific task - like a function. However, unlike a function, it is used on an object/class. Because it is called on an object/class it can alter the object/class's data.
+						<br><br>
+						How to spot a method: if it has “.” it is a method: <i>.method()</i> because it must be called upon by an object/class.
+					</p>
+				</div>
 			</div>
-	</div>
-</div>
-<div class="row">
-	<!-- Project 3-->
-	<div class="six columns columnborder" style="padding: 1.75em;">
-		<h5><center><b>Absolute vs. Relative File Path</b></center></h5>
-			<div class="row">
-				<br>
-				<p class="six column" align="right">
-					The <u>absolute</u> path is the best to use because there are no limitations to checking where your code is located, and less chance of an error. Easiest to just specify which folder it goes into. You list the whole path starting with /.
-					<br><br>
-					<b>Example:</b>
-					<br>
-					<i>/User/Folder1/Folder2/.../FinalFolder</i>
-				</p>
-				<p class="six column" align="left">
-					The <u>relative</u> path you use when you are in a specific folder and doing smaller projects that will not move from the folder. Try to avoid using this as this can lead to errors in code if a file is ever moved.
-				</p>
+		</li>
+
+		<!-- IDE vs. Code Editor -->
+		<li class="">
+			<div class="title">
+				<b>IDE vs. Code Editor</b>
 			</div>
-	</div>
-	<!-- Project 4-->
-	<div class="six columns columnborder" style="padding: 1.2em;">
-		<h5><center><b>Parameter vs. Argument</b></center></h5>
-			<div class="row">
+			<div class="content" style="overflow: hidden; display: none; ">
+				<div class="six column" align="right">
+					<h6>IDE</h6>
+					<p>
+						<u>IDE</u> stands for integrated development environment. The development (including coding, compiling, debugging, executing, autocomplete, libraries) can be done in a single program with an IDE. 
+					</p>
+				</div>
+				<div class="six column" align="left">
+					<h6>Code editor</h6>
+					<p>
+						<u>Code editor</u> is a text editor in which code can only be edited or modified. This requires more steps to be taken by the programmer, but is less complicated especially when working on smaller-scope projects.
+					</p>
+				</div>
+				<div class="tab" align="center">
+					<p>
+						As I am currently not working on large scope projects, I have chosen to use a code editor instead of IDE.
+						<br><br>
+						This <a href="https://www.softwaretestinghelp.com/python-ide-code-editors/", class="saymore">article</a> had a good list of top Python IDE and Code editors. 
+						<br><br><br><br>
+					</p>
+				</div>
+			</div>
+		</li>
+
+		<!-- Python vs. Anaconda -->
+		<li class="">
+			<div class="title">
+				<b>Python vs. Anaconda</b>
+			</div>
+			<div class="content" style="overflow: hidden; display: none; ">
+				<div class="six column" align="right">
+					<h6>Python</h6>
+					<p>
+						<u>Python</u> is one of the best "readable" codes and is widely used (e.g. data science, machine learning, web/desktop applications, etc.). Uses “pip” - package installer python when installing packages (as the name suggests).
+					</p>
+				</div>
+				<div class="six column" align="left">
+					<h6>Anaconda</h6>
+					<p>
+						The language of <u>Anaconda</u> is python, however, has a lot more functionality built into it compared to python. Especially when it comes to libraries, Anaconda comes with more data science/machine learning libraries directly installed. It tends to be easier to learn for non-programmers. Uses “conda” when installing packages.
+					</p>
+				</div>
+				<div class="row">
+					<p class="tab" align="center">
+						Basically, Anaconda uses python (and R) code to allow users a bit more ease of use in regards to data science and machine learning.
+						<br><br>
+						Although I am not the first to look up the difference between the two, it is not a fair “versus” because Anaconda is more of a subsection of python, however, I still wanted to do a comparison. This <a href="https://askanydifference.com/difference-between-anaconda-and-python/", class="saymore">website</a> really helped going into further detail about the differences.
+					</p>
+				</div>
+			</div>
+		</li>
+
+		<!-- Parameter vs. Argument -->
+		<li class="">
+			<div class="title">
+				<b>Parameter vs. Argument</b>
+			</div>
+			<div class="content" style="overflow: hidden; display: none; ">
+				<div class="six column" align="right">
+					<h6>Parameter</h6>
+					<p>
+						A <u>parameter</u> is the variable listed in the function definition.
+					</p>
+				</div>
+				<div class="six column" align="left">
+					<h6>Argument</h6>
+					<p>
+						An <u>argument</u> is the value in the function when it is called.
+					</p>
+				</div>
 				<br><br>
-				<p class="six column" align="right">
-					A <u>parameter</u> is the variable listed in the function definition.
-				</p>
-				<p class="six column" align="left">
-					An <u>argument</u> is the value in the function when it is called.
-				</p>
+				<div class="row">
+					<p class="tab" align="center">
+						From this <a href="https://www.w3schools.com/python/gloss_python_function_arguments.asp", class="saymore">website</a>, I found a clear and concise definition of both.
+					</p>
+				</div>
 			</div>
-			<br><br>
-			<div class="row">
-				<p class="tab" align="center">
-					From this <a href="https://www.w3schools.com/python/gloss_python_function_arguments.asp", class="saymore">website</a>, I found a clear and concise definition of both.
-				</p>
+		</li>
+
+		<!-- Absolute vs. Relative File Path -->
+		<li class="">
+			<div class="title">
+				<b>Absolute vs. Relative File Path</b>
 			</div>
-			<br><br><br><br>
-	</div>
+			<div class="content" style="overflow: hidden; display: none; ">
+				<div class="six column" align="right">
+					<h6>Absolute Path</h6>
+					<p>
+						The <u>absolute</u> path is the best to use because there are no limitations to checking where your code is located, and less chance of an error. Easiest to just specify which folder it goes into. You list the whole path starting with /.
+						<br><br>
+						<b>Example:</b>
+						<br>
+						<i>/User/Folder1/Folder2/.../FinalFolder</i>
+					</p>
+				</div>
+				<div class="six column" align="left">
+					<h6>Relative Path</h6>
+					<p>
+						The <u>relative</u> path you use when you are in a specific folder and doing smaller projects that will not move from the folder. Try to avoid using this as this can lead to errors in code if a file is ever moved.
+					</p>
+				</div>
+			</div>
+		</li>
+
+
+	</ul>
 </div>
-<div class="row">
-	<!-- Project 5 -->
-	<div class="six columns columnborder" style="padding: 2em;">
-		<h5><center><b>Python vs. Anaconda</b></center></h5>
-			<div class="row">
-				<p class="six column" align="right">
-					<u>Python</u> is one of the best "readable" codes and is widely used (e.g. data science, machine learning, web/desktop applications, etc.). Uses “pip” - package installer python when installing packages (as the name suggests).
-				</p>
-				<p class="six column" align="left">
-					The language of <u>Anaconda</u> is python, however, has a lot more functionality built into it compared to python. Especially when it comes to libraries, Anaconda comes with more data science/machine learning libraries directly installed. It tends to be easier to learn for non-programmers. Uses “conda” when installing packages.
-				</p>
-			</div>
-			<div class="row">
-				<p class="tab" align="center">
-					Basically, Anaconda uses python (and R) code to allow users a bit more ease of use in regards to data science and machine learning.
-					<br><br>
-					Although I am not the first to look up the difference between the two, it is not a fair “versus” because Anaconda is more of a subsection of python, however, I still wanted to do a comparison. This <a href="https://askanydifference.com/difference-between-anaconda-and-python/", class="saymore">website</a> really helped going into further detail about the differences.
-				</p>
-			</div>
-	</div>
-	<!-- Project 6 -->
-	<div class="six columns columnborder" style="padding: 2em;">
-		<h5><center><b>IDE vs. Code Editor</b></center></h5>
-			<br><br><br>
-			<div class="row">
-				<p class="six column" align="right">
-					<u>IDE</u> stands for integrated development environment. The development (including coding, compiling, debugging, executing, autocomplete, libraries) can be done in a single program with an IDE. 
-				</p>
-				<p class="six column" align="left">
-					<u>Code editor</u> is a text editor in which code can only be edited or modified. This requires more steps to be taken by the programmer, but is less complicated especially when working on smaller-scope projects.
-				</p>
-			</div>
-			<div class="row">
-				<p class="tab" align="center">
-					As I am currently not working on large scope projects, I have chosen to use a Code editor instead of IDE.
-					<br><br>
-					This <a href="https://www.softwaretestinghelp.com/python-ide-code-editors/", class="saymore">article</a> had a good list of top Python IDE and Code editors. 
-					<br><br><br><br>
-				</p>
-			</div>
-	</div>
-</div>
+
 <div class="hr">
 </div>
 <!-- FOOOTER 
