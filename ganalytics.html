@@ -156,15 +156,117 @@ setTimeout(timer1801,1801000);
 			BigQuery is a data warehouse. Since it is Google's they have a lot of other products that can be connected, it lets you scale your data and really build a good project for free. Google offers <a href="https://cloud.google.com/bigquery#section-5" class="saymore">various tiers</a> for using their data warehouse. As someone working on personal projects, I am using the <a href="https://cloud.google.com/bigquery/pricing#free-tier" class="saymore">free tier</a>. I found this to be the best resource to use to practice SQL queries on my own data. There are SQL servers that will let you input your own data, but none that I had explored was as easy to set up and free like BigQuery.
 		</p>
 
-		<!-- Accordion: Connecting BigQuery to GSheet-->
+		
 		<ul class="accordion">
+		<!-- BigQuery Queries -->
+<!-- 			<li class="">
+				<div class="title">
+					<b>BigQuery Queries</b>
+				</div>
+				<div class="content" style="overflow: hidden; display: none; ">
+						<dl class="tabs">
+							<dd class="active"><a href="#tab1">tab1</a></dd>
+							<dd><a href="#tab2">tab2</a></dd>
+						</dl>
+
+						<ul class="tabs-content"> -->
+							<!-- To Looker Studio (Google data studios) -->
+	<!-- 						<li class="active" id="tab1Tab">
+							<p>
+
+							</p>
+							</li> -->
+
+							<!-- to Google Sheets -->
+<!-- 							<li id="tab2Tab">
+								<center><img src="images/pages/bigquery/datatable_source.png" width = "800" height = "auto" alt=""></center><br><br> 
+							</li>
+						</ul>
+
+						
+				</div>
+			</li> -->
+
+		<!-- Accordion: Setting up Connection-->
 			<li class="">
 				<div class="title">
-					<b>Setting up dataset</b>
+					<b>Setting up Connection</b>
+				</div>
+				<div class="content" style="overflow: hidden; display: none; ">
+						<dl class="tabs">
+							<dd class="active"><a href="#lookerConnect">To Looker Studio</a></dd>
+							<dd><a href="#gSheetConnect">to Google Sheets</a></dd>
+						</dl>
+
+						<ul class="tabs-content">
+							<!-- To Looker Studio (Google data studios) -->
+							<li class="active" id="lookerConnectTab">
+								<p>
+									Looker Studio (formerly known as Google Data Studio) allows quick creation of visualization from tables. There are many data sources it can be connected from, one of which is BigQuery. Here we will look at how to connect the two.
+								</p>
+								<p>
+									First, you go on Looker Studio. Select the "Create" button (top left corner). Then select "Data Source".
+									<center><img src="images/pages/bigquery/looker_source_connect.png" width = "150" height = "auto" alt=""></center><br><br>
+								</p>
+								<p>
+									There are many data sources to select from, here is a small list of ones you can select! In this case I selected "BigQuery".
+									<center><img src="images/pages/bigquery/looker_select_datasource.png" width = "800" height = "auto" alt=""></center><br><br>
+								</p>
+								<p>
+									Once you select BigQuery, you have to select your project…
+									<center><img src="images/pages/bigquery/looker_connect_bigquery.png" width = "500" height = "auto" alt=""></center><br><br>
+								</p>
+								<p>
+									And select your dataset and table:
+									<center><img src="images/pages/bigquery/looker_bigquery.png" width = "800" height = "auto" alt=""></center><br><br>
+								</p>
+								<p>
+									Once you have connected it, you will see all you columns as data you can work with for visuals:
+									<center><img src="images/pages/bigquery/looker_bigquery_data.png" width = "800" height = "auto" alt=""></center><br><br>
+								</p>
+							</li>
+
+							<!-- to Google Sheets -->
+							<li id="gSheetConnectTab">
+								<p>
+									BigQuery has a function that is pretty cool: it allows you to connect a Gsheet with a BigQuery table! Why is this awesome? Well it allows you to use Sheets on very large datasets and do things like make charts, pivot tables, functions, filter columns, etc. This is a very powerful tool, especially if you are used to working in Sheets. 
+								</p>
+								<p>
+									Here is how your table in GSheets will look like after you connect the two:
+									<center><img src="images/pages/bigquery/gsheet_bigquery_table.png" width = "500" height = "auto" alt=""></center><br><br>
+								</p>
+								<p>
+									<i><b>How to do it</b></i>
+								</p>
+								<p>
+									Once you have your table in BigQuery, open a new GSheet. Select: Data -> Data connectors -> Connect to BigQuery
+									<center><img src="images/pages/bigquery/data_connector_bigquery.png" width = "500" height = "auto" alt=""></center><br><br>
+								</p>
+								<p>
+									Then select the project, dataset, and table you want to connect:
+									<center><img src="images/pages/bigquery/gsheet_add_data_connector.png" width = "500" height = "auto" alt=""> ->
+										<img src="images/pages/bigquery/gsheet_bigquery_table_connector.png" width = "200" height = "auto" alt=""></center><br><br>
+								</p>
+								<p>
+									It will take some time to connect (depending on the size of your table) and here is how the connected sheet will look:
+									<center><img src="images/pages/bigquery/gsheet_bigquery_table.png" width = "500" height = "auto" alt=""></center><br><br>
+								</p>
+							</li>
+						</ul>
+
+						
+				</div>
+			</li>
+
+
+			<!-- Accordion: setting up data -->
+			<li class="">
+				<div class="title">
+					<b>Setting up Dataset</b>
 				</div>
 				<div class="content" style="overflow: hidden; display: none; ">
 					<p>
-						<i>Connecting BigQuery to Google Sheet</i>
+						<i>Creating BigQuery Table using Google Sheet Table</i>
 					</p>
 					<p>
 						On your BigQuery homepage for SQL workspace, you can add data:
@@ -214,10 +316,16 @@ setTimeout(timer1801,1801000);
 				</div>
 			</li>
 
+
 		</ul>
 		
 		<div class="hr">
 		</div>
+
+
+
+
+
 
 		<!-- Google Data Studio -->
 		<div class="circledate">
