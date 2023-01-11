@@ -103,6 +103,7 @@ setTimeout(timer1801,1801000);
 			<ul>
 				<li><a href="redlight.html">Redlight</a></li>
 				<li><a href="costco.html">Costco</a></li>
+				<li><a href="schoolboard.html">School Boards</a></li>				
 				<li><a href="website.html">Website</a></li>
 				<li><a href="indeed.html">Indeed</a></li>
 				<li><a href="imdb.html">IMDb</a></li>
@@ -159,33 +160,65 @@ setTimeout(timer1801,1801000);
 		
 		<ul class="accordion">
 		<!-- BigQuery Queries -->
-<!-- 			<li class="">
+			<li class="">
 				<div class="title">
-					<b>BigQuery Queries</b>
+					<b>SQL Queries</b>
 				</div>
 				<div class="content" style="overflow: hidden; display: none; ">
 						<dl class="tabs">
-							<dd class="active"><a href="#tab1">tab1</a></dd>
-							<dd><a href="#tab2">tab2</a></dd>
+							<dd class="active"><a href="#createTable">Create Table & SAFE_</a></dd>
+							<!-- <dd><a href="#tab2">tab2</a></dd> -->
 						</dl>
 
-						<ul class="tabs-content"> -->
-							<!-- To Looker Studio (Google data studios) -->
-	<!-- 						<li class="active" id="tab1Tab">
-							<p>
-
-							</p>
-							</li> -->
+						<ul class="tabs-content">
+							<!-- Create Table (from exisiting) -->
+							<li class="active" id="createTableTab">
+								<p>
+									<a href="https://www.w3schools.com/sql/sql_create_table.asp" class="saymore">W3Schools</a> has a good page that talks about ways to create tables. Since I already went through how to make a new dataset (with a schema) in “Setting up Dataset” drop down section, here I wanted to go through creating a new table (from an existing one) and changing some data types. 
+								</p>
+								<p>
+									To create a new table from an existing one, use “AS” and “SELECT” what you want “FROM” an existing table.
+								</p>
+								<p>
+									In BigQuery you can use the <a href="https://cloud.google.com/bigquery/docs/reference/standard-sql/functions-reference#safe_prefix" class="saymore">SAFE prefix</a>. According to the documentation: if you begin a function with the SAFE. prefix, it will return NULL instead of an error. 
+								</p>
+								<p>
+									Here is the sample code from my school board achievement and progress table:
+									<div id="testimonials"><blockquote>
+										CREATE TABLE
+										<div class="tab">
+											school_board.achievement_progress AS<br>
+											SELECT
+											<div class="tab">
+											  p.Board_Number AS board_number,<br>
+											  p.Board_Name AS board_name,<br>
+											  SAFE_CAST(p.Grade_6_EQAO_Reading_Results AS FLOAT64)*100 AS grade_6_EQAO_reading_results_percent,<br>
+											  SAFE_CAST(p.Progress_in_Grade_6_EQAO_Reading_Results AS FLOAT64)*100 AS progress_in_grade_6_EQAO_reading_results_percent,<br>
+											  p.Extract_Date AS extract_date
+											 </div>
+											 FROM
+											 <div class="tab">
+											  school_board.progress p
+											 </div>
+										</div>
+									</blockquote></div>
+								</p>
+								<p>
+									As you may have noticed, I chose to shorten the name of my previous table to “p” to make it simpler to reference the columns I wanted.
+								</p>
+							</li>
 
 							<!-- to Google Sheets -->
-<!-- 							<li id="tab2Tab">
-								<center><img src="images/pages/bigquery/datatable_source.png" width = "800" height = "auto" alt=""></center><br><br> 
-							</li>
+							<!-- <li id="tab2Tab"> -->
+								<!-- <center><img src="images/pages/bigquery/datatable_source.png" width = "800" height = "auto" alt=""></center><br><br>  -->
+							<!-- </li> -->
 						</ul>
 
 						
 				</div>
-			</li> -->
+			</li>
+
+
 
 		<!-- Accordion: Setting up Connection-->
 			<li class="">
@@ -442,7 +475,7 @@ setTimeout(timer1801,1801000);
 		<!-- Accordion: My First Report-->
 			<li class="">
 				<div class="title">
-					<b>My First Report</b>
+					<b>My First Report (Website Traffic)</b>
 				</div>
 				<div class="content" style="overflow: hidden; display: none; ">
 					<p>
