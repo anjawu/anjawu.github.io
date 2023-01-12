@@ -277,7 +277,7 @@ setTimeout(timer1801,1801000);
 		<div class="dots blogdots">
 		</div>
 		<p>
-			Most commonly used for statistical analysis. More about functions I have used coming soon!
+			Most commonly used for statistical analysis to deal with imbalanced datasets.
 		</p>
 		<div class="hr">
 		</div>
@@ -297,42 +297,209 @@ setTimeout(timer1801,1801000);
 				</div>
 			</li>
 
-			<!-- 
-				from imblearn.over_sampling import RandomOverSampler
-				from imblearn.under_sampling import RandomUnderSampler
-				from imblearn.over_sampling import SMOTE
-				from imblearn.under_sampling import TomekLinks
-	 		-->
 
 		<!-- Accordion:  -->
-			<!-- <li class="">
+			<li class="">
 				<div class="title">
-					<b>Working with </b>
+					<b>Working with Imbalanced Data</b>
 				</div>
 				<div class="content" style="overflow: hidden; display: none; ">
 					<p>
-						
-					</p> -->
+						While creating a decision tree model I noticed that the output (feature I wanted to predict) was imbalanced:
+						<center><img src="images/pages/codinginfo/libraries/imbalanced-attrition.png" width = "300" height = "auto" alt=""></center>
+						Here we can see that the number of people who leave the company within a year is very low in comparison to the number of people who stay in the company (obviously this is what we would want to see). Here is how it looks like with the test and train labels:
+						<center><img src="images/pages/codinginfo/libraries/attrition-control-distribution.png" width = "300" height = "auto" alt=""></center>
+					</p>
+					<p>
+						There are many different ways to deal with an imbalanced dataset. I found <a href="https://www.analyticsvidhya.com/blog/2020/07/10-techniques-to-deal-with-class-imbalance-in-machine-learning/" class="saymore">this great article</a> that listed some methods:
+						<ul class="disc">
+							<li>Random Under-Sampling</li>
+							<li>Random Over-Sampling</li>
+							<li>Random under-sampling with imblearn</li>
+							<li>Random over-sampling with imblearn</li>
+							<li>Under-sampling: Tomek links</li>
+							<li>Synthetic Minority Oversampling Technique (SMOTE)</li>
+							<li>Penalize Algorithms (Cost-Sensitive Training)</li>
+						</ul>
+						Within this website it also talked about just changing the algorithm for instance: "decision trees frequently perform well on imbalanced data. In modern machine learning, tree ensembles (Random Forests, Gradient Boosted Trees, etc.)"
+					</p>
+					<p>
+						I tried four of the ones listed just to see how they would compare to each other.
+					</p>
 					<!-- Tabs -->
-					<!-- <dl class="tabs">
-						<dd class="active"><a href="#rk-sort">Rank & Sort Values</a></dd>
-						<dd><a href="#adddelete-rowcolumn">Adding & Deleting</a></dd>
+					<dl class="tabs">
+						<dd class="active"><a href="#rd-over">RandomOverSampler</a></dd>
+						<dd><a href="#rd-under">RandomUnderSampler</a></dd>
+						<dd><a href="#smote">SMOTE</a></dd>
+						<dd><a href="#tomek">TomekLinks</a></dd>
 					</dl>
 					<ul class="tabs-content">
-						<li class="active" id="rk-sortTab">
+						<li class="active" id="rd-overTab">
+							<h6>Description</h6>
 							<p>
-
+								<a href="https://imbalanced-learn.org/stable/references/generated/imblearn.over_sampling.RandomOverSampler.html" class="saymore">RandomOverSampler</a>: as the name suggests, the data is randomly sampled to make up the minority. What this means is: "Object to over-sample the minority class(es) by picking samples at random with replacement."
 							</p>
+							<h6>Import</h6>
+							<p>
+								<div id="testimonials"><blockquote>
+									from imblearn.over_sampling import RandomOverSampler
+								</blockquote></div>
+							</p>
+							<h6>Implement</h6>
+							<p>
+								First we get our data ready to train by removing the encoded predictions and store in a separate df:
+								<div id="testimonials"><blockquote>
+									y1 = new_df['Attrition_encoded']<br>
+									X1 = new_df.drop('Attrition_encoded', axis=1) 
+								</blockquote></div>
+								In order to implement all we have to do is use the RandomOverSampler() function, it is easier to give it a variable name:
+								<div id="testimonials"><blockquote>
+									ros = RandomOverSampler()
+								</blockquote></div>
+								Then we want to resample and fit our resampled data on our predictor and target: 
+								<div id="testimonials"><blockquote>
+									variablex_ros, y_ros = ros.fit_resample(X1, y1)
+								</blockquote></div>
+								After that we can just split the dataset into X_train, X_test, y_train, and y_test (retaining 10% of the data for testing):
+								<div id="testimonials"><blockquote>
+									X1_train, X1_test, y1_train, y1_test = train_test_split(variablex_ros, y_ros, test_size=0.1)#, random_state=0) 
+								</blockquote></div>
+							</p>
+							<h6>Results</h6>
+							<div class="six columns">
+								<center><img src="images/pages/codinginfo/libraries/attrition-rdover-distribution.png" width = "300" height = "auto" alt=""></center>
+							</div>
+							<div class="six columns">
+								As can be seen, Random Over Sampler had an okay performance. It performed the best out of the four methods I looked into:
+								<center><img src="images/pages/codinginfo/libraries/attrition-rdover-accuracy.png" width = "300" height = "auto" alt=""></center>
+							</div>
 						</li>
-						<li id="adddelete-rowcolumnTab">
-							<h6>Add</h6>
+						
+						<li id="rd-underTab">
+							<h6>Description</h6>
 							<p>
-								
+								<a href="https://imbalanced-learn.org/stable/references/generated/imblearn.under_sampling.RandomUnderSampler.html" class="saymore">RandomUnderSampler</a>: as the name suggests, the data is randomly sampled to get rid of some majority. What this means is: "Under-sample the majority class(es) by randomly picking samples with or without replacement."
 							</p>
+							<h6>Import</h6>		
+							<p>
+								<div id="testimonials"><blockquote>
+									from imblearn.under_sampling import RandomUnderSampler
+								</blockquote></div>
+							</p>
+							<h6>Implement</h6>
+							<p>
+								First we get our data ready to train by removing the encoded predictions and store in a separate df:
+								<div id="testimonials"><blockquote>
+									y1 = new_df['Attrition_encoded']<br>
+									X1 = new_df.drop('Attrition_encoded', axis=1) 
+								</blockquote></div>
+								In order to implement all we have to do is use the RandomUnderSampler() function, it is easier to give it a variable name:
+								<div id="testimonials"><blockquote>
+									rus = RandomUnderSampler()
+								</blockquote></div>
+								Then we want to resample and fit our resampled data on our predictor and target: 
+								<div id="testimonials"><blockquote>
+									variableX_rus, y_rus = rus.fit_resample(X2, y2)
+								</blockquote></div>
+								After that we can just split the dataset into X_train, X_test, y_train, and y_test (retaining 10% of the data for testing):
+								<div id="testimonials"><blockquote>
+									X1_train, X1_test, y1_train, y1_test = train_test_split(variablex_rus, y_rus, test_size=0.1)#, random_state=0) 
+								</blockquote></div>
+							</p>
+							<h6>Results</h6>
+							<div class="six columns">
+								<center><img src="images/pages/codinginfo/libraries/attrition-rdunder-distribution.png" width = "300" height = "auto" alt=""></center>
+							</div>
+							<div class="six columns">
+								As can be seen, Random Under Sampler did not perform well:
+								<center><img src="images/pages/codinginfo/libraries/attrition-rdunder-accuracy.png" width = "300" height = "auto" alt=""></center>
+							</div>
+						</li>
+						
+						<li id="smoteTab">
+							<h6>Description</h6>
+							<p>
+								<a href="https://imbalanced-learn.org/stable/references/generated/imblearn.over_sampling.SMOTE.html" class="saymore">SMOTE (aka Synthetic Minority Over-sampling Technique)</a>: uses statistical techniques to increase the number of minority data points. It doesn't just copy the data given, but rather uses nearest neighbours to generate new data points.
+							</p>
+							<h6>Import</h6>
+							<p>
+								<div id="testimonials"><blockquote>
+									from imblearn.over_sampling import SMOTE
+								</blockquote></div>
+							</p>
+							<h6>Implement</h6>
+							<p>
+								First we get our data ready to train by removing the encoded predictions and store in a separate df:
+								<div id="testimonials"><blockquote>
+									y1 = new_df['Attrition_encoded']<br>
+									X1 = new_df.drop('Attrition_encoded', axis=1) 
+								</blockquote></div>
+								In order to implement all we have to do is use the SMOTE() function and specify what number of nearesy neighbours you want to look at:
+								<div id="testimonials"><blockquote>
+									smote = SMOTE(k_neighbors=5)
+								</blockquote></div>
+								Then we want to resample and fit our resampled data on our predictor and target: 
+								<div id="testimonials"><blockquote>
+									x_smote, y_smote = smote.fit_resample(X3, y3)
+								</blockquote></div>
+								After that we can just split the dataset into X_train, X_test, y_train, and y_test (retaining 10% of the data for testing):
+								<div id="testimonials"><blockquote>
+									X3_train, X3_test, y3_train, y3_test = train_test_split(x_smote, y_smote, test_size=0.1)#, random_state=0)  
+								</blockquote></div>
+							</p>
+							<h6>Results</h6>
+							<div class="six columns">
+								<center><img src="images/pages/codinginfo/libraries/attrition-smote-distribution.png" width = "300" height = "auto" alt=""></center>
+							</div>
+							<div class="six columns">
+								As can be seen, SMOTE Sampler had a mediocre performance:
+								<center><img src="images/pages/codinginfo/libraries/attrition-smote-accuracy.png" width = "300" height = "auto" alt=""></center>
+							</div>
+						</li>
+						
+						<li id="tomekTab">
+							<h6>Description</h6>
+							<p>
+								<a href="https://imbalanced-learn.org/stable/references/generated/imblearn.under_sampling.TomekLinks.html" class="saymore">TomekLinks</a>: is a method of under-sampling developed by Tomek. It removes samples from the majority class by looking at nearest neighbours and removing the points from the majority that are located closest to the minority points.
+							</p>
+							<h6>Import</h6>							
+							<p>
+								<div id="testimonials"><blockquote>
+									from imblearn.under_sampling import TomekLinks
+								</blockquote></div>
+							</p>
+							<h6>Implement</h6>
+							<p>
+								First we get our data ready to train by removing the encoded predictions and store in a separate df:
+								<div id="testimonials"><blockquote>
+									y1 = new_df['Attrition_encoded']<br>
+									X1 = new_df.drop('Attrition_encoded', axis=1) 
+								</blockquote></div>
+								In order to implement all we have to do is use the TomekLinks function, it is easier to give it a variable name:
+								<div id="testimonials"><blockquote>
+									tl = TomekLinks(sampling_strategy='majority')
+								</blockquote></div>
+								Then we want to resample and fit our resampled data on our predictor and target: 
+								<div id="testimonials"><blockquote>
+									x_tl, y_tl = tl.fit_resample(X4, y4)
+								</blockquote></div>
+								After that we can just split the dataset into X_train, X_test, y_train, and y_test (retaining 10% of the data for testing):
+								<div id="testimonials"><blockquote>
+									X4_train, X4_test, y4_train, y4_test = train_test_split(x_tl, y_tl, test_size=0.1)#, random_state=0)   
+								</blockquote></div>
+							</p>
+							<h6>Results</h6>
+							<div class="six columns">
+								<center><img src="images/pages/codinginfo/libraries/attrition-tomek-distribution.png" width = "300" height = "auto" alt=""></center>
+							</div>
+							<div class="six columns">
+								As can be seen, Tomek Links did not perform well:
+								<center><img src="images/pages/codinginfo/libraries/attrition-tomek-accuracy.png" width = "300" height = "auto" alt=""></center>
+							</div>
 						</li>
 					</ul>
 				</div>
-			</li> -->
+			</li> 
 		</ul> 
 
 <!-- scikit-learn Library-->
@@ -419,17 +586,17 @@ setTimeout(timer1801,1801000);
 			</li> -->
 		</ul> 
 
-<!-- NLTK Library-->
+<!-- NLTK/spaCy Library-->
 		<div class="circledate">
 			<div class="textcircle">
 				<br>Language
 			</div>
 		</div>
-		<h4><a href="https://www.nltk.org/" class="saymore">NLTK</a></h4>
+		<h4><a href="https://www.nltk.org/" class="saymore">NLTK/spaCy</a></h4>
 		<div class="dots blogdots">
 		</div>
 		<p>
-			Language processing to parse through words and sentences. More about how I have used it coming soon!
+			Language processing to parse through words and sentences.
 		</p>
 		<div class="hr">
 		</div>
@@ -448,35 +615,138 @@ setTimeout(timer1801,1801000);
 					</p>
 				</div>
 			</li>
-		<!-- Accordion:  -->
-			<!-- <li class="">
+		<!-- Accordion: Removing Stopwords -->
+			<li class="">
 				<div class="title">
-					<b>Working with </b>
+					<b>Removing Stopwords</b>
+				</div>
+				<div class="content" style="overflow: hidden; display: none; ">
+					<h6>Import libraries</h6>
+					<p>
+						First we have to import the following package:
+						<div id="testimonials"><blockquote>import nltk</blockquote></div>
+					</p>
+					<p>
+						Since we want to remove stopwords, we must also import the stopwords (and download the library of words):
+						<div id="testimonials"><blockquote>
+							from nltk.corpus import stopwords<br>
+							nltk.download('stopwords')
+						</blockquote></div>
+					</p>
+					<p>
+						We can also include <a href="https://www.nltk.org/api/nltk.tokenize.punkt.html" class="saymore">punkt</a> to make longer texts into sentences (word collections). I did not use this for removing stop words as what I was parsing was very small, but I found it useful to know!
+						<div id="testimonials"><blockquote>
+							nltk.download('punkt')
+						</blockquote></div>
+					</p>
+					<p>
+						Finally, in order to parse through words and be able to compare them, we must import the word_tokenize package:
+						<div id="testimonials"><blockquote>
+							from nltk.tokenize import word_tokenize
+						</blockquote></div>
+					</p>
+					<p>
+						Now that we have imported our libraries, we can move on to the actually removing stopwords.
+					</p>
+					<h6>Removing stopwords</h6>
+					<p>
+						There are two different methods I found that you can use to remove stopwords: <a href="https://stackabuse.com/removing-stop-words-from-strings-in-python/#usingpythonsnltklibrary" class="saymore">method 1</a> or <a href="https://stackabuse.com/removing-stop-words-from-strings-in-python/#usingthespacylibrary:~:text=Using%20the%20SpaCy%20Library" class="saymore">method 2</a>. I will be showing method 1.
+					</p>
+					<p>
+						First, I made a list for the phrases I wanted to parse through and remove stopwords (for the Costco products):
+						<div id="testimonials"><blockquote>
+							no_sw_costco = []
+						</blockquote></div>
+						Then I created a for-loop to cycle through all lowercase Costco items:
+						<div id="testimonials"><blockquote>
+							for costco_item in stripped_rcs_costco['lowercase_Costco']:
+						</blockquote></div>
+						After this, the words must be <a href="https://www.nltk.org/api/nltk.tokenize.html" class="saymore">tokenized</a> to be able to numerically compare to nltk stopword list. We must save the words that are tokenized to be able to iterate through them and pull out words that are not stop words.
+						<div id="testimonials"><blockquote><div class="tab">
+							text_tokens_costco = word_tokenize(costco_item)
+						</div></blockquote></div>
+						Here we iterate through each word in sentence to pull out words that are NOT in stop words:
+						<div id="testimonials"><blockquote><div class="tab">
+							 tokens_without_sw_costco = [word for word in text_tokens_costco if not word in stopwords.words()]
+						</div></blockquote></div>
+						Next, we want to create a string to combine words pulled out from the text_tokens
+						<div id="testimonials"><blockquote><div class="tab">
+							single_string_no_sw_costco = ""
+						</div></blockquote></div>
+						After the string is created, we loop through each word within the phrase analyzed to remove stop words and combining it to one string
+						<div id="testimonials"><blockquote><div class="tab">
+							for word in tokens_without_sw_costco:
+							<div class="tab">
+								 single_string_no_sw_costco = single_string_no_sw_costco + " "  + word
+							</div>
+						</div></blockquote></div>
+						Finally, we want to add all the phrases with no stopwords to the list created above:
+						<div id="testimonials"><blockquote><div class="tab">
+							no_sw_costco.append(single_string_no_sw_costco)
+						</div></blockquote></div>
+						Now we can put the list as a column in our df to allow ease of use to analyze text comparisons:
+						<div id="testimonials"><blockquote>
+							stripped_rcs_costco['no_sw_Costco'] = no_sw_costco
+						</blockquote></div>
+					</p>
+				</div>
+			</li>
+
+			<!-- Accordion: Sentence comparison -->
+			<li class="">
+				<div class="title">
+					<b>spaCy - Sentence comparison</b>
 				</div>
 				<div class="content" style="overflow: hidden; display: none; ">
 					<p>
-						
-					</p> -->
-					<!-- Tabs -->
-					<!-- <dl class="tabs">
-						<dd class="active"><a href="#rk-sort">Rank & Sort Values</a></dd>
-						<dd><a href="#adddelete-rowcolumn">Adding & Deleting</a></dd>
-					</dl>
-					<ul class="tabs-content">
-						<li class="active" id="rk-sortTab">
-							<p>
+						Here we will look at the percentage of similarities in sentences for the same costco vs rcs item. I used <a href="https://stackoverflow.com/questions/65199011/is-there-a-way-to-check-similarity-between-two-full-sentences-in-python" class="saymore">this resource</a> to guide me in how to compare sentences.
+					</p>
 
-							</p>
-						</li>
-						<li id="adddelete-rowcolumnTab">
-							<h6>Add</h6>
-							<p>
-								
-							</p>
-						</li>
-					</ul>
+					<h6>Import libraries</h6>
+					<p>
+						To compare sentences you can use the natural language processing module called <a href="https://spacy.io/" class="saymore">spaCy</a>. Here is a <a href="https://betterprogramming.pub/the-beginners-guide-to-similarity-matching-using-spacy-782fc2922f7c" class="saymore">great resources for all about spaCy</a>.
+						Since I needed to use spaCy I had to install it, but it was very easy to do:
+						<div id="testimonials"><blockquote>pip install spacy</blockquote></div>
+						Then I just imported the library:
+						<div id="testimonials"><blockquote>import spacy</blockquote></div>
+					</p>
+					<p>
+						What is the difference between NLTK and spaCy? Basically, NLTK the input must be a string and the output will be a list of strings, whereas spaCy allows functions to return objects. 
+					</p>
+					<h6>Sentence compare</h6>
+					<p>
+						We have to first load the language we want to use (I chose en_core_web_lg)
+						<div id="testimonials"><blockquote>
+							nlp = spacy.load("en_core_web_lg")
+						</blockquote></div>
+						We need to know how many rows we will iterate through:
+						<div id="testimonials"><blockquote>
+							length = len(stripped_rcs_costco.index)
+						</blockquote></div>
+						Create empty lists to store the similarity of the sentences from both Costco and RCS items. Here I wanted to see if there was a difference in lowercase words vs not.
+						<div id="testimonials"><blockquote>
+							lowercase_item_similarity = []<br>
+							no_sw_item_similarity = []
+						</blockquote></div>
+
+						Then we iterate through each row and comparing the "same" item from Costco and RCS:
+						<div id="testimonials"><blockquote>
+							for i in range(length):
+						</blockquote></div>
+						To compare sentence similarities you first must use the function nlp() to access the spaCy word library. If working with a dataframe you must specify which cell you want to work with. Then after you have done nlp() for both phrases you want to compare, you can use the .similarity() function to check how similar the two phrases are to one another.
+						<div id="testimonials"><blockquote><div class="tab">
+							lowercase_item_similarity.append(nlp(stripped_rcs_costco.iloc[i][8]).similarity(nlp(stripped_rcs_costco.iloc[i][9])))<br>
+							no_sw_item_similarity.append(nlp(stripped_rcs_costco.iloc[i][10]).similarity(nlp(stripped_rcs_costco.iloc[i][11])))
+						</div></blockquote></div>
+						Now we can put the lists we created into columns within our dataframe:
+						<div id="testimonials"><blockquote>
+							stripped_rcs_costco['lowercase_item_similarity'] = lowercase_item_similarity <br>
+							stripped_rcs_costco['no_sw_item_similarity'] = no_sw_item_similarity
+						</blockquote></div>
+					</p>
 				</div>
-			</li> -->
+			</li>
+
 		</ul> 
 
 <!-- Folium Library-->
