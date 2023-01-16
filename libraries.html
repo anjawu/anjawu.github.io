@@ -149,7 +149,7 @@ setTimeout(timer1801,1801000);
 		<div class="dots blogdots">
 		</div>
 		<p>
-			Most commonly used for statistical analysis. More about functions I have used coming soon!
+			Most commonly used for statistical analysis.
 		</p>
 		<div class="hr">
 		</div>
@@ -169,42 +169,152 @@ setTimeout(timer1801,1801000);
 				</div>
 			</li>
 
-			<!-- 
-			Attrition:
-				from statsmodels.stats.outliers_influence import variance_inflation_factor 
-				import statsmodels.api as sd
-			-->
-
-
 		<!-- Accordion:  -->
-			<!-- <li class="">
+			<li class="">
 				<div class="title">
-					<b>Working with </b>
+					<b>Regressions</b>
 				</div>
 				<div class="content" style="overflow: hidden; display: none; ">
 					<p>
 						
-					</p> -->
+					</p>
 					<!-- Tabs -->
-					<!-- <dl class="tabs">
-						<dd class="active"><a href="#rk-sort">Rank & Sort Values</a></dd>
-						<dd><a href="#adddelete-rowcolumn">Adding & Deleting</a></dd>
+					<dl class="tabs">
+						<dd class="active"><a href="#vif">VIF</a></dd>
+						<dd><a href="#logreg">Logistic Regression</a></dd>
 					</dl>
 					<ul class="tabs-content">
-						<li class="active" id="rk-sortTab">
+						<li class="active" id="vifTab">
 							<p>
-
+								<b>What is VIF?</b> According to <a href="https://www.investopedia.com/terms/v/variance-inflation-factor.asp" class="saymore">investopedia</a> it is a measure of the amount of multicollinearity in regression analysis. This means that it tests if there is a correlation between any of your independent variables in your analysis.
+							</p>
+							<p>
+								<b>Why check VIF?</b> When doing regression multicollinearity must be understood and dealt with in order to be able to have a statistically significant regression model. The actual predictive power of a model is not affected by multicollinearity but the regression coefficients would be meaning that your read on how much each independent variable affects the outcome would be affected.
+							</p>
+							<p>
+								<b>How is it calculated?</b> VIF is calculated by taking a predictor (independent variable) and doing a regression against every other predictor that you are using in your model. This would give you the R-squared value for each pair of predictor variables then that would be plugged into the VIF formula:
+								<center><img src="images/pages/codinginfo/libraries/vif.png" width="150"></center>
+								where <i>i</i> is the predictor you are looking at.
+							</p>
+							<p>
+								<b>How to read VIF results?</b> <a href]"https://www.statisticshowto.com/variance-inflation-factor/" class="saymore">General rule of thumb</a>
+								<ul class="disc">
+									<li>VIF equal to 1: variables are not correlated</li>
+									<li>VIF between 1 and 5: variables are moderately correlated</li>
+									<li>VIF greater than 5: variables are highly correlated</li>
+									<li>When VIF is higher than 10: significant multicollinearity and needs correction</li>
+								</ul>
+							</p>
+							<p>
+								<b>How do we program VIF calculation?</b> There are two methods that can be done: <a href="https://towardsdatascience.com/statistics-in-python-collinearity-and-multicollinearity-4cc4dcd82b3f" class="saymore">creating a function that calculates it</a> or using statsmodels function <a href="https://www.statsmodels.org/dev/generated/statsmodels.stats.outliers_influence.variance_inflation_factor.html" class="saymore">variance_inflation_factor</a>.
+							</p>
+							<p>
+								<b>Method 1:</b><br>
+								First we define the function with inputs of the dataframe and the features we want to analyze:
+								<div id="testimonials"><blockquote>
+									def calculate_vif(df, features):
+								</blockquote></div> 
+								Next, we want to create sets (<i>{}</i>) for the tolerance (the reciprocal of VIF: 1 - linearRegression) and the VIF:
+								<div id="testimonials"><blockquote>
+									<div class="tab">
+										vif, tolerance = {}, {}
+									</div>
+								</blockquote></div>
+								Now we have to cycle through all the features that we want to check for multicollinearity:
+								<div id="testimonials"><blockquote>
+									<div class="tab">
+										for feature in features:
+									</div>
+								</blockquote></div>
+								Extract all other features to compare your 1 feature against:
+								<div id="testimonials"><blockquote>
+									<div class="tab"><div class="tab">
+										X = [f for f in features if f != feature]
+									</div></div>
+								</blockquote></div>
+								We must create a dataframe from what we extracted so that we can run a linear regression on each combination of features:
+								<div id="testimonials"><blockquote>
+									<div class="tab"><div class="tab">
+										X, y = df[X], df[feature]
+									</div></div>
+								</blockquote></div>
+								Now we fit each combination of our features with a linear regression and pull out the R-squared value:
+								<div id="testimonials"><blockquote>
+									<div class="tab"><div class="tab">
+										r2 = LinearRegression().fit(X, y).score(X, y)
+									</div></div>  
+								</blockquote></div>
+								Next, we calculate tolerance for each R-squared value (just 1 - R^2):
+								<div id="testimonials"><blockquote>
+									<div class="tab"><div class="tab">
+										tolerance[feature] = 1 - r2
+									</div></div>
+								</blockquote></div>
+								Then we can calculate our VIF (reciprocal of tolerance):
+								<div id="testimonials"><blockquote>
+									<div class="tab"><div class="tab">
+										vif[feature] = 1/(tolerance[feature])
+									</div></div>
+								</blockquote></div>
+								To complete out function, we want to return VIF and tolerance as a DataFrame:
+								<div id="testimonials"><blockquote>
+									<div class="tab">
+										return pd.DataFrame({'VIF': vif, 'Tolerance': tolerance})
+									</div>
+								</blockquote></div>
+							</p>
+							<p>
+								<b>Method 2</b><br>
+								After we import our function:
+								<div id="testimonials"><blockquote>
+									from statsmodels.stats.outliers_influence import variance_inflation_factor
+								</blockquote></div>
+								First, we must create a VIF dataframe and drop our dependant variable (outcome) from the initially dataframe:
+								<div id="testimonials"><blockquote>
+									vif_df = pd.DataFrame()<br>
+									removed_df = df.drop(['Attrition_encoded'], axis=1)<br>
+									vif_df["feature"] = removed_df.columns
+								</blockquote></div>
+								After that we can calculate VIF using our function from statsmodels and a for-loop to interate through each feature:
+								<div id="testimonials"><blockquote>
+									vif_df["VIF"] = [variance_inflation_factor(removed_df.values, i) for i in range(len(removed_df.columns))]
+								</blockquote></div>
+								Then we just print out the dataframe with all the features and VIF values:
+								<div id="testimonials"><blockquote>
+									print(vif_df)
+								</blockquote></div>
 							</p>
 						</li>
-						<li id="adddelete-rowcolumnTab">
-							<h6>Add</h6>
+						<li id="logregTab">
+							<h6>Definition</h6>
 							<p>
-								
+								Logistic regression can be used to estimate the relationship between a categorical outcome (dependent variable) and independent variables and it can also be used to estimate the probabilty of an event occurring. The value outcome will be between 0 and 1.  
 							</p>
+							<p>
+								There are also three different kinds of logistic regressions: binary, multinomial, and ordinal, which you can read more about on the <a href="https://www.ibm.com/topics/logistic-regression#:~:text=Similar%20to%20linear%20regression%2C%20logistic,variable%20versus%20a%20continuous%20one." class="saymore">IBM webite</a>.
+							</p>
+							<h6>Coding</h6>
+							<p>
+								Running a logistic regression is very easy using statsmodels. First, import the regression library:
+								<div id="testimonials"><blockquote>								
+									import statsmodels.api as sd
+								</blockquote></div>
+								Then you just have to fit the logistic regression to your data:
+								<div id="testimonials"><blockquote>
+									sd_model0 = sd.Logit(y0_train, X0_train).fit()
+								</blockquote></div>
+								Then you can print all the coefficients and p-values:
+								<div id="testimonials"><blockquote>
+									sd_model0.summary()
+								</blockquote></div>
+							</p>
+							<!-- <h6>Understanding the results</h6>
+							<p>
+							</p> -->
 						</li>
 					</ul>
 				</div>
-			</li> -->
+			</li>
 		</ul> 
 
 <!-- SciPy Library-->
@@ -237,34 +347,90 @@ setTimeout(timer1801,1801000);
 				</div>
 			</li>
 		<!-- Accordion:  -->
-			<!-- <li class="">
+			<li class="">
 				<div class="title">
-					<b>Working with </b>
+					<b>Entropy</b>
+				</div>
+				<div class="content" style="overflow: hidden; display: none; ">
+					<h6>What is Entropy?</h6>
+					<p>
+						Entropy is the measure of disorder within the data. The lower the entropy, the more defined the data is. <a href="https://www.javatpoint.com/entropy-in-machine-learning" class="saymore">This example</a> shows how entropy would look visually in a dataset: 
+						<center><img src="images/pages/codinginfo/libraries/entropy.png" width="500"></center>
+					</p>
+					<p>
+						We use entropy to help us calculate information gain. Information gain just tells us how much information has been gained at each sublevel in relation to the previous level. This is useful for decision trees.
+					</p>
+					<h6>Coding</h6>
+					<p>
+						Writing a entropy calculation is super easy using <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.entropy.html" class="saymore">SciPy stats package</a>. First, we import the function <i>entropy</i>:
+						<div id="testimonials"><blockquote>
+							from scipy.stats import entropy
+						</blockquote></div>
+						Next, we put which column we want to calculate the entropy for from our dataframe. You must specify which base you want to use (automatically assumed to be <i>e</i>).
+						<div id="testimonials"><blockquote>
+							entropy(df.iloc[:, 5], base=2)
+						</blockquote></div>
+						<i><b>Side note:</b>  The base is usually done to 2 because information is usually thought of in terms of bits, but if you use e then the unit of measure will be nats.</i>
+					</p>
+				</div>
+			</li>
+
+			<li class="">
+				<div class="title">
+					<b>Normal Distribution</b>
 				</div>
 				<div class="content" style="overflow: hidden; display: none; ">
 					<p>
 						
-					</p> -->
+					</p>
 					<!-- Tabs -->
-					<!-- <dl class="tabs">
-						<dd class="active"><a href="#rk-sort">Rank & Sort Values</a></dd>
-						<dd><a href="#adddelete-rowcolumn">Adding & Deleting</a></dd>
+					<dl class="tabs">
+						<dd class="active"><a href="#shapiro">Shapiro-Wilk</a></dd>
+						<dd><a href="#boxcox">Box Cox Transformations</a></dd>
 					</dl>
 					<ul class="tabs-content">
-						<li class="active" id="rk-sortTab">
+						<li class="active" id="shapiroTab">
+							<h6>What is a Shapiro-Wilk Test used for?</h6>
 							<p>
-
+								According to <a href="https://www.sciencedirect.com/topics/mathematics/wilk-test" class="saymore">ScienceDirect</a>: the Shapiro-Wilk test can be used to decide whether or not a sample fits a normal distribution, and it is commonly used for small samples.
+							</p>
+							<p>
+								The test is a hypothesis test meaning that there is a null hypothesis and an alternative hypothesis. In this case the null hypothesis states that the samples comes from a normal distribution, the alternate hypothesis states the sample does not come from a normal distribution. If the p-value is small enough (depending on the confidence interval chosen: 95% means p <= 0.05) then we reject the null hypothesis, meaning that the sample does NOT come from a normal distribution. However, if we have a large p-value (e.g. p > 0.05), then we fail to reject the null hypothesis meaning our sample does come from a normal distribution.
+							</p>
+							<h6>Coding</h6>
+							<p>
+								All that is needed for the Shapiro-Wilk test is the <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.shapiro.html" class="saymore">shapiro</a> function from the stats library of SciPy:
+								<div id="testimonials"><blockquote>
+									from scipy import stats<br>
+									print(stats.shapiro(df['column']))
+								</blockquote></div>
+								The value returned will allow you to determine if the sample is normally distributed. Example: if our confidence interval was 95%, and we got a p-value of 0.0324 that would mean we can reject the null hypothesis meaning that our data is NOT normally distributed.
 							</p>
 						</li>
-						<li id="adddelete-rowcolumnTab">
-							<h6>Add</h6>
+						<li id="boxcoxTab">
+							<h6>What is Box Cox transformation?</h6>
 							<p>
-								
+								A Box Cox transformation transforms non-normal dependent variables into a normal distribution.
+							</p>
+							<p>
+								You can find more details on Box Cox transformation <a href="https://www.statisticshowto.com/probability-and-statistics/normal-distributions/box-cox-transformation/" class="saymore">here</a>.
+							</p>
+							<h6>Coding</h6>
+							<p>
+								For the Box Cox transformation we just need the <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.boxcox.html" class="saymore">boxcox</a> function from the stats library of SciPy:
+								<div id="testimonials"><blockquote>
+									from scipy import stats
+								</blockquote></div>
+								Next, we want to transform the data to a normal distribution. Remember that we must index the .boxcox result to say [0] because stats.boxcox returns a tuple and we only want 1st index. The two indices are [0]: Box-Cox power transformed array and [1]: lmbda max log-likelihood).
+								<div id="testimonials"><blockquote>
+									 variable_transformed = stats.boxcox(df['variable'])[0]
+								</blockquote></div>
+								This returns your variable dataset as a normally distributed set.
 							</p>
 						</li>
 					</ul>
 				</div>
-			</li> -->
+			</li>
 		</ul> 
 
 <!-- imblearn -->
