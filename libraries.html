@@ -1124,6 +1124,7 @@ setTimeout(timer1801,1801000);
 		</p>
 		<div class="hr">
 		</div>
+
 		<!-- Accordion: Setting Up -->
 			<ul class="accordion">
 			<li class="">
@@ -1140,34 +1141,229 @@ setTimeout(timer1801,1801000);
 				</div>
 			</li>
 		<!-- Accordion:  -->
-			<!-- <li class="">
+			<li class="">
 				<div class="title">
-					<b>Working with </b>
+					<b>Visualizations</b>
 				</div>
 				<div class="content" style="overflow: hidden; display: none; ">
 					<p>
-						
-					</p> -->
+						When importing Seaborn a lot of people import it as <i>sns</i> as opposed to <i>sb</i>. I was very curious about the reasoning for this and I found <a href="https://stackoverflow.com/questions/41499857/seaborn-why-import-as-sns" class="saymore">this explanation</a>: it started as a joke after a character on The West Wing show whose name is Samuel Norman Seaborn (sns). For myself, I chose to go back to importing it as <i>sb</i>. Seaborn works closely with matplotlib, so I always import both when working with visualizations:
+						<div id="testimonials"><blockquote>
+							import seaborn as sb <br>
+							import matplotlib.pyplot as plt
+						</blockquote></div>
+					</p>
 					<!-- Tabs -->
-					<!-- <dl class="tabs">
-						<dd class="active"><a href="#rk-sort">Rank & Sort Values</a></dd>
-						<dd><a href="#adddelete-rowcolumn">Adding & Deleting</a></dd>
+					<dl class="tabs">
+						<dd class="active"><a href="#plots">Plots</a></dd>
+						<dd><a href="#multiplePlots">Multiple Plots</a></dd>
+						<dd><a href="#heatmap">Heat Map (Correlation Matrix)</a></dd>
 					</dl>
-					<ul class="tabs-content">
-						<li class="active" id="rk-sortTab">
-							<p>
 
+					<ul class="tabs-content">
+						<li class="active" id="plotsTab">
+							<dl class="tabs">
+								<dd class="active"><a href="#histo">Histogram</a></dd>
+								<dd><a href="#count">Count Plot</a></dd>
+								<dd><a href="#bar">Bar Plot</a></dd>
+								<dd><a href="#line">Line Plot</a></dd>
+							</dl>
+
+							<ul class="tabs-content">
+								<li class="active" id="histoTab">
+									<h6>Histogram</h6>
+									<p>
+										<a href="https://seaborn.pydata.org/generated/seaborn.histplot.html" class="saymore">Here</a> is documentation for the histogram plot. 
+									</p>
+									<p>
+										The histogram plot is very useful when showing the <b>distribution</b> of variables (quantitative variables). It is sorted by discrete bins and the variables are counted by which bin the belong to. 
+									</p>
+									<p>
+										The important parameters that I like to use most often are:
+										<ul class="disc">
+											<li><i>data=</i> here you can put in an array or a dataframe. If you select a column from a df, you do not need to specify data or x/y values. If you select just a df, then you must specify your x/y value.</li>
+											<li><i>x, y=</i> here you put what data you want plotted, along with whether you want it to appear on the x-axis or y-axis. </li>
+											
+
+											<li>
+												<i>hue=</i> here you specify if you want the colour to change based on a certain attribute (if you have a category which your chosen x/y-values).<br>
+												Along this line: <i>palette=</i> you can pick the colour palette you want for the hue colour change.<br>
+												<!-- <div class="button dropdown">
+														 Available Palette Options
+														<ul>
+																<li>'Accent'</li> 'Accent_r', 'Blues', 'Blues_r', 'BrBG', 'BrBG_r', 'BuGn', 'BuGn_r', 'BuPu', 'BuPu_r', 'CMRmap', 'CMRmap_r', 'Dark2', 'Dark2_r', 'GnBu', 'GnBu_r', 'Greens', 'Greens_r', 'Greys', 'Greys_r', 'OrRd', 'OrRd_r', 'Oranges', 'Oranges_r', 'PRGn', 'PRGn_r', 'Paired', 'Paired_r', 'Pastel1', 'Pastel1_r', 'Pastel2', 'Pastel2_r', 'PiYG', 'PiYG_r', 'PuBu', 'PuBuGn', 'PuBuGn_r', 'PuBu_r', 'PuOr', 'PuOr_r', 'PuRd', 'PuRd_r', 'Purples', 'Purples_r', 'RdBu', 'RdBu_r', 'RdGy', 'RdGy_r', 'RdPu', 'RdPu_r', 'RdYlBu', 'RdYlBu_r', 'RdYlGn', 'RdYlGn_r', 'Reds', 'Reds_r', 'Set1', 'Set1_r', 'Set2', 'Set2_r', 'Set3', 'Set3_r', 'Spectral', 'Spectral_r', 'Wistia', 'Wistia_r', 'YlGn', 'YlGnBu', 'YlGnBu_r', 'YlGn_r', 'YlOrBr', 'YlOrBr_r', 'YlOrRd', 'YlOrRd_r', 'afmhot', 'afmhot_r', 'autumn', 'autumn_r', 'binary', 'binary_r', 'bone', 'bone_r', 'brg', 'brg_r', 'bwr', 'bwr_r', 'cividis', 'cividis_r', 'cool', 'cool_r', 'coolwarm', 'coolwarm_r', 'copper', 'copper_r', 'crest', 'crest_r', 'cubehelix', 'cubehelix_r', 'flag', 'flag_r', 'flare', 'flare_r', 'gist_earth', 'gist_earth_r', 'gist_gray', 'gist_gray_r', 'gist_heat', 'gist_heat_r', 'gist_ncar', 'gist_ncar_r', 'gist_rainbow', 'gist_rainbow_r', 'gist_stern', 'gist_stern_r', 'gist_yarg', 'gist_yarg_r', 'gnuplot', 'gnuplot2', 'gnuplot2_r', 'gnuplot_r', 'gray', 'gray_r', 'hot', 'hot_r', 'hsv', 'hsv_r', 'icefire', 'icefire_r', 'inferno', 'inferno_r', 'jet', 'jet_r', 'magma', 'magma_r', 'mako', 'mako_r', 'nipy_spectral', 'nipy_spectral_r', 'ocean', 'ocean_r', 'pink', 'pink_r', 'plasma', 'plasma_r', 'prism', 'prism_r', 'rainbow', 'rainbow_r', 'rocket', 'rocket_r', 'seismic', 'seismic_r', 'spring', 'spring_r', 'summer', 'summer_r', 'tab10', 'tab10_r', 'tab20', 'tab20_r', 'tab20b', 'tab20b_r', 'tab20c', 'tab20c_r', 'terrain', 'terrain_r', 'turbo', 'turbo_r', 'twilight', 'twilight_r', 'twilight_shifted', 'twilight_shifted_r', 'viridis', 'viridis_r', 'vlag', 'vlag_r', 'winter', 'winter_r'
+															</ul>
+													</div> -->
+											</li>
+											<li><i>stat=</i> here you can specify what aggregate function you would like the histogram to do (it is automatically set to count) but here are the other options:
+												<ul class="disc">
+													<li>frequency: show the number of observations divided by the bin width</li>
+													<li>probability or proportion: normalize such that bar heights sum to 1</li>
+													<li>percent: normalize such that bar heights sum to 100</li>
+													<li>density: normalize such that the total area of the histogram equals 1</li>
+												</ul>
+											</li>
+											<li><i>discrete=</i> set to True to centre bars on their data point (avoids gaps).</li>
+											<li><i>kde=</i> set to True to smooth the distribution as line (it computes a kernel density estimate).</li>
+										</ul>
+										There are a lot more cool parameters, I just haven't played around with the other main ones yet!
+									</p>
+
+									<p>
+										Here is a sample code with just the parameter of the a dataframe column and a line to show a smooth distribution:
+										<div id="testimonials"><blockquote>
+											sns.histplot(df['column'], kde=True)
+										</blockquote></div>
+										It would look like this:
+										<center><img src="images/pages/codinginfo/libraries/sb_histplot_1.png" width=400></center>
+										Here is a sample code of using the data and axis parameter, along with the hue parameter.
+										<div id="testimonials"><blockquote>
+											sns.histplot(x='Gender', hue='Attrition', data=df);
+										</blockquote></div>
+										It would look like this:
+										<center><img src="images/pages/codinginfo/libraries/sb_histplot_2.png" width=300></center>
+									</p>
+								</li>
+
+								<li id="countTab">
+									<h6>Count Plot</h6>
+									<p>
+										<a href="https://seaborn.pydata.org/generated/seaborn.countplot.html" class="saymore">Here</a> is documentation for the count plot. 
+									</p>
+									<p>
+										The count plot is similar to the histogram, but it is used for showing the distribution of <b>categorical</b> variables. 
+									</p>
+									<p>
+										Most of the parameters are the same as the histogram, but there are differences. So here are my most frequently used ones:
+										<ul class="disc">
+											<li><i>data=</i> here you can put in an array or a dataframe. If you select a column from a df, you do not need to specify data or x/y values. If you select just a df, then you must specify your x/y value.</li>
+											<li><i>x, y=</i> here you put what data you want plotted, along with whether you want it to appear on the x-axis or y-axis. </li>
+											<li>
+												<i>hue=</i> here you specify if you want the colour to change based on a certain attribute (if you have a category which your chosen x/y-values).<br>
+												Along this line: <i>palette=</i> you can pick the colour palette you want for the hue colour change.<br>
+											</li>
+											<li><i>kde=</i> set to True to smooth the distribution as line (it computes a kernel density estimate).</li>
+											<li><i>order=</i> this will be a list of strings that determine the order of your independent variables.</li>
+										</ul>
+									</p>
+									<p>
+										An example of a plain count plot without changing any features would be:
+										<div id="testimonials"><blockquote>
+											sns.countplot(x=df['children']);
+										</blockquote></div>
+										Which would look like:<br>
+										<center><img src="images/pages/codinginfo/libraries/sb_countplot.png" width=300></center>
+									</p>
+								</li>
+
+								<li id="barTab">
+									<h6>Bar Plot</h6>
+									<p>
+										<a href="https://seaborn.pydata.org/generated/seaborn.barplot.html" class="saymore">Here</a> is documentation for the bar plot. 
+									</p>
+									<p>
+										The bar plot shows the estimate of central tendency (e.g. mean, median, mode) for each bar. It can also show the error bars using a confidence interval.
+									</p>
+									<p>
+										The important parameters that I like to use (aside from data, x, y, hue, order) most often are:
+										<ul class="disc">
+											<li><i>estimator =</i> you can pick the statistical function to estimate the independent variable value.</li>
+											<li><i>errorbar =</i> you can pick the error bar method (confidence interval, standard error, etc.) and the value you want to evaluate it at.</li>
+										</ul>
+									</p>
+									<p>
+										Here is an example where we specify both the x and the y axis, along the order of the axis. Automatically, it has the estimator set to <i>mean</i> and error bar to <i>confidence interval of 95%</i>.
+										<div id="testimonials"><blockquote>
+											sns.barplot(x='bmi_categories', y='charges', data=df,
+										            order=['underweight', 'normal weight', 'overweight', 'obese']);
+										</blockquote></div>
+										Here is how the code would look:<br>
+										<center><img src="images/pages/codinginfo/libraries/sb_barplot.png" width="300"></center>
+									</p>
+								</li>
+									
+								<li id="lineTab">
+									<h6>Line Plot</h6>
+									<p>
+										<a href="https://seaborn.pydata.org/generated/seaborn.lineplot.html" class="saymore">Here</a> is documentation for the histogram plot. 
+									</p>
+									<p>
+										The line plot is very useful when showing the <b>relationship</b> between variables. 
+									</p>
+									<p>
+										<div id="testimonials"><blockquote>
+											sns.lineplot(x='age', y='charges', data=df, ax=ax0);
+										</blockquote></div>
+										Here is the visualization:<br>
+										<center><img src="images/pages/codinginfo/libraries/sb_lineplot.png" width="300"></center>
+									</p>
+								</li>
+							</ul>
+						
+
+						<li id="multiplePlotsTab">
+							<h6>Three  Subplots in One Row</h6>
+							<p>
+								You must define your variables for your plot. This would involve defining your <i>fig</i> for your whole plot, then the subplots you want to populate (I have labeled them ax and which number it is: <i>ax0, ax1, ax2</i>). Then using matplotlib's function <i>/subplots()</i> we can specify the number of rows, number of columns, and then the figure size. After that you just need to specify the <i>ax=</i> for each of your subplots.
+							</p>
+							<p>
+								<div id="testimonials"><blockquote>
+									fig, (ax0, ax1, ax2) = plt.subplots(1, 3, figsize=(20,5))<br>
+									sns.histplot(x=df['age'], kde=True, ax=ax0);<br>
+									sns.histplot(x=df['bmi'], kde=True, ax=ax1);<br>
+									sns.countplot(x=df['children'], ax=ax2);
+								</blockquote></div>
+								Which would look like this:
+								<center><img src="images/pages/codinginfo/libraries/sb_3plot.png" width="600"></center>
+							</p>
+
+							<h6>Six Subplots in Two Rows</h6>
+							<p>
+								Just like above, you would specify the axes with numbers but you'd group them by rows. Then you just have to change the first parameter of the <i>.subplot()</i> to represent the number of rows you want - this case 2. The rest of the process is the same.
+								<div id="testimonials"><blockquote>
+									fig, ((ax0, ax1, ax2), (ax3, ax4, ax5)) = plt.subplots(2, 3, figsize=(20,30))<br><br>
+
+									sns.histplot(x='NumCompaniesWorked', hue='Attrition', data=df, ax=ax0, kde=True,discrete=True);<br>
+									sns.histplot(x='Education', hue='Attrition', data=df, ax=ax1, kde=True,discrete=True);<br>
+									sns.histplot(x='JobLevel', hue='Attrition', data=df, ax=ax2, kde=True);<br><br>
+
+									sns.histplot(x='PercentSalaryHike', hue='Attrition', data=df, ax=ax3, kde=True);<br>
+									sns.histplot(x='StockOptionLevel', hue='Attrition', data=df, ax=ax4, kde=True);<br>
+									sns.histplot(x='TrainingTimesLastYear', hue='Attrition', data=df, ax=ax5, kde=True);
+								</blockquote></div>
+							</p>
+							<p>
+								<center><img src="images/pages/codinginfo/libraries/sb_6graphs.png" width="650"></center>
 							</p>
 						</li>
-						<li id="adddelete-rowcolumnTab">
-							<h6>Add</h6>
+
+						<li id="heatmapTab">
+							<h6>Correlation Matrix</h6>
 							<p>
-								
+								<a href="https://seaborn.pydata.org/generated/seaborn.heatmap.html" class="saymore">Here</a> is documentation for the heatmap. 
+							</p>
+							<p>
+								The heatmap is very useful when showing the <b>correlation</b> between variables.
+							</p>
+							<p>
+								The important parameters that I like to use most often are:
+								<ul class="disc">
+									<li><i>cmap =</i> let's you decide the colour scale; it can be a list of colours or it can be a matplotlib colormap.</li>
+									<li><i>annot =</i> setting to True writes all the values in the cell.</li>
+								</ul>
+							</p>
+							<p>
+								Example:
+								<div id="testimonials"><blockquote>
+									sns.heatmap(df.corr(), cmap='Blues', annot=True);
+								</blockquote></div>
+								Here is an example with a lot of variables:
+								<center><img src="images/pages/codinginfo/libraries/sb_corrmatrix.png" width="650"></center>
 							</p>
 						</li>
 					</ul>
 				</div>
-			</li> -->
+			</li>
 		</ul> 
 
 <!-- MATPLOTLIB-->
