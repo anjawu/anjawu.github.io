@@ -678,12 +678,13 @@ setTimeout(timer1801,1801000);
 		<div class="dots blogdots">
 		</div>
 		<p>
-			Library used for predictive data analysis (machine learning). More about functions I have used coming soon!
+			Library used for predictive data analysis (machine learning).
 		</p>
 		<div class="hr">
 		</div>
+		<ul class="accordion">
+
 		<!-- Accordion: Setting Up -->
-			<ul class="accordion">
 			<li class="">
 				<div class="title">
 					<b>Setting up scikit-learn</b>
@@ -698,58 +699,518 @@ setTimeout(timer1801,1801000);
 				</div>
 			</li>
 
-		<!-- 
-			Attrition:
-			from sklearn import metrics
-			from sklearn.preprocessing import LabelEncoder
-			from sklearn.preprocessing import OneHotEncoder
-			import category_encoders as ce
-			from sklearn.cluster import KMeans
-			from sklearn.linear_model import LinearRegression, LogisticRegression
-			from sklearn.model_selection import train_test_split
-
-			H3: Regression&Classification
-			from sklearn import metrics
-			from sklearn.cluster import KMeans
-			from sklearn.linear_model import LinearRegression, LogisticRegression
-			from sklearn.model_selection import train_test_split
-			from sklearn.preprocessing import LabelEncoder
-
-			H2: Decision Tree
-			from sklearn import tree
-			from sklearn.tree import DecisionTreeClassifier
-			from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer, HashingVectorizer
-
-		 -->
-		<!-- Accordion:  -->
-			<!-- <li class="">
+		<!-- Encodings -->
+			<li class="">
 				<div class="title">
-					<b>Working with </b>
+					<b>Encodings</b>
 				</div>
 				<div class="content" style="overflow: hidden; display: none; ">
 					<p>
 						
-					</p> -->
+					</p>
 					<!-- Tabs -->
-					<!-- <dl class="tabs">
-						<dd class="active"><a href="#rk-sort">Rank & Sort Values</a></dd>
-						<dd><a href="#adddelete-rowcolumn">Adding & Deleting</a></dd>
+					<dl class="tabs">
+						<dd class="active"><a href="#label">Label Encoder</a></dd>
+						<dd><a href="#oneHot">One Hot Encoder</a></dd>
 					</dl>
 					<ul class="tabs-content">
-						<li class="active" id="rk-sortTab">
+						<li class="active" id="labelTab">
 							<p>
-
+								The <a href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.LabelEncoder.html" class="saymore">LabelEncoder</a> from sklearn is a basic encoder that encodes values from 0 to n-1. It should be used for encoding target values as opposed to the input. 
+							</p>
+							<p>
+								Import:
+								<div id="testimonials"><blockquote>
+									from sklearn.preprocessing import LabelEncoder
+								</blockquote></div>
+							</p>
+							<p>
+								A super simple example:
+								<div id="testimonials"><blockquote>
+									encoder = LabelEncoder()<br>
+									df['sex_encoded'] = encoder.fit_transform(df['sex'])<br>
+									df['smoker_encoded'] = encoder.fit_transform(df['smoker'])<br>
+									df['region_encoded'] = encoder.fit_transform(df['region'])
+								</blockquote></div>
+								Left side is the values prior to encoding and right side is after encoding:
+								<center><img src="images/pages/codinginfo/libraries/skl_label-encoder.png" width="350"></center>
 							</p>
 						</li>
-						<li id="adddelete-rowcolumnTab">
-							<h6>Add</h6>
+						<li id="oneHotTab">
 							<p>
+								A simple encoder is useful for some situations but <a href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html" class="saymore"> one hot encoding</a> is very popular because it is a lot more useful and expressive. It is used to convert categorical variable into numerical with trying to lose the least amount of information. 
+							</p>
+							<p>
+								For certain categories, they were ordinal (ordered categorical features), so instead of one hot encoding, I used the <a href="https://contrib.scikit-learn.org/category_encoders/ordinal.html" class="saymore">OrdinalEncoder</a>. <a href="https://stackoverflow.com/questions/50092911/how-to-map-categorical-data-to-category-encoders-ordinalencoder-in-python-pandas" class="saymore">This stack overflow thread</a> helped me with using the encoder.
+							</p>
+							<p>
+								In the example below, I use all three types of encoders that I have talked about so far.
+							</p>
+							<p>
+								First, we import all 3 encoders:
+								<div id="testimonials"><blockquote>
+									from sklearn.preprocessing import LabelEncoder<br>
+									from sklearn.preprocessing import OneHotEncoder<br>
+									import category_encoders as ce 
+								</blockquote></div>
+							</p>
+							<p>
+								For my business travel, I had the following categories: 'Non-Travel', 'Travel_Rarely', and 'Travel_Frequently'. I first created a dictionary for travel and then used the ordinal encoder to create a new column for my dataframe.
+								<div id="testimonials"><blockquote>
+									travel_dic = [{'col': 'BusinessTravel', 'mapping': {'Non-Travel': 0,'Travel_Rarely': 1, 'Travel_Frequently': 2 }}]<br>
+									encoder_ordinal = ce.OrdinalEncoder(mapping = travel_dic, 
+									                         return_df = True)<br>
+									new_df['BusinessTravel_encoded'] = encoder_ordinal.fit_transform(df['BusinessTravel'])
+								</blockquote></div>
+								Next, for  my target value (attrition), I used the label encoder:
+								<div id="testimonials"><blockquote>
+									new_df['Attrition_encoded'] = LabelEncoder().fit_transform(df['Attrition'])
+								</blockquote></div>
+								For the "MaritalStatus", I chose 'Married' as the reference; it is the largest most likely case, so it will be the anchor: get insights to single vs divorced.
+								<div id="testimonials"><blockquote>
+									new_df['is_single'] = (df['MaritalStatus'] == 'Single').astype(int)<br>
+									new_df['is_divorced'] = (df['MaritalStatus'] == 'Divorced').astype(int)
+								</blockquote></div>
+								Or if we don't care what the anchor is, we can use:
+								<div id="testimonials"><blockquote>								
+									new_df['MaritalStatus_encoded'] = encoder_hot.fit_transform(df['MaritalStatus'])<br>
+								</blockquote></div>
 								
+								<center><img src="images/pages/codinginfo/libraries/skl_all-encoders.png" width="550"></center>
 							</p>
 						</li>
 					</ul>
 				</div>
-			</li> -->
+			</li>
+
+		<!-- Training/Test Sets -->
+			<li class="">
+				<div class="title">
+					<b>Training/Test Sets</b>
+				</div>
+				<div class="content" style="overflow: hidden; display: none; ">
+					<p>
+						
+					</p>
+					<!-- Tabs -->
+					<dl class="tabs">
+						<dd class="active"><a href="#sklearn">sklearn Function</a></dd>
+						<dd><a href="#split-function">Create Function</a></dd>
+					</dl>
+					<ul class="tabs-content">
+						<li class="active" id="sklearnTab">
+							<p>
+								Using the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html" class="saymore">sk-learn function to split the data</a> is very easy. You must import the library. 
+								<div id="testimonials"><blockquote>							
+									from sklearn.model_selection import train_test_split
+								</blockquote></div>
+								Then, create a new variable (usually <i>y</i>) that has your outcome results and drop those outcomes from your original dataframe to be saved to a new variable (usually <i>X</i>). 
+							</p>
+							<p>
+								<div id="testimonials"><blockquote>
+									X = new_df.drop('Attrition_encoded', axis=1)<br>
+									y = new_df['Attrition_encoded']
+								</blockquote></div>
+								Next, you can split the data into training, and testing along with specifying the size of the test set. In this case, I used 10% for the test case. You can also put a <i>random_state</i> if you want to use the same splitting of data every time (this is useful if doing a demonstration where you want the same results everytime).
+								<div id="testimonials"><blockquote>
+									X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1, random_state=0) 
+								</blockquote></div>
+							</p>
+						</li>
+						<li id="split-functionTab">
+							<p>
+								To create our own function for splitting into train, validate, and test, we must specify which inputs we can have. I chose the automatic values for train_size and val_size, but those can be changed.
+							</p>
+							<p>
+								<div id="testimonials"><blockquote>
+									def split_data(X, y, train_size=0.7, val_size=0.15):
+								</blockquote></div>
+								Next, we want to find out how many data points we are working with (so that we can determine number of values in each bucket).
+								<div id="testimonials"><blockquote><div class="tab">
+									total_data = X.shape[0] 
+								</div></blockquote></div>
+								Next, we take the proportion of data for each set (leaving the test set to be the remainder of the data):
+								<div id="testimonials"><blockquote><div class="tab">						
+							    train_size = int(train_size * total_data)
+							    val_size = int(val_size * total_data)
+							    test_size = total_data - train_size - val_size
+							  </div></blockquote></div>
+							  Now we want to make sure we randomize the indices of X and y before splitting into train, validation and test sets.
+								<div id="testimonials"><blockquote><div class="tab">					  
+							    all_indices = np.random.permutation(np.arange(total_data)) 
+							  </div></blockquote></div>
+							  Then we can specify the indices from the first position all the way to the end of the data and break it up into the 3 sections (remember, 70% is training data, 15% is val and 15% is test).
+								<div id="testimonials"><blockquote><div class="tab">
+							    train_indices = all_indices[:train_size]<br>
+							    val_indices = all_indices[train_size:train_size + val_size]<br>
+							    test_indices = all_indices[train_size+val_size:]
+							  </div></blockquote></div>
+							  We want to be able to access both the input (<i>X</i>) and output (<i>y</i>) for all three subdatasets. So we have to specify where to find them.
+								<div id="testimonials"><blockquote><div class="tab">
+							    train_X, train_y = X.iloc[train_indices], y.iloc[train_indices]<br>
+							    val_X, val_y = X.iloc[val_indices], y.iloc[val_indices]<br>
+							    test_X, test_y = X.iloc[test_indices], y.iloc[test_indices]
+							  </div></blockquote></div>
+							   The output of this function below is a python dictionary. We can call on it by using <i>data['train']</i>.
+								<div id="testimonials"><blockquote><div class="tab">
+							    return {
+							    	<div class="tab">
+							        'train': (train_X, train_y),<br>
+							        'val':  (val_X, val_y),<br>
+							        'test': (test_X, test_y)
+							      </div>
+							    }
+							  </div></blockquote></div>
+							</p>
+						</li>
+					</ul>
+				</div>
+			</li>
+
+		<!-- Regressions -->
+			<li class="">
+				<div class="title">
+					<b>Regressions</b>
+				</div>
+				<div class="content" style="overflow: hidden; display: none; ">
+					<p>
+						
+					</p>
+					<!-- Tabs -->
+					<dl class="tabs">
+						<dd class="active"><a href="#linear">Linear</a></dd>
+						<dd><a href="#logistic">Logistic</a></dd>
+					</dl>
+					<ul class="tabs-content">
+						<li class="active" id="linear">
+							<p>
+								Import library
+								<div id="testimonials"><blockquote>
+									from sklearn.linear_model import LinearRegression
+								</blockquote></div>
+							</p>
+							<p>
+								Instantiate a linear regression model
+								<div id="testimonials"><blockquote>
+									linear_model = LinearRegression() 
+								</blockquote></div>
+								Then, fit the model using the training data
+								<div id="testimonials"><blockquote>
+									linear_model.fit(X_train, y_train) 
+								</blockquote></div>
+							</p>
+							<p>
+								To print out the intercept and coefficients for the linear regression model, you can just call on various functions:
+								<div id="testimonials"><blockquote>
+									print(linear_model.intercept_)<br>
+									print(linear_model.coef_)
+								</blockquote></div>
+							</p>
+							<p>
+								We can also use the <i>.predict()</i> function to give predictions for the outcome based on the model and the inputs given.
+								<div id="testimonials"><blockquote>
+									y_pred = linear_model.predict(X_test)
+								</blockquote></div>
+							</p>
+						</li>
+						<li id="logisticTab">
+							<p>
+								Import library
+								<div id="testimonials"><blockquote>
+									from sklearn.linear_model import LogisticRegression
+								</blockquote></div>
+							</p>
+							<p>
+								Instantiate a logistic regression model
+								<div id="testimonials"><blockquote>
+									logit_model = LogisticRegression()
+								</blockquote></div>
+								Then, fit the model using the training data
+								<div id="testimonials"><blockquote>
+									logit_model.fit(X_train, y_train) 
+								</blockquote></div>
+							</p>
+							<p>
+								To print out the intercept and coefficients for the linear regression model, you can just call on various functions:
+								<div id="testimonials"><blockquote>
+									print(logit_model.intercept_)<br>
+									print(logit_model.coef_)
+								</blockquote></div>
+							</p>
+							<p>
+								We can also use the <i>.predict()</i> function to give predictions for the outcome based on the model and the inputs given.
+								<div id="testimonials"><blockquote>
+									y_pred = logit_model.predict(X_test)
+								</blockquote></div>
+							</p>
+						</li>
+					</ul>
+				</div>
+			</li>
+
+		<!-- Stats Metrics -->
+			<li class="">
+				<div class="title">
+					<b>Stats Metrics</b>
+				</div>
+				<div class="content" style="overflow: hidden; display: none; ">
+					<p>
+						The metrics package from the sklearn library has a lot of useful statistics. First, we must import the metrics package from the sklearn library.
+						<div id="testimonials"><blockquote>
+							from sklearn import metrics
+						</blockquote></div>
+					</p>
+					<!-- Tabs -->
+					<dl class="tabs">
+						<dd class="active"><a href="#error-r2">Error and R^2</a></dd>
+						<dd><a href="#stats-accuracy">More Detailed Accuracy</a></dd>
+						<dd><a href="#confusion-matrix">Confusion Matrix</a></dd>
+					</dl>
+					<ul class="tabs-content">
+						<li class="active" id="error-r2Tab">
+							<p>
+								When doing regressions (or other statistic tests), it can be useful to know the mean error. Mean squared error (MSE) squares all of the differences between the estimated value and the actual value and then takes the average. This method penalizes more wrong answers. In order to make the value useful, it is recommended to take the square root of the MSE (aka RMSE) to have a value in line with the values of your data. <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html" class="saymore">Sklearn mean_squared_error</a> takes in the <i>y_true</i> and <i>y_pred</i> and returns the MSE and the RMSE (if <i>squared=False</i>).
+							</p>
+							<p>
+								Mean absolue value, does something similar thing but instead of squaring it takes the absolute value of the differences and averages it. This means it does not give a significantly greater rating to wrong answers. You would use this method if your data doesn't have a particular desire to penalize larger errors. <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html" class="saymore">Sklearn mean_absolute_error</a> takes in the <i>y_true</i> and <i>y_pred</i> and returns the MAE.
+							</p>
+							<p>
+								R^2 represents how much of the variance in our dependent variable is explained by the independent variable(s). The value is a proportion. <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.r2_score.html" class="saymore">Sklearn r2_score</a> takes in the <i>y_true</i> and <i>y_pred</i> and returns the R^2 score.
+							</p>
+							<p>
+								<div id="testimonials"><blockquote>
+									print("Mean squared error (MSE) =", metrics.mean_squared_error(y_test, y_pred))<br>
+									print("Root Mean squared error (RMSE) =", metrics.mean_squared_error(y_test, y_pred, squared=False))<br>
+									print("Mean absolute error (MAE) =", metrics.mean_absolute_error(y_test, y_pred))<br>
+									print("R^2 =", metrics.r2_score(y_test, y_pred))
+								</blockquote></div>
+							</p>
+							<p>
+								<center><img src="images/pages/codinginfo/libraries/skl_mean-error.png" width="400"></center>
+								This means that almost 78% of the observed variation in the outcome is explained by the independent variables in the model.
+							</p>
+						</li>
+						<li id="stats-accuracyTab">
+							<p>
+								Accuracy is the simplest calculation to see the number of correct predictions. The formula is: <center><img src="images/pages/codinginfo/libraries/accuracy.png" width="250"></center>
+							</p>
+							<p>
+								We can use <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html" class="saymore">sk-learn's accuracy function</a>:
+								<div id="testimonials"><blockquote>
+									print(metrics.accuracy_score(y_test, y_pred));
+								</blockquote></div>								
+							</p>
+							<p>
+								Or we can create a function to compute the accuracy of a given model on input data X and label t. This would be useful if you want to change model parameters to find the optimization of various parameters.
+								<div id="testimonials"><blockquote>
+									def get_acc(model, X, t):
+									<div class="tab">
+								    y_pred = model.predict(X)<br>
+								    y_test = t<br>
+								    acc = (y_pred == y_test).mean()<br>
+								    return acc
+								  </div>
+								</blockquote></div>
+							</p>
+							<p>
+								However, accuracy can be misleading, especially if we are working with an imbalanced dataset. We can also calculate precision, recall, and F1 score using <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.classification_report.html" class="saymore">.classification_report()</a> function.
+								<ul class="disc">
+									<li><b>Precision:</b> proportion of actual positive observations out of all predicted positive observations. It tells us the ability of the model to only return data points in the class. Formula is: <center><img src="images/pages/codinginfo/libraries/precision.png" width="300"></center></li>
+									<li><b>Recall:</b> proportion of predicted positives out of all true positives. It tells us the model's ability to identify all points in relevant class. Formula is: <center><img src="images/pages/codinginfo/libraries/recall.png" width="300"></center></li>
+									<li><b>F1 Score:</b> is the harmonic mean of precision and recall scores. Formula is: <center><img src="images/pages/codinginfo/libraries/f1.png" width="200"></center></li>								
+								</ul>
+								<div id="testimonials"><blockquote>
+									print(metrics.classification_report(y_test, y_pred, target_names=['non-smoker', 'smoker']));
+								</blockquote></div>
+							</p>
+							<center><img src="images/pages/codinginfo/libraries/skl_metric-classification.png" width="350"></center>
+							<ul class="disc">
+								<li><b>Precision:</b> 85% of the predicted smoker label was actually a smoker.</li>
+								<li><b>Recall:</b> 95% of actual non-smokers we correctly predicted to be non-smokers.</li>					
+							</ul>
+						</li>
+						<li id="confusion-matrixTab">
+							<p>
+								We can use the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.confusion_matrix.html" class="saymore"> sk-learn confusion_matrix()</a> to calculate the accuracy values within each section of the confusion matrix. Then use the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.ConfusionMatrixDisplay.html" class="saymore">sk-learn's .ConfusionMatrixDisplay()</a> function to display the confusion matrix.
+							</p>
+							<p>
+								<div id="testimonials"><blockquote>
+									cm = metrics.confusion_matrix(y_test, y_pred, labels=logit_model.classes_)<br>
+									disp = metrics.ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=logit_model.classes_)<br>
+									disp.plot(cmap='Blues')<br>
+									plt.show();
+								</blockquote></div>
+							</p>
+							<center><img src="images/pages/codinginfo/libraries/skl_confusion-matrix.png" width="350"></center>
+							<p>
+								How to interpret the confusion matrix:
+								<ul class="disc">
+									<li>
+										True Positive (tp): Both the predicted label and the true label are 1
+									</li>
+									<li>
+										False Positive (fp): The predicted label is 1 but the true label is 0
+									</li>
+									<li>
+										True Negative (tn): Both the predicted label and the true label are 0
+									</li>
+									<li>
+										False Negative (fn): The predicted label is 0 but the true label is 1
+									</li>
+								</ul>
+							</p>
+						</li>
+					</ul>
+				</div>
+			</li>
+
+		<!-- Decision Tree -->
+				<li class="">
+					<div class="title">
+						<b>Decision Tree</b>
+					</div>
+					<div class="content" style="overflow: hidden; display: none; ">
+						<p>
+							
+						</p>
+						<!-- Tabs -->
+						<dl class="tabs">
+							<dd class="active"><a href="#dt-fit">Decision Tree Fit</a></dd>
+							<dd><a href="#model-function">Select Model Function</a></dd>
+							<dd><a href="#accuracy-function">Accuracy Function</a></dd>
+							<dd><a href="#optimize">Optimize parameters</a></dd>
+						</dl>
+		<!-- 				<ul class="tabs-content">
+							<li class="active" id="dt-fitTab">
+								<p>
+
+								</p>
+								<p>
+								<div id="testimonials"><blockquote>
+									
+								</blockquote></div>
+							</p>
+							</li>
+							<li id="model-functionTab">
+								<h6>Add</h6>
+								<p>
+									
+								</p>
+								<p>
+									<div id="testimonials"><blockquote>
+										
+									</blockquote></div>
+								</p>
+								<p>
+									<div id="testimonials"><blockquote>
+										
+									</blockquote></div>
+									
+									<center><img src="images/pages/codinginfo/libraries/skl_label-encoder.png" width="350"></center>
+								</p>
+							</li>
+							<li id="accuracy-functionTab">
+								<h6>Add</h6>
+								<p>
+									
+								</p>
+								<p>
+									<div id="testimonials"><blockquote>
+									
+									</blockquote></div>
+								</p>
+								<p>
+								<div id="testimonials"><blockquote>
+									
+								</blockquote></div>
+								
+								<center><img src="images/pages/codinginfo/libraries/skl_label-encoder.png" width="350"></center>
+							</p>
+							</li>
+							<li id="optimizeTab">
+								<p>
+									
+								</p>
+								<p>
+								<div id="testimonials"><blockquote>
+									
+								</blockquote></div>
+							</p>
+							</li>
+							
+						</ul>-->
+					</div>
+				</li> 
+
+		<!-- kNN -->
+			<li class="">
+				<div class="title">
+					<b>k-Nearest Neighbour</b>
+				</div>
+				<div class="content" style="overflow: hidden; display: none; ">
+					<p>
+						
+					</p>
+					<!-- Tabs -->
+					<dl class="tabs">
+						<dd class="active"><a href="#knn-split">Split</a></dd>
+						<dd><a href="#knn-optimize">Distances for Optimization</a></dd>
+						<dd><a href="#knn-fit">Model Fit</a></dd>
+
+					</dl>
+					<!-- <ul class="tabs-content">
+						<li class="active" id="knn-splitTab">
+							<p>
+
+							</p>
+							<p>
+								<div id="testimonials"><blockquote>
+									
+								</blockquote></div>
+							</p>
+						</li>
+						<li id="knn-optimizeTab">
+							<p>
+								
+							</p>
+							<p>
+								<div id="testimonials"><blockquote>
+									
+								</blockquote></div>
+							</p>
+							<p>
+								<div id="testimonials"><blockquote>
+									
+								</blockquote></div>
+								
+								<center><img src="images/pages/codinginfo/libraries/skl_label-encoder.png" width="350"></center>
+							</p>
+						</li>
+						<li id="knn-fitTab">
+							<p>
+								
+							</p>
+							<p>
+								<div id="testimonials"><blockquote>
+									
+								</blockquote></div>
+							</p>
+							<p>
+								<div id="testimonials"><blockquote>
+									
+								</blockquote></div>
+								
+								<center><img src="images/pages/codinginfo/libraries/skl_label-encoder.png" width="350"></center>
+							</p>
+						</li>
+						
+					</ul> -->
+				</div>
+			</li>
+
+
+
+
 		</ul> 
 
 <!-- NLTK/spaCy Library-->
@@ -1120,7 +1581,7 @@ setTimeout(timer1801,1801000);
 		<div class="dots blogdots">
 		</div>
 		<p>
-			Most commonly used to visualize data - can be used in conjunction with matplotlib. More about functions I have used coming soon!
+			Most commonly used to visualize data - can be used in conjunction with matplotlib.
 		</p>
 		<div class="hr">
 		</div>
