@@ -327,7 +327,7 @@ setTimeout(timer1801,1801000);
 		<div class="dots blogdots">
 		</div>
 		<p>
-			Most commonly used for statistical analysis. More about functions I have used coming soon!
+			Most commonly used for statistical analysis.
 		</p>
 		<div class="hr">
 		</div>
@@ -1071,74 +1071,227 @@ setTimeout(timer1801,1801000);
 					</div>
 					<div class="content" style="overflow: hidden; display: none; ">
 						<p>
-							
+							To use <a href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.tree" class="saymore"> sk-learn decision tree functionalities</a>, you must import:
+							<div id="testimonials"><blockquote>
+								from sklearn import tree<br>
+								<!-- from sklearn.tree import DecisionTreeClassifier -->
+							</blockquote></div>
 						</p>
 						<!-- Tabs -->
 						<dl class="tabs">
-							<dd class="active"><a href="#dt-fit">Decision Tree Fit</a></dd>
-							<dd><a href="#model-function">Select Model Function</a></dd>
-							<dd><a href="#accuracy-function">Accuracy Function</a></dd>
+							<dd class="active"><a href="#dt-fit">Fit/Visualize</a></dd>
+							<dd><a href="#model-function">Model Function</a></dd>
 							<dd><a href="#optimize">Optimize parameters</a></dd>
 						</dl>
-		<!-- 				<ul class="tabs-content">
+		 				<ul class="tabs-content">
 							<li class="active" id="dt-fitTab">
 								<p>
+									Fitting a decision tree to your data is as easy as fitting it to a linear or logistic regression, by using the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html" class="saymore">DecisionTreeClassifier()</a> function from sklearn. And we can also predict our outcome based on the decision tree model created.
+									<div id="testimonials"><blockquote>
+										dt_model = DecisionTreeClassifier(criterion = 'gini', max_depth = 18)<br>
+										dt_model = dt_model.fit(model['train'][0], model['train'][1])<br>
+										y_pred = dt_model.predict(model['test'][0])
+									</blockquote></div>
+									The most commonly used parameters are:
+									<ul class="disc">
+										<li>
+											<i>criterion:</i> selecting between "gini", "entropy", or "log_loss"
+										</li>
+										<li>
+											<i>splitter:</i> selecting between if you want the splitting to be done at "random" or if you want the "best" split based on the criterion.
+										</li>
+										<li>
+											<i>max_depth:</i> lets you specify the furthest down you want the tree to go - it prevents overfitting.
+										</li>
+									</ul>
+								</p>
+								<p>
+									We can also use the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.tree.plot_tree.html" class="saymore">.plot_tree()</a> function to display the tree. The plot_tree returns annotations for the plot, I found <a href="https://mljar.com/blog/visualize-decision-tree/" class="saymore">this source</a> that returned the value to _ to not show them in the notebook.
+									<div id="testimonials"><blockquote>
+										fig = plt.figure(figsize=(30,5))<br>
+										_ = tree.plot_tree(dt_model,  filled=True, feature_names = X.columns, max_depth = 2, class_names=['No Attrition', 'Yes Attrition'])
+									</blockquote></div>
+									<center><img src="images/pages/codinginfo/libraries/skl_dt-visual.png" width="800"></center>
+								</p>
+							</li>
 
-								</p>
-								<p>
-								<div id="testimonials"><blockquote>
-									
-								</blockquote></div>
-							</p>
-							</li>
 							<li id="model-functionTab">
-								<h6>Add</h6>
 								<p>
-									
+									It may be useful to create a function that returns the accuracy of the validation and training set, along with the actual model.
 								</p>
 								<p>
+									First, we create a function that takes the input of the depth we want the tree to go to, the data we will be using, and the target criterion.
 									<div id="testimonials"><blockquote>
-										
-									</blockquote></div>
-								</p>
-								<p>
-									<div id="testimonials"><blockquote>
-										
+										def select_model(depths, data, criterion):
 									</blockquote></div>
 									
-									<center><img src="images/pages/codinginfo/libraries/skl_label-encoder.png" width="350"></center>
+									Next, we create a dictionary to store the output of the dt model.
+									<div id="testimonials"><blockquote><div class="tab">
+										out = {}
+									</div></blockquote></div>
+									
+									After this, we want to cycle through each depth given and create a dictionary at each index <i>d</i>.
+									<div id="testimonials"><blockquote><div class="tab">
+								    for d in depths:
+								    <div class="tab">
+								    	out[d] = {}
+								    </div>
+								  </div></blockquote></div>
+
+								  Now we can create the tree model based on the inputs and fit the tree.
+								  <div id="testimonials"><blockquote><div class="tab"><div class="tab">
+								  	tree = DecisionTreeClassifier(criterion = criterion, max_depth = d)<br>
+								  	tree = tree.fit(data['train'][0], data['train'][1])
+								  </div></div></blockquote></div>
+
+								  Finally, we want to return the accuracy and the tree model. *data['val'] means unpack validation data set, i.e. split into X and y to cover the X and the t parameters in get_acc() function created.
+								  <div id="testimonials"><blockquote><div class="tab"><div class="tab">
+							        out[d]['val'] = get_acc(tree, *data['val'])<br>
+							        out[d]['train'] = get_acc(tree, *data['train'])<br>
+							        out[d]['model'] = tree<br>
+							      </div>
+							      return out
+							    </div></blockquote></div>
 								</p>
 							</li>
-							<li id="accuracy-functionTab">
-								<h6>Add</h6>
-								<p>
-									
-								</p>
-								<p>
-									<div id="testimonials"><blockquote>
-									
-									</blockquote></div>
-								</p>
-								<p>
-								<div id="testimonials"><blockquote>
-									
-								</blockquote></div>
-								
-								<center><img src="images/pages/codinginfo/libraries/skl_label-encoder.png" width="350"></center>
-							</p>
-							</li>
+						
 							<li id="optimizeTab">
 								<p>
-									
+									There are two parts to my method of optimizing certain parameters of a decision tree (criterion and max_depth): first creating a list of accuracies while changin parameters, and the second is creating a graph to visualize these accuracies.
+								</p>
+								<h6>Create list of accuracies</h6>
+								<p>
+									I could have gotten my function to go through all the listed depths up to a max, but I wanted to save computation power, so I wrote a list:
+									<div id="testimonials"><blockquote>
+										depths = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 25, 26, 27] 
+									</blockquote></div>
 								</p>
 								<p>
-								<div id="testimonials"><blockquote>
+									Then I broke up the calculations into Entropy section and Gini section, for the two different criterions.
+								</p>
+								<p>
+									For the Entropy section: I wanted to train the model with the entropy criterion and varying depths. I used the <i>select_model()</i> function that we created.
+									<div id="testimonials"><blockquote>
+										res_entropy = select_model(depths, model, "entropy")
+									</blockquote></div>
+									Then, I created two variables to store the best depth and the best accuracy:
+									<div id="testimonials"><blockquote>
+										best_d_entropy = None<br>
+										best_acc_entropy = 0
+									</blockquote></div>
+
+									Then we had to loop over the different depths to find the optimal model according to its validation accuracy. I stored all the accuracies for the validation set in a list to be able to compare them. If the current accuracy was better than any other previous best, it would be replaced.
+									<div id="testimonials"><blockquote>
+										for d in res_entropy:
+										<div class="tab"> 
+									    val_acc = res_entropy[d]['val']<br>
+									    if val_acc  > best_acc_entropy:
+									    <div class="tab">
+									      best_d_entropy = d <br>
+									      best_acc_entropy = val_acc
+									    </div>
+									  </div>
+									</blockquote></div>
+								</p>
+								<p>
+									I did the same steps with the Gini criterion:
+									<div id="testimonials"><blockquote>
+										res_gini = select_model(depths, model,"gini")<br><br>
+
+										best_d_gini = None<br>
+										best_acc_gini = 0<br><br>
+
+										for d in res_gini:
+										<div class="tab"> 
+									    val_acc = res_gini[d]['val']<br>
+									    if val_acc  > best_acc_gini:
+									    <div class="tab">
+								        best_d_gini = d<br>
+								        best_acc_gini = val_acc
+								      </div>
+								    </div>
+									</blockquote></div>
+								</p>
+								<p>
+									I could have printed the best accuracy for both criterion, but I find that just getting the best value doesn't tell the whole story. There may be cases where you don't want the best accuracy from the validation set (overfitting/underfitting), so this is why I wanted to plot all the accuracies.
+								</p>
+								<h6>Plot list of accuracies</h6>
+								<p>
+									Just like before, I created list of accuracy values for the validation and training set using entropy for varying depths.
+									<div id="testimonials"><blockquote>
+										entropy_val = []<br>
+										entropy_train = []<br>
+										depth_val = []
+									</blockquote></div>
+									Next, I filled the lists by cycling through the depths.
+									<div id="testimonials"><blockquote>									
+										for d in res_entropy:
+										<div class="tab">
+									    entropy_val.append(res_entropy[d]['val'])<br>
+									    entropy_train.append(res_entropy[d]['train'])<br>
+									    depth_val.append(d)
+									  </div>
+									</blockquote></div>
 									
-								</blockquote></div>
-							</p>
+									And the same two steps for the gini criterion:
+									<div id="testimonials"><blockquote>	
+										gini_val = []<br>
+										gini_train = []<br>
+										for d in res_gini:
+										<div class="tab">
+									    gini_val.append(res_gini[d]['val'])<br>
+									    gini_train.append(res_gini[d]['train'])
+									  </div>
+									</blockquote></div>
+
+									Next, I calculated the absolute minimum and maximum of the accuracies to be give the y-axis parameters to make the graph more clear to read.
+									<div id="testimonials"><blockquote>	
+										minimum_acc = min(min(gini_train), min(gini_val), min(entropy_train), min(entropy_val))<br>
+										maximum_acc = max(max(gini_train), max(gini_val), max(entropy_train), max(entropy_val))
+									</blockquote></div>
+
+									I wanted to also be able to highlight the maximum accuracy for both the validation and training set along with the corresponding depth value, to make reading the graph easier. 
+									<div id="testimonials"><blockquote>	
+										entropy_max_x = depth_val[np.argmax(entropy_val)]<br>
+										gini_max_x = depth_val[np.argmax(gini_val)]
+									</blockquote></div>
+
+									Now that we have all the data we can finally make the line graph!
+									<div id="testimonials"><blockquote>	
+										plt.figure(figsize=(30, 10))<br>
+										plt.plot(depth_val, entropy_train, label = "IG Train Dataset", color="rebeccapurple", linewidth=4)<br>
+										plt.plot(depth_val, entropy_val, label = "IG Val Dataset", color="mediumorchid", linewidth=4)<br>
+										plt.plot(depth_val, gini_train, label = "Gini Train Dataset", color="seagreen", linewidth=4)<br>
+										plt.plot(depth_val, gini_val, label = "Gini Val Dataset", color="lightgreen", linewidth=4)<br><br>
+									</blockquote></div>
+
+									And make sure it looks good:
+									<div id="testimonials"><blockquote>	
+										plt.title('Figure: Training vs Validation Accuracy Comparison - Method 0 ', fontsize=25)<br>
+										plt.xlabel('Depth Value', fontsize=20)<br>
+										plt.ylabel('Accuracy', fontsize=20)<br>
+										plt.legend(bbox_to_anchor=(0.8, -0.1), ncol=4, fontsize=20)<br>
+										plt.xticks(np.arange(0, max(depth_val)+1, 1), fontsize=18)<br>
+										plt.yticks(np.arange(minimum_acc, maximum_acc, 0.02), fontsize=18)
+									</blockquote></div>
+
+									Now in order to plot the best accuracy (and corresponding depth), I just made horizontal and vertical lines at the correct locations:
+									<div id="testimonials"><blockquote>	
+										plt.axhline(y = max(entropy_val), color='r', linestyle='dashed')<br>
+										plt.axvline(x=entropy_max_x, color='r', linestyle='dashed')<br>
+										plt.axhline(y = max(gini_val), color='g', linestyle='dotted')<br>
+										plt.axvline(x=gini_max_x, color='g', linestyle='dotted')<br>
+										plt.grid()<br><br>
+										plt.show;
+									</blockquote></div>
+								</p>
+								<p>
+									Here is how the graph would look:
+									<center><img src="images/pages/codinginfo/libraries/skl_dt-optimize.png" width="650"></center>
+								</p>
 							</li>
 							
-						</ul>-->
+						</ul>
 					</div>
 				</li> 
 
@@ -1149,62 +1302,138 @@ setTimeout(timer1801,1801000);
 				</div>
 				<div class="content" style="overflow: hidden; display: none; ">
 					<p>
-						
-					</p>
+							To use <a href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html" class="saymore"> sk-learn KNeighborsClassifier</a>, you must import:
+							<div id="testimonials"><blockquote>
+								from sklearn.neighbors import KNeighborsClassifier
+							</blockquote></div>
+						</p>
 					<!-- Tabs -->
 					<dl class="tabs">
-						<dd class="active"><a href="#knn-split">Split</a></dd>
-						<dd><a href="#knn-optimize">Distances for Optimization</a></dd>
+						<dd class="active"><a href="#knn-distance">Distance between Neighbours</a></dd>
 						<dd><a href="#knn-fit">Model Fit</a></dd>
-
+						<dd><a href="#knn-optimize">Optimization</a></dd>
 					</dl>
-					<!-- <ul class="tabs-content">
-						<li class="active" id="knn-splitTab">
-							<p>
 
+
+					<ul class="tabs-content">
+						<li class="active" id="knn-distanceTab">
+							<p>
+								KNN classifiers are based on the idea that datapoints close together should be classified the same way, training points that are closer together would be more important in determining the outcome. This graph below shows how close our training examples are to the validation set. 
 							</p>
 							<p>
+								We want to create a list to store the distances calculated between the validation set and the training set. 
 								<div id="testimonials"><blockquote>
-									
+									distances = []<br>
+									for x_val in model['val'][0]:
+									<div class="tab">
+								    distance = np.sum((x_val[np.newaxis, ...] - model['train'][0]) ** 2, axis=1)<br>
+								    distances.append(distance)
+								  </div>
 								</blockquote></div>
+								Next, we use NumPy to give us the correct arrangement of our axes based on the values given.
+								<div id="testimonials"><blockquote>
+									distances = np.array(distances)
+								</blockquote></div>
+								And now we can plot it:
+								<div id="testimonials"><blockquote>								
+									plt.figure(figsize=(40, 10))<br>
+									plt.imshow(distances)<br>
+									plt.colorbar()<br>
+									plt.xlabel('Training examples id', fontsize=30)<br>
+									plt.ylabel('Val examples id', fontsize=30)<br>
+									plt.xticks(np.arange(0, model0['train'][0].shape[0], 100), fontsize=15)<br>
+									plt.yticks(np.arange(0, model0['val'][0].shape[0], 50), fontsize=15)<br>
+									plt.show;
+								</blockquote></div>
+							</p>
+							<p>
+								Final product would be:
+								<center><img src="images/pages/codinginfo/libraries/skl_knn-distances.png" width="650"></center>
+								The darker the colour, the closer the distance.
 							</p>
 						</li>
-						<li id="knn-optimizeTab">
-							<p>
-								
-							</p>
-							<p>
-								<div id="testimonials"><blockquote>
-									
-								</blockquote></div>
-							</p>
-							<p>
-								<div id="testimonials"><blockquote>
-									
-								</blockquote></div>
-								
-								<center><img src="images/pages/codinginfo/libraries/skl_label-encoder.png" width="350"></center>
-							</p>
-						</li>
+
 						<li id="knn-fitTab">
 							<p>
-								
+								Just like all our other models, we must fit our kNN model to our data.
 							</p>
 							<p>
+								We have to specify how many nearest neighbours we want to look at. This is a parameter that is optimized, so we will look closer at that in the next tab. For this example, I just selected 6 nearest neighbours.
 								<div id="testimonials"><blockquote>
-									
+									neigh = KNeighborsClassifier(n_neighbors=6)<br>
+									neigh.fit(*model['train'])
 								</blockquote></div>
-							</p>
-							<p>
+								Then we can predict our outcome based on the model:
 								<div id="testimonials"><blockquote>
-									
+									y0_pred_test = neigh.predict(model0['test'][0])
 								</blockquote></div>
-								
-								<center><img src="images/pages/codinginfo/libraries/skl_label-encoder.png" width="350"></center>
 							</p>
 						</li>
+
+						<li id="knn-optimizeTab">
+							<p>
+								Same as with the decision tree, we want to first create a list of accuracies and then plot them to find the best parameter(s) - in this case I am looking at number of nearest neighbours.
+							</p>
+							<h6>List of Accuracies</h6>
+							<p>
+								Create a list for both the training and validation set accuracy.
+								<div id="testimonials"><blockquote>
+									train_value = []<br>
+									val_accs = []
+								</blockquote></div>
+								We want to have a max k-value so our list has an end. In this case, I tried 31 based on that being the k-value which gave the best accuracy from a couple iterations.
+								<div id="testimonials"><blockquote>
+									k_max = 31
+								</blockquote></div>
+								So now we can iterate through each k-value and fit the model to the various k-neighbours.
+								<div id="testimonials"><blockquote>
+									for k in range(1, k_max):
+									<div class="tab">
+								    neigh = KNeighborsClassifier(n_neighbors=k)<br>
+								    neigh.fit(model['train'][0], model['train'][1])
+								  </div>
+								</blockquote></div>
+
+								We also want to predict for both the validation and training set.
+								<div id="testimonials"><blockquote><div class="tab">
+							    y_pred = neigh.predict(model['val'][0])<br>
+							    y_train_pred = neigh.predict(model['train'][0])
+							  </div></blockquote></div>
+								
+								Then we calculate the accuracy
+								<div id="testimonials"><blockquote><div class="tab">
+							    acc = (y_pred == model['val'][1]).mean()
+							  </div></blockquote></div>
+							  And append them to out lists.
+							  <div id="testimonials"><blockquote><div class="tab">
+							  	val_accs.append(acc)<br>
+							    train_value.append((y_train_pred == model['train'][1]).mean())
+								</div></blockquote></div>
+							</p>
+							<h6>Plot Accuracies</h6>
+							<p>
+								Now that we have our lists of accuracies, we can plot them.
+								<div id="testimonials"><blockquote>
+									plt.figure(figsize=(20, 10))<br><br>
+
+									plt.plot(list(range(1, k_max)), val_accs, train_value)<br>
+									plt.title('Figure: Training vs Validation Accuracy Comparison', fontsize=25)<br>
+									plt.xlabel('Number of nearest neighbors (k)', fontsize=15)<br>
+									plt.ylabel('Accuracy', fontsize=15)<br>
+									plt.xticks(np.arange(0, k_max, 2), fontsize=15)<br>
+									plt.yticks(np.arange(0.6, 1, 0.02), fontsize=15)<br>
+									plt.grid()<br>
+									plt.legend(['Validation Set', 'Train Set'])<br><br>
+
+									plt.show;
+								</blockquote></div>
+								
+								<center><img src="images/pages/codinginfo/libraries/skl_knn-optimize.png" width="550"></center>
+							</p>
+						</li>
+
 						
-					</ul> -->
+					</ul>
 				</div>
 			</li>
 
