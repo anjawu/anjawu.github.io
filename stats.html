@@ -153,13 +153,13 @@ setTimeout(timer1801,1801000);
 			<div class="four columns">
 				<ul class="disc">
 					<li><a href="#inference" class="saymore">Inference and Modeling</a></li>
-					<!-- <li><a href="#wrangle" class="saymore">Wrangling</a></li> -->
+					<li><a href="#wrangle" class="saymore">Wrangling</a></li>
 				</ul>
 			</div>
 			<div class="four columns">
 				<ul class="disc">
 					<li><a href="#linreg" class="saymore">Linear Regression</a></li>
-					<!-- <li><a href="#ml" class="saymore">Machine Learning</a></li> -->
+					<li><a href="#ml" class="saymore">Machine Learning</a></li>
 				</ul>
 			</div>
 		</p>
@@ -4421,8 +4421,918 @@ setTimeout(timer1801,1801000);
 	</div>
 
 
-<!-- Wrangling -->
-<!-- 	<div class="twelve columns">
+
+
+	<!-- Linear Regression -->
+	<div class="twelve columns">
+		<div class="circledate">
+			<div class="textcircle">
+				<br>Regression
+			</div>
+		</div>
+		<h4 id="linreg">Linear Regression</h4>
+		<div class="dots blogdots">
+		</div>
+		<p>
+			The course link can be found <a href="https://www.edx.org/course/data-science-linear-regression" class="saymore">here</a>. Within this course we look at linear models and how to understand relationships between various factors within an analysis. 
+		</p>
+		<!-- Accordion -->
+		<ul class="accordion">
+
+		<!-- Accordion: Baseball as a Motivating Example-->
+			<li class="">
+				<div class="title">
+					<b>Baseball as a Motivating Example</b>
+				</div>
+				<div class="content" style="overflow: hidden; display: none; ">
+					<h6>Baseball Basics</h6>
+					<p>
+						Some information to know about baseball and how things are denoted in this section are:
+						<ul class="disc">
+							<li>9 innings with 3 outs per team per inning</li>
+							<li>There is a set order for 9 batters</li>
+							<li>Bases form a cycle</li>
+							<li>
+								There are 6 ways to succeed:
+								<ol>
+									<li>BB (base on balls aka "walk")</li>
+									<li>SB (stolen bases)</li>
+									<li>1B (single base run)</li>
+									<li>2B (double bases run)</li>
+									<li>3B (triple bases run)</li>
+									<li>HR (home run)</li>
+								</ol>
+							</li>
+							<li>We define a hit with any of the four outcomes (1B, 2B, 3B, HR) and at bat (AB) to have just two outcomes (get a hit or out)</li>
+							<li>PA (stands for plate appearance): up to bat; has a binary outcome - either they are out or not out.</li>
+							<li>Batting average has been considered for a long time the most important offensive stat. Where batting average is defined as H/AB but it ignores BB.</li>
+							<li>The statistics analyzed are team-level because players are not independent from one another.</li>
+						</ul>
+					</p>
+					<p>
+						We can make a scatterplot of the home runs vs runs per game to futher see a relationship by:
+						<div id="testimonials"><blockquote>
+							library(Lahman)<br><br>
+
+							ds_theme_set()<br>
+							Teams %>% filter(yearID %in% 1961:2001) %>% 
+							<div class="tab"> 
+								mutate(HR_per_game = HR/G, R_per_game = R/G) %>% <br>
+								ggplot(aes(HR_per_game, R_per_game)) +<br>
+								geom_point(alpha=0.5)
+							</div>
+						</blockquote></div>
+					</p>
+					<h6>Assessment: Baseball as a Motivating Example</h6>
+					<ol>
+						<li>
+							<b><u>
+								What is the application of statistics and data science to baseball called?
+							</u></b><br>
+							Sabermetrics
+						</li><br>
+						<li>
+							<b><u>
+								Which of the following outcomes is not included in the batting average?
+							</u></b><br>
+							A base on balls
+						</li><br>
+						<li>
+							<b><u>
+								Why do we consider team statistics as well as individual player statistics?
+							</u></b><br>
+							The success of any individual player also depends on the strength of their team.
+						</li><br>
+						<li>
+							<b><u>
+								You want to know whether teams with more at-bats per game have more runs per game. What R code below correctly makes a scatter plot for this relationship?
+							</u></b>
+							<div id="testimonials"><blockquote>
+								Teams %>% filter(yearID %in% 1961:2001 ) %>%
+								<div class="tab">
+							    mutate(AB_per_game = AB/G, R_per_game = R/G) %>%<br>
+							    ggplot(aes(AB_per_game, R_per_game)) + <br>
+							    geom_point(alpha = 0.5)
+								</div>
+							</blockquote></div>
+						</li>
+						<li>
+							<b><u>
+								What does the variable “SOA” stand for in the Teams table?
+							</u></b><br>
+							Strikeouts by pitchers
+						</li><br>
+						<li>
+							<b><u>
+								Load the Lahman library. Filter the Teams data frame to include years from 1961 to 2001. Make a scatterplot of runs per game versus at bats (AB) per game.
+							</u></b>
+							<div id="testimonials"><blockquote>
+								Teams %>% filter(yearID %in% 1961:2001 ) %>%
+								<div class="tab">
+							    mutate(AB_per_game = AB/G, R_per_game = R/G) %>%<br>
+							    ggplot(aes(AB_per_game, R_per_game)) + <br>
+							    geom_point(alpha = 0.5)
+								</div>
+							</blockquote></div>
+							
+							<center><img src="images/pages/stats/linreg/lr_1-q6.png" width="200"></center>
+							As the number of at bats per game increases, the number of runs per game tends to increase.
+						</li><br>
+						<li>
+							<b><u>
+								Use the filtered Teams data frame from Question 6. Make a scatterplot of win rate (number of wins per game) versus number of fielding errors (E) per game.
+								Which of the following is true?
+							</u></b>
+							<div id="testimonials"><blockquote>
+								Teams %>% filter(yearID %in% 1961:2001 ) %>%
+								<div class="tab">
+							    mutate(W_per_game = W/G, E_per_game = E/G) %>%<br>
+							    ggplot(aes(W_per_game, E_per_game)) + <br>
+							    geom_point(alpha = 0.5)
+								</div>
+							</blockquote></div>
+							<center><img src="images/pages/stats/linreg/lr_1-q7.png" width="200"></center>
+							As the number of errors per game increases, the win rate tends to decrease.
+						</li><br>
+						<li>
+							<b><u>
+								Use the filtered Teams data frame from Question 6. Make a scatterplot of triples (X3B) per game versus doubles (X2B) per game. 
+								Which of the following is true?
+							</u></b>
+							<div id="testimonials"><blockquote>
+								Teams %>% filter(yearID %in% 1961:2001 ) %>%
+								<div class="tab">
+							    mutate(X3_per_game = X3B/G, X2_per_game = X2B/G) %>%<br>
+							    ggplot(aes(X3_per_game, X2_per_game)) + <br>
+							    geom_point(alpha = 0.5)
+								</div>
+							</blockquote></div>
+							<center><img src="images/pages/stats/linreg/lr_1-q8.png" width="200"></center>
+							There is no clear relationship between doubles per game and triples per game.
+						</li>
+					</ol>
+					<p>
+						<a href="https://github.com/anjawu/edx-harvard-ds-courses/tree/main/linear_regression" class="saymore">RStudio on GitHub: 1.1_BaseballExample_Assessment.R</a>
+					</p>
+				</div>
+			</li>
+
+		<!-- Accordion: Correlation -->
+			<li class="">
+				<div class="title">
+					<b>Correlation</b>
+				</div>
+				<div class="content" style="overflow: hidden; display: none; ">
+					<h6>Correlation</h6>
+					<p>
+						For univariate data, each observation includes just one value. However, in most data anaylsis cases we will not be just working with one variable.
+					</p>
+					<p>
+						For instance, we can look at the library <i>HistData</i> that contains heights of people by gender and familial connections. Here is how to filter for fathers and sons:
+						<div id="testimonials"><blockquote>
+							library(HistData)><br>
+							data("GaltonFamilies")<br>
+							set.seed(1983)<br><br>
+
+							galton_heights <- GaltonFamilies %>%
+							<div class="tab">
+								filter(gender == "male") %>%<br>
+								group_by(family) %>%<br>
+								sample_n(1) %>%<br>
+								ungroup() %>%<br>
+								select(father, childHeight) %>%<br>
+								rename(son = childHeight) %>%
+							</div>
+						</blockquote></div>
+					</p>
+					<p>
+						Usually, correlation coefficients summarize the trend effectively.
+					</p>
+
+					<h6>Correlation Coefficient</h6>
+					<p>
+						We usually refer to the correlation coefficient with the Greek letter rho. The equation is:
+						<center><img src="images/pages/stats/linreg/lr_2-rho.png" width="200"></center>
+						Here we have xi and yi being two different variable values from the data set. 
+					</p>
+					<p>
+						If xi and yi are unrelated then the product will be positive as often as it is negative, giving us 0.
+					</p>
+					<p>
+						The correlation coefficient range is -1 to 1. The value telling you how strong the relationship and the positive/negative telling you the directionaility of the relationship.
+					</p>
+
+					<h6>Sample Correlation is a Random Variable</h6>
+					<p>
+						Sample correlation is the most commonly used estimate of the population correlation. When the CLT is applied we can have the following distribution:
+						<center><img src="images/pages/stats/linreg/lr_2-rho-CLT.png" width="150"></center>
+					</p>
+
+					<h6>Assessment: Correlation</h6>
+					<ol>
+						<li>
+							<b><u>
+								While studying heredity, Francis Galton developed what important statistical concept?
+							</u></b><br>
+							Correlation
+						</li><br>
+						<li>
+							<b><u>
+								The correlation coefficient is a summary of what?
+							</u></b><br>
+							The trend between two variables
+						</li><br>
+						<li>
+							<b><u>
+								Below is a scatter plot showing the relationship between two variables, x and y. From this figure, the correlation between x and y appears to be about:
+							</u></b>
+							<center><img src="images/pages/stats/linreg/lr_2-q3.png" width="300"></center>
+							-0.9
+						</li><br>
+						<li>
+							<b><u>
+								Instead of running a Monte Carlo simulation with a sample size of 25 from the 179 father-son pairs described in the videos, imagine we now run the simulation with a sample size of 50. Note: You do not need to run any code to determine the answer to this exercise. 
+								Would you expect the mean of the sample correlation to increase, decrease, or stay approximately the same?
+							</u></b><br>
+							Stay approximately the same; Because the expected value of the sample correlation is the population correlation, it should stay approximately the same even if the sample size is increased.
+						</li><br>
+						<li>
+							<b><u>
+								Instead of running a Monte Carlo simulation with a sample size of 25 from the 179 father-son pairs described in the videos, imagine we now run the simulation with a sample size of 50. Note: You do not need to run any code to determine the answer to this exercise. 
+								Would you expect the standard deviation of the sample correlation to increase, decrease, or stay approximately the same?
+							</u></b><br>
+							Decrease; As the sample size N increases, the standard deviation of the sample correlation should decrease.
+						</li>
+						<li>
+							<b><u>
+								If X and Y are completely independent, what do you expect the value of the correlation coefficient to be?
+							</u></b><br>
+							0
+						</li><br>
+						<li>
+							<a href="https://github.com/anjawu/edx-harvard-ds-courses/tree/main/linear_regression" class="saymore">RStudio on GitHub: 1.2_Correlation_assement.R</a>
+						</li>
+						<li>
+							<a href="https://github.com/anjawu/edx-harvard-ds-courses/tree/main/linear_regression" class="saymore">RStudio on GitHub: 1.2_Correlation_assement.R</a>
+						</li>
+					</ol>
+				</div>
+			</li>
+
+		<!-- Accordion: Stratification and Variance Explained -->
+			<li class="">
+				<div class="title">
+					<b>Stratification and Variance Explained</b>
+				</div>
+				<div class="content" style="overflow: hidden; display: none; ">
+					<h6>Anscombe's Quartet</h6>
+					<p>
+						Although correlation is sometimes a good summary, it isn't always. An example of why it is not always the best is called Anscombe’s Quartet and it has four data sets that have near identical simple descriptive statistics:
+						<center><img src="images/pages/stats/linreg/lr_3-a-quartet.png" width="300"></center>
+						All of the above have rho of 0.816, but as can be see are very different!
+					</p>
+
+					<h6>Stratification</h6>
+					<p>
+						Correlation is only meaningful in a particular context, so we use stratification. Stratifying lets you take a conditional average: looking at a specific subgroup of your data. The following gives us an equation for regression:
+						<center><img src="images/pages/stats/linreg/lr_3-regress-eqn.png" width="200"></center>
+						This equation lets us say if there is a perfect correlation than the increase for both is by their sd.
+					</p>
+					<p>We can model both the slope:
+						<center><img src="images/pages/stats/linreg/lr_3-slope.png" width="100"></center>
+						and the intercept:
+						<center><img src="images/pages/stats/linreg/lr_3-intercept.png" width="150"></center>
+					</p>
+					<p>
+						<i>Fun fact:</i> it is called regression because the son “regresses” to the average height as it is not a perfect correlation. In general, we see heights regress to mediocrity.
+					</p>
+
+					<h6>Bivariate Normal Distribution</h6>
+					<p>
+						Looking at scatterplots we can also see if there is correlation:
+						<center><img src="images/pages/stats/linreg/lr_3-scatter-corr.png" width="200"></center>
+					<p>
+						If X ~Norm() and Y~Norm(). Then we can say, for any stratum (X=x), Y ~ Norm() in the stratum and the pair (Y, x) is approximately bivariate normal; we call is the conditional distribution of Y (Y | X = x).
+					</p>
+					<p>
+						If there are 3 or more variables in which each pair is bivariate normal, we say it follows a multivariate normal distribution (i.e. jointly normal).
+					</p>
+					<p>
+						Under the stratum, we can get the expected value given by this formula:
+						<center><img src="images/pages/stats/linreg/lr_3-exp-strat.png" width="275"></center>
+						and variance explained:
+						<center><img src="images/pages/stats/linreg/lr_3-var-strat.png" width="250"></center>
+					</p>
+					<p>
+						Some things to note:
+						<ul class="disc">
+							<li>Regression lines based on strata matter. </li>
+							<li>E(Y|X=x) cannot be rearranged to find the regression line going the other way, but rather E(X|Y=y) must be calculated separately</li>
+						</ul>
+					</p>
+
+
+					<h6>Assessment: </h6>
+					<ol>
+						<li>
+							<b><u>
+								The slope of the regression line in this figure is equal to what, in words?
+							</u></b>
+							<center><img src="images/pages/stats/linreg/lr_3-q1.png" width="250"></center>
+							Slope = (correlation coefficient of son and father heights) * (standard deviation of sons’ heights / standard deviation of fathers’ heights)
+						</li><br>
+						<li>
+							<b><u>
+								Why does the regression line simplify to a line with intercept zero and slope rho when we standardize our x and y variables?
+							</u></b><br>
+							When we standardize variables, both x and y will have a mean of zero and a standard deviation of one. When you substitute this into the formula for the regression line, the terms cancel out until we have the following equation: yi=rho*xi
+						</li><br>
+						<li>
+							<b><u>
+								What is a limitation of calculating conditional means?
+							</u></b><br>
+							Each stratum we condition on (e.g., a specific father’s height) may not have many data points.<br>
+							Because there are limited data points for each stratum, our average values have large standard errors.<br>
+							Conditional means are less stable than a regression line.
+						</li><br>
+						<li>
+							<b><u>
+								A regression line is the best prediction of Y given we know the value of X when
+							</u></b><br>
+							X and Y follow a bivariate normal distribution.
+						</li><br>
+						<li>
+							<b><u>
+								Which one of the following scatterplots depicts an x and y distribution that is NOT well-approximated by the bivariate normal distribution?
+							</u></b>
+							<center><img src="images/pages/stats/linreg/lr_3-q5.png" width="250"></center>
+							The v-shaped distribution of points from the first plot means that the x and y variables do not follow a bivariate normal distribution.<br>
+							When a pair of random variables is approximated by a bivariate normal, the scatter plot looks like an oval (as in the 2nd, 3rd, and 4th plots) - it is okay if the oval is very round (as in the 3rd plot) or long and thin (as in the 4th plot).
+						</li>
+						<li>
+							<b><u>
+								We previously calculated that the correlation coefficient rho between fathers’ and sons’ heights is 0.5. Given this, what percent of the variation in sons’ heights is explained by fathers’ heights?
+							</u></b><br>
+							25%<br><br>
+							When two variables follow a bivariate normal distribution, the variation explained can be calculated as 100*rho^2.
+						</li><br>
+						<li>
+							<b><u>
+								Suppose the correlation between father and son’s height is 0.5, the standard deviation of fathers’ heights is 2 inches, and the standard deviation of sons’ heights is 3 inches. Given a one inch increase in a father’s height, what is the predicted change in the son’s height?
+								</u></b><br>
+								rho = 0.5<br>
+								sd_f = 2<br>
+								sd_s = 3<br>
+								f = +1<br>
+								s = ?<br>
+								3/2*0.5 = 0.75<br><br>
+
+
+						 		The slope of the regression line is calculated by multiplying the correlation coefficient by the ratio of the standard deviation of son heights and standard deviation of father heights: sigma_son/sigma_father.
+						</li>
+						
+					</ol><br>
+					<p>
+						<a href="https://github.com/anjawu/edx-harvard-ds-courses/tree/main/linear_regression" class="saymore">RStudio on GitHub questions 8-11: 1.3_Stratification-VarianceExplained_assessment.R</a>
+					</p>
+				</div>
+			</li>
+
+		<!-- Accordion: Introduction to Linear Models -->
+			<li class="">
+				<div class="title">
+					<b>Introduction to Linear Models</b>
+				</div>
+				<div class="content" style="overflow: hidden; display: none; ">
+					<p>
+						Using the <i>tidy()</i>, <i>glance()</i>, and <i>augment()</i> functions from the broom package will be helpful in data analysis.
+					</p>
+
+					<h6>Confounding: Are BBs More Predictive?</h6>
+					<p>
+						A really important fact is that <b>association is not causation</b>!
+					</p>
+					<p>
+						In baseball, there is a confounding variable for BB and HR:
+						<center><img src="images/pages/stats/linreg/lr_4-bb-confound.png" width="300"></center>
+						BB are confound with HR.
+					</p>
+					<p>
+						In real-life this happens because pitchers sometimes tend to avoid throwing strikes to home run hitters leading to more home run hitters having more bases on balls.
+					</p>
+					<p>
+						Regression can help use adjust the confounding we see to see if there is still an affect.
+					</p>
+
+					<h6>Stratification and Multivariate Regression</h6>
+					<p>
+						First approach we can take is to keep HR fixed and then examine relationship between R and BB. After stratifying we can check if there is an effect. Here we can get the expected value:
+						<center><img src="images/pages/stats/linreg/lr_4-exp-r.png" width="400"></center>
+						Where beta is the slope by strata.
+					</p>
+
+					<h6>Linear Models</h6>
+					<p>
+						Second, we can look at a linear model with regression. Where a linear model is a model that describes the relationship between two or more variables. And regression allows us to find relationships between two variables while adjusting for others. This is particularly useful when we are not able to randomly assign groups in treatment vs. control.
+					</p>
+					<p>
+						For our Galton height example, we can predict any son's height (Yi) from this equation:
+						<center><img src="images/pages/stats/linreg/lr_4-Yi-son.png" width="300"></center>
+						The epsilon is there as an error buffer for accounting for things like mother’s genetic effect, environmental factors, and other biological randomness. Epsilon assume independence E(X) =0 and sd not dependent on i (same for each individual). 
+					</p>
+					<p>
+						Linear models are meant to be interpretable. So we can go back and change our equation to make it a bit more interpretable: 
+						<center><img src="images/pages/stats/linreg/lr_4-Yi-son-new.png" width="350"></center>
+						This would give us the beta_0 is the predicted height for the son of the average father.
+					</p>
+
+					<h6>Assessment: </h6>
+					<ol>
+						<li>
+							<b><u>
+								As described in the videos, when we stratified our regression lines for runs per game vs. bases on balls by the number of home runs, what happened?
+							</u></b><br>
+							The slope of runs per game vs. bases on balls within each stratum was reduced because we removed confounding by home runs.
+						</li><br>
+						<li>
+							<b><u>
+								We run a linear model for sons’ heights vs. fathers’ heights using the Galton height data, and get the following results:
+							</u></b>
+							<div id="testimonials"><blockquote>
+								> lm(son ~ father, data = galton_heights)<br><br>
+
+
+								Call:<br>
+								lm(formula = son ~ father, data = galton_heights)<br><br>
+
+
+								Coefficients:<br>
+								(Intercept)    father  <br>
+								    35.71       0.50  
+							</blockquote></div>
+							<b><u>Interpret the numeric coefficient for "father."</u></b><br>
+							For every inch we increase the father’s height, the predicted son’s height grows by 0.5 inches.
+						</li><br>
+						<li>
+							<b><u>
+								We want the intercept term for our model to be more interpretable, so we run the same model as before but now we subtract the mean of fathers’ heights from each individual father’s height to create a new variable centered at zero.
+							</u></b>
+							<div id="testimonials"><blockquote>
+								galton_heights <- galton_heights %>%
+								<div class="tab">
+							    mutate(father_centered=father - mean(father))
+							  </div>
+							</blockquote></div>
+						  <b><u>We run a linear model using this centered fathers’ height variable.</u></b>							
+							<div id="testimonials"><blockquote>
+								> lm(son ~ father, data = galton_heights)<br><br>
+
+
+								Call:<br>
+								lm(formula = son ~ father, data = galton_heights)<br><br>
+
+
+								Coefficients:<br>
+								(Intercept)    father  <br>
+								    70.45        0.50  
+							</blockquote></div>
+							<b><u>Interpret the numeric coefficient for the intercept.</u></b><br>
+							The height of a son of a father of average height is 70.45 inches.
+						</li><br>
+						<li>
+							<b><u>
+								Suppose we fit a multivariable regression model for expected runs based on BB and HR:
+							</u></b>
+							<center><img src="images/pages/stats/linreg/lr_4-Yi-son-new.png" width="350"></center>
+							<b><u>
+								Suppose we fix BB = x_1. Then we observe a linear relationship between runs and HR with intercept of:
+							</u></b><br>
+							If x_1 is fixed, then Beta_1*x_1 is fixed and acts as the intercept for this regression model. This is the basis of stratification.
+						</li><br>
+						<li>
+							<b><u>
+								Which of the following are assumptions for the errors epsilon_i  in a linear regression model?
+							</u></b><br>
+							The epsilon_i  are independent of each other<br>
+							The  epsilon_i  have expected value 0<br>
+							The variance of epsilon_i  is a constant
+						</li><br>
+					</ol>
+				</div>
+			</li>
+
+		<!-- Accordion: Least Squares Estimates  -->
+			<li class="">
+				<div class="title">
+					<b>Least Squares Estimates <i>(LSE)</i></b>
+				</div>
+				<div class="content" style="overflow: hidden; display: none; ">
+					<h6>Least Squares Estimates (LSE)</h6>
+					<p>
+						For linear models to be useful we need to estimate the unknown parameters. When looking for parameters, we also want to find the parameters that minimize the residual sum of squares:
+						<center><img src="images/pages/stats/linreg/lr_5-rss.png" width="200"></center>
+					</p>
+					<p>
+						The best way to minimize the RSS, is to use partial derivatives, set them equal to zero and find the minimums.
+					</p>
+					<p>
+						A useful fact to know is that beta and SE(beta) both have t-distribution with N- p (number of parameters in model) degrees of freedom.
+					</p>
+					<p>
+						In order to create a linear model prediction we can use the <i>lm()</i> function. Where lm( value predicting ~ value used for prediction ). Also do not forget that summary(): gives more information; estimate, se, tvalue, p-values (Pr(>|t|).
+					</p>
+					<p>
+						An example of calculating LSE for a repeated experiment would be:
+						<div id="testimonials"><blockquote>
+							lse %>% summarize(cor(beta_0, beta_1))<br>
+							B <- 1000<br>
+							N <- 50<br>
+							lse <- replicate(B, {
+								<div class="tab"> 
+						      sample_n(galton_heights, N, replace = TRUE) %>%<br>
+						      mutate(father = father - mean(father)) %>%<br>
+						      lm(son ~ father, data = .) %>% .$coef 
+						    </div>
+							})<br>
+							cor(lse[1,], lse[2,]) 
+						</blockquote></div>
+					</p>
+
+					<h6>Predicted Variables are Random Variables</h6>
+					<p>
+						Plugging estimates into our model gives our predicted values <i>predict()</i>. Then from there we can construct a confidence interval. Using ggplot2: 
+						<div id="testimonials"><blockquote>
+							geom_smooth(method = “lm”)
+						</blockquote></div>
+						we plot the CI around predicted Y.
+					</p>
+
+
+					<h6>Assessment: Least Squares Estimates</h6>
+					<p>
+						<a href="https://github.com/anjawu/edx-harvard-ds-courses/blob/main/linear_regression/2.2_LSE_assessment.R" class="saymore">RStudio on GitHub: 2.2_LSE_assessment.R</a>
+					</p>
+				</div>
+			</li>
+
+		<!-- Accordion: Advanced dplyr: summarize with functions and broom   -->
+			<li class="">
+				<div class="title">
+					<b>Advanced dplyr: summarize with functions and broom</b>
+				</div>
+				<div class="content" style="overflow: hidden; display: none; ">
+					<p>
+						Important to know: <i>lm()</i> ignores the <i>group_by()</i> because <i>lm()</i> is not part of <i>tidyverse</i>. So we can work around it by: 
+						<div id="testimonials"><blockquote>
+							dat %>% group_by(HR) %>% summarize(slope = lm(R ~ BB)$coef[2])
+						</blockquote></div>
+					</p>
+					<p>
+						What is really great about the <i>broom</i> package is that it allows the connection of lm() to tidyverse and compute things like CI.
+					</p>
+					<p>
+						Three main functions to know and use:
+						<ul class="disc">
+							<li>
+								tidy() returns estimates and related information as a data frame.<br>
+								tidy(fit) returns estimate, se, stat and p-value; can add more i.e. tidy(fit, conf.int = TRUE) returns CI. Combine this with summarize to allow functionalities like group_by
+							</li>
+							<li>glance()</li>
+							<li>augment()</li>
+						</ul>
+					</p>]
+					<p>
+						Useful to know for lm():<br>
+						Using the dot operator instead of the across() function will lead R to ignore our grouping. You may notice that the estimate for both lgID values is the same as a result
+					</p>
+
+					<h6>Assessment: Advanced dplyr</h6>
+					<ol>
+						<li>
+							<b><u>
+								As seen in the videos, what problem do we encounter when we try to run a linear model on our baseball data, grouping by home runs?
+							</u></b><br>
+							The lm() function does not know how to handle grouped tibbles.
+						</li><br>
+						<li>
+							<b><u>
+								Tibbles are similar to what other class in R?
+							</u></b><br>
+							Dataframes
+						</li><br>
+						<li>
+							<b><u>
+								What are some advantages of tibbles compared to data frames?
+							</u></b><br>
+							All of the listed answers are advantages of tibbles when compared to data frames: tibbles display better, they always return tibbles when subsetted, they can have complex entries, and they can be grouped.
+						</li><br>
+						<li>
+							<b><u>
+								What are two advantages of the summarize() command, when applied to the tidyverse?
+							</u></b><br>
+							Correct. The summarize function can understand grouped tibbles.<br>
+							Correct. The sumarize function always returns a type of data frame (tibble or data.frame)
+						</li><br>
+						<li>
+							<a href="https://github.com/anjawu/edx-harvard-ds-courses/blob/main/linear_regression/2.3_Advanced-dplyr_assessment.R" class="saymore">RStudio on GitHub questions 5: 2.3_Advanced-dplyr_assessment.R</a>
+						</li><br>
+						<li>
+							<b><u>
+								 The output of a broom function is always what?
+							</u></b><br>
+							A tibble
+						</li><br>
+					</ol><br>
+					<p>
+						<a href="https://github.com/anjawu/edx-harvard-ds-courses/blob/main/linear_regression/2.3_Advanced-dplyr_assessment.R" class="saymore">RStudio on GitHub questions 7-10: 2.3_Advanced-dplyr_assessment.R</a>
+					</p>
+				</div>
+			</li>
+
+		<!-- Accordion: Regression and Baseball -->
+			<li class="">
+				<div class="title">
+					<b>Regression and Baseball</b>
+				</div>
+				<div class="content" style="overflow: hidden; display: none; ">
+					<h6>Building a Better Offensive Metric for Baseball</h6>
+					<p>
+						To let lm() know there are two predictor variables use “+”
+						<div id="testimonials"><blockquote>
+							fit <- Teams %>%
+								<div class="tab">
+									filter(yearID %in% 1961:2001) %>%<br>
+									mutate(BB =BB/G, HR = HR/G, R = R/G) %>%<br>
+									lm(R ~ BB + HR, data = .)
+								</div>
+						</blockquote></div>
+						<i>tidy</i> library let’s us see the summary of the model (in this case <i>lm()</i> let us see it).
+					</p>
+					<p>
+						<i>Side note:</i> Jointly normal means if the other variables are held constant then the remain predictor will have a linear relationship with the outcome without the slope changing based on the other predictive values
+					</p>
+					<p>
+						When you use the <i>predict()</i> it should be used on data that hasn’t been used to create the model. In order to have a better prediction, it is beneficial to filter out players who have a low plate appearance - it gives us more data to work with. For example to give us number of runs we predict a team would score if all batters were the exact same as that one player:
+						<div id="testimonials"><blockquote>
+							players <- Batting %>% filter(yearID %in% 1961:2001) %>%
+							<div class="tab">
+								group_by(playerID) %>%<br>
+								mutate(PA = BB +AB) %>% <br>
+								summarize(G = sum (PA)/pa_per_game, 
+								<div class="tab">
+									BB = sum(BB)/G,<br>
+									singles = sum(H-X2B-X3B-HR)/G,<br>
+									doubles = sum(X2B)/G,<br>
+									triples = sum(X3B)/G,<br>
+									HR = sum(HR)/G,<br>
+									AVG = sum(H)/sum(AB),<br>
+									PA = sum(PA)) %>%
+								</div>
+								filter(PA >= 300) %>% <br>
+								select(-G) %>%<br>
+								mutate(R_hat = predict(fit, newdata = .))
+							</div>
+						</blockquote></div>
+					</p>
+					<p>
+						A useful example to know is a way to actually pick the players for the team can be done using what computer scientists call linear programming:
+						<div id="testimonials"><blockquote>
+							library(reshape2)<br>
+							library(lpSolve)<br><br>
+
+
+							players <- players %>% filter(debut <= "1997-01-01" & debut > "1988-01-01")<br>
+							constraint_matrix <- acast(players, POS ~ playerID, fun.aggregate = length)<br>
+							npos <- nrow(constraint_matrix)<br>
+							constraint_matrix <- rbind(constraint_matrix, salary = players$salary)<br>
+							constraint_dir <- c(rep("==", npos), "<=")<br>
+							constraint_limit <- c(rep(1, npos), 50*10^6)<br>
+							lp_solution <- lp("max", players$R_hat,
+							<div class="tab">
+                constraint_matrix, constraint_dir, <br>constraint_limit,<br>
+                all.int = TRUE) 
+              </div><br>
+            </blockquote></div>
+            Then we can us this algorithm to choose 9 players:
+            <div id="testimonials"><blockquote>
+							our_team <- players %>%
+								<div class="tab"> 
+							  filter(lp_solution$solution == 1) %>%<br>
+							  arrange(desc(R_hat))
+							</div>
+							our_team %>% select(nameFirst, nameLast, POS, salary, R_hat)
+						</blockquote></div>
+					</p>
+					<p>
+						We can actually see that these players all have above average BB and HR rates while the same is not true for singles:
+						<div id="testimonials"><blockquote>
+							my_scale <- function(x) (x - median(x))/mad(x)<br>
+							players %>% mutate(BB = my_scale(BB), 
+							<div class="tab"> 
+	               singles = my_scale(singles),<br>
+	               doubles = my_scale(doubles),<br>
+	               triples = my_scale(triples),<br>
+	               HR = my_scale(HR),<br>
+	               AVG = my_scale(AVG),<br>
+	               R_hat = my_scale(R_hat)) %>%
+	             </div>
+							    filter(playerID %in% our_team$playerID) %>%<br>
+							    select(nameFirst, nameLast, BB, singles, doubles, triples, HR, AVG, R_hat) %>%<br>
+							    arrange(desc(R_hat))
+
+						</blockquote></div>
+					</p>
+
+					<h6>Regression Fallacy</h6>
+					<p>
+						Sophomore slump: refers to an instance in which a second effort fails to live up to the standard of the first effort. 
+					</p>
+					<p>
+						When we look at correlation for performance in two separate years is high but not perfect. Through futher analysis we see that the sophomore slump is basically the rule of regression to the mean. 
+					</p>
+					<h6>Measurement Error Models</h6>
+					<p>
+						Sometimes we will have non-random covariates (e.g. time) leading to randomness from measurement error. To check if the estimated points fit the data, we use augment() (from broom).
+						<div id="testimonials"><blockquote>
+							augment(fit) %>%
+							<div class="tab">
+								ggplot() +<br>
+								geom_point(aes(time, y)) + <br>
+								geom_line(aes(time, .fitted))
+							</div>
+						</blockquote></div>
+					</p>
+
+					<h6>Assessment: Regression and Baseball</h6>
+					<ol>
+						<li>
+							<b><u>
+								What is the final linear model (in the video "Building a Better Offensive Metric for Baseball") we used to predict runs scored per game?
+							</u></b>
+							<div id="testimonials"><blockquote>
+								lm(R ~ BB + singles + doubles + triples + HR)
+							</blockquote></div>
+						</li>
+						<li>
+							<b><u>
+								We want to estimate runs per game scored by individual players, not just by teams. What summary metric do we calculate to help estimate this?
+							</u></b>
+							<div id="testimonials"><blockquote>
+								pa_per_game <- Batting %>% 
+								<div class="tab"> 
+								  filter(yearID == 2002) %>% <br>
+								  group_by(teamID) %>%<br>
+								  summarize(pa_per_game = sum(AB+BB)/max(G)) %>% <br>
+								  .$pa_per_game %>% <br>
+								  mean
+								</div>
+							</blockquote></div>
+							pa_per_game: the number of plate appearances per team per game, averaged across all teams
+						</li><br>
+						<li>
+							<b><u>
+								Imagine you have two teams. Team A is comprised of batters who, on average, get two bases on balls, four singles, one double, no triples, and one home run. Team B is comprised of batters who, on average, get one base on balls, six singles, two doubles, one triple, and no home runs. (For convenience, the coefficients for the model are as follows: BB 0.371, singles 0.519, doubles 0.771, triples 1.24, and home runs 1.44.). Which team scores more runs, as predicted by our model?
+							</u></b><br>
+							<a href="https://github.com/anjawu/edx-harvard-ds-courses/blob/main/linear_regression/2.4_RegressionBaseball_assessment.R" class="saymore">RStudio on GitHub question 3: 2.4_RegressionBaseball_assessment.R</a><br>
+							Team B 
+							
+						</li><br>
+						<li>
+							<b><u>
+								The formula for on-base-percentage plus slugging percentage (OPS) is: 
+								<img src="images/pages/stats/linreg/lr_7-q4.png" width="300">. The OPS metric gives the most weight to:
+							</u></b><br>
+							HR
+						</li><br>
+						<li>
+							<b><u>
+								What statistical concept properly explains the "sophomore slump"?
+							</u></b><br>
+							Regression to the mean
+						</li><br>
+						<li>
+							<b><u>
+								In our model of time vs. observed_distance in the video "Measurement Error Models," the randomness of our data was due to:
+							</u></b><br>
+							measurement error
+						</li><br>
+						<li>
+							<b><u>
+								Which of the following are important assumptions about the measurement errors in the experiment presented in the video "Measurement Error Models"?
+							</u></b><br>
+							The measurement error is random<br>
+							The measurement error is independent<br>
+							The measurement error has the same distribution for each time 
+						</li><br>
+						<li>
+							<b><u>
+								Which of the following scenarios would violate an assumption of our measurement error model?
+							</u></b><br>
+							There was one position where it was particularly difficult to see the dropped ball.
+						</li><br>
+					</ol>
+					<a href="https://github.com/anjawu/edx-harvard-ds-courses/blob/main/linear_regression/2.4_RegressionBaseball_assessment.R" class="saymore">RStudio on GitHub questions 9-11: 2.4_RegressionBaseball_assessment.R</a>
+				</div>
+			</li>
+
+		<!-- Accordion: Correlation is Not Causation -->
+			<li class="">
+				<div class="title">
+					<b>Correlation is Not Causation</b>
+				</div>
+				<div class="content" style="overflow: hidden; display: none; ">
+					<h6>Spurious Correlation</h6>
+					<p>
+						Spurious correlations refers to a connection being seen between two variables that appears to be causal but it is not. This can lead to misinterpreting associations. 
+					</p>
+					<p>
+						These kinds of associations can arise from data dredging, data phishing, or data snooping (i.e. cherry picking). P-hacking is a  particular form of data dredging (reporting experiments that report only the experiments that resulted in small p-values). There are methods that can be done to adjust for this.
+					</p>
+					<h6>Outliers</h6>
+					<p>
+						Outliers allow us to see high correlation without an actual relationship. Spearman correlation computes the correlation on the ranks of the values; thereby making it robust to outliers.
+					</p>
+					<h6>Reversing Cause and Effect</h6>
+					<p>
+						Cause and effect reversal: meaning that you assume the wrong directionality of effect (e.g. sons height affects dad’s height).
+					</p>
+					<h6>Confounders</h6>
+					<p>
+						Confounders cause changes in variables that are correlated. The way to analyze confounders is by stratifying data over various aspects to see if there is any change in a foreseen correlation.
+					</p>
+					<h6>Simpson's Paradox</h6>
+					<p>
+						This is when we see the correlation flipped when analyzing a whole population compared to the stratified population. A visual example being: 
+						<center><img src="images/pages/stats/linreg/lr_8-corr_all.png" width="400"></center>
+						But when stratified we see:
+						<center><img src="images/pages/stats/linreg/lr_8-corr_strat.png" width="400"></center>
+					</p>
+
+
+					<h6>Assessment: Correlation is Not Causation</h6>
+					<ol>
+						<li>
+							<b><u>
+								In the videos, we ran one million tests of correlation for two random variables, X and Y. 
+								How many of these correlations would you expect to have a significant p-value (p<=0.05), just by chance?
+							</u></b><br>
+							In this example, the chance of finding a correlation when none exists is 0.05*1,000,000 chances.
+						</li><br>
+						<li>
+							<b><u>
+								Which of the following are examples of p-hacking?
+							</u></b><br>
+							Looking for associations between an outcome and several exposures and only reporting the one that is significant.<br>
+							Trying several different models and selecting the one that yields the smallest p-value.<br>
+							Repeating an experiment multiple times and only reporting the one with the smallest p-value.
+						</li><br>
+						<li>
+							<b><u>
+								The Spearman correlation coefficient is robust to outliers because:
+							</u></b><br>
+							It calculates correlation between ranks, not values.
+						</li><br>
+						<li>
+							<b><u>
+								What can you do to determine if you are misinterpreting results because of a confounder?
+							</u></b><br>
+							More closely examine the results by stratifying and plotting the data.<br>
+							Although you can sometimes use linear models, you can't always and exploratory data analysis (stratifying and plotting data) will help determine if there is a confounder.
+						</li><br>
+						<li>
+							<b><u>
+								Look again at the admissions data presented in the confounders video using ?admissions. 
+								What important characteristic of the table variables do you need to know to understand the calculations used in this video?
+							</u></b><br>
+							The column admitted is the percent of students admitted, while the column applicants is the total number of applicants.
+						</li><br>
+						<li>
+							<b><u>
+								In the example in the confounders video, major selectivity confounds the relationship between UC Berkeley admission rates and gender because:
+							</u></b><br>
+							Major selectivity is associated with both admission rates and with gender, as women tended to apply to more selective majors.
+						</li><br>
+						<li>
+							<b><u>
+								Admission rates at UC Berkeley are an example of Simpson’s Paradox because:
+							</u></b><br>
+							It appears that men have higher a higher admission rate than women, however, after we stratify by major, we see that on average women have a higher admission rate than men.
+						</li><br>
+
+					</ol>
+				</div>
+			</li>
+
+		</ul>
+
+	</div>
+
+	<div class="hr">
+	</div>
+
+
+	<!-- Wrangling -->
+	<div class="twelve columns">
 		<div class="circledate">
 			<div class="textcircle">
 				<br>Wrangle
@@ -4432,8 +5342,8 @@ setTimeout(timer1801,1801000);
 		<div class="dots blogdots">
 		</div>
 		<p>
-			The course link can be found <a href="https://www.edx.org/course/data-science-wrangling" class="saymore">here</a>. Within this course 
-		</p> -->
+			The course link can be found <a href="https://www.edx.org/course/data-science-wrangling" class="saymore">here</a>. This section will be updated soon!
+		</p>
 		<!-- Accordion -->
 		<!-- <ul class="accordion"> -->
 
@@ -4480,8 +5390,8 @@ setTimeout(timer1801,1801000);
 				</div>
 				<div class="content" style="overflow: hidden; display: none; ">
 				</div>
-			</li> -->
-
+			</li>
+ -->
 		<!-- Accordion:  -->
 <!-- 			<li class="">
 				<div class="title">
@@ -4501,7 +5411,7 @@ setTimeout(timer1801,1801000);
 			</li> -->
 
 		<!-- Accordion: -->
-<!-- 			<li class="">
+	<!-- 		<li class="">
 				<div class="title">
 					<b></b>
 				</div>
@@ -4516,8 +5426,8 @@ setTimeout(timer1801,1801000);
 				</div>
 				<div class="content" style="overflow: hidden; display: none; ">
 				</div>
-			</li> -->
-
+			</li>
+ -->
 		<!-- Accordion: -->
 <!-- 			<li class="">
 				<div class="title">
@@ -4525,113 +5435,9 @@ setTimeout(timer1801,1801000);
 				</div>
 				<div class="content" style="overflow: hidden; display: none; ">
 				</div>
-			</li>
+			</li> -->
 
-		</ul>
-
-	</div>
-
-	<div class="hr">
-	</div> -->
-
-	<!-- Linear Regression -->
-	<div class="twelve columns">
-		<div class="circledate">
-			<div class="textcircle">
-				<br>Regression
-			</div>
-		</div>
-		<h4 id="linreg">Linear Regression</h4>
-		<div class="dots blogdots">
-		</div>
-		<p>
-			The course link can be found <a href="https://www.edx.org/course/data-science-linear-regression" class="saymore">here</a>. Within this course we look at linear models and how to understand relationships between various factors within an analysis. This section will be updated soon!
-		</p>
-		<!-- Accordion -->
-		<ul class="accordion">
-
-		<!-- Accordion: Baseball as a Motivating Example-->
-			<li class="">
-				<div class="title">
-					<b>Baseball as a Motivating Example</b>
-				</div>
-				<div class="content" style="overflow: hidden; display: none; ">
-				</div>
-			</li>
-
-		<!-- Accordion: Correlation -->
-			<li class="">
-				<div class="title">
-					<b>Correlation</b>
-				</div>
-				<div class="content" style="overflow: hidden; display: none; ">
-				</div>
-			</li>
-
-		<!-- Accordion: Stratification and Variance Explained -->
-			<li class="">
-				<div class="title">
-					<b>Stratification and Variance Explained</b>
-				</div>
-				<div class="content" style="overflow: hidden; display: none; ">
-				</div>
-			</li>
-
-		<!-- Accordion: Introduction to Linear Models -->
-			<li class="">
-				<div class="title">
-					<b>Introduction to Linear Models</b>
-				</div>
-				<div class="content" style="overflow: hidden; display: none; ">
-				</div>
-			</li>
-
-		<!-- Accordion: Least Squares Estimates  -->
-			<li class="">
-				<div class="title">
-					<b>Least Squares Estimates</b>
-				</div>
-				<div class="content" style="overflow: hidden; display: none; ">
-				</div>
-			</li>
-
-		<!-- Accordion: Advanced dplyr: summarize with functions and broom   -->
-			<li class="">
-				<div class="title">
-					<b>Advanced dplyr: summarize with functions and broom</b>
-				</div>
-				<div class="content" style="overflow: hidden; display: none; ">
-				</div>
-			</li>
-
-		<!-- Accordion: Regression and Baseball -->
-			<li class="">
-				<div class="title">
-					<b>Regression and Baseball</b>
-				</div>
-				<div class="content" style="overflow: hidden; display: none; ">
-				</div>
-			</li>
-
-		<!-- Accordion: Confounding Overview -->
-			<li class="">
-				<div class="title">
-					<b>Confounding Overview</b>
-				</div>
-				<div class="content" style="overflow: hidden; display: none; ">
-				</div>
-			</li>
-
-		<!-- Accordion: Correlation is Not Causation -->
-			<li class="">
-				<div class="title">
-					<b>Correlation is Not Causation</b>
-				</div>
-				<div class="content" style="overflow: hidden; display: none; ">
-				</div>
-			</li>
-
-		</ul>
+		<!-- </ul> -->
 
 	</div>
 
