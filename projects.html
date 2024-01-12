@@ -109,7 +109,9 @@ setTimeout(timer1801,1801000);
 			<li>
 			<a href="projects.html">Projects</a>
 			<ul>
-				<li><a href="redlight.html">Redlight</a></li>
+				<li><a href="collisions.html">Ottawa Collisions</a></li>		
+				<li><a href="ottawaparks.html">Explore Ottawa Parks</a></li>
+				<li><a href="redlight.html">Red Light</a></li>
 				<li><a href="costco.html">Costco</a></li>
 				<li><a href="schoolboard.html">School Boards</a></li>				
 				<li><a href="website.html">Website</a></li>
@@ -143,13 +145,43 @@ setTimeout(timer1801,1801000);
 <!-- CONTENT 
 ================================================== -->
 <div class="row">
-	<!-- Redfin-->
+	<!-- Collisions-->
+	<div class="four columns">
+		<h5>City of Ottawa Collisions Analysis</h5>	
+		<div class="portofoliothumb">
+			<div class="portofoliothumboverlay threeoverlay">
+				<div class="inner threedetail">
+					<a class="projectdetail" href="collisions.html">Check it out →</a>
+				</div>
+			</div>
+			<p>
+				The City of Ottawa has open source data for collisions from 2017-2022 which contains information about accident type, weather, road conditions, location, and injury severity. We used this information to try to understand the features of a collision that increase the likelihood of an injury. This was done through both quantitative analysis and creation of predictive models (focused on decision trees and kNN).
+			</p>
+			<br>
+		</div>
+	</div>
+	<!-- Ottawa Parks -->
+	<div class="four columns">
+		<h5>Exploring Various City of Ottawa Parks and their Features</h5>
+		<div class="portofoliothumb">
+			<div class="portofoliothumboverlay threeoverlay">
+				<div class="inner threedetail">
+					<a class="projectdetail" href="ottawaparks.html">Check it out →</a>
+				</div>
+			</div>
+			<p>
+				On the City of Ottawa's open source data website, I found 7 different datasets which are all related to various features of Ottawa parks. These were combined to make an interactive dashboard to allow people to explore Ottawa parks. It is a Tableau story with 4 pages: plan which parks to visit based on features you want, explore parks that are close to you and what features they contain, compare parks in various neighbourhoods and how well equiped they are, and finally, see how park friendly Ottawa is in general.
+			</p>
+			<br>
+		</div>
+	</div>
+	<!-- Project 3-->
 	<div class="four columns">
 		<h5>City of Ottawa Red-light Data Analysis</h5>	
 		<div class="portofoliothumb">
 			<div class="portofoliothumboverlay threeoverlay">
 				<div class="inner threedetail">
-					<a class="projectdetail" href="redlight.html">Project Breakdown →</a>
+					<a class="projectdetail" href="redlight.html">Check it out →</a>
 				</div>
 			</div>
 			<p>
@@ -158,13 +190,17 @@ setTimeout(timer1801,1801000);
 			<br>
 		</div>
 	</div>
+</div>
+
+
+<div class="row">
 	<!-- Costco -->
 	<div class="four columns">
 		<h5>Costco Deal Hunter</h5>
 		<div class="portofoliothumb">
 			<div class="portofoliothumboverlay threeoverlay">
 				<div class="inner threedetail">
-					<a class="projectdetail" href="costco.html">Project Breakdown →</a>
+					<a class="projectdetail" href="costco.html">Check it out →</a>
 				</div>
 			</div>
 			<p>
@@ -173,9 +209,6 @@ setTimeout(timer1801,1801000);
 			<p>
 				<h6>Part 2</h6>I analyzed prices between Costco and Real Canadian Superstore items to find which is cheaper. I automated the inputting of coupon item names into Real Canadian Superstore search and <i><b>scraping the details</b></i> to be <b><i>stored into a dataframe</i></b> using <b><u>Selenium</u></b> and <b><u>Pandas</u></b>. After this was done, the two dataframes (from different sources) were combined and cleaned to allow the analysis of the price to be done. The prices were compared by unit prices and the overall price difference distribution was displayed using the average quanity. <b><i>Graphing the price distribution</i></b> was done using <b><u>Seaborn</u></b>.
 			</p>
-
-				<!-- I wanted to automatically run it once a week using Cron, however, I ran into some issues with Cron on a Macbook. I was anxious to get to my next project of data analysis so I moved on but there are so many ways this project can be taken further (which I hope to do): update my code once I fix the Cron/Macbook error, include a list of keywords to look for (as opposed to just one), making an email alert with the items listed based on the keywords inputted, and maybe even asking the user to input what words they want to set alerts for.  -->
-			
 			<br>
 		</div>
 	</div>
@@ -185,7 +218,7 @@ setTimeout(timer1801,1801000);
 		<div class="portofoliothumb">
 			<div class="portofoliothumboverlay threeoverlay">
 				<div class="inner threedetail">
-					<a class="projectdetail" href="schoolboard.html">Project Breakdown →</a>
+					<a class="projectdetail" href="schoolboard.html">Check it out →</a>
 				</div>
 			</div>
 			<p>
@@ -194,21 +227,14 @@ setTimeout(timer1801,1801000);
 			<br>
 		</div>
 	</div>
-</div>
 
-
-
-</div>
-
-
-<div class="row">
 	<!-- Website-->
 	<div class="four columns">
 		<h5>Creating My Website</h5>
 		<div class="portofoliothumb">
 			<div class="portofoliothumboverlay threeoverlay">
 				<div class="inner threedetail">
-					<a class="projectdetail" href="website.html">Project Breakdown →</a>
+					<a class="projectdetail" href="website.html">Check it out →</a>
 				</div>
 			</div>
 			<p>
@@ -217,13 +243,17 @@ setTimeout(timer1801,1801000);
 			<br>
 		</div>
 	</div>
+</div>
+
+
+<div class="row">
 	<!-- Indeed-->
 	<div class="four columns">
 		<h5>Indeed Web Scraper</h5>
 		<div class="portofoliothumb">
 			<div class="portofoliothumboverlay threeoverlay">
 				<div class="inner threedetail">
-					<a class="projectdetail" href="indeed.html">Project Breakdown →</a>
+					<a class="projectdetail" href="indeed.html">Check it out →</a>
 				</div>
 			</div>
 			<p>
@@ -238,7 +268,7 @@ setTimeout(timer1801,1801000);
 		<div class="portofoliothumb">
 			<div class="portofoliothumboverlay threeoverlay">
 				<div class="inner threedetail">
-					<a class="projectdetail" href="imdb.html">Project Breakdown →</a>
+					<a class="projectdetail" href="imdb.html">Check it out →</a>
 				</div>
 			</div>
 			<p>
@@ -247,16 +277,14 @@ setTimeout(timer1801,1801000);
 			<br>
 		</div>
 	</div>
-</div>
 
-<div class="row">
 		<!-- Hangman-->
 	<div class="four columns">
 		<h5>Hangman Terminal Game</h5>
 		<div class="portofoliothumb">
 			<div class="portofoliothumboverlay threeoverlay">
 				<div class="inner threedetail">
-					<a class="projectdetail" href="hangman.html">Project Breakdown →</a>
+					<a class="projectdetail" href="hangman.html">Check it out →</a>
 				</div>
 			</div>
 			<p>
@@ -266,6 +294,7 @@ setTimeout(timer1801,1801000);
 		</div>
 	</div>
 </div>
+
 <div class="hr">
 </div>
 
