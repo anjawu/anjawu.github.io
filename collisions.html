@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8"/>
+<!-- Set the viewport width to device width for mobile -->
+<meta name="viewport" content="width=device-width"/>
+<title>Anja's Traffic Analysis</title>
+<!-- CSS Files-->
+<link rel="stylesheet" href="stylesheets/style.css">
+<link rel="stylesheet" href="stylesheets/skins/blue.css">
+<!-- skin color -->
+<link rel="stylesheet" href="stylesheets/responsive.css">
+<!-- IE Fix for HTML5 Tags -->
+<!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-216360630-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-216360630-1');
+</script> -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VSCS5ZQX38"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-VSCS5ZQX38');
+</script>
+
+<!-- creating buckets for time spent on page -->
+<script type="text/javascript">
+function timer11(){gtag('event','1', {'event_category':'redlight_TimeOnPage','event_label':'11-30 seconds','non_interaction':true});}
+function timer31(){gtag('event','2', {'event_category':'redlight_TimeOnPage','event_label':'31-60 seconds','non_interaction':true});}
+function timer61(){gtag('event','3', {'event_category':'redlight_TimeOnPage','event_label':'61-180 seconds','non_interaction':true});}
+function timer181(){gtag('event','4', {'event_category':'redlight_TimeOnPage','event_label':'181-360 seconds','non_interaction':true});}
+function timer361(){gtag('event','5', {'event_category':'redlight_TimeOnPage','event_label':'361-600 seconds','non_interaction':true});}
+function timer601(){gtag('event','6', {'event_category':'redlight_TimeOnPage','event_label':'601-1800 seconds','non_interaction':true});}
+function timer1801(){gtag('event','7', {'event_category':'redlight_TimeOnPage','event_label':'1801+ seconds','non_interaction':true});}
+gtag('event','0', {'event_category':'redlight_TimeOnPage','event_label':'0-10 seconds','non_interaction':true});
+setTimeout(timer11,11000);
+setTimeout(timer31,31000);
+setTimeout(timer61,61000);
+setTimeout(timer181,181000);
+setTimeout(timer361,361000);
+setTimeout(timer601,601000);
+setTimeout(timer1801,1801000);
+</script>
+</head>
+<body>
+<!-- HIDDEN PANEL 
+================================================== -->
+<div id="panel">
+	<div class="row">
+		<div class="twelve columns">
+			<img src="http://www.wowthemes.net/demo/studiofrancesca/images/info.png" class="pics" alt="info">
+			<div class="infotext">
+				 Thank you for visiting my website!
+			</div>
+		</div>
+	</div>
+</div>
+<p class="slide">
+	<a href="#" class="btn-slide"></a>
+</p>
+<!-- HEADER
+================================================== -->
+<div class="row">
+	<div class="headerlogo four columns">
+		<div class="logo">
+			<a href="index.html">
+			<h4>Anja Wu</h4>
+			</a>
+		</div>
+	</div>
+	<div class="headermenu eight columns noleftmarg">
+		<nav id="nav-wrap">
+		<ul id="main-menu" class="nav-bar sf-menu">
+			<li class="current">
+			<a href="index.html">Home</a>
+			</li>
+			<li>
+			Coding Info
+			<ul>
+				<li><a href="sql.html">SQL</a></li>
+				<li><a href="ganalytics.html">Google Data</a></li>
+				<li><a href="libraries.html">Python Libraries</a></li>
+				<li><a href="stats.html">Statistics</a></li>
+				<li><a href="ml.html">Machine Learning</a></li>
+				<li><a href="github.html">GitHub</a></li>
+				<li><a href="funlearn.html">Fun Things Learnt</a></li>
+				<li><a href="versus.html">Versus</a></li>
+				<li><a href="environmentsetup.html">Environment Setup</a></li>
+			</ul>
+			</li>
+			<li>
+			<a href="projects.html">Projects</a>
+			<ul>
+				<li><a href="collisions.html">Ottawa Collisions</a></li>			
+				<li><a href="ottawaparks.html">Explore Ottawa Parks</a></li>
+				<li><a href="redlight.html">Red Light</a></li>
+				<li><a href="costco.html">Costco</a></li>
+				<li><a href="schoolboard.html">School Boards</a></li>				
+				<li><a href="website.html">Website</a></li>
+				<li><a href="indeed.html">Indeed</a></li>
+				<li><a href="imdb.html">IMDb</a></li>
+				<li><a href="hangman.html">Hangman</a></li>
+			</ul>
+			</li>
+<!-- 			<li>
+			<a href="contact.html">Contact</a>
+			</li> -->
+		</ul>
+		</nav>
+	</div>
+</div>
+<div class="clear">
+</div>
+<!-- SUBHEADER
+================================================== -->
+<div id="subheader">
+	<div class="row">
+		<div class="six columns">
+<!-- 			<p class="left">
+				<a href=".html">Newer Project: </a>
+			</p> -->
+		</div>
+		<div class="six columns">
+			<p class="right">
+				<a href="ottawaparks.html">Project: Exploring Ottawa Parks</a>
+			</p>
+		</div>
+	</div>
+	<div class="row">
+		<h2 style = "text-align: center; color: white">Ottawa Collisions</h2>
+	</div>
+</div>
+<div class="hr">
+</div>
+<!-- CONTENT 
+	================================================== -->
+<div class="row">
+	<div class="sectiontitle">
+		<h4>Ottawa Collisions Analysis</h4><!-- <a class="social github2" href="https://github.com/anjawu/ottawa-red-light-violations"></a> -->
+	</div>
+
+<!-- INTRO -->
+	<i>Completed as a partnership for DATA5000 with Ben Nikkel</i>
+	
+
+	<h4><center>Slide Deck</center></h4>
+	<p><a href="/Users/anjawu/Code/anjawu.github.io/images/pages/projects/collisions/presentation.pdf", class="saymore">Here</a> you can find the slide deck we created to show case our process, results, and future work ideas.</p>
+
+	<h4><center>Poster</center></h4>
+	<p><a href="/Users/anjawu/Code/anjawu.github.io/images/pages/projects/collisions/poster.pdf", class="saymore">Here</a> you can find the poster we created to show case our process and main results.</p>
+
+	<h4><center>Formal Paper</center></h4>
+	<p><a href="images/pages/projects/collisions/Injury_Resulting_from_Vehicle_Collisions_in_Ottawa__Ontario.pdf", class="saymore">Here</a> you can find the formal paper we wrote.</p>
+	<!-- <h4><center>The Case and Background Information</center></h4>
+	
+	<p>
+		Several questions were analyzed for this project:<br>
+		<b>
+			<h5>Part 1: Exploratory Analysis</h5>
+			<a href="#question1" class="saymore"> Question 1) </a><br>
+			<a href="#question2" class="saymore"> Question 2) </a><br>
+			<a href="#question3"  class="saymore"> Question 3) </a><br>
+			<a href="#question4"  class="saymore"> Question 4) </a> 
+			<h5>Part 2: Predicting Injuries</h5>
+			<a href="#knn" class="saymore"> Predicting whether an injury will occur, using k-NN </a><br>
+			<a href="#dt" class="saymore">Predicting whether an injury will occur, using decision trees </a><br>
+		</b>
+	</p>
+	<p>
+		We wrote a <a href = "" class ="saymore">paper for the Ottawa Collision Analysis</a>. Below I go through answering my above questions in a less formal setting, sticking with just process and results.
+	</p>
+</div>
+
+<div class="row">
+	<h4><center>Analysis</center></h4>
+</div> -->
+
+<!-- Part 1 -->
+<!-- Q1 -->
+<!-- <div class="row">
+	<h5 id="question1"><center>Question 1)</center></h5>	
+	<p>
+		
+	</p>
+
+</div> -->
+
+<!-- Q2 -->
+<!-- <div class="row">
+	<h5 id="question2"><center>Question 2)</center></h5>	
+</div> -->
+
+<!-- Q3 -->
+<!-- <div class="row">
+	<h5 id="question3"><center>Question 3)</center></h5>	
+</div> -->
+
+<!-- Q4 -->
+<!-- <div class="row">
+	<h5 id="question4"><center>Question 4)</center></h5>	
+</div> -->
+
+
+<!-- Part 2 -->
+<!-- kNN -->
+<!-- <div class="row">
+	<h5 id="knn"><center>Question 1)</center></h5>	
+</div> -->
+
+<!-- DT -->
+<!-- <div class="row">
+	<h5 id="dt"><center>Question 2)</center></h5>	
+</div> -->
+
+
+<div class="hr">
+</div>
+
+<!-- FOOOTER 
+================================================== -->
+<div id="footer">
+	<footer class="row">
+	<p class="back-top floatright">
+		<a href="#top"><span></span></a>
+	</p>
+	<center>
+		<div class="twelve columns">
+			<h1>Connect with Me</h1>
+			<a class="social github" href="https://github.com/anjawu"></a>
+			<a class="social linkedin" href="https://www.linkedin.com/in/anja-wu/"></a>
+		</div>
+	</center>
+	</footer>
+</div>
+<div class="copyright">
+	<div class="row">
+		<div class="six columns">
+			 &copy;<span class="small"> Copyright 2021 Anja Wu</span>
+		</div>
+		<div class="six columns">
+			<span class="small floatright"> Template by <a href="www.wowthemes.net">WowThemes.net</a></span>
+		</div>
+	</div>
+</div>
+<!-- JAVASCRIPTS 
+================================================== -->
+<!-- Javascript files placed here for faster loading -->
+<script src="javascripts/foundation.min.js"></script>
+<script src="javascripts/jquery.easing.1.3.js"></script>
+<script src="javascripts/elasticslideshow.js"></script>
+<script src="javascripts/jquery.carouFredSel-6.0.5-packed.js"></script>
+<script src="javascripts/jquery.cycle.js"></script>
+<script src="javascripts/app.js"></script>
+<script src="javascripts/modernizr.foundation.js"></script>
+<script src="javascripts/slidepanel.js"></script>
+<script src="javascripts/scrolltotop.js"></script>
+<script src="javascripts/hoverIntent.js"></script>
+<script src="javascripts/superfish.js"></script>
+<script src="javascripts/responsivemenu.js"></script>
+
+</body>
+</html>
