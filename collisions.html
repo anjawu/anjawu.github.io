@@ -161,74 +161,212 @@ setTimeout(timer1801,1801000);
 	<i>Completed as a partnership for DATA5000 with Ben Nikkel</i>
 	
 
-	<h4><center>Slide Deck</center></h4>
+	<h5>Slide Deck</h5>
 	<p><a href="images/pages/projects/collisions/presentation.pdf", class="saymore">Here</a> you can find the slide deck we created to show case our process, results, and future work ideas.</p>
 
-	<h4><center>Poster</center></h4>
+	<h5>Poster</h5>
 	<p><a href="images/pages/projects/collisions/poster.pdf", class="saymore">Here</a> you can find the poster we created to show case our process and main results.</p>
 
-	<h4><center>Formal Paper</center></h4>
+	<h5>Formal Paper</h5>
 	<p><a href="images/pages/projects/collisions/Injury_Resulting_from_Vehicle_Collisions_in_Ottawa__Ontario.pdf", class="saymore">Here</a> you can find the formal paper we wrote.</p>
-	<!-- <h4><center>The Case and Background Information</center></h4>
-	
+
+	<br><br>
+</div>
+
+<div class="row">
+	<h3><center>Summary of Results</center></h3>
+	<p>
+		Road traffic collisions are a serious and on-going threat to human life. Understanding the features of a collision that increase the likelihood of an injury is useful for increasing personal protection, guiding emergency services and advising municipal staff. This study analyzed traffic collisions in Ottawa, Ontario from 2017 to 2022. This study sought to highlight hazardous areas and modes of transportation, and to analyze correlations found with occurrences and severity of injuries. Despite limitations, this study provides actionable insights for local authorities to enhance road safety.
+	</p>
+
 	<p>
 		Several questions were analyzed for this project:<br>
 		<b>
 			<h5>Part 1: Exploratory Analysis</h5>
-			<a href="#question1" class="saymore"> Question 1) </a><br>
-			<a href="#question2" class="saymore"> Question 2) </a><br>
-			<a href="#question3"  class="saymore"> Question 3) </a><br>
-			<a href="#question4"  class="saymore"> Question 4) </a> 
+			<a href="#question1" class="saymore">Question 1) What were the most dangerous locations?</a><br>
+			<a href="#question2" class="saymore">Question 2) When were accidents occurring?</a><br>
+			<a href="#question3"  class="saymore">Question 3) Which accident features were correlated to injuries?</a><br>
+			<a href="#question4"  class="saymore">Question 4) Were road/weather conditions correlated to levels of severity of injuries?</a><br>
+			<a href="#question5"  class="saymore">Question 5) Did injuries disproportionately affect drivers, pedestrians, bicyclers or motorcycles?</a><br>
+			<a href="#question5"  class="saymore">Question 6) Did traffic controls lead to decreases in accidents? </a>
 			<h5>Part 2: Predicting Injuries</h5>
-			<a href="#knn" class="saymore"> Predicting whether an injury will occur, using k-NN </a><br>
-			<a href="#dt" class="saymore">Predicting whether an injury will occur, using decision trees </a><br>
+			<a href="#predict" class="saymore">Question 7) Can an injury be predicted given collision information?</a><br>
 		</b>
 	</p>
-	<p>
-		We wrote a <a href = "" class ="saymore">paper for the Ottawa Collision Analysis</a>. Below I go through answering my above questions in a less formal setting, sticking with just process and results.
-	</p>
+
 </div>
 
 <div class="row">
 	<h4><center>Analysis</center></h4>
-</div> -->
+</div>
 
 <!-- Part 1 -->
 <!-- Q1 -->
-<!-- <div class="row">
-	<h5 id="question1"><center>Question 1)</center></h5>	
+<div class="row">
+	<h5 id="question1"><center>Question 1) What were the most dangerous locations?</center></h5>	
 	<p>
-		
+		<center>
+			<iframe src="images/pages/projects/collisions/top10_loc_map.html" width="475" height="400"></iframe>
+			<iframe src="images/pages/projects/collisions/top10_injury_map.html" width="475" height="400"></iframe>
+		</center>
+	<p>
+		Here is a summary table for side-by-side comparison for the top 10 locations:
+		<center>
+			<img src="images/pages/projects/collisions/top_locations_tables.png", width="500">
+		</center>
+	</p>
+	<p>
+		There are four locations that occur in both sets of top 10 locations:
+		<center>
+			<img src="images/pages/projects/collisions/top_locations_tables_highlighted.png", width="500">
+		</center>
+	</p>
+	<p>
+		In terms of the most serious injury locations, we can see the following highlights the locations with the number of collisions that resulted in the injury severity (major or fatal).
+		<center>
+			<img src="images/pages/projects/collisions/major-fatal_injuries_table_highlighted.png", width="500">
+		</center>
+		As can be seen, 8th line and Parkway is the only location to occur in both lists. This is an interesting finding due to the fact that this location is a rural location and yet it shows up a couple of times in severe accidents. There have been several articles <a href='https://www.cbc.ca/news/canada/ottawa/collision-rural-southeast-ottawa-1.6842397' class="saymore">(1)</a>, <a href="https://www.cbc.ca/news/canada/ottawa/8th-line-parkway-road-metcalfe-safety-crash-1.6153797" class="saymore">(2)</a> that have highlighted this location being dangerous.
 	</p>
 
-</div> -->
+</div>
 
 <!-- Q2 -->
-<!-- <div class="row">
-	<h5 id="question2"><center>Question 2)</center></h5>	
-</div> -->
+<div class="row">
+	<h5 id="question2"><center>Question 2) When were accidents occurring?</center></h5>	
+	<center>
+		<img src="images/pages/projects/collisions/collision_yearly_trend.png", width="500">
+	</center>
+	<p>
+		As can be seen, most years had similar trends of higher accidents in the winter. Also there was a substantial decrease in years 2020 and 2021; this coincides with the COVID shut downs.
+	</p>
+	<p>
+		Interesting to note that 2022 had a trend differing from the other years. When further analysis was done, there seemed to be fewer entries for those end of year months, implying this was a problem due to data entry - not due to a true collision trend for that year.
+	</p>
+</div>
 
 <!-- Q3 -->
-<!-- <div class="row">
-	<h5 id="question3"><center>Question 3)</center></h5>	
-</div> -->
+<div class="row">
+	<h5 id="question3"><center>Question 3) Which accident features were correlated to injuries?</center></h5>	
+	<center>
+		<img src="images/pages/projects/collisions/all_corr_new.png", width="500">
+	</center>
+	<p>
+		As can be seen, the highest correlation level (low to moderate positive correlation) coincides with the number of bicycles, pedestrians, and motorcyclists. 
+	</p>
+	<p>
+		In the above matrix, some of those variables were categorical (initial impact type, road, environment, and light conditions, and traffic control). So we changed them to one hot encoding and got these specific correlation matrices:
+	</p>
+	<center>
+		<img src="images/pages/projects/collisions/impactType_corr.png", width="320">
+		<img src="images/pages/projects/collisions/roadSurface_corr.png", width="320">
+		<img src="images/pages/projects/collisions/environmentCondition_corr.png", width="320">
+		<img src="images/pages/projects/collisions/trafficControl_corr.png", width="320">
+		<img src="images/pages/projects/collisions/light_corr.png", width="320">
+	</center>
+	<h6>Summary:</h6>
+	<p>
+		We can see not many features have much of a correlation with injury. Below I breakdown the various features and my hypotheses on why they have the correlation they do.
+	</p>
+	<p>
+		Most notably, we have a slight negative correlation (meaning that the feature is less likely to result in injury) for the following features:
+		<ul class="disc">
+			<li>
+				Impact type: unattended vehicle and side swipe; this makes sense as there is less chance of injury with only one vehicle having passengers.
+			</li>
+			<li>
+				Road conditions: snow and slush and environmental condition: snow and freezing rain; this could be due to drivers driving a lot slower in bad weather leading to less injuries. 
+			</li>
+			<li>
+				Traffic control: no control; no controls tend to be in locations with less traffic flow directions, implying less chance of a serious accident with injury to occur.
+			</li>
+			<li>
+				Light: unknown; this category can contain things like hit and runs which could lead to less injuries being reported due to the driver being concerned with police reports.
+			</li>
+		</ul>
+	</p>
+	<p>
+		Most notably, we have a slight positive correlation (meaning that the feature is more likely to result in injury) for the following features:
+		<ul class="disc">
+			<li>
+				Impact type: turning movement; this could be due to the angle of impact being more dangerous.
+			</li>
+			<li>
+				Road conditions: dry and environmental condition: clear; drivers could potentially feel more comfortable driving faster in clear weather, leading to potentially higher speeds and higher chance of injuries from resulting accidents.
+			</li>
+			<li>
+				Traffic control: traffic signal and stop sign; these controls tend to be in locations with more traffic flow directions, implying more chance of a serious accident with injury to occur.
+			</li>
+			<li>
+				Light: daylight; potentially the sun could be obstructing view but since it is a clear day, cars may be going faster leading to 
+			</li>
+		</ul>
+	</p>
+</div>
 
 <!-- Q4 -->
-<!-- <div class="row">
-	<h5 id="question4"><center>Question 4)</center></h5>	
-</div> -->
+<div class="row">
+	<h5 id="question4"><center>Question 4) Were road/weather conditions correlated to levels of severity of injuries?</center></h5>	
+	<center>
+		<img src="images/pages/projects/collisions/weather_corr.png", width="700">
+	</center><br>
+	<p>
+		As can be seen, the answer to the question is, surprisingly, not really.
+	</p>
+</div>
+
+<!-- Q5 -->
+<div class="row">
+	<h5 id="question5"><center>Question 5) Did injuries disproportionately affect drivers, pedestrians, bicyclers or motorcycles?</center></h5>	
+	<p>
+		<center>
+			<img src="images/pages/projects/collisions/MoT_table.png", width="700">
+		</center>
+	</p>
+	<p>
+		Overall, most collisions involved vehicles (95.28%) and most of these did not involve injury (79.99%). When vehicle injuries did occur, they were usually minimal (8.00%) or minor (10.8%). However, when pedestrians were involved, there was almost always an injury (99.16%); they were often minimal (29.41%) or minor (57.35%). Bicycles and motorcycles were more likely to involve injuries than vehicles. Motorcycles <1% of accidents, but 14% end in major injuries and 3% in fatal. While, pedestrians account for 2% of accidents, with ~2.5% ending in fatal injuries with 57% in minor injuries
+	</p>
+</div>
+
+<!-- Q6 -->
+<div class="row">
+	<h5 id="question6"><center>Question 6) Did traffic controls lead to decreases in accidents? </center></h5>	
+	<p>
+	<center>
+		<img src="images/pages/projects/collisions/traffic_control_no.png", width="450">
+	</center>
+	</p>
+	<p>
+		All traffic controls together account for a higher number of accidents. However, it is important to note that we saw in our correlation matrix that traffic controls tend to correlate with intersections. Intersections in general tend to be more dangerous as there are many directions of traffic flow, leading to a higher chance of an accident occuring. This means that although our data shows traffic controls coincide with higher number of accidents, this is a perfect case of not assuming causality, but rather maybe are confounded.
+	</p>
+</div>
 
 
 <!-- Part 2 -->
-<!-- kNN -->
-<!-- <div class="row">
-	<h5 id="knn"><center>Question 1)</center></h5>	
-</div> -->
-
-<!-- DT -->
-<!-- <div class="row">
-	<h5 id="dt"><center>Question 2)</center></h5>	
-</div> -->
+<!-- Q7 -->
+<div class="row">
+	<h5 id="predict"><center>Question 7) Can an injury be predicted given collision information?</center></h5>	
+	<h6>Types of models tried:</h6>
+	<p>
+		The first model that was analysed was the k-Nearest Neighbours (k-NN), coded using the SciKit-Learn library. Due to the class imbalance, several sampling methods were tried to increase performance: Random OverSampling and SMOTE. These were done using the imblearn.over_sampling library. The final model selected was using six nearest neighbours from hyperparameter tuning. The second main model that was analysed was the Decision Tree, also coded using the SciKit-Learn library. In order to account for class imbalance, Random OverSampling was tried on a set of iterations of the model, using the imblearn.over_sampling library, and also setting class weights to be balanced to penalise the underrepresented class. Also to help with instability of Decision Trees, the Random Forest bagging technique was tried.
+	</p>
+	<p>
+		Finally, PyCaret was used to compare performance of different models. The different models compared were: Ridge Classifier, Linear Discriminant Analysis, Logistic Regression, Gradient Boosting Classifier, Ada Boost Classifier, Random Forest Classifier, Extra Trees Classifier, K-Neighbors Classifier, Decision Tree Classifier, SVM - linear kernel, Naive Bayes, and Quadratic Discriminant Analysis. On top of those, there was also a dummy classifier to give a baseline. Here are the performance metrics for each one (highlighted is the best performance in the column):
+	<h6>Model comparison performance:</h6>
+		<center>
+			<img src="images/pages/projects/collisions/compare_models.png", width="650">
+		</center>
+	</p>
+	<p>
+		The final model selected due to superior performance was the decision tree with entropy criterion, and a maximum depth of 6.
+	</p>
+	<h6>Final selected model performance:</h6>
+		<center>
+			<img src="images/pages/projects/collisions/dt_model_eval.png", width="650">
+		</center><br>
+		Comparatively, the fine tuned decision tree did better on most metrics except 2% worse on the recall score. Overall, it did better than chance (which due to class imbalance is ~80%).
+	</p>
+</div>
 
 
 <div class="hr">

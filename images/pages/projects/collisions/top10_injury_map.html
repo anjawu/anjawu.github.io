@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_d5e64090a8734c9383d919d823e429ec {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+    <script src="https://cdn.jsdelivr.net/gh/marslan390/BeautifyMarker/leaflet-beautify-marker-icon.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/marslan390/BeautifyMarker/leaflet-beautify-marker-icon.min.css"/>
+</head>
+<body>    
+    
+             <h3 align="center" style="font-size:12px"><b>Top 10 Locations by Injury Count</b></h3>
+             
+    
+            <div class="folium-map" id="map_d5e64090a8734c9383d919d823e429ec" ></div>
+        
+</body>
+<script>    
+    
+            var map_d5e64090a8734c9383d919d823e429ec = L.map(
+                "map_d5e64090a8734c9383d919d823e429ec",
+                {
+                    center: [45.361850000000004, -75.66805000000001],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 10,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+            L.control.scale().addTo(map_d5e64090a8734c9383d919d823e429ec);
+
+            
+
+        
+    
+            var tile_layer_cf3fad8fee5f45b88583338fadb0494e = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 9, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_d5e64090a8734c9383d919d823e429ec);
+        
+    
+            var marker_5c311ea58c0947ae868e54d3b2860979 = L.marker(
+                [45.3509, -75.7335],
+                {}
+            ).addTo(map_d5e64090a8734c9383d919d823e429ec);
+        
+    
+            var beautify_icon_8d8a06a4ec94432bbbd70ef8f421054e = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "black", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 1, "textColor": "black"}
+            )
+            marker_5c311ea58c0947ae868e54d3b2860979.setIcon(beautify_icon_8d8a06a4ec94432bbbd70ef8f421054e);
+        
+    
+            marker_5c311ea58c0947ae868e54d3b2860979.bindTooltip(
+                `<div>
+                     1) Meadowlands Dr @ Merivale Rd; 
+injury collisions = 33
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a33a75bb3b174a568c47bde5aa9ef76b = L.marker(
+                [45.3346, -75.6932],
+                {}
+            ).addTo(map_d5e64090a8734c9383d919d823e429ec);
+        
+    
+            var beautify_icon_7c20c295c2934a35aeb386ffc374a912 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "black", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 2, "textColor": "black"}
+            )
+            marker_a33a75bb3b174a568c47bde5aa9ef76b.setIcon(beautify_icon_7c20c295c2934a35aeb386ffc374a912);
+        
+    
+            marker_a33a75bb3b174a568c47bde5aa9ef76b.bindTooltip(
+                `<div>
+                     2) Hunt Club Rd @ Riverside Dr; 
+injury collisions = 32
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a164529efc5f4074824959cfa252d890 = L.marker(
+                [45.416, -75.6567],
+                {}
+            ).addTo(map_d5e64090a8734c9383d919d823e429ec);
+        
+    
+            var beautify_icon_1babccdc447d4c35ae100762be4ceb85 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "black", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 3, "textColor": "black"}
+            )
+            marker_a164529efc5f4074824959cfa252d890.setIcon(beautify_icon_1babccdc447d4c35ae100762be4ceb85);
+        
+    
+            marker_a164529efc5f4074824959cfa252d890.bindTooltip(
+                `<div>
+                     3) Riverside Dr @ Tremblay Rd/Hwy417 Ic117 Ramp52; 
+injury collisions = 32
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_d837a1df45a4494e9ec56c523b35f0ef = L.marker(
+                [45.4609, -75.4879],
+                {}
+            ).addTo(map_d5e64090a8734c9383d919d823e429ec);
+        
+    
+            var beautify_icon_231e6abbf15a4b7eabde6b2188eb8ae4 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "black", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 4, "textColor": "black"}
+            )
+            marker_d837a1df45a4494e9ec56c523b35f0ef.setIcon(beautify_icon_231e6abbf15a4b7eabde6b2188eb8ae4);
+        
+    
+            marker_d837a1df45a4494e9ec56c523b35f0ef.bindTooltip(
+                `<div>
+                     4) Innes Rd @ Tenth Line Rd; 
+injury collisions = 32
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_e392c1ce33e847c583851504a4562ca9 = L.marker(
+                [45.3342, -75.7006],
+                {}
+            ).addTo(map_d5e64090a8734c9383d919d823e429ec);
+        
+    
+            var beautify_icon_1c174eecec9d41cba193dc6699b27007 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "black", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 5, "textColor": "black"}
+            )
+            marker_e392c1ce33e847c583851504a4562ca9.setIcon(beautify_icon_1c174eecec9d41cba193dc6699b27007);
+        
+    
+            marker_e392c1ce33e847c583851504a4562ca9.bindTooltip(
+                `<div>
+                     5) Prince Of Wales Dr @ West Hunt Club Rd; 
+injury collisions = 29
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_15011ee9bef64dcd8a1e2aabce339829 = L.marker(
+                [45.2935, -75.8956],
+                {}
+            ).addTo(map_d5e64090a8734c9383d919d823e429ec);
+        
+    
+            var beautify_icon_c117e371ada44855b915e24653b9f5e3 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "black", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 6, "textColor": "black"}
+            )
+            marker_15011ee9bef64dcd8a1e2aabce339829.setIcon(beautify_icon_c117e371ada44855b915e24653b9f5e3);
+        
+    
+            marker_15011ee9bef64dcd8a1e2aabce339829.bindTooltip(
+                `<div>
+                     6) Hazeldean Rd @ Terry Fox Dr; 
+injury collisions = 28
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_884989bf9ca34e87bf13b9b9feaee185 = L.marker(
+                [45.3515, -75.763],
+                {}
+            ).addTo(map_d5e64090a8734c9383d919d823e429ec);
+        
+    
+            var beautify_icon_1e026d3e616948a6bc189d4489f1a1e5 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "black", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 7, "textColor": "black"}
+            )
+            marker_884989bf9ca34e87bf13b9b9feaee185.setIcon(beautify_icon_1e026d3e616948a6bc189d4489f1a1e5);
+        
+    
+            marker_884989bf9ca34e87bf13b9b9feaee185.bindTooltip(
+                `<div>
+                     7) Baseline Rd @ Woodroffe Ave; 
+injury collisions = 28
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c14ebd36acbc47a1bd3a096ba54b5930 = L.marker(
+                [45.3516, -75.6514],
+                {}
+            ).addTo(map_d5e64090a8734c9383d919d823e429ec);
+        
+    
+            var beautify_icon_e84a4702ccd24729afea853f1086c71b = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "black", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 8, "textColor": "black"}
+            )
+            marker_c14ebd36acbc47a1bd3a096ba54b5930.setIcon(beautify_icon_e84a4702ccd24729afea853f1086c71b);
+        
+    
+            marker_c14ebd36acbc47a1bd3a096ba54b5930.bindTooltip(
+                `<div>
+                     8) Hunt Club Rd @ Bridle Path Dr/Daze St; 
+injury collisions = 28
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_67741d88a71643bf9932639c2e1a1427 = L.marker(
+                [45.2696, -75.5938],
+                {}
+            ).addTo(map_d5e64090a8734c9383d919d823e429ec);
+        
+    
+            var beautify_icon_eddafffe762f4f41829c48188f63a497 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "black", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 9, "textColor": "black"}
+            )
+            marker_67741d88a71643bf9932639c2e1a1427.setIcon(beautify_icon_eddafffe762f4f41829c48188f63a497);
+        
+    
+            marker_67741d88a71643bf9932639c2e1a1427.bindTooltip(
+                `<div>
+                     9) Albion Rd @ Mitch Owens Rd; 
+injury collisions = 27
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_66617cf9d595413cadf2d3d3dd76e388 = L.marker(
+                [45.4557, -75.5048],
+                {}
+            ).addTo(map_d5e64090a8734c9383d919d823e429ec);
+        
+    
+            var beautify_icon_9f3160dd057e488eb4d6f0ea1d0cf9a9 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "black", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 10, "textColor": "black"}
+            )
+            marker_66617cf9d595413cadf2d3d3dd76e388.setIcon(beautify_icon_9f3160dd057e488eb4d6f0ea1d0cf9a9);
+        
+    
+            marker_66617cf9d595413cadf2d3d3dd76e388.bindTooltip(
+                `<div>
+                     10) Innes Rd @ Jeanne D'arc Blvd/Mer Bleue Rd; 
+injury collisions = 27
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>

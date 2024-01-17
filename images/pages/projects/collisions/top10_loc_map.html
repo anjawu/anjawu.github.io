@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_9af381871a2845e880e43412eb752f7f {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+    <script src="https://cdn.jsdelivr.net/gh/marslan390/BeautifyMarker/leaflet-beautify-marker-icon.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/marslan390/BeautifyMarker/leaflet-beautify-marker-icon.min.css"/>
+</head>
+<body>    
+    
+             <h3 align="center" style="font-size:12px"><b>Top 10 Locations by Count of Accidents</b></h3>
+             
+    
+            <div class="folium-map" id="map_9af381871a2845e880e43412eb752f7f" ></div>
+        
+</body>
+<script>    
+    
+            var map_9af381871a2845e880e43412eb752f7f = L.map(
+                "map_9af381871a2845e880e43412eb752f7f",
+                {
+                    center: [45.37386, -75.65455999999999],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 10,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+            L.control.scale().addTo(map_9af381871a2845e880e43412eb752f7f);
+
+            
+
+        
+    
+            var tile_layer_7f8a9571a3bc4a199b78cb6fde9cd098 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 9, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_9af381871a2845e880e43412eb752f7f);
+        
+    
+            var marker_cf7fee95e8584de4b19693e846219b3f = L.marker(
+                [45.3346, -75.6932],
+                {}
+            ).addTo(map_9af381871a2845e880e43412eb752f7f);
+        
+    
+            var beautify_icon_2d0d52e6540d4840b5cf7b443df43e8a = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "black", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 1, "textColor": "black"}
+            )
+            marker_cf7fee95e8584de4b19693e846219b3f.setIcon(beautify_icon_2d0d52e6540d4840b5cf7b443df43e8a);
+        
+    
+            marker_cf7fee95e8584de4b19693e846219b3f.bindTooltip(
+                `<div>
+                     1) Hunt Club Rd @ Riverside Dr; 
+collision count = 232
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_3db60c9f0a704bb2a56832af0798d0b8 = L.marker(
+                [45.4641, -75.5401],
+                {}
+            ).addTo(map_9af381871a2845e880e43412eb752f7f);
+        
+    
+            var beautify_icon_c3c1c70060d341f9b7ee85ace9433443 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "black", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 2, "textColor": "black"}
+            )
+            marker_3db60c9f0a704bb2a56832af0798d0b8.setIcon(beautify_icon_c3c1c70060d341f9b7ee85ace9433443);
+        
+    
+            marker_3db60c9f0a704bb2a56832af0798d0b8.bindTooltip(
+                `<div>
+                     2) St. Joseph Blvd @ Jeanne D'arc Blvd; 
+collision count = 218
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_f533a367e6e64979bd749a01053d4d7b = L.marker(
+                [45.4609, -75.4879],
+                {}
+            ).addTo(map_9af381871a2845e880e43412eb752f7f);
+        
+    
+            var beautify_icon_b3ec588f8b8a4c4192a0c554951916c7 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "black", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 3, "textColor": "black"}
+            )
+            marker_f533a367e6e64979bd749a01053d4d7b.setIcon(beautify_icon_b3ec588f8b8a4c4192a0c554951916c7);
+        
+    
+            marker_f533a367e6e64979bd749a01053d4d7b.bindTooltip(
+                `<div>
+                     3) Innes Rd @ Tenth Line Rd; 
+collision count = 168
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_b03ca07d77d243df885b756f7dff18e0 = L.marker(
+                [45.3287, -75.749],
+                {}
+            ).addTo(map_9af381871a2845e880e43412eb752f7f);
+        
+    
+            var beautify_icon_dc8d8dc2d1e144ffa81c6073803fcdeb = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "black", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 4, "textColor": "black"}
+            )
+            marker_b03ca07d77d243df885b756f7dff18e0.setIcon(beautify_icon_dc8d8dc2d1e144ffa81c6073803fcdeb);
+        
+    
+            marker_b03ca07d77d243df885b756f7dff18e0.bindTooltip(
+                `<div>
+                     4) West Hunt Club Rd @ Woodroffe Ave; 
+collision count = 157
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c1ee77f202d5409ea09d64cb11914cca = L.marker(
+                [45.3704, -75.6633],
+                {}
+            ).addTo(map_9af381871a2845e880e43412eb752f7f);
+        
+    
+            var beautify_icon_50a1cf6c2e664abdb15c6e4c3acde689 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "black", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 5, "textColor": "black"}
+            )
+            marker_c1ee77f202d5409ea09d64cb11914cca.setIcon(beautify_icon_50a1cf6c2e664abdb15c6e4c3acde689);
+        
+    
+            marker_c1ee77f202d5409ea09d64cb11914cca.bindTooltip(
+                `<div>
+                     5) Bank St @ Walkley Rd; 
+collision count = 157
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_838776054b23499f8627e733e1069ae4 = L.marker(
+                [45.3342, -75.7006],
+                {}
+            ).addTo(map_9af381871a2845e880e43412eb752f7f);
+        
+    
+            var beautify_icon_4d8f1f0d504d45e39fa5ed4de3e8f1dc = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "black", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 6, "textColor": "black"}
+            )
+            marker_838776054b23499f8627e733e1069ae4.setIcon(beautify_icon_4d8f1f0d504d45e39fa5ed4de3e8f1dc);
+        
+    
+            marker_838776054b23499f8627e733e1069ae4.bindTooltip(
+                `<div>
+                     6) Prince Of Wales Dr @ West Hunt Club Rd; 
+collision count = 155
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_af1dd24392814d4e86723cb855efc423 = L.marker(
+                [45.3515, -75.763],
+                {}
+            ).addTo(map_9af381871a2845e880e43412eb752f7f);
+        
+    
+            var beautify_icon_3b3b83c1ce954112982c40d856ed4f11 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "black", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 7, "textColor": "black"}
+            )
+            marker_af1dd24392814d4e86723cb855efc423.setIcon(beautify_icon_3b3b83c1ce954112982c40d856ed4f11);
+        
+    
+            marker_af1dd24392814d4e86723cb855efc423.bindTooltip(
+                `<div>
+                     7) Baseline Rd @ Woodroffe Ave; 
+collision count = 155
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_3ed2a75b30ad4815b55d7f37f580ce09 = L.marker(
+                [45.2705, -75.7464],
+                {}
+            ).addTo(map_9af381871a2845e880e43412eb752f7f);
+        
+    
+            var beautify_icon_586594a97ad941729b5c7dbd35473509 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "black", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 8, "textColor": "black"}
+            )
+            marker_3ed2a75b30ad4815b55d7f37f580ce09.setIcon(beautify_icon_586594a97ad941729b5c7dbd35473509);
+        
+    
+            marker_3ed2a75b30ad4815b55d7f37f580ce09.bindTooltip(
+                `<div>
+                     8) Greenbank Rd @ Strandherd Dr; 
+collision count = 147
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_ec7964381c68431da3e3613d52520e2f = L.marker(
+                [45.4889, -75.478],
+                {}
+            ).addTo(map_9af381871a2845e880e43412eb752f7f);
+        
+    
+            var beautify_icon_5c15a99181e844e0bdd7a1776c422744 = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "black", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 9, "textColor": "black"}
+            )
+            marker_ec7964381c68431da3e3613d52520e2f.setIcon(beautify_icon_5c15a99181e844e0bdd7a1776c422744);
+        
+    
+            marker_ec7964381c68431da3e3613d52520e2f.bindTooltip(
+                `<div>
+                     9) St. Joseph Blvd/Old Montreal Rd @ Trim Rd; 
+collision count = 147
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_fab2ae22572f4fcc853bf2f7eb911d3c = L.marker(
+                [45.3348, -75.7241],
+                {}
+            ).addTo(map_9af381871a2845e880e43412eb752f7f);
+        
+    
+            var beautify_icon_4ee9e9dfa026431bb4b663e110304c8d = new L.BeautifyIcon.icon(
+                {"backgroundColor": "#FFF", "borderColor": "black", "borderWidth": 1, "innerIconStyle": "margin-top:1px;", "isAlphaNumericIcon": true, "spin": false, "text": 10, "textColor": "black"}
+            )
+            marker_fab2ae22572f4fcc853bf2f7eb911d3c.setIcon(beautify_icon_4ee9e9dfa026431bb4b663e110304c8d);
+        
+    
+            marker_fab2ae22572f4fcc853bf2f7eb911d3c.bindTooltip(
+                `<div>
+                     10) Merivale Rd @ West Hunt Club Rd; 
+collision count = 146
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>
